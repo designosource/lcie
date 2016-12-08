@@ -64,13 +64,28 @@
 	padding-left: 40px;
 	box-sizing: border-box;
 	background-color: red;
+	background-size: cover;
+	background-position: center;
 	text-align: right;
+	position: relative;
+}
+
+.home__teams__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0.8;
 }
 
 .home__teams__grid__col__title
 {
 	font-size: 1.6rem;
 	color: white;
+	position: relative;
+	z-index: 999;
 }
 
 .home__teams__grid__col__readmore
@@ -78,6 +93,8 @@
 	font-size: 1.1rem;
 	color: white;
 	text-decoration: none;
+	position: relative;
+	z-index: 999;
 }
 
 

@@ -16,18 +16,14 @@
 			<h1>Teams</h1>
 		</div>
 		<div class="grid home__teams__grid">
-			<div class="home__teams__grid__col">
-				<h2 class="home__teams__grid__col__title">Turbulent</h2>
-				<span class="home__teams__grid__col__readmore">lees meer</span>
-			</div>
-			<div class="home__teams__grid__col">
-				<h2 class="home__teams__grid__col__title">Turbulent</h2>
-				<span class="home__teams__grid__col__readmore">lees meer</span>
-			</div>
-			<div class="home__teams__grid__col">
-				<h2 class="home__teams__grid__col__title">Turbulent</h2>
-				<span class="home__teams__grid__col__readmore">lees meer</span>
-			</div>
+			<?php $query = new WP_Query(array('post_type' => "team")); ?>
+			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+				<div class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
+					<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
+					<h2 class="home__teams__grid__col__title"><?php the_title(); ?></h2>
+					<span class="home__teams__grid__col__readmore">lees meer</span>
+				</div>
+			<?php endwhile; endif; ?>
 		</div>
 	</section>
 
@@ -54,7 +50,7 @@
 		<div class="wrapper">
 			<h1>Subdivies</h1>
 		</div>
-
+	
 		<div class="grid home__divisions__grid">
 			<div class="home__divisions__grid__col">
 				<h2 class="home__divisions__grid__col__title">Turbulent</h2>
@@ -75,7 +71,7 @@
 
 		foreach(get_sites() as $site){
 			echo 'You are viewing ' . $site->blogname . '<br>';
-			echo '<b>COLOR</b> ' . get_blog_option($site->blog_id, 'opties_color') . '<br>';		
+			echo '<b>COLOR</b> ' . get_blog_option($site->blog_id , 'opties_color') . '<br>';		
 		}
 		
 	?>

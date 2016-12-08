@@ -79,7 +79,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* Multisite */
 define('WP_ALLOW_MULTISITE', true);
@@ -89,6 +89,8 @@ define('DOMAIN_CURRENT_SITE', 'lcie.dev');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
+
+define( 'WP_DEFAULT_THEME', 'lcie' );
 
 /* That's all, stop editing! Happy blogging. */
 

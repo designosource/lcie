@@ -1,0 +1,41 @@
+@import "colors";
+
+@import "modules/header";
+@import "modules/footer";
+
+@import "modules/homepage";
+
+body
+{
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper
+{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	max-width: 1600px;
+	height: 100%;
+}
+
+.grid
+{
+	display: flex;
+}
+
+.button
+{
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: gray;
+	text-decoration: none;
+}
+
+.button--light
+{
+	background-color: white !important;
+	color: $bondiblue !important;
+}

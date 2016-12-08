@@ -1,0 +1,78 @@
+.header
+{
+	width: 100%;
+	background-color: white;
+	margin: 0;
+	position: relative;
+}
+
+.header__logo
+{
+	width: 200px;
+	height: 100px;
+	background-image: url(../images/lcie.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 30px;
+}
+
+.header__subnavigation
+{
+	width: 100%;
+	background-color: #ECEFF1;
+}
+
+.header__subnavigation ul
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+	text-align: right;
+}
+
+.header__subnavigation ul li
+{
+	display: inline-block;
+	padding: 3px 20px;
+	font-size: 0.8rem;
+}
+
+
+.header__navigation
+{
+	width: 70%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-align: right;
+}
+
+.header__navigation ul
+{
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.header__navigation ul li
+{
+	display: inline-block;
+	padding: 10px 20px;
+}
+
+.header__navigation__apply-container
+{
+	padding: 0 !important;
+}
+
+.header__navigation__apply
+{
+	background-color: $regalblue !important;
+	color: white !important;
+}

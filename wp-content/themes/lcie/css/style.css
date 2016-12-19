@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 .header {
   width: 100%;
   background-color: white;
@@ -5,17 +7,17 @@
   position: relative; }
 
 .header__logo {
-  width: 200px;
-  height: 100px;
+  width: 140px;
+  height: 60px;
   background-image: url(../images/lcie.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-top: 30px; }
+  margin-bottom: 20px; }
 
 .header__subnavigation {
   width: 100%;
-  background-color: #ECEFF1; }
+  margin-top: 20px; }
 
 .header__subnavigation ul {
   padding-top: 10px;
@@ -29,7 +31,10 @@
 .header__subnavigation ul li {
   display: inline-block;
   padding: 3px 20px;
-  font-size: 0.8rem; }
+  font-family: "Nunito", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #b5bac1; }
 
 .header__navigation {
   width: 70%;
@@ -39,22 +44,25 @@
   text-align: right; }
 
 .header__navigation ul {
-  padding-top: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   padding-left: 0;
   margin: 0;
   list-style: none; }
 
 .header__navigation ul li {
   display: inline-block;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003E77; }
 
 .header__navigation__apply-container {
-  padding: 0 !important; }
+  padding: 0 !important;
+  margin-left: 20px; }
 
 .header__navigation__apply {
-  background-color: #003E77 !important;
-  color: white !important; }
+  padding: 10px 20px !important; }
 
 .footer {
   width: 100%;
@@ -70,8 +78,8 @@
   font-size: 1.4rem; }
 
 .home__hero {
-  height: 80vh;
-  min-height: 700px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   width: 100%;
   background-image: url(../images/bg.jpg);
   background-size: cover;
@@ -88,25 +96,56 @@
   opacity: 0.8; }
 
 .home__hero__content {
-  position: absolute;
-  bottom: 70px;
-  left: 0;
-  width: 60%; }
+  position: relative;
+  width: 100%; }
 
 .home__hero__title {
   color: white;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 500; }
 
-.home__hero__subtitle {
+.home__hero__text {
   color: white;
+  font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
   display: block;
   margin-bottom: 20px; }
+
+/* FOR WHO? */
+.home__who {
+  padding-top: 80px; }
+
+.home__who__grid {
+  background-color: #003E77;
+  background-image: url(../images/home__bg2.png);
+  background-size: cover;
+  background-position: center;
+  margin-top: 30px; }
+
+.home__who__grid__col {
+  width: 25%;
+  border: 1px solid white;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  text-align: center;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700; }
 
 /* TEAMS SECTION */
 .home__teams {
   padding-top: 100px;
   padding-bottom: 100px; }
+
+.home__teams__all {
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .home__teams__grid {
   margin-top: 40px; }
@@ -134,11 +173,12 @@
   width: 100%;
   opacity: 0.8; }
 
-.home__teams__grid__col__title {
-  font-size: 1.6rem;
+.home__teams__grid__col__text {
+  font-size: 1.2rem;
   color: white;
   position: relative;
-  z-index: 999; }
+  z-index: 999;
+  text-align: center; }
 
 .home__teams__grid__col__readmore {
   font-size: 1.1rem;
@@ -148,7 +188,7 @@
   z-index: 999; }
 
 /* FACTS */
-.home__facts {
+.home__facts__grid {
   background-color: #003E77;
   color: white; }
 
@@ -171,8 +211,7 @@
 
 /* DIVISIONS */
 .home__divisions {
-  padding-top: 150px;
-  padding-bottom: 150px; }
+  padding-bottom: 70px; }
 
 .home__divisions__grid {
   margin-top: 40px; }
@@ -198,9 +237,74 @@
   color: white;
   text-decoration: none; }
 
+.home__divisions__all {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+/* CALENDAR */
+.home__calendar {
+  padding-top: 70px;
+  padding-bottom: 50px; }
+
+.home__calendar__side {
+  margin-top: 30px;
+  width: 40%;
+  background-color: #003E77;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative; }
+
+.home__calendar__photo {
+  margin-top: 30px;
+  width: 60%;
+  height: 350px;
+  background-image: url(../images/home_bg3.png);
+  background-size: cover;
+  background-position: center; }
+
+.home__calendar__side__title {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white; }
+
+.home__calendar__side__text {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.8;
+  width: 80%; }
+
+.home__calendar__side__more {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  text-decoration: none; }
+
+.home__calendar__all {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
 body {
   padding: 0;
   margin: 0; }
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #111a21; }
 
 .wrapper {
   position: relative;
@@ -216,10 +320,18 @@ body {
 
 .button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: gray;
-  text-decoration: none; }
+  padding: 12px 20px;
+  border: 2px solid #003E77;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003E77; }
 
-.button--light {
-  background-color: white !important;
-  color: #00A9B0 !important; }
+.button--ghost {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white; }

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+@mixin primary_font($size, $weight) {
+  font-family: "Nunito", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin secondary_font($size, $weight) {
+  font-family: "Roboto", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}

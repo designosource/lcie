@@ -8,19 +8,19 @@
 
 .header__logo
 {
-	width: 200px;
-	height: 100px;
+	width: 140px;
+	height: 60px;
 	background-image: url(../images/lcie.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
 .header__subnavigation
 {
 	width: 100%;
-	background-color: #ECEFF1;
+	margin-top: 20px;
 }
 
 .header__subnavigation ul
@@ -38,9 +38,9 @@
 {
 	display: inline-block;
 	padding: 3px 20px;
-	font-size: 0.8rem;
+	@include primary_font(0.8rem, 700);
+	color: #b5bac1;
 }
-
 
 .header__navigation
 {
@@ -53,8 +53,7 @@
 
 .header__navigation ul
 {
-	padding-top: 10px;
-	padding-bottom: 15px;
+	padding-bottom: 20px;
 	padding-left: 0;
 	margin: 0;
 	list-style: none;
@@ -64,15 +63,17 @@
 {
 	display: inline-block;
 	padding: 10px 20px;
+	@include primary_font(1.0rem, 700);
+	color: $regalblue;
 }
 
 .header__navigation__apply-container
 {
 	padding: 0 !important;
+	margin-left: 20px;
 }
 
 .header__navigation__apply
 {
-	background-color: $regalblue !important;
-	color: white !important;
+	padding: 10px 20px !important;
 }

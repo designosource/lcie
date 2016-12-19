@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 
 @import "modules/header";
 @import "modules/footer";
@@ -9,6 +10,12 @@ body
 {
 	padding: 0;
 	margin: 0;
+}
+
+h1
+{
+	@include secondary_font(2.2rem, 400);
+	color: $bunker;
 }
 
 .wrapper
@@ -29,13 +36,17 @@ body
 .button
 {
 	display: inline-block;
-	padding: 10px 20px;
-	background-color: gray;
+	padding: 12px 20px;
+	border: 2px solid $regalblue;
 	text-decoration: none;
+	@include primary_font(1.0rem, 700);
+	color: $regalblue;
 }
 
-.button--light
+.button--ghost
 {
-	background-color: white !important;
-	color: $bondiblue !important;
+	@include primary_font(1.0rem, 700);
+	background-color: transparent;
+	color: white;
+	border: 2px solid white;
 }

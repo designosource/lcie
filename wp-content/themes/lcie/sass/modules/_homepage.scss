@@ -1,7 +1,7 @@
 .home__hero
 {
-	height: 80vh;
-	min-height: 700px;
+	padding-top: 80px;
+	padding-bottom: 80px;
 	width: 100%;
 	background-image: url(../images/bg.jpg);
 	background-size: cover;
@@ -22,24 +22,50 @@
 
 .home__hero__content
 {
-	position: absolute;
-	bottom: 70px;
-	left: 0;
-	width: 60%;
+	position: relative;
+	width: 100%;
 }
 
 .home__hero__title
 {
 	color: white;
 	font-size: 1.8rem;
+	@include secondary_font(2.4rem, 500);
 }
 
-.home__hero__subtitle
+.home__hero__text
 {
 	color: white;
-	font-size: 1.2rem;
+	@include primary_font(1.2rem, 300);
+	line-height: 1.6;
 	display: block;
 	margin-bottom: 20px;
+}
+
+/* FOR WHO? */
+.home__who
+{
+	padding-top: 80px;
+}
+
+.home__who__grid
+{
+	background-color: $regalblue;
+	background-image: url(../images/home__bg2.png);
+	background-size: cover;
+	background-position: center;
+	margin-top: 30px;
+}
+
+.home__who__grid__col
+{
+	width: 25%;
+	border: 1px solid white;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	text-align: center;
+	color: white;
+	@include primary_font(1.2rem, 700);
 }
 
 /* TEAMS SECTION */
@@ -47,6 +73,13 @@
 {
 	padding-top: 100px;
 	padding-bottom: 100px;
+}
+
+.home__teams__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .home__teams__grid
@@ -80,12 +113,13 @@
 	opacity: 0.8;
 }
 
-.home__teams__grid__col__title
+.home__teams__grid__col__text
 {
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	color: white;
 	position: relative;
 	z-index: 999;
+	text-align: center;
 }
 
 .home__teams__grid__col__readmore
@@ -99,7 +133,7 @@
 
 
 /* FACTS */
-.home__facts
+.home__facts__grid
 {
 	background-color: $regalblue;
 	color: white;
@@ -131,8 +165,7 @@
 /* DIVISIONS */
 .home__divisions
 {
-	padding-top: 150px;
-	padding-bottom: 150px;
+	padding-bottom: 70px;
 }
 
 .home__divisions__grid
@@ -164,6 +197,74 @@
 	font-size: 1.1rem;
 	color: white;
 	text-decoration: none;
+}
+
+.home__divisions__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+/* CALENDAR */
+.home__calendar
+{
+	padding-top: 70px;
+	padding-bottom: 50px;
+}
+
+.home__calendar__side
+{
+	margin-top: 30px;
+	width: 40%;
+	background-color: $regalblue;
+	display: flex;
+	align-items: center;
+	padding: 40px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.home__calendar__photo
+{
+	margin-top: 30px;
+	width: 60%;
+	height: 350px;
+	background-image: url(../images/home_bg3.png);
+	background-size: cover;
+	background-position: center;
+}
+
+.home__calendar__side__title
+{
+	@include primary_font(1.3rem, 700);
+	color: white;
+}
+
+.home__calendar__side__text
+{
+	@include primary_font(1.0rem, 400);
+	color: white;
+	line-height: 1.8;
+	width: 80%;
+}
+
+.home__calendar__side__more
+{
+	@include primary_font(1.2rem, 700);
+	color: white;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	text-decoration: none;
+}
+
+.home__calendar__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 

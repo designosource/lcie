@@ -91,15 +91,15 @@
 {
 	width: 25%;
 	flex-grow: 1;
-	padding-top: 250px;
-	padding-bottom: 40px;
+	padding-top: 150px;
+	padding-bottom: 150px;
 	padding-right: 40px;
 	padding-left: 40px;
 	box-sizing: border-box;
 	background-color: red;
 	background-size: cover;
 	background-position: center;
-	text-align: right;
+	text-align: center;;
 	position: relative;
 }
 
@@ -111,6 +111,15 @@
 	height: 100%;
 	width: 100%;
 	opacity: 0.8;
+	z-index: 9;
+}
+
+.home__teams__grid__col__logo
+{
+	height: 40px;
+	filter: brightness(10)  contrast(10) grayscale(1);
+	position: relative;
+	z-index: 999;
 }
 
 .home__teams__grid__col__text
@@ -124,10 +133,12 @@
 
 .home__teams__grid__col__readmore
 {
-	font-size: 1.1rem;
+	font-size: 1.0rem;
 	color: white;
 	text-decoration: none;
-	position: relative;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
 	z-index: 999;
 }
 
@@ -177,26 +188,55 @@
 {
 	width: 25%;
 	flex-grow: 1;
-	padding-top: 250px;
-	padding-bottom: 40px;
+	padding-top: 150px;
+	padding-bottom: 150px;
 	padding-right: 40px;
 	padding-left: 40px;
 	box-sizing: border-box;
 	background-color: red;
-	text-align: right;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	position: relative;
 }
 
 .home__divisions__grid__col__title
 {
 	font-size: 1.6rem;
 	color: white;
+	position: relative;
+	z-index: 999;
 }
+
+.home__divisions__grid__col__description
+{
+	font-size: 1.0rem;
+	color: white;
+	position: relative;
+	z-index: 999;
+}
+
 
 .home__divisions__grid__col__readmore
 {
 	font-size: 1.1rem;
 	color: white;
 	text-decoration: none;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	z-index: 999;
+}
+
+.home__divisions__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background-color: black;
 }
 
 .home__divisions__all

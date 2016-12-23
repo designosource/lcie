@@ -75,7 +75,41 @@
   color: white; }
 
 .footer__grid__col__title {
-  font-size: 1.4rem; }
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px; }
+
+.footer__grid__col ul {
+  list-style: none;
+  padding: 0; }
+
+.footer__grid__col ul li {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 15px; }
+
+.footer__grid__col--big {
+  text-align: right; }
+
+.footer__bottom {
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.footer__bottom__content {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 30px; }
+
+.footer__bottom__kuleuven {
+  width: auto;
+  height: 30px; }
 
 .home__hero {
   padding-top: 80px;
@@ -154,15 +188,15 @@
   width: 25%;
   -ms-flex-positive: 1;
       flex-grow: 1;
-  padding-top: 250px;
-  padding-bottom: 40px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   padding-right: 40px;
   padding-left: 40px;
   box-sizing: border-box;
   background-color: red;
   background-size: cover;
   background-position: center;
-  text-align: right;
+  text-align: center;
   position: relative; }
 
 .home__teams__grid__col__overlay {
@@ -171,7 +205,15 @@
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: 0.8; }
+  opacity: 0.8;
+  z-index: 9; }
+
+.home__teams__grid__col__logo {
+  height: 40px;
+  -webkit-filter: brightness(10) contrast(10) grayscale(1);
+          filter: brightness(10) contrast(10) grayscale(1);
+  position: relative;
+  z-index: 999; }
 
 .home__teams__grid__col__text {
   font-size: 1.2rem;
@@ -181,10 +223,12 @@
   text-align: center; }
 
 .home__teams__grid__col__readmore {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   color: white;
   text-decoration: none;
-  position: relative;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
   z-index: 999; }
 
 /* FACTS */
@@ -220,22 +264,46 @@
   width: 25%;
   -ms-flex-positive: 1;
       flex-grow: 1;
-  padding-top: 250px;
-  padding-bottom: 40px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   padding-right: 40px;
   padding-left: 40px;
   box-sizing: border-box;
   background-color: red;
-  text-align: right; }
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  position: relative; }
 
 .home__divisions__grid__col__title {
   font-size: 1.6rem;
-  color: white; }
+  color: white;
+  position: relative;
+  z-index: 999; }
+
+.home__divisions__grid__col__description {
+  font-size: 1.0rem;
+  color: white;
+  position: relative;
+  z-index: 999; }
 
 .home__divisions__grid__col__readmore {
   font-size: 1.1rem;
   color: white;
-  text-decoration: none; }
+  text-decoration: none;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999; }
+
+.home__divisions__grid__col__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: black; }
 
 .home__divisions__all {
   position: absolute;

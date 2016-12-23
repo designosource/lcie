@@ -1,141 +1,128 @@
 <?php
-class MySettingsPage
-{
-    /**
-     * Holds the values to be used in the fields callbacks
-     */
-    private $options;
-
-    /**
-     * Start up
-     */
-    public function __construct()
+    function add_new_menu_items()
     {
-        add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-        add_action( 'admin_init', array( $this, 'page_init' ) );
-    }
-
-    /**
-     * Add options page
-     */
-    public function add_plugin_page()
-    {
-        // This page will be under "Settings"
-        add_options_page(
-            'Settings Admin', 
-            'My Settings', 
-            'manage_options', 
-            'my-setting-admin', 
-            array( $this, 'create_admin_page' )
+        add_menu_page(
+            "Theme Options",
+            "Theme Options",
+            "manage_options",
+            "theme-options",
+            "theme_options_page",
+            "", 
+            100 
         );
+
     }
 
-    /**
-     * Options page callback
-     */
-    public function create_admin_page()
+    function theme_options_page()
     {
-        // Set class property
-        $this->options = get_option( 'my_option_name' );
         ?>
-        <div class="wrap">
-            <h1>My Settings</h1>
-            <form method="post" action="options.php">
+            <div class="wrap">
+            <div id="icon-options-general" class="icon32"></div>
+            
+            <!-- run the settings_errors() function here. -->
+            <?php settings_errors(); ?>
+            <h1>Theme Options</h1>
+            
             <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'my_option_group' );
-                do_settings_sections( 'my-setting-admin' );
-                submit_button();
+                $active_tab = "header-options";
+                if(isset($_GET["tab"]))
+                {
+                    if($_GET["tab"] == "header-options")
+                    {
+                        $active_tab = "header-options";
+                    }
+                    else
+                    {
+                        $active_tab = "ads-options";
+                    }
+                }
             ?>
+            
+            <h2 class="nav-tab-wrapper">
+                <a href="?page=theme-options&tab=header-options" class="nav-tab <?php if($active_tab == 'header-options'){echo 'nav-tab-active';} ?> "><?php _e('Header Options', 'sandbox'); ?></a>
+                <a href="?page=theme-options&tab=ads-options" class="nav-tab <?php if($active_tab == 'ads-options'){echo 'nav-tab-active';} ?>"><?php _e('Advertising Options', 'sandbox'); ?></a>
+            </h2>
+
+            <form method="post" action="options.php" enctype="multipart/form-data">
+                <?php
+                
+                    settings_fields("header_section");
+                    
+                    do_settings_sections("theme-options");
+                
+                    submit_button(); 
+                    
+                ?>          
             </form>
         </div>
         <?php
     }
 
-    /**
-     * Register and add settings
-     */
-    public function page_init()
-    {        
-        register_setting(
-            'my_option_group', // Option group
-            'my_option_name', // Option name
-            array( $this, 'sanitize' ) // Sanitize
-        );
+    add_action("admin_menu", "add_new_menu_items");
 
-        add_settings_section(
-            'setting_section_id', // ID
-            'My Custom Settings', // Title
-            array( $this, 'print_section_info' ), // Callback
-            'my-setting-admin' // Page
-        );  
-
-        add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title 
-            array( $this, 'id_number_callback' ), // Callback
-            'my-setting-admin', // Page
-            'setting_section_id' // Section           
-        );      
-
-        add_settings_field(
-            'title', 
-            'Title', 
-            array( $this, 'title_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        );      
-    }
-
-    /**
-     * Sanitize each setting field as needed
-     *
-     * @param array $input Contains all settings fields as array keys
-     */
-    public function sanitize( $input )
+    function display_options()
     {
-        $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
+        add_settings_section("header_section", "Header Options", "display_header_options_content", "theme-options");
 
-        if( isset( $input['title'] ) )
-            $new_input['title'] = sanitize_text_field( $input['title'] );
+        if(isset($_GET["tab"]))
+        {
+            if($_GET["tab"] == "header-options")
+            {
+                add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
+                register_setting("header_section", "header_logo");
 
-        return $new_input;
+                add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
+                register_setting("header_section", "background_picture", "handle_file_upload");
+            }
+            else
+            {
+                add_settings_field("advertising_code", "Ads Code", "display_ads_form_element", "theme-options", "header_section");      
+                register_setting("header_section", "advertising_code");
+            }
+        }
+        else
+        {
+            add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
+            register_setting("header_section", "header_logo");
+            
+            add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
+            register_setting("header_section", "background_picture", "handle_file_upload");
+        }
+        
     }
 
-    /** 
-     * Print the Section text
-     */
-    public function print_section_info()
+    function handle_file_upload($options)
     {
-        print 'Enter your settings below:';
+        if(!empty($_FILES["background_picture"]["tmp_name"]))
+        {
+            $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
+            $temp = $urls["url"];
+            return $temp;   
+        }
+
+        return get_option("background_picture");
     }
 
-    /** 
-     * Get the settings option array and print one of its values
-     */
-    public function id_number_callback()
+
+    function display_header_options_content(){echo "The header of the theme";}
+    function background_form_element()
     {
-        printf(
-            '<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
-        );
+        ?>
+            <input type="file" name="background_picture" id="background_picture" value="<?php echo get_option('background_picture'); ?>" />
+            <?php echo get_option("background_picture"); ?>
+        <?php
     }
-
-    /** 
-     * Get the settings option array and print one of its values
-     */
-    public function title_callback()
+    function display_logo_form_element()
     {
-        printf(
-            '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-            isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
-        );
+        ?>
+            <input type="text" name="header_logo" id="header_logo" value="<?php echo get_option('header_logo'); ?>" />
+        <?php
     }
-}
+    function display_ads_form_element()
+    {
+        ?>
+            <input type="text" name="advertising_code" id="advertising_code" value="<?php echo get_option('advertising_code'); ?>" />
+        <?php
+    }
 
-if( is_admin() )
-    $my_settings_page = new MySettingsPage();
-
-    ?>
+    add_action("admin_init", "display_options");

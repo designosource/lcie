@@ -43,13 +43,25 @@
 		<div class="grid home__teams__grid">
 			<?php $query = new WP_Query(array('post_type' => "team")); ?>
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-				<div class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
-					<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
-					<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
-					<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
-					<span class="home__teams__grid__col__readmore">lees meer</span>
-				</div>
+				<?php if(get_field("featured")): ?>
+					<div class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
+						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
+						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
+						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
+						<span class="home__teams__grid__col__readmore">lees meer</span>
+					</div>
+				<?php endif; ?>
 			<?php endwhile; endif; ?>
+		</div>
+		<div class="wrapper">
+			<div class="grid home__teams__grid-small">
+				<?php $query = new WP_Query(array('post_type' => "team")); ?>
+				<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+					<?php if(!get_field("featured")): ?>
+						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
+					<?php endif; ?>
+				<?php endwhile; endif; ?>
+			</div>
 		</div>
 	</section>
 

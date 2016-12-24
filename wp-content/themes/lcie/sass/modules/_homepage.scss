@@ -117,7 +117,7 @@
 .home__teams__grid__col__logo
 {
 	height: 40px;
-	filter: brightness(10)  contrast(10) grayscale(1);
+	filter: brightness(10) contrast(10) grayscale(1);
 	position: relative;
 	z-index: 999;
 }
@@ -140,6 +140,17 @@
 	bottom: 40px;
 	right: 40px;
 	z-index: 999;
+}
+
+.home__teams__grid-small
+{
+	width: 100%;
+	margin-top: 50px;
+}
+
+.home__teams__grid-small__logo
+{
+	height: 60px;
 }
 
 

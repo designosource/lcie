@@ -231,6 +231,13 @@
   right: 40px;
   z-index: 999; }
 
+.home__teams__grid-small {
+  width: 100%;
+  margin-top: 50px; }
+
+.home__teams__grid-small__logo {
+  height: 60px; }
+
 /* FACTS */
 .home__facts__grid {
   background-color: #003E77;

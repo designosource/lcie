@@ -318,4 +318,28 @@
 	right: 0;
 }
 
+@media screen and (max-width: 768px)
+{
+	.grid
+	{
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.home__who__grid__col, .home__teams__grid__col, .home__divisions__grid__col, .home__facts__col
+	{
+		width: 100%;
+	}
+
+	.home__calendar__side
+	{
+		width: 100%;
+		text-align: center;
+	}
+
+	.home__calendar__photo
+	{
+		display: none;
+	}
+}
 

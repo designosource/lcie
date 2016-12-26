@@ -21,7 +21,11 @@
 						<li>Contact</li>
 						<li>Wedstrijden</li>
 						<li>Documentatie</li>
-						<li>EN</li>
+						<ul class="header__subnavigation__languages">
+							<li>NL</li>
+							<li>EN</li>
+						</ul>
+						
 					</ul>
 				</div>
 			</nav>

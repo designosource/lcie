@@ -64,6 +64,70 @@
 .header__navigation__apply {
   padding: 10px 20px !important; }
 
+@media screen and (max-width: 768px) {
+  .header__navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #003E77;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    padding-top: 100px;
+    padding-left: 10%;
+    box-sizing: border-box;
+    overflow: auto; }
+  .header__navigation ul li {
+    color: white;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-left: 0; }
+  .header__subnavigation {
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 300px;
+    padding-top: 15px; }
+  .header__subnavigation:before {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    height: 3px;
+    background-color: white;
+    width: 40px;
+    content: " "; }
+  .header__subnavigation__languages:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: white;
+    width: 40px;
+    content: " "; }
+  .header__subnavigation ul li {
+    color: white;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    padding-left: 0;
+    opacity: 0.8; }
+  .header__subnavigation__languages {
+    position: relative;
+    padding-top: 20px !important;
+    margin-top: 20px !important;
+    text-align: left !important; }
+  .header__subnavigation__languages li {
+    display: inline-block !important;
+    width: auto; } }
+
 .footer {
   width: 100%;
   background-color: #003E77;
@@ -110,6 +174,13 @@
 .footer__bottom__kuleuven {
   width: auto;
   height: 30px; }
+
+@media screen and (max-width: 768px) {
+  .footer__grid__col {
+    width: 100%; }
+  .footer__grid__col__title {
+    margin-top: 30px;
+    display: block; } }
 
 .home__hero {
   padding-top: 80px;
@@ -370,6 +441,19 @@
   position: absolute;
   top: 0;
   right: 0; }
+
+@media screen and (max-width: 768px) {
+  .grid {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%; }
+  .home__who__grid__col, .home__teams__grid__col, .home__divisions__grid__col, .home__facts__col {
+    width: 100%; }
+  .home__calendar__side {
+    width: 100%;
+    text-align: center; }
+  .home__calendar__photo {
+    display: none; } }
 
 body {
   padding: 0;

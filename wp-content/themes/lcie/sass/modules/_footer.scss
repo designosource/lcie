@@ -55,3 +55,17 @@
 	width: auto;
 	height: 30px;
 }
+
+@media screen and (max-width: 768px)
+{
+	.footer__grid__col
+	{
+		width: 100%;
+	}
+
+	.footer__grid__col__title
+	{
+		margin-top: 30px;
+		display: block;
+	}
+}

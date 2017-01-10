@@ -5,6 +5,7 @@
 @import "modules/footer";
 
 @import "modules/homepage";
+@import "modules/forpage";
 
 body
 {
@@ -15,7 +16,8 @@ body
 h1
 {
 	@include secondary_font(2.2rem, 400);
-	color: $bunker;
+	color: $curiousblue;
+	font-family: 'roboto';
 }
 
 .wrapper
@@ -26,6 +28,12 @@ h1
 	width: 80%;
 	max-width: 1600px;
 	height: 100%;
+}
+
+p {
+	font-family:'Nunito';
+	font-size:17px;
+	line-height:25px;
 }
 
 .grid

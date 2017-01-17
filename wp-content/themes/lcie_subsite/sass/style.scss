@@ -1,0 +1,60 @@
+@import "colors";
+@import "fonts";
+
+@import "modules/header";
+@import "modules/footer";
+
+@import "modules/homepage";
+@import "modules/forpage";
+
+body
+{
+	padding: 0;
+	margin: 0;
+}
+
+h1
+{
+	@include secondary_font(2.2rem, 400);
+	color: $curiousblue;
+	font-family: 'roboto';
+}
+
+.wrapper
+{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	max-width: 1600px;
+	height: 100%;
+}
+
+p {
+	font-family:'Nunito';
+	font-size:17px;
+	line-height:25px;
+}
+
+.grid
+{
+	display: flex;
+}
+
+.button
+{
+	display: inline-block;
+	padding: 12px 20px;
+	border: 2px solid $regalblue;
+	text-decoration: none;
+	@include primary_font(1.0rem, 700);
+	color: $regalblue;
+}
+
+.button--ghost
+{
+	@include primary_font(1.0rem, 700);
+	background-color: transparent;
+	color: white;
+	border: 2px solid white;
+}

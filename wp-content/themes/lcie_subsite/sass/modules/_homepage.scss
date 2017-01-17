@@ -1,0 +1,33 @@
+.home__top
+{
+	padding-top: 70px;
+	padding-bottom: 70px;
+	background-color: red;
+	width: 100%;
+	color: white;
+	@include primary_font(3.6rem, 500);
+}
+
+.container
+{
+	display: flex;
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	max-width: 1600px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.content
+{
+	width: 80%;
+	padding: 100px;
+	box-sizing: border-box;
+}
+
+.home__content__intrested
+{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}

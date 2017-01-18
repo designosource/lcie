@@ -5,7 +5,8 @@
 @import "modules/footer";
 
 @import "modules/homepage";
-@import "modules/forpage";
+@import "modules/who";
+@import "modules/offer";
 
 body
 {
@@ -26,14 +27,13 @@ h1
 	display: block;
 	margin: 0 auto;
 	width: 80%;
-	max-width: 1600px;
+	max-width: 1400px;
 	height: 100%;
 }
 
 p {
-	font-family:'Nunito';
-	font-size:17px;
-	line-height:25px;
+	@include secondary_font(1.1rem, 300);
+	line-height:2.0;
 }
 
 .grid
@@ -57,4 +57,22 @@ p {
 	background-color: transparent;
 	color: white;
 	border: 2px solid white;
+}
+
+.hook-under
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.hook-up
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
 }

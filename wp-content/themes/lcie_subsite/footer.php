@@ -31,6 +31,20 @@
 				</div>
 			</div>
 		</footer>
+		
+		<style>
+			
+			.hook-up path
+			{
+				fill: <?php echo get_option('header_logo'); ?>;
+			}
+
+			.hook-under path
+			{
+				fill: <?php echo get_option('header_logo'); ?>;
+			}
+
+		</style>
 		<?php wp_footer(); ?>
 	</body>
 </html>

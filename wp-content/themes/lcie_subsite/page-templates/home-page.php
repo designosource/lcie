@@ -2,133 +2,169 @@
 	// Template name: Homepage
 ?>
 
-
 <?php get_header(); ?>
-	<section class="home__hero">
-		<div class="home__hero__overlay"></div>
-		<div class="wrapper">
-			<div class="home__hero__content">
-				<h1 class="home__hero__title">Lcie</h1>
-				<p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om te ondernemen drastisch verlagen en de ondernemingszin van studenten, onderzoekers en professoren aanmoedigen.</p>
-				<a href="" class="button button--ghost">Bekijk het aanbod</a>
-			</div>
-		</div>
-	</section>
+<section class="home__top" style="background-color: <?php echo get_option('header_logo'); ?>"> 
+	<div class="wrapper">
+		<?php echo get_bloginfo( 'name' ); ?>
+	</div>
+</section>
+<section class="container home__container">
+	<?php get_sidebar(); ?>
 
-	<section class="home__who">
-		<div class="wrapper">
-			<h1>Voor wie?</h1>
-		</div>
-		<div class="grid home__who__grid">
-			<div class="home__who__grid__col">
-				Lcie voor studenten
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor docenten
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor onderzoekers
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor ondernemers
-			</div>
-		</div>
-	</section>
+	<div class="content">
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php the_content(); ?>
 
-	<section class="home__teams">
-		<div class="wrapper">
-			<h1>Teams</h1>
-			<a href="" class="button home__teams__all">Bekijk alle teams</a>
+	<?php endwhile; endif; ?>
+		
+		<div class="home__content__intrested">
+			<span>Intresse in een samenwerking</span>
+			<a href="" class="home__content__intrested__button">Contacteer ons</a>
 		</div>
-		<div class="grid home__teams__grid">
-			<?php $query = new WP_Query(array('post_type' => "team")); ?>
-			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-				<?php if(get_field("featured")): ?>
-					<div class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
-						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
-						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
-						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
-						<span class="home__teams__grid__col__readmore">lees meer</span>
-					</div>
-				<?php endif; ?>
-			<?php endwhile; endif; ?>
-		</div>
-		<div class="wrapper">
-			<div class="grid home__teams__grid-small">
-				<?php $query = new WP_Query(array('post_type' => "team")); ?>
-				<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-					<?php if(!get_field("featured")): ?>
-						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
-					<?php endif; ?>
-				<?php endwhile; endif; ?>
-			</div>
-		</div>
-	</section>
-
-	<section class="home__divisions">
-		<div class="wrapper">
-			<h1>Subdivies</h1>
-			<a href="" class="button home__calendar__all">Bekijk alle divisies</a>
-		</div>
+		
+	</div>
+</section>
+<section class="home__testmonials">
 	
-		<div class="grid home__divisions__grid">
-			
-			<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
+	<div class="wrapper">
 
-				<?php switch_to_blog($site->blog_id); ?>
-				<div class="home__divisions__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
-					<h2 class="home__divisions__grid__col__title"><?php echo $site->blogname; ?></h2>
-					<span class="home__divisions__grid__col__description"><?php echo get_option("description"); ?></span>
-					<span class="home__divisions__grid__col__readmore">lees meer</span>
-					<div class="home__divisions__grid__col__overlay"></div>
-				</div>
-						
-			<?php restore_current_blog(); endforeach; ?>
+		<h1>Ervaringen</h1>
+		
+		<!-- Slider main container -->
+		<div class="home__testmonials__slider swiper-container">
 
+
+			<svg class="home__testmonials__slider__hook-under">
+		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
+		    </svg>
+
+			<svg class="home__testmonials__slider__hook-up">
+		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
+		    </svg>
+
+		    <div class="swiper-wrapper">
+
+		        <?php if( have_rows('testmonials') ): ?>
+				<?php while ( have_rows('testmonials') ): the_row(); ?>	
+					<div class="swiper-slide home__testmonials__slider__slide">
+			        	<div>
+			        		<span class="home__testmonials__slider__slide__title"><?php the_sub_field("name"); ?></span>
+			        		<span class="home__testmonials__slider__slide__function"><?php the_sub_field("function"); ?></span>
+			        		<div class="home__testmonials__slider__slide__text"><?php the_sub_field("text"); ?></div>
+			        	</div>
+			        </div>
+				<?php endwhile; endif;?>
+		    </div>
+		
+		    <div class="swiper-pagination"></div>
+		    
 		</div>
-	</section>
 
-	<section class="home__facts">
+
+	</div>
+
+</section>
+
+<section class="home__facts">
+	<div class="home__facts__container" style="background-color: <?php echo get_option('header_logo'); ?>">
 		<div class="wrapper">
-			<h1>Lcie in cijfers</h1>
-		</div>
-		<div class="grid home__facts__grid">
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
-			</div>
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
-			</div>
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
+			<div class="grid home__facts__grid">
+				<?php if( have_rows('numbers') ): ?>
+				<?php while ( have_rows('numbers') ): the_row(); ?>	
+					<div class="home__facts__col">
+						<span class="home__facts__col__number"><?php the_sub_field("number"); ?></span>
+						<span class="home__facts__col__description"><?php the_sub_field("description"); ?></span>
+					</div>
+				<?php endwhile; endif;?>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<?php if( have_rows('stats') ): ?>
-	<?php while ( have_rows('stats') ): the_row(); ?>	
-		<?php the_sub_field("number"); ?>
-		<?php the_sub_field("description"); ?>
-	<?php endwhile; endif;?>
+<section class="home__lcie">
+	
+	<div class="wrapper">
+		
+		<h1>Inbedding</h1>
 
-	<section class="home__calendar">
-		<div class="wrapper">
-			<h1>Kalender</h1>
-			<a href="" class="button home__calendar__all">Bekijk alle aanstaande events</a>
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				
+			<?php the_field("lcie_text"); ?>
+
+		<?php endwhile; endif; ?>
+
+	</div>
+
+</section>
+
+<section class="home__partners">
+	
+	<div class="wrapper">
+		
+		<h1>Partners</h1>
+
+		<div class="grid home__partners__grid">
+
+			<?php if( have_rows('partners') ): ?>
+			<?php while ( have_rows('partners') ): the_row(); ?>	
+				<div style="background-image: url(<?php the_sub_field("logo"); ?>)" class="col home__partners__grid__col"></div>
+			<?php endwhile; endif;?>
+
 		</div>
-		<div class="grid">
-			<div class="home__calendar__side">
-				<div>
-					<h2 class="home__calendar__side__title">Lcie events bijwonen?</h2>
-					<p class="home__calendar__side__text">Lcie organiseert interessante events die je ondernemingszin aanwakkeren.</p>
-					<a href="" class="home__calendar__side__more">Meer info</a>
-				</div>
-			</div>
-			<div class="home__calendar__photo"></div>
-		</div>
-	</section>
+
+	</div>
+
+</section>
+
+<style>
+
+	h1
+	{
+		color: <?php echo get_option('header_logo'); ?> !important;
+	}
+	
+	.swiper-pagination-bullet-active
+	{
+		background-color: <?php echo get_option('header_logo'); ?> !important;
+	}
+
+	.swiper-pagination-bullet
+	{
+		border-color: <?php echo get_option('header_logo'); ?> !important;
+	}
+
+	.home__testmonials__slider__hook-up path
+	{
+		fill: <?php echo get_option('header_logo'); ?>;
+	}
+
+	.home__testmonials__slider__hook-under path
+	{
+		fill: <?php echo get_option('header_logo'); ?>;
+	}
+
+	.sidebar ul li a:hover
+	{
+		color: <?php echo get_option('header_logo'); ?>;
+	}
+
+	.home__content__intrested__button
+	{
+		background-color: <?php echo get_option('header_logo'); ?>;
+	}
+
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    pagination: '.swiper-pagination',
+   	autoplay: 5000,
+   	paginationClickable: true
+  })        
+</script>
+
 
 <?php get_footer(); ?>

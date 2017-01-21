@@ -21,6 +21,11 @@ h1
 	color: $curiousblue;
 }
 
+.no-scroll
+{
+	overflow: hidden;
+}
+
 .wrapper
 {
 	position: relative;

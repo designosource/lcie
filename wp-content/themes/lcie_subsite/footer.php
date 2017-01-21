@@ -20,7 +20,7 @@
 						</ul>
 					</div>
 					<div class="footer__grid__col footer__grid__col--big">
-						<a href="" class="button button--ghost">naar boven</a>
+						<a href="" class="button button--ghost footer__up">naar boven</a>
 					</div>
 				</div>
 				<div class="grid footer__bottom">
@@ -31,6 +31,9 @@
 				</div>
 			</div>
 		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
 
 		<style>
 			

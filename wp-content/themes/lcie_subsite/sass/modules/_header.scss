@@ -109,6 +109,25 @@
 @media screen and (max-width: 768px)
 {
 
+	.header__hamburger
+	{
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		right: 0;
+		top: 10px;
+		background-image: url(../images/menu.svg);
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 99999;
+	}
+
+	.header__hamburger--close
+	{
+		background-image: url(../images/close.svg);
+	}
+
 	.sidebar
 	{
 		width: 100%;
@@ -162,6 +181,7 @@
 		top: 300px;
 		padding-top: 15px;
 		display: none;
+		margin-top: 70px;
 	}
 
 	.header__subnavigation:before
@@ -209,5 +229,11 @@
 	{
 		display: inline-block !important;
 		width: auto;
+	}
+
+	.header__navigation__apply-container
+	{
+		margin: 0;
+		padding: 0;
 	}
 }

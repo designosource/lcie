@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Seventeen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-06 19:28:43+0000\n"
+"PO-Revision-Date: 2016-12-08 12:15:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,17 +24,17 @@ msgstr "Twenty Seventeen"
 msgid "Scroll down to content"
 msgstr "Scroll omlaag naar de content"
 
-#: functions.php:150
+#: functions.php:159
 msgctxt "Theme starter content"
 msgid "Coffee"
 msgstr "Koffie"
 
-#: functions.php:146
+#: functions.php:155
 msgctxt "Theme starter content"
 msgid "Sandwich"
 msgstr "Broodje"
 
-#: functions.php:142
+#: functions.php:151
 msgctxt "Theme starter content"
 msgid "Espresso"
 msgstr "Espresso"
@@ -94,10 +94,14 @@ msgstr "Bepaal een SVG icoon bestandsnaam."
 msgid "Please define default parameters in the form of an array."
 msgstr "Definieer alsjeblieft de standaard parameters in de vorm van een array."
 
+#: inc/customizer.php:108
+msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
+msgstr "Selecteer vanuit de uitklapmenu's in elk gebied de uit te lichten pagina's. Voeg een afbeelding toe aan een sectie door een uitgelichte afbeelding in te stellen in de editor. Lege secties worden niet getoond."
+
 #. translators: %d is the front page section number
 #: inc/customizer.php:107
 msgid "Front Page Section %d Content"
-msgstr "Hoofdpagina Sectie %d Content"
+msgstr "Voorpagina sectie %d inhoud"
 
 #: inc/customizer.php:83 inc/customizer.php:130
 msgid "Two Column"
@@ -131,17 +135,27 @@ msgstr "Kleurschema"
 msgid "Default Header Image"
 msgstr "Standaard Header Afbeelding"
 
-#: functions.php:296
+#: functions.php:335
 msgid "Footer 2"
 msgstr "Footer 2"
 
-#: functions.php:288 functions.php:298
+#: functions.php:327 functions.php:337
 msgid "Add widgets here to appear in your footer."
 msgstr "Voeg hier widgets toe die getoond worden in je footer."
 
-#: functions.php:286
+#: functions.php:325
 msgid "Footer 1"
 msgstr "Footer 1"
+
+#: functions.php:269
+msgctxt "Libre Franklin font: on or off"
+msgid "on"
+msgstr "on"
+
+#: functions.php:63 functions.php:183
+#: template-parts/navigation/navigation-top.php:12
+msgid "Top Menu"
+msgstr "Bovenste Menu"
 
 #: comments.php:60
 msgid "Reply"
@@ -195,7 +209,7 @@ msgid "Search Results for: %s"
 msgstr "Zoekresultaten voor: %s"
 
 #. translators: %s: Name of current post
-#: functions.php:323 template-parts/page/content-front-page-panels.php:43
+#: functions.php:362 template-parts/page/content-front-page-panels.php:43
 #: template-parts/page/content-front-page.php:44
 #: template-parts/post/content-audio.php:80
 #: template-parts/post/content-gallery.php:66
@@ -233,15 +247,23 @@ msgstr "Menu"
 msgid "Skip to content"
 msgstr "Naar de inhoud springen"
 
-#: functions.php:278
+#: functions.php:445
+msgid "Collapse child menu"
+msgstr "Alles inklappen"
+
+#: functions.php:444
+msgid "Expand child menu"
+msgstr "Alles uitklappen"
+
+#: functions.php:317
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Widgets hier toevoegen om in de sidebar te tonen."
 
-#: functions.php:276
+#: functions.php:315
 msgid "Sidebar"
 msgstr "Sidebar"
 
-#: functions.php:61 functions.php:179
+#: functions.php:64 functions.php:194
 msgid "Social Links Menu"
 msgstr "Socialelinksmenu"
 
@@ -249,7 +271,7 @@ msgstr "Socialelinksmenu"
 msgid "Proudly powered by %s"
 msgstr "Ondersteund door %s"
 
-#. #-#-#-#-#  twentyseventeen.pot (Twenty Seventeen 1.0)  #-#-#-#-#
+#. #-#-#-#-#  twentyseventeen.pot (Twenty Seventeen 1.1)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: template-parts/footer/site-info.php:13
 msgid "https://wordpress.org/"
@@ -262,6 +284,20 @@ msgstr "Footer sociale links menu"
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Reacties zijn gesloten."
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:40
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] "Eén gedachte over &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s gedachten over &ldquo;%2$s&rdquo;"
+
+#. translators: %s: post title
+#: comments.php:36
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr "Eén gedachte over &ldquo;%s&rdquo;"
 
 #: archive.php:47 index.php:52 search.php:45
 msgid "Page"
@@ -286,3 +322,7 @@ msgstr "Volgende pagina"
 #. Author of the plugin/theme
 msgid "the WordPress team"
 msgstr "het WordPress team"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentyseventeen/"
+msgstr "https://nl.wordpress.org/themes/twentyseventeen/"

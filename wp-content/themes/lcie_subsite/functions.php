@@ -126,3 +126,67 @@
     }
 
     add_action("admin_init", "display_options");
+
+
+wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
+
+
+ global $post;
+ global $wp_query;
+ global $color;
+
+    $cat_query = new WP_Query( $args );
+wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
+    // 'ajaxurl' => get_template_directory_uri() . '/load-archive.php',
+    'ajaxurl' => admin_url('admin-ajax.php'),
+    'query_vars' => json_encode( array(
+        'post_type'  =>  'project',
+        'date_query' => array(
+            array(
+                'year'  => "2016"
+            ),
+        )
+    ) )
+));
+
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+
+    $date = array(
+        'date_query' => array(
+            array(
+                'year'  => $_POST['date']
+            ),
+        ),
+    );
+
+    $vars = array_merge ($query_vars, $date);
+    $data = array();
+    $posts = new WP_Query( $vars );
+    $GLOBALS['wp_query'] = $posts;
+
+
+    if( ! $posts->have_posts() ) { 
+        // get_template_part( 'content', 'none' );
+        echo "NOTHING FOUND";
+    }
+    else {
+        while ( $posts->have_posts() ) { 
+            $posts->the_post();
+            array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo'), "photo" => get_field('photo'), "url" => get_permalink())));
+        }
+
+        echo json_encode($data);
+    }
+
+    die();
+}
+
+
+
+//add post-formats to post_type 'my_custom_post_type'
+add_post_type_support( 'project', 'post-formats' );

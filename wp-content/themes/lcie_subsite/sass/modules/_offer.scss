@@ -9,6 +9,7 @@
 {
 	padding-top: 50px;
 	padding-bottom: 100px;
+	position: relative;
 }
 
 .offer__content__inner h1
@@ -17,4 +18,14 @@
 	@include primary_font(1.8rem, 700);
 	margin-top: 50px;
 	display: block;
+}
+
+
+@media screen and (max-width: 768px)
+{
+	.offer__content__inner
+	{
+		padding-top: 10px;
+		width: 100% !important;
+	}
 }

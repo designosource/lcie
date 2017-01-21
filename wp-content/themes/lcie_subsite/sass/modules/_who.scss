@@ -72,3 +72,39 @@
 	line-height: 1.8;
 	margin-top: 20px;
 }
+
+@media screen and (max-width: 768px)
+{
+	.who__content
+	{
+		padding-top: 0;
+	}
+
+	.who__content__grid__col
+	{
+		width: 100%;
+		border-bottom: 1px solid gray;
+		padding-bottom: 50px;
+		padding-top: 30px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.who__content__grid__col .grid
+	{
+		display: block;
+		text-align: center;
+	}
+
+	.who__content__grid__col__photo
+	{
+		margin: 20px auto;
+		display: block;
+	}
+
+	.who__content__grid__col__detail
+	{
+		width: 100%;
+	}
+
+}

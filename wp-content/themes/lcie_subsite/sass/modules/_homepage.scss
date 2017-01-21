@@ -204,3 +204,100 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+
+
+@media screen and (max-width: 768px)
+{
+	.container
+	{
+		display: block;
+		margin-top: 40px;
+	}
+
+	.content
+	{
+		width: 100%;
+		padding: 0;
+	}
+
+	.home__top
+	{
+		padding-top: 40px;
+		padding-bottom: 40px;
+		@include primary_font(2.4rem, 500);
+	}
+
+	.home__content__intrested
+	{
+		text-align: center;
+	}
+
+	.home__content__intrested span
+	{
+		display: none;
+	}
+
+	.home__content__intrested__button
+	{
+		margin: 0;
+	}
+
+
+	.home__testmonials__slider
+	{
+		height: auto;
+	}
+
+	.home__testmonials__slider__slide
+	{
+		padding-bottom: 60px;
+		padding-top: 60px;
+	}
+
+	.home__facts__grid
+	{
+		color: white;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.home__facts__col
+	{
+		width: 100%;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.home__facts__col__number
+	{
+		font-size: 2.6rem;
+	}
+
+	.home__facts__col__description
+	{
+		font-size: 1.0rem;
+	}
+
+	
+	.home__lcie
+	{
+		padding-top: 0;
+		padding-bottom: 50px;
+	}
+
+	.home__partners__grid
+	{
+		flex-wrap: wrap;
+	}
+
+	.home__partners__grid__col
+	{
+		width: 48%;
+		margin: 1%;
+		height: 150px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+}

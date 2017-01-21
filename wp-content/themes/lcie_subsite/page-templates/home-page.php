@@ -34,11 +34,11 @@
 		<div class="home__testmonials__slider swiper-container">
 
 
-			<svg class="home__testmonials__slider__hook-under">
+			<svg class="home__testmonials__slider__hook-under hook-under" viewBox="0 0 100 100">
 		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
 		    </svg>
 
-			<svg class="home__testmonials__slider__hook-up">
+			<svg class="home__testmonials__slider__hook-up hook-up" viewBox="0 0 100 100">
 		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
 		    </svg>
 

@@ -28,15 +28,17 @@
 	<div class="wrapper">
 		<h1>Waarden</h1>
 
-		<svg class="hook-under">
+
+
+	    <div class="wrapper offer__content__inner">
+	    			<svg class="hook-under" viewBox="0 0 100 100"> 
 	        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
 	    </svg>
 
-		<svg class="hook-up">
+		<svg class="hook-up" viewBox="0 0 100 100">
 	        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
 	    </svg>
-
-	    <div class="wrapper offer__content__inner">
+	    
 		    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					
 				<?php the_field("values"); ?>

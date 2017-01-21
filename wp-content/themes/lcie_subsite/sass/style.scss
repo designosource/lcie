@@ -7,6 +7,7 @@
 @import "modules/homepage";
 @import "modules/who";
 @import "modules/offer";
+@import "modules/projects";
 
 body
 {
@@ -18,7 +19,6 @@ h1
 {
 	@include secondary_font(2.2rem, 400);
 	color: $curiousblue;
-	font-family: 'roboto';
 }
 
 .wrapper
@@ -43,12 +43,11 @@ p {
 
 .button
 {
+	color: white;
+	padding: 15px 40px;
 	display: inline-block;
-	padding: 12px 20px;
-	border: 2px solid $regalblue;
 	text-decoration: none;
-	@include primary_font(1.0rem, 700);
-	color: $regalblue;
+	@include primary_font(1.1rem, 400);
 }
 
 .button--ghost
@@ -75,4 +74,20 @@ p {
 	right: 0;
 	width: 100px;
 	height: 100px;
+}
+
+
+@media screen and (max-width: 768px)
+{
+	.hook-under
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	.hook-up
+	{
+		width: 40px;
+		height: 40px;
+	}
 }

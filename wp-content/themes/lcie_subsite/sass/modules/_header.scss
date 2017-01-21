@@ -84,6 +84,7 @@
 .sidebar
 {
 	width: 20%;
+	margin-right: 5%;
 }
 
 .sidebar ul
@@ -104,8 +105,28 @@
 }
 
 
+
 @media screen and (max-width: 768px)
 {
+
+	.sidebar
+	{
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 50px;
+	}
+	
+	.sidebar ul li a
+	{
+		text-align: center;
+		box-sizing: border-box;
+	}
+
+	.header__logo
+	{
+		margin-top: 20px;
+	}
+
 	.header__navigation
 	{
 		position: fixed;
@@ -119,6 +140,7 @@
 		padding-left: 10%;
 		box-sizing: border-box;
 		overflow: auto;
+		display: none;
 	}
 
 	.header__navigation ul li
@@ -139,6 +161,7 @@
 		left: 0;
 		top: 300px;
 		padding-top: 15px;
+		display: none;
 	}
 
 	.header__subnavigation:before

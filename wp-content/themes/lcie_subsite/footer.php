@@ -11,7 +11,7 @@
 							<li>Partners</li>
 						</ul>
 					</div>
-					<div class="footer__grid__col">
+					<div class="footer__grid__col footer__grid__col--faq">
 						<span class="footer__grid__col__title">Frequently asked questions</span>
 						<ul>
 							<li>Example 1</li>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		</footer>
-		
+
 		<style>
 			
 			.hook-up path
@@ -42,6 +42,16 @@
 			.hook-under path
 			{
 				fill: <?php echo get_option('header_logo'); ?>;
+			}
+
+			.sidebar ul li.current_page_item a
+			{
+				color: <?php echo get_option('header_logo'); ?>;
+			}
+
+			.button:not(.button--ghost)
+			{
+				background-color: <?php echo get_option('header_logo'); ?>;
 			}
 
 		</style>

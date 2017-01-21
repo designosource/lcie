@@ -58,6 +58,11 @@
 
 @media screen and (max-width: 768px)
 {
+	.footer__grid
+	{
+		flex-wrap: wrap;
+	}
+
 	.footer__grid__col
 	{
 		width: 100%;
@@ -67,5 +72,27 @@
 	{
 		margin-top: 30px;
 		display: block;
+	}
+
+	.footer__grid__col--faq
+	{
+		display: none;
+	}
+
+	.footer .button
+	{
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+
+	.footer__bottom__content
+	{
+		display: none;
+	}
+
+	.footer__bottom__kuleuven
+	{
+		margin-top: 20px;
 	}
 }

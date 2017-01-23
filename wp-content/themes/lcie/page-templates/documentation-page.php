@@ -23,46 +23,17 @@
 </div>
 
 <div class="documentation__article__grid">
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
-  <div class="documentation__article__item">
-    <h2>Case studie 1</h2>
-    <p>Dit is een case studie over Ondernemen</p>
-    <a href="">Download</a>
-  </div>
+
+        <?php $query = new WP_Query(array('post_type' => "documentatie")); ?>
+        <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+         
+          <div class="documentation__article__item">
+            <h2><?php the_title(); ?></h2>
+            <p><?php the_content(); ?></p>
+            <a href="<?php the_field("file"); ?>">Download</a>
+          </div>
+            
+        <?php endwhile; endif; ?>
 </div>
 
 <?php get_footer(); ?>

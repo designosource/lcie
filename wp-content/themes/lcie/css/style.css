@@ -602,6 +602,47 @@
     text-decoration: none;
     float: right; }
 
+.courses__selection__div {
+  width: 80%;
+  margin: 1em auto 0 auto;
+  display: flex;
+  flex-direction: row; }
+
+.courses__nav {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-top: 1em; }
+
+.courses__nav__item {
+  display: inline-block;
+  text-decoration: none;
+  width: 70%;
+  border-bottom: 1px solid grey;
+  padding: 1em 0;
+  color: #111a21;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400; }
+
+.courses__nav__item:hover {
+  text-decoration: underline; }
+
+.courses__nav__item__active {
+  color: #003E77;
+  font-weight: bold;
+  background: url(../images/arrow-right.svg);
+  background-size: 8%;
+  background-repeat: no-repeat;
+  background-position: right; }
+
+.courses__intro {
+  width: 70%; }
+
+.courses__article {
+  width: 80%;
+  margin: 2em auto 4em auto; }
+
 body {
   padding: 0;
   margin: 0; }
@@ -609,6 +650,13 @@ body {
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 2.2rem;
+  font-weight: 400;
+  color: #43AADA;
+  font-family: 'roboto'; }
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
   font-weight: 400;
   color: #43AADA;
   font-family: 'roboto'; }

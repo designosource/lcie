@@ -1,2 +1,4 @@
 .DS_Store
 node_modules
+wp-content/themes/lcie/.sass-cache/*
+wp-content/themes/lcie/css/style.css.map

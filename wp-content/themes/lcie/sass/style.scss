@@ -7,6 +7,7 @@
 @import "modules/homepage";
 @import "modules/forpage";
 @import "modules/documentationpage";
+@import "modules/coursespage";
 
 body
 {
@@ -17,6 +18,11 @@ body
 h1
 {
 	@include secondary_font(2.2rem, 400);
+	color: $curiousblue;
+	font-family: 'roboto';
+}
+h2 {
+	@include secondary_font(1.8rem, 400);
 	color: $curiousblue;
 	font-family: 'roboto';
 }

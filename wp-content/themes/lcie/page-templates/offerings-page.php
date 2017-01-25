@@ -6,10 +6,10 @@
 <?php get_header(); ?>
 
 
-	<section class="offerings__top"> 
+	<section class="page__top"> 
 		<div class="wrapper">
-			<h1 class="offerings__top__title">Aanbod</h1>
-			<h2 class="offerings__top__subtitle">bekijk hieronder ons aanbod</h2>
+			<h1 class="page__top__title">Aanbod</h1>
+			<h2 class="page__top__subtitle">bekijk hieronder ons aanbod</h2>
 		</div>
 	</section>
 

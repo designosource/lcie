@@ -255,6 +255,41 @@
     background-repeat: no-repeat;
     background-position: center; } }
 
+.page__top {
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #003E77;
+  position: relative;
+  background-size: cover;
+  background-position: center; }
+
+.page__top__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #003E77;
+  opacity: 0.8; }
+
+.page__top__title {
+  font-family: "Nunito", sans-serif;
+  font-size: 3.6rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 999; }
+
+.page__top__subtitle {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: white;
+  position: relative;
+  z-index: 999; }
+
 .home__hero {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -988,6 +1023,62 @@
     margin-top: 30px; }
   .offerings__infrastructure__grid__col {
     width: 100%; } }
+
+.teams__content {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+.teams__content__grid {
+  width: 100%; }
+
+.teams__content__grid__col {
+  width: 50%;
+  margin-top: 50px;
+  margin-bottom: 50px; }
+
+.teams__content__grid__col__image {
+  width: 60%;
+  max-width: 300px;
+  display: block; }
+
+.teams__content__grid__col__more {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666666;
+  width: 100%;
+  text-align: right;
+  display: block;
+  margin-top: 40px; }
+
+.teams__pastprojects {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+.teams__pastprojects__year {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #43AADA;
+  margin-top: 70px;
+  margin-bottom: 40px; }
+
+.teams__pastprojects__grid {
+  width: 100%; }
+
+.teams__pastprojects__grid__col {
+  width: 25%;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.teams__pastprojects__grid__col__logo {
+  width: 100%; }
+
+@media screen and (max-width: 768px) {
+  .teams__content__grid__col {
+    width: 100%; }
+  .teams__pastprojects__grid__col {
+    width: 50%; } }
 
 body {
   padding: 0;

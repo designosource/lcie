@@ -1,0 +1,87 @@
+.teams__content
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.teams__content__grid
+{
+	width: 100%;
+}
+
+.teams__content__grid__col
+{
+	width: 50%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+// .teams__content__grid__col:nth-child(odd)
+// {
+// 	display: flex;
+// 	align-items: center;
+// }
+
+.teams__content__grid__col__image
+{
+	width: 60%;
+	max-width: 300px;
+	display: block;
+}
+
+.teams__content__grid__col__more
+{
+	@include primary_font(1.0rem, 400);
+	color: $dovegray;
+	width: 100%;
+	text-align: right;
+	display: block;
+	margin-top: 40px;
+}
+
+.teams__pastprojects
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.teams__pastprojects__year
+{
+	@include primary_font(2.0rem, 400);
+	color: $curiousblue;
+	margin-top: 70px;
+	margin-bottom: 40px;
+}
+
+.teams__pastprojects__grid
+{
+	width: 100%;
+}
+
+.teams__pastprojects__grid__col
+{
+	width: 25%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.teams__pastprojects__grid__col__logo
+{
+	width: 100%;
+}
+
+
+@media screen and (max-width: 768px)
+{
+
+	.teams__content__grid__col
+	{
+		width: 100%;
+	}
+
+	.teams__pastprojects__grid__col
+	{
+		width: 50%;
+	}
+
+}

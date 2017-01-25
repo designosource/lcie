@@ -660,6 +660,17 @@
   width: 100%;
   display: block; }
 
+.offerings__sidebar__active {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 20px;
+  color: #43AADA;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  width: 100%;
+  display: block; }
+
 .offerings__container .wrapper {
   display: -ms-flexbox;
   display: flex;
@@ -677,7 +688,9 @@
 
 .offerings__who__grid {
   width: 100%;
-  background-color: gray; }
+  background-image: url(../images/home__bg2.png);
+  background-size: cover;
+  background-position: center; }
 
 .offerings__who__grid__col {
   width: 25%;
@@ -750,11 +763,91 @@
       flex-wrap: wrap; }
 
 .offerings__team__grid__col {
-  width: 48%; }
+  width: 30%;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  min-width: 500px;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.offerings__team__grid__col__photo {
+  width: 50%;
+  max-width: 200px;
+  background-size: cover;
+  background-position: center; }
+
+.offerings__team__grid__col__photo:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; }
+
+.offerings__team__grid__col__details {
+  margin-left: 60px;
+  height: 200px;
+  position: relative; }
+
+.offerings__team__grid__col__details__name {
+  display: block;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #43AADA; }
+
+.offerings__team__grid__col__details__function {
+  display: block;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #666666;
+  margin-top: 10px; }
+
+.offerings__team__grid__col__details__contact {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.offerings__team__grid__col__details__contact__mail {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666666;
+  text-decoration: none; }
+
+.offerings__team__grid__col__details__contact__social {
+  margin-top: 20px; }
+
+.offerings__team__grid__col__details__contact__social__icon {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 10px;
+  opacity: 0.8; }
+
+.offerings__team__grid__col__details__contact__social__icon:hover {
+  opacity: 1; }
+
+.offerings__team__grid__col__details__contact__social__icon--twitter {
+  background-image: url(../images/twitter.png);
+  background-size: 30px; }
+
+.offerings__team__grid__col__details__contact__social__icon--linkedin {
+  background-image: url(../images/linkedin.png);
+  background-size: 30px; }
 
 .offerings__infrastructure {
   margin-top: 100px;
   margin-bottom: 100px; }
+
+.offerings__infrastructure__text, .offerings__team__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+  margin-bottom: 60px; }
 
 .offerings__infrastructure__map {
   width: 100%;
@@ -779,7 +872,7 @@
   width: 40px !important; }
 
 .offerings__infrastructure__grid__col__hook-up path, .offerings__infrastructure__grid__col__hook-under path {
-  fill: #003E77; }
+  fill: #43AADA; }
 
 body {
   padding: 0;
@@ -801,9 +894,10 @@ h1 {
   height: 100%; }
 
 p {
-  font-family: 'Nunito';
-  font-size: 17px;
-  line-height: 25px; }
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.0; }
 
 .grid {
   display: -ms-flexbox;

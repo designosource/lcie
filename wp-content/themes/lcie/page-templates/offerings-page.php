@@ -18,10 +18,10 @@
 			<nav class="offerings__sidebar">
 		
 				<ul>
-					<li><a href="">Lcie voor</a></li>
-					<li><a href="">Subsites</a></li>
-					<li><a href="">Core team</a></li>
-					<li><a href="">Infrastructuur</a></li>
+					<li class="offerings__sidebar__active">Lcie voor</li>
+					<li><a href="#subsites">Subsites</a></li>
+					<li><a href="#team">Core team</a></li>
+					<li><a href="#infrastructure">Infrastructuur</a></li>
 				</ul>
 
 			</nav>
@@ -39,7 +39,7 @@
 
 	</section>
 
-	<section class="offerings__who">
+	<section class="offerings__who" id="who">
 		
 		<div class="wrapper">
 			
@@ -56,8 +56,9 @@
 
 	</section>
 
-	<section class="offerings__subsites">
+	<section class="offerings__subsites" id="subsites">
 		<div class="wrapper">
+			<h1>Subsites</h1>
 			<div class="grid offerings__subsites__grid">
 				
 					<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
@@ -76,22 +77,38 @@
 		</div>
 	</section>
 
-	<section class="offerings__team">
+	<section class="offerings__team" id="team">
 		<div class="wrapper">
 		
 			<h1>Core team</h1>
+			
+			<div class="offerings__team__text">
+				<?php the_field("team_text"); ?>
+			</div>
 
-			<div class="offerings__team__grid">
+			<div class="offerings__team__grid grid">
 				<?php if( have_rows('team') ): while ( have_rows('team') ) : the_row();?>
 
 					<div class="offerings__team__grid__col">
 						<div class="grid">
-							<div class="offerings__team__grid__col__photo"></div>
+							<div class="offerings__team__grid__col__photo" style="background-image: url(<?php the_sub_field("photo"); ?>)"></div>
 							<div class="offerings__team__grid__col__details">
 								<span class="offerings__team__grid__col__details__name"><?php the_sub_field("name"); ?></span>
 								<span class="offerings__team__grid__col__details__function"><?php the_sub_field("function"); ?></span>
+								
+								<div class="offerings__team__grid__col__details__contact">
+									<a href="mailto:<?php the_sub_field("email"); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_sub_field("email"); ?></a>
+									<div class="offerings__team__grid__col__details__contact__social">
 
-								<a href="mailto:<?php the_sub_field("email"); ?>" class="offerings__team__grid__col__details__email"><?php the_sub_field("email"); ?></a>
+										<?php if(!empty(get_sub_field("twitter"))): ?>
+											<a href="<?php the_sub_field("twitter"); ?>" class="offerings__team__grid__col__details__contact__social__icon offerings__team__grid__col__details__contact__social__icon--twitter"></a>
+										<?php endif; ?>
+										<?php if(!empty(get_sub_field("linkedin"))): ?>
+											<a href="<?php the_sub_field("linkedin"); ?>" class="offerings__team__grid__col__details__contact__social__icon offerings__team__grid__col__details__contact__social__icon--linkedin"></a>
+										<?php endif; ?>
+									</div>
+								</div>
+								
 
 							</div>
 						</div>
@@ -103,10 +120,16 @@
 		</div>
 	</section>
 
-	<section class="offerings__infrastructure">
+	<section class="offerings__infrastructure" id="infrastructure">
 		<div class="wrapper">
 			
 			<h1>Infrastructuur</h1>
+
+			<div class="offerings__infrastructure__text">
+
+				<?php the_field("infrastructure_text"); ?>
+				
+			</div>
 		</div>
 
 	<div id="map" class="offerings__infrastructure__map acf-map">

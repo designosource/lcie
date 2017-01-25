@@ -17,21 +17,30 @@
  *
  * @package WordPress
  */
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'ID220762_lcie');
+
 /** MySQL database username */
 define('DB_USER', 'ID220762_lcie');
+
 /** MySQL database password */
 define('DB_PASSWORD', 'lcieweb007');
+
 /** MySQL hostname */
 define('DB_HOST', 'ID220762_lcie.db.webhosting.be');
+
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
+
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
-define('WP_HOME','http://localhost:8888/lcie');
-define('WP_SITEURL','http://localhost:8888/lcie');
+
+define('WP_HOME','http://lcie.dev');
+define('WP_SITEURL','http://lcie.dev');
+
+
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -49,7 +58,9 @@ define('AUTH_SALT',        'Yxh?AG+L((376}:}5lkTPPnC;Z9~7ku_.B&gjzz$Sm!+H?VVSok&
 define('SECURE_AUTH_SALT', ',>Wi%H&0YMl5F,49>mVTD$0>)O<7)4ev`m<MQmMz%VZdV38{wAPep4v|.D^kcw_-');
 define('LOGGED_IN_SALT',   'NeK~4yP_qk#Q3y;#O(aI~kt(ZJHqzWN,aO_9wM}aM1w~}QJpl)^~xn()A%R1bmBm');
 define('NONCE_SALT',       'D@ILvl3^rj+6^*gRyJcQ=qRjd;Dl&SCaS;.)){U*1(`g{[*PhZ}r$[=T)*>m-)rD');
+
 /**#@-*/
+
 /**
  * WordPress Database Table prefix.
  *
@@ -57,6 +68,7 @@ define('NONCE_SALT',       'D@ILvl3^rj+6^*gRyJcQ=qRjd;Dl&SCaS;.)){U*1(`g{[*PhZ}r
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'test_';
+
 /**
  * For developers: WordPress debugging mode.
  *
@@ -69,19 +81,26 @@ $table_prefix  = 'test_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
+
 /* Multisite */
-define('WP_ALLOW_MULTISITE', false);
-define('MULTISITE', false);
-define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', 'localhost:8888/lcie');
+define('WP_ALLOW_MULTISITE', true);
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', true);
+define('DOMAIN_CURRENT_SITE', 'lcie.dev');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
-define( 'WP_DEFAULT_THEME', 'lcie' );
+
+define( 'WP_DEFAULT_THEME', 'lcie_subsite' );
+
+
+
 /* That's all, stop editing! Happy blogging. */
+
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
+
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

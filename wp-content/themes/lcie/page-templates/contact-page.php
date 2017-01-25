@@ -18,7 +18,7 @@
 </section>
 
 <section class="contact__form">
-
+<h2 class="contact__form__title">Contactformulier</h2>
   <?php $query = new WP_Query(array('page_id' => 74)); ?>
   <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 
@@ -32,39 +32,45 @@
 <section class="contact__location">
   <div class="contact__location__item">
     <h2 class="contact__location__title">LCIE Hoofdkwartier</h2>
-    <p class="contact__location__adress">Waaistraat 6</p>
-    <p class="contact__location__adress">3000 Leuven</p>
+    <p class="contact__location__address">Waaistraat 6</p>
+    <p class="contact__location__address">3000 Leuven</p>
     <a href="#" class="contact__location__mail">info@lcie.be</a>
   </div>
 
   <div class="contact__location__item">
     <h2 class="contact__location__title">LCIE Incubator</h2>
-    <p class="contact__location__adress">Innovation & Incubation Center</p>
-    <p class="contact__location__adress">Kapeldreef 60</p>
-    <p class="contact__location__adress">3000 Leuven</p>
+    <p class="contact__location__address">Innovation & Incubation Center</p>
+    <p class="contact__location__address">Kapeldreef 60</p>
+    <p class="contact__location__address">3000 Leuven</p>
   </div>
 </section>
 
 <section class="contact__team">
   <div class="contact__team__item">
     <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" class="contact__team__img">
-    <h3 class="contact__team__name">Wim Fyen</h3>
-    <p class="contact__team__title">Incubator Manager</p>
-    <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    <div class="contact__team__details">
+      <h3 class="contact__team__name">Wim Fyen</h3>
+      <p class="contact__team__title">Incubator Manager</p>
+      <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    </div>
   </div>
 
   <div class="contact__team__item">
     <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" class="contact__team__img">
-    <h3 class="contact__team__name">Wim Fyen</h3>
-    <p class="contact__team__title">Incubator Manager</p>
-    <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    <div class="contact__team__details">
+      <h3 class="contact__team__name">Wim Fyen</h3>
+      <p class="contact__team__title">Incubator Manager</p>
+      <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    </div>
   </div>
 
   <div class="contact__team__item">
     <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" class="contact__team__img">
-    <h3 class="contact__team__name">Wim Fyen</h3>
-    <p class="contact__team__title">Incubator Manager</p>
-    <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    <div class="contact__team__details">
+      <h3 class="contact__team__name">Wim Fyen</h3>
+      <p class="contact__team__title">Incubator Manager</p>
+      <a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
+    </div>
   </div>
 </section>
 

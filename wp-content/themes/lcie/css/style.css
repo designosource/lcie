@@ -602,6 +602,75 @@
     text-decoration: none;
     float: right; }
 
+.contact__form {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
+
+.contact__form__title, .contact__location__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 200;
+  color: #111a21; }
+
+.contact__form__mail, .contact__form__text, .contact__form__message, .contact__form__dropdown {
+  display: inline-block;
+  width: 40%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #003E77;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400; }
+
+.contact__form__submit {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 2px solid #003E77;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: transparent;
+  color: #003E77; }
+
+.contact__location, .contact__team {
+  width: 80%;
+  max-width: 1200px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: row; }
+
+.contact__location__item {
+  margin-right: 4em; }
+
+.contact__location__address {
+  margin: 0; }
+
+.contact__location__mail, .contact__team__mail {
+  font-weight: bold;
+  color: #003E77; }
+
+.contact__team {
+  justify-content: space-between;
+  margin: 4em auto; }
+
+.contact__team__item {
+  display: flex;
+  flex-direction: row; }
+
+.contact__team__details {
+  margin-left: 1.5em; }
+  .contact__team__details h3 {
+    color: #111a21;
+    margin-top: 0;
+    margin-bottom: 0; }
+  .contact__team__details p {
+    margin-top: 0; }
+
 body {
   padding: 0;
   margin: 0; }

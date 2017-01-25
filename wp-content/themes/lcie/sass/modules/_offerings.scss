@@ -1,0 +1,208 @@
+.offerings__top
+{
+	width: 100%;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	background-color: $regalblue;
+}
+
+.offerings__top__title
+{
+	@include primary_font(3.6rem, 500);
+	color: white;
+	margin-bottom: 0;
+}
+
+.offerings__top__subtitle
+{
+	@include primary_font(1.8rem, 400);
+	color: white;
+}
+
+/* Sidebar */
+.offerings__sidebar
+{
+	width: 20%;
+	margin-right: 5%;
+}
+
+.offerings__sidebar ul
+{
+	list-style: none;
+	padding: 0;
+}
+
+.offerings__sidebar ul li a
+{
+	@include primary_font(1.1rem, 400);
+	padding: 20px;
+	color: gray;
+	border-bottom: 1px solid black;
+	text-decoration: none;
+	width: 100%;
+	display: block;
+}
+
+.offerings__container .wrapper
+{
+	display: flex;
+	margin-top: 100px;
+}
+
+.offerings__content
+{
+	padding-left: 100px;
+	box-sizing: border-box;
+	width: 70%;
+}
+
+
+
+.offerings__who
+{
+	width: 100%;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.offerings__who__grid
+{
+	width: 100%;
+	background-color: gray;
+}
+
+.offerings__who__grid__col
+{
+	width: 25%;
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	@include primary_font(1.5rem, 500);
+	color: white;
+	border-right: 8px solid white;
+}
+
+.offerings__who__grid__col:last-child
+{
+	border: none;
+}
+
+
+
+.offerings__subsites__grid__col
+{
+	width: 25%;
+	flex-grow: 1;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	padding-right: 40px;
+	padding-left: 40px;
+	box-sizing: border-box;
+	background-color: red;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	position: relative;
+}
+
+.offerings__subsites__grid__col__title
+{
+	font-size: 1.6rem;
+	color: white;
+	position: relative;
+	z-index: 999;
+}
+
+.offerings__subsites__grid__col__description
+{
+	font-size: 1.0rem;
+	color: white;
+	position: relative;
+	z-index: 999;
+}
+
+
+.offerings__subsites__grid__col__more
+{
+	font-size: 1.1rem;
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	z-index: 999;
+}
+
+.offerings__subsites__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+}
+
+
+
+
+.offerings__team
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.offerings__team__grid
+{
+	width: 100%;
+	margin-top: 40px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.offerings__team__grid__col
+{
+	width: 48%;
+	
+}
+
+
+
+.offerings__infrastructure
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.offerings__infrastructure__map
+{
+	width: 100%;
+	height: 500px;
+}
+
+.offerings__infrastructure__grid
+{
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 80px;
+}
+
+.offerings__infrastructure__grid__col
+{
+	position: relative;
+	width: 30%;
+	padding: 50px;
+	box-sizing: border-box;
+}
+
+.offerings__infrastructure__grid__col__hook-up, .offerings__infrastructure__grid__col__hook-under
+{
+	height: 40px !important;
+	width: 40px !important;
+}
+
+.offerings__infrastructure__grid__col__hook-up path, .offerings__infrastructure__grid__col__hook-under path
+{
+	fill: $regalblue;
+}

@@ -126,3 +126,17 @@
     }
 
     add_action("admin_init", "display_options");
+
+
+
+
+
+    function my_acf_google_map_api( $api ){
+    
+    $api['key'] = 'AIzaSyB63fCe88g51K6K3DUht0ksGtCetjS_WCI';
+    
+    return $api;
+    
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

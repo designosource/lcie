@@ -1,0 +1,51 @@
+.apply__form {
+  width: 70%;
+  padding: 0 3em;
+  max-width: 1200px;
+  margin: 5em auto 7em auto;
+  box-sizing: border-box;
+  h2 {
+    @include secondary_font(1.8rem, 200);
+    color: $curiousblue;
+    margin-left: -2em;
+  }
+  p {
+  }
+}
+.apply__form__input {
+  display: inline-block;
+  width: 100%;
+	padding: 12px 20px;
+  box-sizing: border-box;
+	border: 2px solid $regalblue;
+	text-decoration: none;
+	@include primary_font(1.0rem, 400);
+  margin-top: .5em;
+  margin-bottom: 1em;
+}
+.apply__form__submit {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 2px solid $regalblue;
+  text-decoration: none;
+  @include primary_font(1.0rem, 700);
+  background-color: transparent;
+  color: $regalblue;
+}
+.apply__hook__top {
+  background-image: url(../images/haak-boven.svg);
+  background-repeat: no-repeat;
+  height: 5em;
+  width: 5em;
+  position: absolute;
+  right: 7.5%;
+}
+.apply__hook__bottom {
+  background-image: url(../images/haak-onder.svg);
+  background-repeat: no-repeat;
+  height: 5em;
+  width: 5em;
+  position: absolute;
+  margin-top: -3em;
+  left: 7.5%;
+}

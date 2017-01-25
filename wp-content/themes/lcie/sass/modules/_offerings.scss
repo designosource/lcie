@@ -41,6 +41,7 @@
 	text-decoration: none;
 	width: 100%;
 	display: block;
+	box-sizing: border-box;
 }
 
 .offerings__sidebar__active
@@ -52,6 +53,7 @@
 	text-decoration: none;
 	width: 100%;
 	display: block;
+	box-sizing: border-box;
 }
 
 .offerings__container .wrapper
@@ -313,4 +315,83 @@
 .offerings__infrastructure__grid__col__hook-up path, .offerings__infrastructure__grid__col__hook-under path
 {
 	fill: $curiousblue;
+}
+
+
+@media screen and (max-width: 768px)
+{
+
+	.offerings__sidebar
+	{
+		width: 100%;
+		margin-right: 0;
+	}
+
+	.offerings__container .wrapper
+	{
+		display: block;
+	}
+
+	.offerings__content
+	{
+		padding-left: 0;
+		width: 100%;
+		margin-top: 70px;
+	}
+
+
+	.offerings__who__grid__col
+	{
+		width: 100%;
+		border-right: none;
+		border-bottom: 8px solid white;
+	}
+
+	.offerings__who__grid__col:last-child
+	{
+		border: none;
+	}
+
+
+	.offerings__subsites__grid__col
+	{
+		width: 100%;
+	}
+
+	.offerings__team__grid__col
+	{
+		width: 100%;
+		min-width: auto;
+		max-width: auto;
+	}
+
+	.offerings__team__grid__col__photo
+	{
+		width: 80%;
+		max-width: 80%;
+		margin-left: 10%;
+	}
+
+	.offerings__team__grid__col__details
+	{
+		margin-left: 0;
+		height: auto;
+		width: 100%;
+		text-align: center;
+		position: relative;
+		margin-top: 40px;
+		margin-bottom: 80px;
+	}
+
+	.offerings__team__grid__col__details__contact
+	{
+		position: relative;
+		margin-top: 30px;
+	}
+
+	.offerings__infrastructure__grid__col
+	{
+		width: 100%;
+	}
+
 }

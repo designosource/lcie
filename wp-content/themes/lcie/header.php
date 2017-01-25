@@ -32,8 +32,8 @@
 
 			<div class="wrapper">
 
-				<div class="header__logo"></div>
-
+				<a href="http://lcie.be"><div class="header__logo"></div></a>
+				<div class="header__hamburger"></div>
 				<nav class="header__navigation">
 					<ul>
 						<li>Home</li>

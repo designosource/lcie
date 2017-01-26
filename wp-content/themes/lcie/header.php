@@ -18,7 +18,7 @@
 			<nav class="header__subnavigation">
 				<div class="wrapper">
 					<ul>
-					
+
 						<li>Over Lcie</li>
 						<li>Nieuws &amp; events</li>
 						<li>Contact</li>
@@ -39,10 +39,10 @@
 				<div class="header__hamburger"></div>
 				<nav class="header__navigation">
 					<ul>
-						<li>Home</li>
-						<li>Aanbod</li>
+						<li><a href="<?php echo site_url(); ?>">Home</a></li>
+						<li><a href="<?php echo site_url(); ?>/aanbod">Aanbod</a></li>
 						<li>Cursussen</li>
-						<li>Teams</li>
+						<li><a href="<?php echo site_url(); ?>/teams">Teams</a></li>
 						<li class="header__navigation__apply-container"><a href="" class="button header__navigation__apply">Sluit je aan</a></li>
 					</ul>
 				</nav>

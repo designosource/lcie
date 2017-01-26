@@ -20,7 +20,6 @@
 			
 			<h1>Lopende projecten</h1>
 
-
 			<?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 					<div class="grid teams__content__grid">
@@ -33,7 +32,7 @@
 
 						<div class="teams__content__grid__col">
 							
-							<p><?php the_content(); ?></p>
+							<p><?php the_field("short_text"); ?></p>
 
 							<a href="<?php the_permalink(); ?>" class="teams__content__grid__col__more">lees meer</a>
 

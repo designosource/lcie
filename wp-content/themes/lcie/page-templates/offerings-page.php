@@ -98,15 +98,7 @@
 								
 								<div class="offerings__team__grid__col__details__contact">
 									<a href="mailto:<?php the_sub_field("email"); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_sub_field("email"); ?></a>
-									<div class="offerings__team__grid__col__details__contact__social">
-
-										<?php if(!empty(get_sub_field("twitter"))): ?>
-											<a href="<?php the_sub_field("twitter"); ?>" class="offerings__team__grid__col__details__contact__social__icon offerings__team__grid__col__details__contact__social__icon--twitter"></a>
-										<?php endif; ?>
-										<?php if(!empty(get_sub_field("linkedin"))): ?>
-											<a href="<?php the_sub_field("linkedin"); ?>" class="offerings__team__grid__col__details__contact__social__icon offerings__team__grid__col__details__contact__social__icon--linkedin"></a>
-										<?php endif; ?>
-									</div>
+				
 								</div>
 								
 

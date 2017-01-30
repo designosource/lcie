@@ -24,11 +24,12 @@
 	padding: 0;
 }
 
-.footer__grid__col ul li
+.footer__grid__col ul li, .footer__grid__col ul li a
 {
 	@include primary_font(1.0rem, 500);
 	color: white;
 	margin-bottom: 15px;
+	display: block;
 }
 
 
@@ -58,6 +59,11 @@
 
 @media screen and (max-width: 768px)
 {
+	.footer__grid
+	{
+		flex-wrap: wrap;
+	}
+
 	.footer__grid__col
 	{
 		width: 100%;
@@ -67,5 +73,42 @@
 	{
 		margin-top: 30px;
 		display: block;
+	}
+
+	.footer__grid__col--faq
+	{
+		display: none;
+	}
+
+	.footer .button
+	{
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+
+	.footer__bottom__content
+	{
+		display: none;
+	}
+
+	.footer__bottom__kuleuven
+	{
+		margin-top: 20px;
+	}
+
+	.footer__up
+	{
+		display: block;
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 50px;
+		height: 50px;
+		padding: 0 !important;
+		background-image: url(../images/up.svg);
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 }

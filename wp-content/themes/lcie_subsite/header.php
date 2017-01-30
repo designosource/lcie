@@ -19,15 +19,14 @@
 	<body <?php body_class(); ?>>
 
 		<header class="header">
+			<?php switch_to_blog(1); ?>
+
 			
 			<nav class="header__subnavigation">
 				<div class="wrapper">
 					<ul>
-						<li>Over Lcie</li>
-						<li>Nieuws &amp; events</li>
-						<li>Contact</li>
-						<li>Wedstrijden</li>
-						<li>Documentatie</li>
+						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
+
 						<ul class="header__subnavigation__languages">
 							<li>NL</li>
 							<li>EN</li>
@@ -42,13 +41,10 @@
 				<a href="http://lcie.be"><div class="header__logo"></div></a>
 				<div class="header__hamburger"></div>
 				<nav class="header__navigation">
-					<ul>
-						<li>Home</li>
-						<li>Aanbod</li>
-						<li>Cursussen</li>
-						<li>Teams</li>
-						<li class="header__navigation__apply-container"><a href="" class="button header__navigation__apply">Sluit je aan</a></li>
-					</ul>
+					<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 				</nav>
 			</div>
+
+
+			<?php restore_current_blog(); ?>
 		</header>

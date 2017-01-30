@@ -48,7 +48,7 @@
 						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
 						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
 						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
-						<span class="home__teams__grid__col__readmore">lees meer</span>
+						<a class="home__teams__grid__col__readmore" href="<?php the_permalink(); ?>">lees meer</a>
 					</div>
 				<?php endif; ?>
 			<?php endwhile; endif; ?>
@@ -79,7 +79,7 @@
 				<div class="home__divisions__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
 					<h2 class="home__divisions__grid__col__title"><?php echo $site->blogname; ?></h2>
 					<span class="home__divisions__grid__col__description"><?php echo get_option("description"); ?></span>
-					<span class="home__divisions__grid__col__readmore">lees meer</span>
+					<a class="home__divisions__grid__col__readmore" href="<?php echo site_url(); ?>">lees meer</a>
 					<div class="home__divisions__grid__col__overlay"></div>
 				</div>
 						

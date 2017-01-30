@@ -4,11 +4,16 @@
 @import "modules/header";
 @import "modules/footer";
 
+@import "modules/page";
 @import "modules/homepage";
 @import "modules/forpage";
 @import "modules/documentationpage";
 @import "modules/contactpage";
 @import "modules/applypage";
+@import "modules/offerings";
+@import "modules/teams";
+@import "modules/faq";
+
 
 body
 {
@@ -34,9 +39,8 @@ h1
 }
 
 p {
-	font-family:'Nunito';
-	font-size:17px;
-	line-height:25px;
+	@include secondary_font(1.0rem, 400);
+	line-height: 2.0;
 }
 
 .grid
@@ -60,4 +64,48 @@ p {
 	background-color: transparent;
 	color: white;
 	border: 2px solid white;
+}
+
+
+.hook-under
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.hook-up
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.hook-up path, .hook-under path
+{
+	fill: $regalblue;
+}
+
+@media screen and (max-width: 768px)
+{
+	.hook-under
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	.hook-up
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	.grid
+	{
+		display: block;
+	}
 }

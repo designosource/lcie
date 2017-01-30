@@ -67,6 +67,19 @@
 	color: $regalblue;
 }
 
+.header__navigation ul li a
+{
+	text-decoration: none;
+	color: $regalblue;
+}
+
+.header__subnavigation ul li a
+{
+	text-decoration: none;
+	color: #b5bac1;
+}
+
+
 .header__navigation__apply-container
 {
 	padding: 0 !important;
@@ -76,6 +89,8 @@
 .header__navigation__apply
 {
 	padding: 10px 20px !important;
+	border: 2px solid $regalblue;
+	@include primary_font(1.0rem !important, 700 !important);
 }
 
 

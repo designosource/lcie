@@ -1,14 +1,11 @@
 .apply__form {
-  width: 70%;
-  padding: 0 3em;
-  max-width: 1200px;
+  width: 100%;
   margin: 5em auto 7em auto;
   box-sizing: border-box;
   position: relative;
   h2 {
     @include secondary_font(1.8rem, 200);
     color: $curiousblue;
-    margin-left: -2em;
   }
   p {
   }
@@ -49,4 +46,22 @@
   position: absolute;
   margin-top: -3em;
   left: 7.5%;
+}
+
+.wpcf7
+{
+  padding: 70px !important;
+}
+
+
+@media screen and (max-width: 768px)
+{
+
+  .wpcf7
+  {
+    width: 100%;
+    padding: 0px !important;
+    padding-bottom: 40px !important;
+  }
+
 }

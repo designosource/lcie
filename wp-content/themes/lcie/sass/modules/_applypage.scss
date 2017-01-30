@@ -4,6 +4,7 @@
   max-width: 1200px;
   margin: 5em auto 7em auto;
   box-sizing: border-box;
+  position: relative;
   h2 {
     @include secondary_font(1.8rem, 200);
     color: $curiousblue;

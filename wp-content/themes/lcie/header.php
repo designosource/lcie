@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/fa.min.css">
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +30,7 @@
 							<li>NL</li>
 							<li>EN</li>
 						</ul>
-						
+
 					</ul>
 				</div>
 			</nav>

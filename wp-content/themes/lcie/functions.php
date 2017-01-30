@@ -641,3 +641,15 @@ if(function_exists("register_field_group"))
     ));
 }
 
+
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => __( 'Hoofdnavigatie' ),
+      'sub-menu' => __( 'Subnavigatie' ),
+      'footer-menu' => __( 'Footer navigatie' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
+

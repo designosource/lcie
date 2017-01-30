@@ -57,12 +57,24 @@
   font-weight: 700;
   color: #003E77; }
 
+.header__navigation ul li a {
+  text-decoration: none;
+  color: #003E77; }
+
+.header__subnavigation ul li a {
+  text-decoration: none;
+  color: #b5bac1; }
+
 .header__navigation__apply-container {
   padding: 0 !important;
   margin-left: 20px; }
 
 .header__navigation__apply {
-  padding: 10px 20px !important; }
+  padding: 10px 20px !important;
+  border: 2px solid #003E77;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem !important;
+  font-weight: 700 !important; }
 
 /* Sidebar navigation */
 .sidebar {
@@ -196,12 +208,14 @@
   list-style: none;
   padding: 0; }
 
-.footer__grid__col ul li {
+.footer__grid__col ul li a {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: white;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  display: block;
+  text-decoration: none; }
 
 .footer__grid__col--big {
   text-align: right; }

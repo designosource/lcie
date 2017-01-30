@@ -57,6 +57,14 @@
   font-weight: 700;
   color: #003E77; }
 
+.header__navigation ul li a {
+  text-decoration: none;
+  color: #003E77; }
+
+.header__subnavigation ul li a {
+  text-decoration: none;
+  color: #b5bac1; }
+
 .header__navigation__apply-container {
   padding: 0 !important;
   margin-left: 20px; }

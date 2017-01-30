@@ -1,22 +1,23 @@
+		<?php switch_to_blog(1); ?>
+
 		<footer class="footer">
 			<div class="wrapper">
 				<div class="grid footer__grid">
 					<div class="footer__grid__col">
 						<span class="footer__grid__col__title">Links</span>
-						<ul>
-							<li>Aanbod</li>
-							<li>Cursussen</li>
-							<li>Teams</li>
-							<li>Join Lcie</li>
-							<li>Partners</li>
-						</ul>
+						
+
+						<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+
+						
 					</div>
 					<div class="footer__grid__col footer__grid__col--faq">
 						<span class="footer__grid__col__title">Frequently asked questions</span>
 						<ul>
-							<li>Example 1</li>
-							<li>Example 2</li>
-							<li>Example 3</li>
+							<?php $query = new WP_Query(array('post_type' => "faq", "show_posts" => 3)); ?>
+							<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+									<li><a href="<?php echo site_url(); ?>/faq"><?php the_title(); ?></a></li>
+							<?php endwhile; endif; ?>
 						</ul>
 					</div>
 					<div class="footer__grid__col footer__grid__col--big">
@@ -31,6 +32,8 @@
 				</div>
 			</div>
 		</footer>
+
+		<?php restore_current_blog(); ?>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
@@ -52,7 +55,7 @@
 				color: <?php echo get_option('header_logo'); ?>;
 			}
 
-			.button:not(.button--ghost)
+			.button:not(.header__navigation__apply):not(.footer__up)
 			{
 				background-color: <?php echo get_option('header_logo'); ?>;
 			}

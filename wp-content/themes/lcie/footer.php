@@ -3,13 +3,7 @@
 				<div class="grid footer__grid">
 					<div class="footer__grid__col">
 						<span class="footer__grid__col__title">Links</span>
-						<ul>
-							<li>Aanbod</li>
-							<li>Cursussen</li>
-							<li>Teams</li>
-							<li>Join Lcie</li>
-							<li>Partners</li>
-						</ul>
+						<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
 					</div>
 					<div class="footer__grid__col">
 						<span class="footer__grid__col__title">Frequently asked questions</span>

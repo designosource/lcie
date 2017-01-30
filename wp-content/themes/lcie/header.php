@@ -24,11 +24,7 @@
 				<div class="wrapper">
 					<ul>
 
-						<li>Over Lcie</li>
-						<li>Nieuws &amp; events</li>
-						<li>Contact</li>
-						<li>Wedstrijden</li>
-						<li>Documentatie</li>
+						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
 						<ul class="header__subnavigation__languages">
 							<li>NL</li>
 							<li>EN</li>
@@ -43,13 +39,7 @@
 				<a href="http://lcie.be"><div class="header__logo"></div></a>
 				<div class="header__hamburger"></div>
 				<nav class="header__navigation">
-					<ul>
-						<li><a href="<?php echo site_url(); ?>">Home</a></li>
-						<li><a href="<?php echo site_url(); ?>/aanbod">Aanbod</a></li>
-						<li>Cursussen</li>
-						<li><a href="<?php echo site_url(); ?>/teams">Teams</a></li>
-						<li class="header__navigation__apply-container"><a href="" class="button header__navigation__apply">Sluit je aan</a></li>
-					</ul>
+					<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 				</nav>
 			</div>
 		</header>

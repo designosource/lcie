@@ -19,7 +19,7 @@
   width: 100%;
   margin-top: 20px; }
 
-.header__subnavigation ul {
+.header__subnavigation ul:not(.header__subnavigation__icons) {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 0;
@@ -65,12 +65,70 @@
   text-decoration: none;
   color: #b5bac1; }
 
+.header__subnavigation__icons {
+  display: inline-block;
+  width: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  text-align: right; }
+
+.header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter {
+  text-indent: -9999px;
+  padding: 0 !important; }
+
+.header__subnavigation__icons__search a {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/sub_search.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 9999px;
+  padding: 0 !important;
+  position: relative;
+  top: -5px;
+  margin-right: 15px;
+  display: block; }
+
+.header__subnavigation__icons__facebook a {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/sub_facebook.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 9999px;
+  padding: 0 !important;
+  position: relative;
+  top: -5px;
+  margin-right: 15px;
+  display: block; }
+
+.header__subnavigation__icons__twitter a {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/sub_twitter.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 9999px;
+  padding: 0 !important;
+  position: relative;
+  top: -5px;
+  display: block; }
+
 .header__navigation__apply-container {
   padding: 0 !important;
   margin-left: 20px; }
 
 .header__navigation__apply {
   padding: 10px 20px !important; }
+
+.menu-subnavigatie-container {
+  display: inline-block; }
 
 /* Sidebar navigation */
 .sidebar {
@@ -154,7 +212,7 @@
     background-color: white;
     width: 40px;
     content: " "; }
-  .header__subnavigation__languages:before {
+  .header__subnavigation__icons:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -172,12 +230,12 @@
     font-weight: 900;
     padding-left: 0;
     opacity: 0.8; }
-  .header__subnavigation__languages {
+  .header__subnavigation__icons {
     position: relative;
     padding-top: 20px !important;
     margin-top: 20px !important;
     text-align: left !important; }
-  .header__subnavigation__languages li {
+  .header__subnavigation__icons li {
     display: inline-block !important;
     width: auto; }
   .header__navigation__apply-container {

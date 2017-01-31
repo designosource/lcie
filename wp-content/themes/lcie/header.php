@@ -26,8 +26,7 @@
 					<ul>
 
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
-						<ul class="header__subnavigation__languages">
-							<li>NL</li>
+						<ul class="header__subnavigation__icons">
 							<li>EN</li>
 						</ul>
 

@@ -128,15 +128,17 @@
     add_action("admin_init", "display_options");
 
 
-wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
 
 
  global $post;
  global $wp_query;
  global $color;
 
-    $cat_query = new WP_Query( $args );
-wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
+    // $cat_query = new WP_Query( $args );
+
+function my_ajax_pagination() {
+
+    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
     // 'ajaxurl' => get_template_directory_uri() . '/load-archive.php',
     'ajaxurl' => admin_url('admin-ajax.php'),
     'query_vars' => json_encode( array(
@@ -147,13 +149,14 @@ wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
             ),
         )
     ) )
+
+
 ));
 
+    
+wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
 
-add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
-add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 
-function my_ajax_pagination() {
     $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 
     $date = array(
@@ -185,6 +188,12 @@ function my_ajax_pagination() {
 
     die();
 }
+
+
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
 
 
 

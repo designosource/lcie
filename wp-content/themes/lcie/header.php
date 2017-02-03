@@ -27,7 +27,11 @@
 
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
 						<ul class="header__subnavigation__icons">
-							<li>EN</li>
+							<?php if(pll_current_language() == "nl"): ?>
+								<li><a href="<?php echo site_url(); ?>/en/">EN</a></li>
+							<?php else: ?>
+								<li><a href="<?php echo site_url(); ?>/nl/">NL</a></li>
+							<?php endif; ?>
 						</ul>
 
 					</ul>

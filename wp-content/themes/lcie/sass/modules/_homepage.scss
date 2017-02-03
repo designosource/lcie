@@ -99,8 +99,9 @@
 	background-color: red;
 	background-size: cover;
 	background-position: center;
-	text-align: center;;
+	text-align: center;
 	position: relative;
+	text-decoration: none;
 }
 
 .home__teams__grid__col__overlay
@@ -131,6 +132,8 @@
 	text-align: center;
 }
 
+
+
 .home__teams__grid__col__readmore
 {
 	font-size: 1.0rem;
@@ -146,6 +149,20 @@
 {
 	width: 100%;
 	margin-top: 50px;
+	height: 60px;
+}
+
+.swiper-wrapper
+{
+	padding-left: 80px;
+	padding-right: 80px;
+	box-sizing: border-box;
+}
+
+.home__teams__grid-small__slide__slide
+{
+	display: flex;
+	align-items: center;
 }
 
 .home__teams__grid-small__logo

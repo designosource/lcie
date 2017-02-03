@@ -59,18 +59,40 @@
 	list-style: none;
 }
 
-.header__navigation ul li
+.header__navigation ul li:not(.header__navigation__apply)
 {
 	display: inline-block;
-	padding: 10px 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 	@include primary_font(1.0rem, 700);
 	color: $regalblue;
+	position: relative;
 }
 
 .header__navigation ul li a
 {
 	text-decoration: none;
 	color: $regalblue;
+}
+
+.header__navigation ul li:not(.header__navigation__apply) a:before
+{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 4px;
+	background-color: $regalblue;
+	transition: all 0.1s ease-in-out;
+}
+
+.header__navigation ul li:not(.header__navigation__apply) a:hover:before
+{
+	width: 100%;
+	transition: all 0.1s ease-in-out;	
 }
 
 .header__subnavigation ul li a

@@ -10,7 +10,7 @@
 			<div class="home__hero__content">
 				<h1 class="home__hero__title">Lcie</h1>
 				<p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om te ondernemen drastisch verlagen en de ondernemingszin van studenten, onderzoekers en professoren aanmoedigen.</p>
-				<a href="" class="button button--ghost">Bekijk het aanbod</a>
+				<a href="<?php echo site_url(); ?>/aanbod" class="button button--ghost">Bekijk het aanbod</a>
 			</div>
 		</div>
 	</section>
@@ -38,29 +38,40 @@
 	<section class="home__teams">
 		<div class="wrapper">
 			<h1>Teams</h1>
-			<a href="" class="button home__teams__all">Bekijk alle teams</a>
+			<a href="<?php echo site_url(); ?>/teams" class="button home__teams__all">Bekijk alle teams</a>
 		</div>
 		<div class="grid home__teams__grid">
 			<?php $query = new WP_Query(array('post_type' => "team")); ?>
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 				<?php if(get_field("featured")): ?>
-					<div class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
+					<a href="<?php the_permalink(); ?>" class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
 						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
 						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
 						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
-						<a class="home__teams__grid__col__readmore" href="<?php the_permalink(); ?>">lees meer</a>
-					</div>
+						<span class="home__teams__grid__col__readmore">lees meer</span>
+					</a>
 				<?php endif; ?>
 			<?php endwhile; endif; ?>
 		</div>
 		<div class="wrapper">
-			<div class="grid home__teams__grid-small">
-				<?php $query = new WP_Query(array('post_type' => "team")); ?>
-				<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-					<?php if(!get_field("featured")): ?>
-						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
-					<?php endif; ?>
-				<?php endwhile; endif; ?>
+
+			<!-- Slider main container -->
+			<div class="swiper-container home__teams__grid-small">
+			    <div class="swiper-wrapper">
+
+			        		<?php $query = new WP_Query(array('post_type' => "team")); ?>
+							<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+								<?php if(!get_field("featured")): ?>
+									<div class="swiper-slide home__teams__grid-small__slide">
+										<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
+									</div>
+								<?php endif; ?>
+							<?php endwhile; endif; ?>
+			      
+			    </div>
+
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
 			</div>
 		</div>
 	</section>
@@ -93,26 +104,22 @@
 			<h1>Lcie in cijfers</h1>
 		</div>
 		<div class="grid home__facts__grid">
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
-			</div>
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
-			</div>
-			<div class="home__facts__col">
-				<span class="home__facts__col__number">12</span>
-				<span class="home__facts__col__description">bananas</span>
-			</div>
+			<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
+
+				<?php if( have_rows('stats') ): while ( have_rows('stats') ) : the_row(); ?>
+		     
+			    <div class="home__facts__col">
+					<span class="home__facts__col__number"><?php the_sub_field('number'); ?></span>
+					<span class="home__facts__col__description"><?php the_sub_field('description'); ?></span>
+				</div>
+
+				<?php endwhile; endif; ?>
+			<?php endwhile; endif; ?>
+
 		</div>
 	</section>
 
-	<?php if( have_rows('stats') ): ?>
-	<?php while ( have_rows('stats') ): the_row(); ?>	
-		<?php the_sub_field("number"); ?>
-		<?php the_sub_field("description"); ?>
-	<?php endwhile; endif;?>
+
 
 	<section class="home__calendar">
 		<div class="wrapper">
@@ -130,5 +137,7 @@
 			<div class="home__calendar__photo"></div>
 		</div>
 	</section>
+
+
 
 <?php get_footer(); ?>

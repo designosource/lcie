@@ -28,6 +28,32 @@
 			</div>
 		</footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<?php if ( is_page_template('page-templates/home-page.php') ): ?>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
+
+		  <script>        
+		  var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'horizontal',
+		    // loop: true,
+		    slidesPerView: 5,
+		    nextButton: '.swiper-button-next',
+		    prevButton: '.swiper-button-prev',
+		    breakpoints: {
+			    768: {
+			      slidesPerView: 1
+			    },
+			    1200: {
+			      slidesPerView: 4
+			    }
+			  }
+		  })        
+		  </script>
+
+		 <?php endif; ?>
+
 		<script src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
 		<?php wp_footer(); ?>
 	</body>

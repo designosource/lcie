@@ -81,7 +81,7 @@ $table_prefix  = 'test_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* Multisite */
 define('WP_ALLOW_MULTISITE', true);

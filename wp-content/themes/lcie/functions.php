@@ -651,5 +651,49 @@ function register_my_menus() {
     )
   );
 }
+
+
+function get_network_posts($args)
+{
+
+    $posts = array();
+
+    $original_blog_id = get_current_blog_id(); 
+
+    $bids = get_sites();
+
+    foreach( $bids as $bid )
+    {
+
+        switch_to_blog( $bid->blog_id ); 
+
+        $allsearch =  new WP_Query( $args );
+
+        while($allsearch->have_posts()): $allsearch->the_post();
+
+           array_push($posts, get_post());
+
+        endwhile; 
+
+        restore_current_blog();
+    }
+
+// print_r(get_sites());
+//     foreach(get_sites() as $site){
+
+//         if (strpos($site->domain, $args["s"]) !== false){
+
+//             array_push($posts, new"post_title" => $site->domain, "post_content" => ""));
+
+//         }
+
+//     }
+
+    return $posts; 
+
+    
+
+}
+
 add_action( 'init', 'register_my_menus' );
 

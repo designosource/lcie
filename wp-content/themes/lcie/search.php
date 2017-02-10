@@ -1,5 +1,11 @@
 <?php
-$allsearch =  new WP_Query("s=$s&showposts=0");
+
+    $args = array(
+        "s" => $s,
+        "showposts" => 0,
+        "post_type" => "any"
+    );
+    $allsearch =  new WP_Query( $args );  
 ?>
 
 
@@ -13,38 +19,67 @@ $allsearch =  new WP_Query("s=$s&showposts=0");
     </section>
 
 
-    <section class="search__form search__results">
 
-                <?php get_search_form(); ?>
+    <section class="content">
+        <div class="wrapper">
+                
+        <?php get_search_form(); ?>
+        <article class="search__results__result">
+            <h2 class="search__results__title">Zoekresultaten</h2>
+            <span class="search__results__count"><?php echo count(get_network_posts($args)); ?> resultaten gevonden voor '<?php echo $s;?>'.</span>
+        </article>
 
-        <h2 class="search__results__title">Zoekresultaten</h2>
-        <span class="search__results__count"><?php echo $allsearch->found_posts; ?> resultaten gevonden voor '<?php echo $s;?>'.</span>
-        <hr>
 
-
-        <?php if ( have_posts() ) : ?>
+        <?php if ( count(get_network_posts($args)) > 0 ) : ?>
 
                 <?php get_template_part( 'content', 'search' ); ?>
 
-                <?php foreach ($allsearch->posts as $blogpost): ?>
+                 <?php foreach(get_network_posts($args) as $post): ?>
 
-                    <?php if($blogpost->post_status === "publish"): ?>
-                        <article>
-                            <!--<span class="search__results__subject"><?php echo ucfirst($blogpost->post_name); ?></span>-->
-                            <h3><a href="<?php echo $blogpost->guid; ?>"><?php echo $blogpost->post_title; ?></a></h3>
-                            <p><?php echo strtolower(date("d M Y", strtotime($blogpost->post_date))) . ' - ' . substr($blogpost->post_content, 0, 200) . '...'; ?></p>
-                            <hr>
+     
+                        <article class="search__results__result">
+                            
+                            <?php 
+                                switch ($post->post_type) {
+                                    case 'faq':
+                                        $type =  "FAQ";
+                                        break;
+                                    case 'documentatie':
+                                        $type =  "Documentatie";
+                                        $date = $post->post_date;
+                                        break;
+                                    case 'team':
+                                        $type =  "Teams";
+                                        // $date = get_the_date();
+                                        break;
+                                    default:
+                                        $type =  "";
+                                        break;
+                                }
+                            ?>
+                            <?php if(!empty($type)): ?>
+                                <p class="search__results__result__type"><?php echo $type; ?></p>
+                            <?php endif; ?>
+
+                            <a class="search__results__result__title" href="<?php the_permalink(); ?>"> <?php echo $post->post_title; ?></a>
+                            <?php if(!empty($date)): ?>
+                                <p><span class="search__results__result__date"><?php echo $date; ?> - </span><?php echo $post->post_content; ?></p>
+                            <?php else: ?>
+                                <p><?php echo $post->post_content; ?></p>
+                            <?php endif; ?>
+                            
+
                         </article>
-                    <?php endif; ?>
+                 
 
-                <?php endforeach; ?>
+                 <?php endforeach; ?>
 
         <?php else : ?>
 
             <?php get_template_part( 'no-results', 'search' ); ?>
 
         <?php endif; ?>
-
+        </div>
     </section>
 
 

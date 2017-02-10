@@ -13,6 +13,7 @@
 @import "modules/offerings";
 @import "modules/teams";
 @import "modules/faq";
+@import "modules/search";
 
 
 body
@@ -64,6 +65,12 @@ p {
 	background-color: transparent;
 	color: white;
 	border: 2px solid white;
+}
+
+.content
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 

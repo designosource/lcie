@@ -19,3 +19,8 @@
   width: 18vw;
   margin-bottom: 2em;
 }
+@media screen and (max-width: 768px) {
+  .partners__grid__item {
+    width: 35vw;
+  }
+}

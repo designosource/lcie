@@ -15,6 +15,7 @@
 @import "modules/faq";
 @import "modules/search";
 @import "modules/partnerspage";
+@import "modules/contestspage";
 
 
 body
@@ -32,6 +33,12 @@ h1
 
 h2 {
 	@include secondary_font(1.8rem, 400);
+	color: $curiousblue;
+	font-family: 'roboto';
+}
+
+h3 {
+	@include secondary_font(1.4rem, 400);
 	color: $curiousblue;
 	font-family: 'roboto';
 }

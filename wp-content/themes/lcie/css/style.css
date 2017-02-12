@@ -1219,6 +1219,11 @@
 .offerings__infrastructure__grid__col__hook-up path, .offerings__infrastructure__grid__col__hook-under path {
   fill: #43AADA; }
 
+.about__pagecontent{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 @media screen and (max-width: 768px) {
   .offerings__sidebar {
     width: 100%;

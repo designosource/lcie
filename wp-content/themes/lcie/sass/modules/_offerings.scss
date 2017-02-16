@@ -316,6 +316,11 @@
 {
 	fill: $curiousblue;
 }
+.offerings__sidebar ul li a, a.offerings__infrastructure__grid__col__plan {
+	text-decoration: none;
+	color: $regalblue;
+	font-weight: bold;
+}
 
 
 @media screen and (max-width: 768px)

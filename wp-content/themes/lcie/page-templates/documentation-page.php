@@ -16,10 +16,10 @@
 </section>
 
 <div class="documentation__nav">
-  <a href="#" class="documentation__nav__item documentation__nav__item__active">Case Studies</a>
-  <a href="#" class="documentation__nav__item">Video's</a>
-  <a href="#" class="documentation__nav__item">Presentaties</a>
-  <a href="#" class="documentation__nav__item">Templates</a>
+  <a href="#" class="documentation__nav__item documentation__nav__item__active" data-type="case_studies">Case Studies</a>
+  <a href="#" class="documentation__nav__item" data-type="videos">Video's</a>
+  <a href="#" class="documentation__nav__item" data-type="presentaties">Presentaties</a>
+  <a href="#" class="documentation__nav__item" data-type="templates">Templates</a>
 </div>
 
 <div class="documentation__article__grid">
@@ -35,5 +35,43 @@
             
         <?php endwhile; endif; ?>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  
+  $(".documentation__nav__item").click(function(e){
+
+    e.preventDefault();
+
+    $(".documentation__nav__item").removeClass("documentation__nav__item__active");
+    $(this).addClass("documentation__nav__item__active");
+
+    $(".documentation__article__grid").empty();
+
+    $(".documentation__article__grid").append("<div class='documentation__article__grid__loading'></div>");
+
+    $.ajax({
+      method: "POST",
+      url: '<?php echo site_url(); ?>/wp-admin/admin-ajax.php',
+      data:  {
+        action: "filterDocumentation",
+        type: $(this).attr("data-type")
+      }
+    })
+    .success(function(data) {
+
+        $(".documentation__article__grid").empty();
+
+        if(!data){
+           $(".documentation__article__grid").append("<p>Geen documentatie gevonden voor deze categorie.</p>");
+        }else{
+           $(".documentation__article__grid").append(data);
+        }
+        
+    });
+
+  });
+
+</script>
 
 <?php get_footer(); ?>

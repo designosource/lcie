@@ -20,18 +20,16 @@
 			<h1>Voor wie?</h1>
 		</div>
 		<div class="grid home__who__grid">
-			<div class="home__who__grid__col">
-				Lcie voor studenten
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor docenten
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor onderzoekers
-			</div>
-			<div class="home__who__grid__col">
-				Lcie voor ondernemers
-			</div>
+			<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
+
+				<?php if( have_rows('lcie_for') ): while ( have_rows('lcie_for') ) : the_row(); ?>
+					<div class="home__who__grid__col" style="background-image: url(<?php the_sub_field("image"); ?>)">
+						<a href="<?php the_sub_field("url"); ?>">Lcie voor <?php the_sub_field("text"); ?></a>
+						<div class="home__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
+					</div>
+				<?php endwhile; endif; ?>
+				
+			<?php endwhile; endif; ?>
 		</div>
 	</section>
 
@@ -134,7 +132,7 @@
 					<a href="" class="home__calendar__side__more">Meer info</a>
 				</div>
 			</div>
-			<div class="home__calendar__photo"></div>
+			<div class="home__calendar__photo" style="background-image: url(<?php the_field("calendar_photo"); ?>)"></div>
 		</div>
 	</section>
 

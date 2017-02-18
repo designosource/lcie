@@ -392,6 +392,18 @@ if(function_exists("register_field_group"))
                         'rows' => '',
                         'formatting' => 'br',
                     ),
+                    array (
+                        'key' => 'field_5887a66f82ce9',
+                        'label' => 'Tonen op Contactpagina',
+                        'name' => 'show_on_contact',
+                        'type' => 'true_false',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'maxlength' => '',
+                        'rows' => '',
+                        'formatting' => 'br',
+                    ),
                 ),
                 'row_min' => 0,
                 'row_limit' => '',
@@ -696,4 +708,84 @@ function get_network_posts($args)
 }
 
 add_action( 'init', 'register_my_menus' );
+
+
+
+add_action('wp_ajax_send_contact_form','sendForm');
+function sendForm(){
+
+    $name = $_POST["contact_name"];
+    $email = $_POST["contact_email"];
+    $to = $_POST["contact_who"];
+    $type = $_POST["contact_type"];
+    $message = $_POST["contact_message"];
+
+    if(!empty($name) && !empty($email) && !empty($message)){
+
+        $subject = "Nieuw bericht via lcie.be";
+
+        $message = "
+        <html>
+        <head>
+        <title>Nieuw bericht via lcie.be</title>
+        </head>
+        <body>
+        <p>Naam: ".$name."</p>
+        <p>Email: ".$email."</p>
+        <p>Type: ".$type."</p>
+        <p>Bericht:</p>
+        <p>".$message."</p>
+        </body>
+        </html>
+        ";
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <'.$email.'>' . "\r\n";
+
+        mail($to,$subject,$message,$headers);
+
+        echo true;
+
+    }else{
+        echo false;
+    }
+
+    die();
+
+}
+
+
+add_action('wp_ajax_filterDocumentation','filterDocumentation');
+function filterDocumentation(){
+
+    $args = array(
+
+        "post_type" => "documentatie",
+        "meta_key" => "type",
+        "meta_value" => $_POST["type"]
+
+    );
+
+    $query = new WP_Query($args);
+
+    if($query->have_posts()): 
+
+        while($query->have_posts()): $query->the_post();
+
+            echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("file") . '">Download</a></div>';
+
+
+        endwhile; 
+
+    else:
+
+        echo false;
+
+    endif;
+
+    die();
+
+}
+
 

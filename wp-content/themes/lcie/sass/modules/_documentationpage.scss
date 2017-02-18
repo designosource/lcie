@@ -53,3 +53,15 @@
     float: right;
   }
 }
+
+.documentation__article__grid__loading
+{
+  height: 50px;
+  width: 50px;
+  background-image: url(../images/loading.svg);
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin: 30px auto;
+}

@@ -6,11 +6,12 @@
 <?php get_header(); ?>
 
 
-	<section class="page__top"> 
+	<section class="page__top" style="background-image: url(<?php the_field("header_image"); ?>);">
 		<div class="wrapper">
 			<h1 class="page__top__title">Aanbod</h1>
 			<h2 class="page__top__subtitle">bekijk hieronder ons aanbod</h2>
 		</div>
+		<div class="page__top__overlay"></div>
 	</section>
 
 	<section class="offerings__container">
@@ -42,13 +43,17 @@
 	<section class="offerings__who" id="who">
 		
 		<div class="wrapper">
-			
+
+			<?php $frontpage_id = get_option( 'page_on_front' ); ?>
+
 			<div class="grid offerings__who__grid">
-				
-				<div class="offerings__who__grid__col">Studenten</div>
-				<div class="offerings__who__grid__col">Docenten</div>
-				<div class="offerings__who__grid__col">Onderzoekers</div>
-				<div class="offerings__who__grid__col">Ondernemers</div>
+
+				<?php if( have_rows('lcie_for', $frontpage_id) ): while ( have_rows('lcie_for', $frontpage_id) ) : the_row(); ?>
+						<div class="offerings__who__grid__col">
+							<a href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
+							<div class="offerings__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
+						</div>
+				<?php endwhile; endif; ?>
 
 			</div>
 

@@ -2,8 +2,8 @@
     function add_new_menu_items()
     {
         add_menu_page(
-            "Theme Options",
-            "Theme Options",
+            "Site opties",
+            "Site opties",
             "manage_options",
             "theme-options",
             "theme_options_page",
@@ -21,32 +21,15 @@
             
             <!-- run the settings_errors() function here. -->
             <?php settings_errors(); ?>
-            <h1>Theme Options</h1>
+            <h1>Opties</h1>
             
-            <?php
-                $active_tab = "header-options";
-                if(isset($_GET["tab"]))
-                {
-                    if($_GET["tab"] == "header-options")
-                    {
-                        $active_tab = "header-options";
-                    }
-                    else
-                    {
-                        $active_tab = "ads-options";
-                    }
-                }
-            ?>
-            
-            <h2 class="nav-tab-wrapper">
-                <a href="?page=theme-options&tab=header-options" class="nav-tab <?php if($active_tab == 'header-options'){echo 'nav-tab-active';} ?> "><?php _e('Header Options', 'sandbox'); ?></a>
-                <a href="?page=theme-options&tab=ads-options" class="nav-tab <?php if($active_tab == 'ads-options'){echo 'nav-tab-active';} ?>"><?php _e('Advertising Options', 'sandbox'); ?></a>
-            </h2>
 
             <form method="post" action="options.php" enctype="multipart/form-data">
                 <?php
                 
                     settings_fields("header_section");
+
+                    settings_fields("general_info");
                     
                     do_settings_sections("theme-options");
                 
@@ -62,32 +45,24 @@
 
     function display_options()
     {
-        add_settings_section("header_section", "Header Options", "display_header_options_content", "theme-options");
+        add_settings_section("header_section", "Visuele instellingen", "display_header_options_content", "theme-options");
 
-        if(isset($_GET["tab"]))
-        {
-            if($_GET["tab"] == "header-options")
-            {
-                add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
-                register_setting("header_section", "header_logo");
+     
+        add_settings_field("header_logo", "Kleur", "display_logo_form_element", "theme-options", "header_section");
+        register_setting("header_section", "header_logo");
 
-                add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
-                register_setting("header_section", "background_picture", "handle_file_upload");
-            }
-            else
-            {
-                add_settings_field("advertising_code", "Ads Code", "display_ads_form_element", "theme-options", "header_section");      
-                register_setting("header_section", "advertising_code");
-            }
-        }
-        else
-        {
-            add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
-            register_setting("header_section", "header_logo");
-            
-            add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
-            register_setting("header_section", "background_picture", "handle_file_upload");
-        }
+        add_settings_field("background_picture", "Afbeelding", "background_form_element", "theme-options", "header_section");
+        register_setting("header_section", "background_picture", "handle_file_upload");
+
+
+        add_settings_section("general_info", "Algemene informatie", "display_header_options_content", "theme-options");
+
+        add_settings_field("email", "E-mail", "display_email_form_element", "theme-options", "general_info");
+        register_setting("general_info", "email");
+
+        add_settings_field("description", "Beschrijving", "display_description_form_element", "theme-options", "general_info");
+        register_setting("general_info", "description");
+    
         
     }
 
@@ -104,7 +79,6 @@
     }
 
 
-    function display_header_options_content(){echo "The header of the theme";}
     function background_form_element()
     {
         ?>
@@ -112,16 +86,25 @@
             <?php echo get_option("background_picture"); ?>
         <?php
     }
+
     function display_logo_form_element()
     {
         ?>
             <input type="color" name="header_logo" id="header_logo" value="<?php echo get_option('header_logo'); ?>" />
         <?php
     }
-    function display_ads_form_element()
+
+    function display_email_form_element()
     {
         ?>
-            <input type="text" name="advertising_code" id="advertising_code" value="<?php echo get_option('advertising_code'); ?>" />
+            <input type="email" name="email" id="email" value="<?php echo get_option('email'); ?>" />
+        <?php
+    }
+
+    function display_description_form_element()
+    {
+        ?>
+            <textarea name="description" id="description"><?php echo get_option('description'); ?></textarea>
         <?php
     }
 

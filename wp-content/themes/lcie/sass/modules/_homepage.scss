@@ -144,7 +144,7 @@
 
 .home__teams__grid__col__text
 {
-	font-size: 1.2rem;
+	@include primary_font(1.2rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -155,7 +155,7 @@
 
 .home__teams__grid__col__readmore
 {
-	font-size: 1.0rem;
+	@include primary_font(1.0rem, 400);
 	color: white;
 	text-decoration: none;
 	position: absolute;
@@ -209,14 +209,14 @@
 .home__facts__col__number
 {
 	display: block;
-	font-size: 4.8rem;
+	@include primary_font(4.8rem, 400);
 	margin-bottom: 20px;
 }
 
 .home__facts__col__description
 {
 	display: block;
-	font-size: 1.2rem;
+	@include primary_font(1.2rem, 400);
 }
 
 
@@ -249,7 +249,7 @@
 
 .home__divisions__grid__col__title
 {
-	font-size: 1.6rem;
+	@include primary_font(1.6rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -257,7 +257,7 @@
 
 .home__divisions__grid__col__description
 {
-	font-size: 1.0rem;
+	@include primary_font(1.0rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -266,7 +266,7 @@
 
 .home__divisions__grid__col__readmore
 {
-	font-size: 1.1rem;
+	@include primary_font(1.1rem, 400);
 	color: white;
 	text-decoration: none;
 	position: absolute;

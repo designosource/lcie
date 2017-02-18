@@ -495,14 +495,18 @@
   z-index: 999; }
 
 .home__teams__grid__col__text {
+  font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
+  font-weight: 400;
   color: white;
   position: relative;
   z-index: 999;
   text-align: center; }
 
 .home__teams__grid__col__readmore {
-  font-size: 1.0rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   color: white;
   text-decoration: none;
   position: absolute;
@@ -544,12 +548,16 @@
 
 .home__facts__col__number {
   display: block;
+  font-family: "Nunito", sans-serif;
   font-size: 4.8rem;
+  font-weight: 400;
   margin-bottom: 20px; }
 
 .home__facts__col__description {
   display: block;
-  font-size: 1.2rem; }
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400; }
 
 /* DIVISIONS */
 .home__divisions {
@@ -574,19 +582,25 @@
   position: relative; }
 
 .home__divisions__grid__col__title {
+  font-family: "Nunito", sans-serif;
   font-size: 1.6rem;
+  font-weight: 400;
   color: white;
   position: relative;
   z-index: 999; }
 
 .home__divisions__grid__col__description {
-  font-size: 1.0rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   color: white;
   position: relative;
   z-index: 999; }
 
 .home__divisions__grid__col__readmore {
+  font-family: "Nunito", sans-serif;
   font-size: 1.1rem;
+  font-weight: 400;
   color: white;
   text-decoration: none;
   position: absolute;
@@ -1131,19 +1145,25 @@
   position: relative; }
 
 .offerings__subsites__grid__col__title {
+  font-family: "Nunito", sans-serif;
   font-size: 1.6rem;
+  font-weight: 400;
   color: white;
   position: relative;
   z-index: 999; }
 
 .offerings__subsites__grid__col__description {
-  font-size: 1.0rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   color: white;
   position: relative;
   z-index: 999; }
 
 .offerings__subsites__grid__col__more {
+  font-family: "Nunito", sans-serif;
   font-size: 1.1rem;
+  font-weight: 400;
   color: white;
   text-decoration: none;
   position: absolute;

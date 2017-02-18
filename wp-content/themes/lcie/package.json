@@ -1,19 +1,19 @@
 {
-  "name": "lorenzgillisjans.com",
+  "name": "Lcie",
   "version": "1.0.0",
-  "description": "Gulp dependencies for my Portfolio",
+  "description": "Gulp dependencies for Lcie",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/Lowrenz/portfolio"
+    "type": "git"
   },
-  "author": "Lorenz Gillisjans",
+  "author": "Nicky Somers",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.2",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssmin": "^0.1.7",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-livereload": "^3.8.0",

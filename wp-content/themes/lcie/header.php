@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/fa.min.css">
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/style.min.css">
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +38,7 @@
 
 			<div class="wrapper">
 
-				<a href="http://lcie.be"><div class="header__logo"></div></a>
+				<a href="<?php echo site_url(); ?>"><div class="header__logo"></div></a>
 				<div class="header__hamburger"></div>
 				<nav class="header__navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>

@@ -43,7 +43,7 @@
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 				<?php if(get_field("featured")): ?>
 					<a href="<?php the_permalink(); ?>" class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
-						<img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid__col__logo">
+						<img src="<?php the_field("logo_white"); ?>" alt="" class="home__teams__grid__col__logo">
 						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
 						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
 						<span class="home__teams__grid__col__readmore">lees meer</span>
@@ -77,7 +77,6 @@
 	<section class="home__divisions">
 		<div class="wrapper">
 			<h1>Subdivies</h1>
-			<a href="" class="button home__calendar__all">Bekijk alle divisies</a>
 		</div>
 	
 		<div class="grid home__divisions__grid">
@@ -89,7 +88,7 @@
 					<h2 class="home__divisions__grid__col__title"><?php echo $site->blogname; ?></h2>
 					<span class="home__divisions__grid__col__description"><?php echo get_option("description"); ?></span>
 					<a class="home__divisions__grid__col__readmore" href="<?php echo site_url(); ?>">lees meer</a>
-					<div class="home__divisions__grid__col__overlay"></div>
+					<div class="home__divisions__grid__col__overlay" style="background-color: <?php echo get_option("header_logo"); ?>"></div>
 				</div>
 						
 			<?php restore_current_blog(); endforeach; ?>

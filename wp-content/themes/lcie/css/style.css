@@ -466,12 +466,11 @@
   width: 25%;
   -ms-flex-positive: 1;
       flex-grow: 1;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   padding-right: 40px;
   padding-left: 40px;
   box-sizing: border-box;
-  background-color: red;
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -488,9 +487,7 @@
   z-index: 9; }
 
 .home__teams__grid__col__logo {
-  height: 40px;
-  -webkit-filter: brightness(10) contrast(10) grayscale(1);
-          filter: brightness(10) contrast(10) grayscale(1);
+  height: 60px;
   position: relative;
   z-index: 999; }
 
@@ -570,12 +567,11 @@
   width: 25%;
   -ms-flex-positive: 1;
       flex-grow: 1;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   padding-right: 40px;
   padding-left: 40px;
   box-sizing: border-box;
-  background-color: red;
   background-size: cover;
   background-position: center;
   text-align: center;

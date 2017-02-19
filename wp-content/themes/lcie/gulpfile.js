@@ -18,7 +18,7 @@ gulp.task('imagemin', function() {
             }],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('./images'));
+        .pipe(gulp.dest('./dist/images'));
 });
 
 const sassFiles = "sass/**/*.scss";
@@ -52,5 +52,8 @@ gulp.task('watch', function() {
         livereload.changed(files)
     });
 });
+
+gulp.task('build', ['sass', 'cssmin', 'imagemin', 'uglify']);
+
 
 

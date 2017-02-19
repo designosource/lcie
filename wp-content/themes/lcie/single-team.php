@@ -42,7 +42,7 @@
 
 				<div class="team__info__text__social">
 
-					<?php if(!get_field("website")): ?>
+					<?php if(get_field("website")): ?>
 					<a href="<?php the_field("website"); ?>" class="team__info__text__social__item team__info__text__social__item--website"></a>
 					<?php endif; ?>
 					<?php if(get_field("facebook")): ?>

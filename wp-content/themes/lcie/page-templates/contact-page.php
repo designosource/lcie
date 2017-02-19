@@ -95,7 +95,8 @@
 				<div class="col contact__location__grid__col">
 					<h2 class="contact__location__title"><?php the_sub_field("name"); ?></h2>
 					<p class="contact__location__address"><?php the_sub_field("address"); ?></p>
-					<?php if(!empty(get_sub_field("email"))): ?>
+					<?php $email = get_sub_field("email"); ?>
+					<?php if(!empty($email)): ?>
 						<a href="mailto:<?php the_sub_field("email"); ?>" class="contact__location__mail"><?php the_sub_field("email"); ?></a>
 					<?php endif; ?>
 				</div>

@@ -28,8 +28,6 @@
                 <?php
                 
                     settings_fields("header_section");
-
-                    settings_fields("general_info");
                     
                     do_settings_sections("theme-options");
                 
@@ -45,8 +43,7 @@
 
     function display_options()
     {
-        add_settings_section("header_section", "Visuele instellingen", "display_header_options_content", "theme-options");
-
+        add_settings_section("header_section", "Algemene informatie", null , "theme-options");
      
         add_settings_field("header_logo", "Kleur", "display_logo_form_element", "theme-options", "header_section");
         register_setting("header_section", "header_logo");
@@ -54,28 +51,25 @@
         add_settings_field("background_picture", "Afbeelding", "background_form_element", "theme-options", "header_section");
         register_setting("header_section", "background_picture", "handle_file_upload");
 
+        add_settings_field("email", "E-mail", "display_email_form_element", "theme-options", "header_section");
+        register_setting("header_section", "email");
 
-        add_settings_section("general_info", "Algemene informatie", "display_header_options_content", "theme-options");
-
-        add_settings_field("email", "E-mail", "display_email_form_element", "theme-options", "general_info");
-        register_setting("general_info", "email");
-
-        add_settings_field("description", "Beschrijving", "display_description_form_element", "theme-options", "general_info");
-        register_setting("general_info", "description");
+        add_settings_field("description", "Beschrijving", "display_description_form_element", "theme-options", "header_section");
+        register_setting("header_section", "description");
     
         
     }
 
-    function handle_file_upload($options)
+    function handle_file_upload($option)
     {
-        if(!empty($_FILES["background_picture"]["tmp_name"]))
-        {
-            $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
-            $temp = $urls["url"];
-            return $temp;   
-        }
-
-        return get_option("background_picture");
+      if(!empty($_FILES["background_picture"]["tmp_name"]))
+      {
+        $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
+        $temp = $urls["url"];
+        return $temp;   
+      }
+      
+      return $option;
     }
 
 
@@ -104,7 +98,7 @@
     function display_description_form_element()
     {
         ?>
-            <textarea name="description" id="description"><?php echo get_option('description'); ?></textarea>
+            <textarea name="description" id="description" style="width: 100%; height: 250px;"><?php echo get_option('description'); ?></textarea>
         <?php
     }
 

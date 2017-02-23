@@ -26,6 +26,7 @@
 {
 	width: 60%;
 	max-width: 300px;
+	max-height: 200px;
 	display: block;
 }
 
@@ -44,7 +45,15 @@
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
-
+.teams__pastprojects__expand{
+	@include secondary_font(2.2rem, 400);
+	color: $curiousblue;
+	font-family: 'roboto';
+	text-decoration: none;
+}
+.teams__pastprojects__expand:hover{
+	text-decoration: underline;
+}
 .teams__pastprojects__year
 {
 	@include primary_font(2.0rem, 400);

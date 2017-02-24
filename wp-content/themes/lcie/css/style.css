@@ -119,9 +119,10 @@
   background-repeat: no-repeat;
   background-position: center;
   text-indent: 9999px;
+  overflow: hidden;
   padding: 0 !important;
   position: relative;
-  top: -5px;
+  top: 5px;
   margin-right: 15px;
   display: block; }
 
@@ -135,8 +136,9 @@
   text-indent: 9999px;
   padding: 0 !important;
   position: relative;
-  top: -5px;
-  display: block; }
+  top: 5px;
+  display: block;
+  overflow: hidden; }
 
 .header__navigation__apply-container {
   padding: 0 !important;

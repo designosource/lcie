@@ -45,7 +45,7 @@
 					<a href="<?php the_permalink(); ?>" class="home__teams__grid__col" style="background-image: url(<?php the_field("image"); ?>);">
 						<img src="<?php the_field("logo_white"); ?>" alt="" class="home__teams__grid__col__logo">
 						<div class="home__teams__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
-						<h2 class="home__teams__grid__col__text"><?php the_content(); ?></h2>
+						<h2 class="home__teams__grid__col__text"><div class="wrapper"> <?php the_content(); ?></div></h2>
 						<span class="home__teams__grid__col__readmore"><?php pll_e( "lees meer" ); ?></span>
 					</a>
 				<?php endif; ?>

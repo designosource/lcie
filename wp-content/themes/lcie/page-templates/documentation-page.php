@@ -5,35 +5,30 @@
 
 <?php get_header(); ?>
 
-<section class="home__hero">
-  <div class="home__hero__overlay"></div>
-  <div class="wrapper">
-    <div class="home__hero__content">
-      <h1 class="home__hero__title">Documentatie</h1>
-      <p class="home__hero__text">Hier kan je heel wat nuttige documentatie over ondernemen raadplegen.</p>
-    </div>
+<?php get_template_part( '/template-parts/page', 'header' ); ?>
+
+
+<div class="wrapper">
+  <div class="documentation__nav">
+    <a href="#" class="documentation__nav__item documentation__nav__item__active" data-type="case_studies"><?php pll_e( "Case studies" ); ?></a>
+    <a href="#" class="documentation__nav__item" data-type="videos"><?php pll_e( "Video's" ); ?></a>
+    <a href="#" class="documentation__nav__item" data-type="presentaties"><?php pll_e( "Presentaties" ); ?></a>
+    <a href="#" class="documentation__nav__item" data-type="templates"><?php pll_e( "Templates" ); ?></a>
   </div>
-</section>
 
-<div class="documentation__nav">
-  <a href="#" class="documentation__nav__item documentation__nav__item__active" data-type="case_studies">Case Studies</a>
-  <a href="#" class="documentation__nav__item" data-type="videos">Video's</a>
-  <a href="#" class="documentation__nav__item" data-type="presentaties">Presentaties</a>
-  <a href="#" class="documentation__nav__item" data-type="templates">Templates</a>
-</div>
+  <div class="documentation__article__grid">
 
-<div class="documentation__article__grid">
-
-        <?php $query = new WP_Query(array('post_type' => "documentatie")); ?>
-        <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-         
-          <div class="documentation__article__item">
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_content(); ?></p>
-            <a href="<?php the_field("file"); ?>">Download</a>
-          </div>
-            
-        <?php endwhile; endif; ?>
+          <?php $query = new WP_Query(array('post_type' => "documentatie", "meta_key" => "type", "meta_value" => "case_studies")); ?>
+          <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+           
+            <div class="documentation__article__item">
+              <h2><?php the_title(); ?></h2>
+              <p><?php the_content(); ?></p>
+              <a href="<?php the_field("file"); ?>"><?php pll_e( "Download" ); ?></a>
+            </div>
+              
+          <?php endwhile; endif; ?>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

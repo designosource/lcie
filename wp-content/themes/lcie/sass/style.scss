@@ -26,8 +26,14 @@ h1
 {
 	@include secondary_font(2.2rem, 400);
 	color: $curiousblue;
-	font-family: 'roboto';
 }
+
+h2
+{
+	@include secondary_font(1.8rem, 400);
+	color: $curiousblue;
+}
+
 
 .wrapper
 {
@@ -59,12 +65,26 @@ p {
 	color: $regalblue;
 }
 
+.button:hover
+{
+	color: white;
+	background-color: $regalblue;
+	transition: all 0.1s ease-in-out;
+}
+
 .button--ghost
 {
 	@include primary_font(1.0rem, 700);
 	background-color: transparent;
 	color: white;
 	border: 2px solid white;
+}
+
+.button--ghost:hover
+{
+	color: $regalblue;
+	background-color: white;
+	transition: all 0.1s ease-in-out;
 }
 
 .content

@@ -6,19 +6,13 @@
 <?php get_header(); ?>
 
 
-	<section class="page__top" style="background-image: url(<?php the_field("header_image"); ?>);">
-		<div class="wrapper">
-			<h1 class="page__top__title">Teams</h1>
-			<h2 class="page__top__subtitle">bekijk hieronder onze teams</h2>
-		</div>
-		<div class="page__top__overlay"></div>
-	</section>
+	<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
 	<section class="teams__content">
 
 		<div class="wrapper">
 
-			<h1>Lopende projecten</h1>
+			<h1><?php pll_e( "Lopende projecten" ); ?></h1>
 
 			<?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -34,7 +28,7 @@
 
 							<p><?php the_field("short_text"); ?></p>
 
-							<a href="<?php the_permalink(); ?>" class="teams__content__grid__col__more">lees meer</a>
+							<a href="<?php the_permalink(); ?>" class="teams__content__grid__col__more"><?php pll_e( "lees meer" ); ?></a>
 
 						</div>
 
@@ -44,7 +38,7 @@
 				</section>
 			<section class="teams__pastprojects">
 			<div class="wrapper">
-			<a href="" class="teams__pastprojects__expand">Afgelopen projecten</a>
+			<a href="" class="teams__pastprojects__expand"><?php pll_e( "Afgelopen projecten" ); ?></a>
 			<?php $query = new WP_Query(array('post_type' => "team")); ?>
 			<?php
 				$years = array();
@@ -89,7 +83,7 @@
 		</section>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 var pastProjectsOpen = false;
 	jQuery(document).ready(function(){
@@ -97,14 +91,17 @@ var pastProjectsOpen = false;
 			jQuery('.teams__pastprojects__grid').hide();
 			pastProjectsOpen = false;
 	});
-	jQuery('.teams__pastprojects__expand').click(function(){
+	jQuery('.teams__pastprojects__expand').click(function(e){
+		e.preventDefault();
 		if (pastProjectsOpen){
 			jQuery('.teams__pastprojects__year').hide();
 			jQuery('.teams__pastprojects__grid').hide();
+			jQuery(this).removeClass("teams__pastprojects__expand--expanded");
 		}
 		else {
 			jQuery('.teams__pastprojects__year').show();
 			jQuery('.teams__pastprojects__grid').show();
+			jQuery(this).addClass("teams__pastprojects__expand--expanded");
 		}
 	});
 </script>

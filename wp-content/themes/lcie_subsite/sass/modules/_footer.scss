@@ -24,13 +24,12 @@
 	padding: 0;
 }
 
-.footer__grid__col ul li a
+.footer__grid__col ul li, .footer__grid__col ul li a
 {
 	@include primary_font(1.0rem, 500);
 	color: white;
 	margin-bottom: 15px;
 	display: block;
-	text-decoration: none;
 }
 
 

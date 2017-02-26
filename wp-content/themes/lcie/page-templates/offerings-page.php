@@ -1,34 +1,61 @@
 <?php
 	// Template name: Aanbod
+
+	$core = array();
+	$other = array();
+	
+	$query = new WP_Query(array('post_type' => "lcie_team")); 
+	
+	if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
+
+		$member = array();
+		$member["name"] = get_the_title();
+		$member["photo"] = get_field("photo");
+		$member["function"] = get_field("function");
+		$member["email"] = get_field("email");
+		$member["twitter"] = get_field("twitter");
+		$member["linkedin"] = get_field("linkedin");
+
+		foreach (get_field("team") as $value):
+
+			if($value == "core_team"){
+
+				array_push($core, $member);
+
+			}else{
+
+				array_push($other, $member);
+
+			}
+
+		endforeach; 
+
+	endwhile; endif; 
+
+	wp_reset_query(); 
 ?>
 
 
 <?php get_header(); ?>
 
 
-	<section class="page__top" style="background-image: url(<?php the_field("header_image"); ?>);">
-		<div class="wrapper">
-			<h1 class="page__top__title">Aanbod</h1>
-			<h2 class="page__top__subtitle">bekijk hieronder ons aanbod</h2>
-		</div>
-		<div class="page__top__overlay"></div>
-	</section>
+	<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
 	<section class="offerings__container">
 		<div class="wrapper">
 			<nav class="offerings__sidebar">
 		
 				<ul>
-					<li class="offerings__sidebar__active">Lcie voor</li>
-					<li><a href="#subsites">Subsites</a></li>
-					<li><a href="#team">Core team</a></li>
-					<li><a href="#infrastructure">Infrastructuur</a></li>
+					<li class="offerings__sidebar__active"><?php pll_e( "Lcie voor" ); ?></li>
+					<li><a href="#subsites"><?php pll_e( "Subsites" ); ?></a></li>
+					<li><a href="#team"><?php pll_e( "Core team" ); ?></a></li>
+					<li><a href="#infrastructure"><?php pll_e( "Infrastructuur" ); ?></a></li>
 				</ul>
 
 			</nav>
 
 			<div class="offerings__content">
-				<h1>Lcie voor</h1>
+				<h1><?php pll_e( "Lcie voor" ); ?></h1>
 				
 				<?php while ( have_posts() ) : the_post(); ?> 
                 
@@ -63,7 +90,7 @@
 
 	<section class="offerings__subsites" id="subsites">
 		<div class="wrapper">
-			<h1>Subsites</h1>
+			<h1><?php pll_e( "Subsites" ); ?></h1>
 			<div class="grid offerings__subsites__grid">
 				
 					<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
@@ -85,33 +112,33 @@
 	<section class="offerings__team" id="team">
 		<div class="wrapper">
 		
-			<h1>Core team</h1>
+			<h1><?php pll_e( "Core team" ); ?></h1>
 			
 			<div class="offerings__team__text">
 				<?php the_field("team_text"); ?>
 			</div>
 
 			<div class="offerings__team__grid grid">
-				<?php if( have_rows('team') ): while ( have_rows('team') ) : the_row();?>
-
-					<div class="offerings__team__grid__col">
-						<div class="grid">
-							<div class="offerings__team__grid__col__photo" style="background-image: url(<?php the_sub_field("photo"); ?>)"></div>
-							<div class="offerings__team__grid__col__details">
-								<span class="offerings__team__grid__col__details__name"><?php the_sub_field("name"); ?></span>
-								<span class="offerings__team__grid__col__details__function"><?php the_sub_field("function"); ?></span>
-								
-								<div class="offerings__team__grid__col__details__contact">
-									<a href="mailto:<?php the_sub_field("email"); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_sub_field("email"); ?></a>
 				
-								</div>
-								
+			<?php foreach ($core as $value): ?>
+						<div class="offerings__team__grid__col">
+							<div class="grid">
+								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+								<div class="offerings__team__grid__col__details">
+									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
+									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+									
+									<div class="offerings__team__grid__col__details__contact">
+										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
+					
+									</div>
+									
 
+								</div>
 							</div>
 						</div>
-					</div>
-
-				<?php endwhile; endif; ?>
+				<?php endforeach; ?>
+				
 			</div>
 
 		</div>
@@ -120,7 +147,7 @@
 	<section class="offerings__infrastructure" id="infrastructure">
 		<div class="wrapper">
 			
-			<h1>Infrastructuur</h1>
+			<h1><?php pll_e( "Infrastructuur" ); ?></h1>
 
 			<div class="offerings__infrastructure__text">
 
@@ -159,7 +186,7 @@
 					<h2 class="offerings__infrastructure__grid__col__title"><?php the_sub_field("name"); ?></h2>
 					<p class="offerings__infrastructure__grid__col__description"><?php the_sub_field("description"); ?></p>
 
-					<a href="<?php echo site_url(); ?>/contact" class="offerings__infrastructure__grid__col__plan">Reserveren</a>
+					<a href="<?php echo site_url(); ?>/contact" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Reserveren" ); ?></a>
 
 				</div>
 

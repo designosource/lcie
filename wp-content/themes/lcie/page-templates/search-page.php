@@ -6,31 +6,30 @@
         "post_type" => "any"
     );
     $allsearch =  new WP_Query( $args );  
+
+
 ?>
 
 
 <?php get_header(); ?>
 
-    <section class="page__top">
-        <div class="wrapper">
-            <h1 class="page__top__title"><?php echo pll__('Zoeken'); ?></h1>
-            <h2 class="page__top__subtitle">Niet gevonden wat je zoekt? Probeer het hier!</h2>
-        </div>
-    </section>
-
-
+    <?php get_template_part( '/template-parts/page', 'header' ); ?>
 
     <section class="content">
         <div class="wrapper">
                 
         <?php get_search_form(); ?>
-        <article class="search__results__result">
-            <h2 class="search__results__title">Zoekresultaten</h2>
-            <span class="search__results__count"><?php echo count(get_network_posts($args)); ?> resultaten gevonden voor '<?php echo $s;?>'.</span>
-        </article>
+        <?php if ( !empty($s)): ?>
+
+            <article class="search__results__result">
+                <h2 class="search__results__title"><?php pll_e( "Zoeken" ); ?></h2>
+                <span class="search__results__count"><?php echo count(get_network_posts($args)); ?> <?php pll_e( "resultaten gevonden voor" ); ?> '<?php echo $s;?>'.</span>
+            </article>
+
+        <?php endif; ?>
 
 
-        <?php if ( count(get_network_posts($args)) > 0 ) : ?>
+        <?php if ( !empty($s) && count(get_network_posts($args)) > 0 ) : ?>
 
                 <?php get_template_part( 'content', 'search' ); ?>
 
@@ -42,14 +41,14 @@
                             <?php 
                                 switch ($post->post_type) {
                                     case 'faq':
-                                        $type =  "FAQ";
+                                        $type =  pll_e( "FAQ" );
                                         break;
                                     case 'documentatie':
-                                        $type =  "Documentatie";
+                                        $type =  pll_e( "Documentatie" );
                                         $date = $post->post_date;
                                         break;
                                     case 'team':
-                                        $type =  "Teams";
+                                        $type =  pll_e( "Teams" );
                                         // $date = get_the_date();
                                         break;
                                     default:
@@ -76,7 +75,7 @@
 
         <?php else : ?>
 
-            <?php get_template_part( 'no-results', 'search' ); ?>
+            <p><?php pll_e( "Geen resultaten geveonden voor deze zoekopdracht" ); ?></p>
 
         <?php endif; ?>
         </div>

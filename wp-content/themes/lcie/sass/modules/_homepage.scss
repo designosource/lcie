@@ -290,6 +290,52 @@
 	right: 0;
 }
 
+/* TESTMONIALS */
+.home__testmonials
+{
+	position: relative;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.home__testmonials__slider .swiper-wrapper
+{
+	padding: 0;
+}
+
+.home__testmonials__slide
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.home__testmonials__slide__name
+{
+	@include primary_font(1.4rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 0 auto;
+}
+
+.home__testmonials__slide__function
+{
+	@include primary_font(1.2rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 10px auto;
+}
+
+.home__testmonials__slide__text
+{
+	@include primary_font(1.0rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 20px auto;
+}
+
+
+
 
 /* CALENDAR */
 .home__calendar
@@ -373,6 +419,28 @@
 	.home__calendar__photo
 	{
 		display: none;
+	}
+
+	.home__calendar__all
+	{
+		position: relative;
+	}
+
+	.home__calendar__side__text
+	{
+		width: 100%;
+	}
+
+	.home__calendar__side__more
+	{
+		position: relative;
+		bottom: auto;
+		right: auto;
+	}
+
+	.home__teams__all
+	{
+		position: relative;
 	}
 }
 

@@ -1,29 +1,59 @@
 <?php
 // Template name: Contact-Page
+
+$core = array();
+	$other = array();
+	
+	$query = new WP_Query(array('post_type' => "lcie_team")); 
+	
+	if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
+
+		$member = array();
+		$member["name"] = get_the_title();
+		$member["photo"] = get_field("photo");
+		$member["function"] = get_field("function");
+		$member["email"] = get_field("email");
+		$member["twitter"] = get_field("twitter");
+		$member["linkedin"] = get_field("linkedin");
+
+		foreach (get_field("team") as $value):
+
+			if($value == "core_team"){
+
+				array_push($core, $member);
+
+			}else{
+
+				array_push($other, $member);
+
+			}
+
+		endforeach; 
+
+	endwhile; endif; 
+	wp_reset_query(); 
+
 ?>
 
 
 <?php get_header(); ?>
 
-<section class="page__top" style="background-image: url(<?php the_field("header_image"); ?>);">
-	<div class="wrapper">
-		<h1 class="page__top__title">Contact</h1>
-		<p class="page__top__subtitle">De leden van het LCIE Core Team staan klaar omje te helpen met al je vragen gerelateerd aan entrepreneurship of met de start van je entrepreneursproject.</p>
-	</div>
-	<div class="page__top__overlay"></div>
-</section>
+
+<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
 <section class="contact__form">
 	<div class="wrapper">
 
-		<h2>Contactformulier</h2>
+		<h2><?php pll_e( "Contactformulier" ); ?></h2>
 
 		<div class="contact__form__feedback contact__form__feedback--error">
-			Er liep iets mis tijdens het verzenden van het formulier. Probeer het nogmaals aub.
+			
+			<?php pll_e( "Er liep iets mis tijdens het verzenden van het formulier. Probeer het nogmaals aub." ); ?>
 		</div>
 
 		<div class="contact__form__feedback contact__form__feedback--pass">
-			Je bericht werd succesvol verzonden.
+			
+			<?php pll_e( "Je bericht werd succesvol verzonden." ); ?>
 		</div>
 
 		<form action="">
@@ -32,11 +62,11 @@
 				
 				<div class="col contact__form__grid__col contact__form__grid__col--small">
 
-					<label for="contact_who">Wie van Lcie wil je contacteren?</label>
+					<label for="contact_who"><?php pll_e( "Wie van Lcie wil je contacteren?" ); ?></label>
 
 					<select name="contact_who" class="dropdown">
 						
-						<option value="info@lcie.be">Core team</option>
+						<option value="info@lcie.be"><?php pll_e( "Core team" ); ?></option>
 
 						<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
 
@@ -48,10 +78,10 @@
 
 					</select>
 
-					<label for="contact_name">Naam</label>
+					<label for="contact_name"<?php pll_e( "Naam" ); ?></label>
 					<input type="text" name="contact_name" class="textfield">
 
-					<label for="contact_type">Type</label>
+					<label for="contact_type"><?php pll_e( "Type" ); ?></label>
 					<select name="contact_type" class="dropdown">
 
 						<?php $frontpage_id = get_option( 'page_on_front' ); ?>
@@ -63,14 +93,14 @@
 
 					</select>
 
-					<label for="contact_email">E-mail</label>
+					<label for="contact_email"><?php pll_e( "E-mail" ); ?></label>
 					<input type="text" name="contact_email" class="textfield">
 
 				</div>
 
 				<div class="col contact__form__grid__col">
 
-					<label for="contact_message">Bericht</label>
+					<label for="contact_message"><?php pll_e( "Bericht" ); ?></label>
 					<textarea name="contact_message" class="textarea"></textarea>	
 
 					<input type="hidden" name="action" value="send_contact_form">
@@ -111,29 +141,31 @@
 <section class="contact__team">
 	<div class="wrapper">
 		
-		<h2>Core team</h2>
+		<h2><?php pll_e( "Core team" ); ?></h2>
 
-		<div class="grid contact__team__grid">
-			
-			<div class="col contact__team__grid__col">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" class="contact__team__img">
-				<div class="contact__team__details">
-					<h3 class="contact__team__name">Wim Fyen</h3>
-					<p class="contact__team__title">Incubator Manager</p>
-					<a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
-				</div>
+			<div class="offerings__team__grid grid">
+				
+			<?php foreach ($core as $value): ?>
+						<div class="offerings__team__grid__col">
+							<div class="grid">
+								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+								<div class="offerings__team__grid__col__details">
+									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
+									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+									
+									<div class="offerings__team__grid__col__details__contact">
+										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
+					
+									</div>
+									
+
+								</div>
+							</div>
+						</div>
+				<?php endforeach; ?>
+				
 			</div>
 
-			<div class="col contact__team__grid__col">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" class="contact__team__img">
-				<div class="contact__team__details">
-					<h3 class="contact__team__name">Wim Fyen</h3>
-					<p class="contact__team__title">Incubator Manager</p>
-					<a href="#" class="contact__team__mail">wim.fyen@lcie.be</a>
-				</div>
-			</div>
-
-		</div>
 
 	</div>
 </section>

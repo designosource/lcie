@@ -2,14 +2,9 @@
 
 	 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-		<section class="page__top" style="background-image: url(<?php the_field("header_image"); ?>);"> 
-			<div class="wrapper">
-				<h1 class="page__top__title"><?php the_title(); ?></h1>
-			</div>
-			<div class="page__top__overlay"></div>
-		</section>
+		<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
-		<section class="content">
+		<section class="page__content">
 			
 			<div class="wrapper">
 

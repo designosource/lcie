@@ -2,8 +2,8 @@
 
 	<section class="page__top"> 
 		<div class="wrapper">
-			<h1 class="page__top__title">FAQ</h1>
-			<h2 class="page__top__subtitle">Vaakgestelde vragen</h2>
+			<h1 class="page__top__title"><?php pll_e( "FAQ" ); ?></h1>
+			<h2 class="page__top__subtitle"><?php pll_e( "Veelgestelde vragen" ); ?></h2>
 		</div>
 		<div class="page__top__overlay"></div>
 	</section>

@@ -4,6 +4,7 @@
 
 
 <?php get_header(); ?>
+<section class="page__content">
     <section class="for__section">
         <div class="wrapper">
             <h1><?php the_title(); ?></h1>
@@ -19,61 +20,39 @@
             <p class="for__section__subtitle"><?php get_post(); ?></p>
 
             <div class="for__bubble__grid">
-                <a href="" class="for__bubble__grid__col">
-                    Ondernemen?
-                </a>
-                <a href="" class="for__bubble__grid__col">
-                    Ik zoek teamleden!
-                </a>
-                <a href="" class="for__bubble__grid__col">
-                    Ik zoek een team!
-                </a>
-                <a href="" class="for__bubble__grid__col">
-                    Ik wil starten!
-                </a>
+
+                <?php if( have_rows('bubbles') ): while ( have_rows('bubbles') ) : the_row(); ?>
+                    <a href="<?php the_sub_field("link"); ?>" class="for__bubble__grid__col">
+                        <?php the_sub_field("text"); ?>
+                    </a>
+                <?php endwhile; endif; ?>
+
             </div>
+
         </div>
     </section>
 
     <section class="for__section">
         <div class="wrapper">
-            <h1>Wat wij aanbieden</h1>
+            <h1><?php pll_e( "Wat wij aanbieden?" ); ?></h1>
 
             <div class="for__offer__grid">
-                <div class="for__offer__grid__item">
-                    <div class="item__image" style="background-image:url();">
-                        <h3>Work Space</h3>
+
+                <?php if( have_rows('offer') ): while ( have_rows('offer') ) : the_row(); ?>
+                    <div class="for__offer__grid__item">
+                        <div class="item__image" style="background-image:url(<?php the_sub_field("image"); ?>);">
+                            <h3><?php the_sub_field("image_text"); ?></h3>
+                            <div class="item__image__overlay" style="background-color: <?php the_sub_field("image_color"); ?>"></div>
+                        </div>
+                        <div class="item__detail">
+                            <?php the_sub_field("full_text"); ?>
+                        </div>
                     </div>
-                    <div class="item__detail">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste nam repudiandae voluptatem. Animi culpa earum optio reprehenderit rerum sunt veritatis vero voluptates! Minus, modi saepe sequi sit totam unde voluptatum.</p>
-                    </div>
-                </div>
-                <div class="for__offer__grid__item">
-                    <div class="item__image">
-                        <h3>Work Space</h3>
-                    </div>
-                    <div class="item__detail">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste nam repudiandae voluptatem. Animi culpa earum optio reprehenderit rerum sunt veritatis vero voluptates! Minus, modi saepe sequi sit totam unde voluptatum.</p>
-                    </div>
-                </div>
-                <div class="for__offer__grid__item">
-                    <div class="item__image">
-                        <h3>Work Space</h3>
-                    </div>
-                    <div class="item__detail">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste nam repudiandae voluptatem. Animi culpa earum optio reprehenderit rerum sunt veritatis vero voluptates! Minus, modi saepe sequi sit totam unde voluptatum.</p>
-                    </div>
-                </div>
-                <div class="for__offer__grid__item">
-                    <div class="item__image">
-                        <h3>Work Space</h3>
-                    </div>
-                    <div class="item__detail">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste nam repudiandae voluptatem. Animi culpa earum optio reprehenderit rerum sunt veritatis vero voluptates! Minus, modi saepe sequi sit totam unde voluptatum.</p>
-                    </div>
-                </div>
+
+                <?php endwhile; endif; ?>
+                
             </div>
         </div>
     </section>
-
+</section>
 <?php get_footer(); ?>

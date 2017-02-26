@@ -1,11 +1,12 @@
 <?php
-
-    $args = array(
-        "s" => $s,
-        "showposts" => 0,
-        "post_type" => "any"
-    );
-    $allsearch =  new WP_Query( $args );  
+    if(!empty($s)): 
+        $args = array(  
+            "s" => $s,
+            "showposts" => 0,
+            "post_type" => "any"
+        );
+        $allsearch =  new WP_Query( $args );  
+    endif; 
 ?>
 
 
@@ -13,8 +14,8 @@
 
     <section class="page__top">
         <div class="wrapper">
-            <h1 class="page__top__title">Zoeken</h1>
-            <h2 class="page__top__subtitle">Niet gevonden wat je zoekt? Probeer het hier!</h2>
+            <h1 class="page__top__title"><?php pll_e( "Zoeken" ); ?></h1>
+            <h2 class="page__top__subtitle"><?php pll_e( "Niet gevonden wat u zocht?" ); ?></h2>
         </div>
     </section>
 
@@ -25,12 +26,12 @@
                 
         <?php get_search_form(); ?>
         <article class="search__results__result">
-            <h2 class="search__results__title">Zoekresultaten</h2>
-            <span class="search__results__count"><?php echo count(get_network_posts($args)); ?> resultaten gevonden voor '<?php echo $s;?>'.</span>
+            <h2 class="search__results__title"><?php pll_e( "Zoekresultaten" ); ?></h2>
+            <span class="search__results__count"><?php echo count(get_network_posts($args)); ?> <?php pll_e( "resultaten gevonden voor" ); ?> '<?php echo $s;?>'.</span>
         </article>
 
 
-        <?php if ( count(get_network_posts($args)) > 0 ) : ?>
+        <?php if ( !empty($s) && count(get_network_posts($args)) > 0 ) : ?>
 
                 <?php get_template_part( 'content', 'search' ); ?>
 
@@ -42,14 +43,14 @@
                             <?php 
                                 switch ($post->post_type) {
                                     case 'faq':
-                                        $type =  "FAQ";
+                                        $type =  pll_e( "FAQ" );
                                         break;
                                     case 'documentatie':
-                                        $type =  "Documentatie";
+                                        $type =  pll_e( "Documentatie" );
                                         $date = $post->post_date;
                                         break;
                                     case 'team':
-                                        $type =  "Teams";
+                                        $type =  pll_e( "Teams" );
                                         // $date = get_the_date();
                                         break;
                                     default:

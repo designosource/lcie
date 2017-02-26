@@ -1,4 +1,33 @@
 <?php
+ /* INCLUDE ACF PLUGIN */
+include_once('advanced-custom-fields/acf.php');
+include_once('acf-repeater/acf-repeater.php');
+
+// define( 'ACF_LITE' , true );
+
+
+/* CUSTOM POST TYPES */
+
+function create_posttypes() {
+
+    register_post_type( 'project',
+        array(
+            'labels' => array(
+                'name' => __( 'Projecten' ),
+                'singular_name' => __( 'Project' )
+                ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => "dashicons-lightbulb"
+            )
+        );
+
+
+}
+
+add_action( 'init', 'create_posttypes' );
+
+
     function add_new_menu_items()
     {
         add_menu_page(
@@ -115,28 +144,8 @@
 
 function my_ajax_pagination() {
 
-    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
-    // 'ajaxurl' => get_template_directory_uri() . '/load-archive.php',
-    'ajaxurl' => admin_url('admin-ajax.php'),
-    'query_vars' => json_encode( array(
-        'post_type'  =>  'project',
-        'date_query' => array(
-            array(
-                'year'  => "2016"
-            ),
-        )
-    ) )
-
-
-));
-
-    
-wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
-
-
-    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-
-    $date = array(
+    $vars = array(
+        'post_type' => "project",
         'date_query' => array(
             array(
                 'year'  => $_POST['date']
@@ -144,7 +153,6 @@ wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/aja
         ),
     );
 
-    $vars = array_merge ($query_vars, $date);
     $data = array();
     $posts = new WP_Query( $vars );
     $GLOBALS['wp_query'] = $posts;
@@ -152,12 +160,12 @@ wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/aja
 
     if( ! $posts->have_posts() ) { 
         // get_template_part( 'content', 'none' );
-        echo "NOTHING FOUND";
+        return false;
     }
     else {
         while ( $posts->have_posts() ) { 
             $posts->the_post();
-            array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo'), "photo" => get_field('photo'), "url" => get_permalink())));
+            array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo_white'), "photo" => get_field('photo'), "url" => get_permalink())));
         }
 
         echo json_encode($data);

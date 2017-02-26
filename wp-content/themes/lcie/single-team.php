@@ -71,7 +71,7 @@
 			
 			<div class="wrapper">
 
-				<h1>Happenings</h1>
+				<h1><?php pll_e( "Happenings" ); ?></h1>
 				<?php  while ( have_rows('happenings') ) : the_row();?>
 					<div class="team__happenings__grid grid">
 						
@@ -101,5 +101,24 @@
 		}
 
 	</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	
+	var active = $(".team__top__allteams__item--active");
+
+	$(".team__top__allteams__item").hover(function(){
+
+		$(".team__top__allteams__item--active").removeClass("team__top__allteams__item--active");
+		$(this).addClass("team__top__allteams__item--active");
+
+	}, function(){
+
+		$(this).removeClass("team__top__allteams__item--active");
+		active.addClass("team__top__allteams__item--active");
+
+	});
+
+	</script>
 	<?php endwhile; endif;?>
 <?php get_footer(); ?>

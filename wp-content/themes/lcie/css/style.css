@@ -541,10 +541,6 @@
 .home__teams__grid-small__logo {
   height: 60px; }
 
-.home__teams__grid-small__slide a {
-  height: 60px;
-  display: block; }
-
 /* FACTS */
 .home__facts__grid {
   background-color: #003E77;
@@ -1830,6 +1826,9 @@ h2 {
   width: 80%;
   max-width: 1600px;
   height: 100%; }
+
+.wrapper_full_text p {
+  max-width: 960px; }
 
 p {
   font-family: "Roboto", sans-serif;

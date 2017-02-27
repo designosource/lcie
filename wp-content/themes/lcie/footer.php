@@ -23,7 +23,9 @@
 					<div class="footer__bottom__content">
 						<span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
 					</div>
-					<img src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png" alt="" class="footer__bottom__kuleuven">
+                    <a href="https://www.keuleuven.be"><img
+                                src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png"
+                                alt="Logo KULeuven" class="footer__bottom__kuleuven"></a>
 				</div>
 			</div>
 		</footer>

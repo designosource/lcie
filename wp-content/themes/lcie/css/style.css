@@ -455,7 +455,7 @@
     position: relative;
     z-index: 999; }
 
-.home__who__grid__col__overlay {
+.home__who__grid__col__overlay, a.home__who__grid__col__link {
   position: absolute;
   top: 0;
   left: 0;

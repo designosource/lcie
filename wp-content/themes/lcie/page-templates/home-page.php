@@ -12,8 +12,8 @@
                 <p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om
                     te ondernemen drastisch verlagen en de ondernemingszin van studenten, onderzoekers en professoren
                     aanmoedigen.</p>
-                <a href="<?php echo site_url(); ?>/aanbod"
-                   class="button button--ghost"><?php pll_e("Bekijk het aanbod"); ?></a>
+                <a href="<?php echo site_url(); ?>/contact"
+                   class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
             </div>
         </div>
     </section>
@@ -31,7 +31,7 @@
                          style="background-image: url(<?php the_sub_field("image"); ?>)">
 
                         <a href="<?php the_sub_field("url"); ?>">
-                     
+
                                 <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie voor <?php the_sub_field("text"); ?></a>
                                 <div class="home__who__grid__col__overlay"
                                      style="background-color: <?php the_sub_field("color"); ?>">

@@ -50,30 +50,34 @@
             <?php wp_reset_query(); ?>
             <?php endif; ?>
 
+
+
+
+
 			<h1><?php pll_e( "Core team" ); ?></h1>
 	
-			<div class="offerings__team__grid grid">
-				
-			<?php foreach ($core as $value): ?>
-						<div class="offerings__team__grid__col">
-							<div class="grid">
-								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
-								<div class="offerings__team__grid__col__details">
-									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
-									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
-									
-									<div class="offerings__team__grid__col__details__contact">
-										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
-					
-									</div>
-									
+						<div class="offerings__team__grid grid">
 
-								</div>
-							</div>
-						</div>
-				<?php endforeach; ?>
-				
-			</div>
+            			<?php foreach ($core as $value): ?>
+            						<div class="offerings__team__grid__col">
+            							<div class="grid">
+            								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+            								<div class="offerings__team__grid__col__details">
+            									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
+            									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+
+            									<div class="offerings__team__grid__col__details__contact">
+            										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
+
+            									</div>
+
+
+            								</div>
+            							</div>
+            						</div>
+            				<?php endforeach; ?>
+
+            			</div>
 
 			<h1><?php pll_e( "Bestuursteam" ); ?></h1>
 			

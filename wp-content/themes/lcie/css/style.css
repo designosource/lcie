@@ -393,9 +393,8 @@
   padding-top: 80px;
   padding-bottom: 80px;
   width: 100%;
-  background-image: url(../images/bg.jpg);
   background-size: cover;
-  background-position: center;
+  background: url(../images/bg.jpg) center;
   position: relative; }
 
 .home__hero__overlay {
@@ -438,8 +437,6 @@
 .home__who__grid__col {
   width: 25%;
   border: 1px solid white;
-  padding-top: 90px;
-  padding-bottom: 90px;
   text-align: center;
   color: white;
   font-family: "Nunito", sans-serif;
@@ -455,7 +452,7 @@
     position: relative;
     z-index: 999; }
 
-.home__who__grid__col__overlay, a.home__who__grid__col__link {
+.home__who__grid__col__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -691,9 +688,8 @@
   margin-top: 30px;
   width: 60%;
   height: 350px;
-  background-image: url(../images/home_bg3.png);
   background-size: cover;
-  background-position: center; }
+  background: url(../images/home_bg3.png) center; }
 
 .home__calendar__side__title {
   font-family: "Nunito", sans-serif;

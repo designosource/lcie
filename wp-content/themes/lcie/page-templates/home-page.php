@@ -27,17 +27,20 @@
 
                 <?php if (have_rows('lcie_for')): while (have_rows('lcie_for')) : the_row(); ?>
 
-            <a class="home__who__grid__col__link" href="<?php the_sub_field("url"); ?>">
-
-                    <div class="home__who__grid__col"
+                    <div href="<?php the_sub_field("url"); ?>" class="home__who__grid__col"
                          style="background-image: url(<?php the_sub_field("image"); ?>)">
-                            <a href="<?php the_sub_field("url"); ?>">Lcie voor <?php the_sub_field("text"); ?></a>
-                            <div class="home__who__grid__col__overlay"
-                                 style="background-color: <?php the_sub_field("color"); ?>">
-                            </div>
-                    </div>
-            </a>
 
+                        <a href="<?php the_sub_field("url"); ?>">
+                     
+                                <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie voor <?php the_sub_field("text"); ?></a>
+                                <div class="home__who__grid__col__overlay"
+                                     style="background-color: <?php the_sub_field("color"); ?>">
+                                </div>
+
+                        </a>
+
+
+                    </div>
 
                 <?php endwhile; endif; ?>
 

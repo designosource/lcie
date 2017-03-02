@@ -187,6 +187,9 @@
 	height: 60px;
 }
 
+.home__teams__grid__col{
+	display: block;
+}
 
 /* FACTS */
 .home__facts__grid
@@ -335,6 +338,14 @@
 }
 
 
+/* SWIPER */
+.swiper-wrapper{
+	padding: 0;
+}
+
+.swiper-container{
+	text-align: center;
+}
 
 
 /* CALENDAR */
@@ -405,6 +416,34 @@ a.home__calendar__side__more{
 	display: block;
 	text-align: right;
 }
+
+
+
+@media screen and (min-width: 768px) {
+	/* SWIPER */
+	div.swiper-slide.home__teams__grid-small__slide.swiper-slide-active,
+	div.swiper-wrapper > div{
+		padding: 0;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+
+
+	.swiper-container{
+		text-align: center;
+	}
+
+	div.swiper-button-prev{
+		padding: 0 20px 0 0;
+	}
+
+	div.swiper-button-next{
+		padding: 0 0 0 20px;
+	}
+
+}
+
 
 @media screen and (max-width: 768px)
 {

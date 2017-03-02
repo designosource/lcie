@@ -1087,7 +1087,6 @@ a.home__calendar__side__more {
 
 .contact__form__grid__col--small {
   width: 40%;
-  min-width: 350px;
   padding-right: 40px;
   padding-left: 0; }
 
@@ -1155,6 +1154,10 @@ a.home__calendar__side__more {
       height: 200px !important; }
   .contact__location__grid__col {
     width: 100%; } }
+
+@media screen and (min-width: 768px) {
+  .contact__form__grid__col--small {
+    min-width: 350px; } }
 
 .apply__form {
   width: 75%;

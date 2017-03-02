@@ -45,7 +45,6 @@
 		background-position: center right 20px;
 		background-repeat: no-repeat;
 	}
-
 }
 
 .contact__form__grid
@@ -64,7 +63,6 @@
 .contact__form__grid__col--small
 {
 	width: 40%;
-	min-width: 350px;
 	padding-right: 40px;
 	padding-left: 0;
 }
@@ -155,5 +153,12 @@
 	.contact__location__grid__col
 	{
 		width: 100%;
+	}
+}
+
+@media screen and (min-width: 768px){
+	.contact__form__grid__col--small
+	{
+		min-width: 350px;
 	}
 }

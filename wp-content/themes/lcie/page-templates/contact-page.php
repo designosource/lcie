@@ -132,6 +132,15 @@ $core = array();
 				</div>
 
 			<?php endwhile; endif; ?>
+
+
+
+                <div class="col contact__location__grid__col">
+                    <h2 class="contact__location__title">Lcie incubator</h2>
+                    <p class="contact__location__address">Innovation & Incubation Center<br/>Kapeldreef 60, 3001 Heverlee</p>
+                </div>
+
+
 		</div>
 
 	</div>
@@ -163,7 +172,9 @@ $core = array();
 							</div>
 						</div>
 				<?php endforeach; ?>
-				
+
+
+
 			</div>
 
 

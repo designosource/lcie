@@ -490,5 +490,68 @@ a.home__calendar__side__more{
 	{
 		position: relative;
 	}
+
+
+	/* NAVIGATION */
+
+	.menu-hoofdnavigatie-container{
+		margin: 0;
+		padding: 0;
+	}
+
+	.header__navigation ul li:not(.header__navigation__apply){
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.menu-item-type-post_type a{
+		padding: 3px 0;
+		font-size: 1.15rem;
+		display: block;
+	}
+
+	li.menu-item{
+		padding: 0 !important;
+	}
+
+	.header__navigation ul li a{
+		display: inline-block !important;
+		width: 100%;
+		color: white !important;
+		font-size: 1.3rem;
+		padding: 6px 0;
+	}
+
+	.header__navigation__apply {
+		padding: 10px 0 !important;
+	}
+
+	.header__subnavigation ul {
+		text-align: left !important;
+	}
+
+	.menu-item-type-custom{
+		display: inline-block;
+		float: left;
+	}
+
+	.menu-item-type-custom{
+		display: none !important;
+	}
+
+	.header__subnavigation__icons{
+		display: block;
+
+	}
+
+	.header__navigation{
+		padding-top: 80px;
+		overflow: hidden;
+	}
+
+	.header__subnavigation{
+		top: 240px;
+	}
+
 }
 

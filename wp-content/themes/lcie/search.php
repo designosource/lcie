@@ -64,9 +64,9 @@
 
                             <a class="search__results__result__title" href="<?php the_permalink(); ?>"> <?php echo $post->post_title; ?></a>
                             <?php if(!empty($date)): ?>
-                                <p><span class="search__results__result__date"><?php echo $date; ?> - </span><?php echo $post->post_content; ?></p>
+                                <p><span class="search__results__result__date"><?php echo $date; ?> - </span><?php $more_text = ''; if(strlen($post_content) > 250){ $more_text = '...'; } echo substr($post->post_content, 0, 250) . $more_text; ?></p>
                             <?php else: ?>
-                                <p><?php echo $post->post_content; ?></p>
+                                <p><?php if(strlen($post->post_content) >250 ){ $more_text = '...'; }else{ $more_text = '';} echo substr($post->post_content, 0 , 250) . $more_text; ?></p>
                             <?php endif; ?>
                             
 

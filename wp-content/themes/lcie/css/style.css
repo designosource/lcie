@@ -720,6 +720,14 @@
   top: 0;
   right: 0; }
 
+.home__calendar__side > div {
+  display: block;
+  width: 100%; }
+
+a.home__calendar__side__more {
+  display: block;
+  text-align: right; }
+
 @media screen and (max-width: 768px) {
   .grid {
     -ms-flex-wrap: wrap;

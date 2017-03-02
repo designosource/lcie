@@ -178,7 +178,7 @@
     <section class="home__calendar">
         <div class="wrapper">
             <h1><?php pll_e("Kalender"); ?></h1>
-            <a href="" class="button home__calendar__all"><?php pll_e("Bekijk alle aanstaande events"); ?></a>
+            <a href="" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
         </div>
         <div class="grid">
             <div class="home__calendar__side">

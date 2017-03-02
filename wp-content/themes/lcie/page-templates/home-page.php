@@ -154,26 +154,26 @@
         </div>
     </section>
 
-    <section class="home__facts">
+<!--    <section class="home__facts">
         <div class="wrapper">
-            <h1><?php pll_e("Lcie in cijfers"); ?></h1>
+            <h1><?php /*pll_e("Lcie in cijfers"); */?></h1>
         </div>
         <div class="grid home__facts__grid">
-            <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+            <?php /*if (have_posts()): while (have_posts()) : the_post(); */?>
 
-                <?php if (have_rows('stats')): while (have_rows('stats')) : the_row(); ?>
+                <?php /*if (have_rows('stats')): while (have_rows('stats')) : the_row(); */?>
 
                     <div class="home__facts__col">
-                        <span class="home__facts__col__number"><?php the_sub_field('number'); ?></span>
-                        <span class="home__facts__col__description"><?php the_sub_field('description'); ?></span>
+                        <span class="home__facts__col__number"><?php /*the_sub_field('number'); */?></span>
+                        <span class="home__facts__col__description"><?php /*the_sub_field('description'); */?></span>
                     </div>
 
-                <?php endwhile; endif; ?>
-            <?php endwhile; endif; ?>
+                <?php /*endwhile; endif; */?>
+            <?php /*endwhile; endif; */?>
 
         </div>
     </section>
-
+-->
 
     <section class="home__calendar">
         <div class="wrapper">

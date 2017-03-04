@@ -12,7 +12,7 @@
                 <p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om
                     te ondernemen drastisch verlagen en de ondernemingszin van studenten, onderzoekers en professoren
                     aanmoedigen.</p>
-                <a href="<?php echo site_url(); ?>/contact"
+                <a href="<?php echo site_url(); ?>/sluit-je-aan"
                    class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
             </div>
         </div>

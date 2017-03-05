@@ -265,86 +265,6 @@
     margin: 0;
     padding: 0; } }
 
-.footer {
-  width: 100%;
-  background-color: #003E77;
-  padding-top: 50px;
-  padding-bottom: 50px; }
-
-.footer__grid__col {
-  width: 33.3%;
-  color: white; }
-
-.footer__grid__col__title {
-  font-family: "Nunito", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 20px; }
-
-.footer__grid__col ul {
-  list-style: none;
-  padding: 0; }
-
-.footer__grid__col ul li, .footer__grid__col ul li a {
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: white;
-  margin-bottom: 15px;
-  display: block; }
-
-.footer__grid__col--big {
-  text-align: right; }
-
-.footer__bottom {
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-align: center;
-      align-items: center; }
-
-.footer__bottom__content {
-  color: white;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: 30px; }
-
-.footer__bottom__kuleuven {
-  width: auto;
-  height: 30px; }
-
-@media screen and (max-width: 768px) {
-  .footer__grid {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-  .footer__grid__col {
-    width: 100%; }
-  .footer__grid__col__title {
-    margin-top: 30px;
-    display: block; }
-  .footer__grid__col--faq {
-    display: none; }
-  .footer .button {
-    position: absolute;
-    top: 20px;
-    right: 20px; }
-  .footer__bottom__content {
-    display: none; }
-  .footer__bottom__kuleuven {
-    margin-top: 20px; }
-  .footer__up {
-    display: block;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 50px;
-    height: 50px;
-    padding: 0 !important;
-    background-image: url(../images/up.svg);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center; } }
-
 .page__top {
   width: 100%;
   padding-top: 100px;
@@ -1951,6 +1871,109 @@ article.search__results__result {
   .nieuwsgrid .nieuwsgrid-cell {
     -ms-flex: 0 1 calc(25% - 2px);
         flex: 0 1 calc(25% - 2px); } }
+
+.footer {
+  width: 100%;
+  background-color: #003E77;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+.footer__grid__col {
+  width: 33.3%;
+  color: white; }
+
+.footer__grid__col__title {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px; }
+
+.footer__grid__col ul {
+  list-style: none;
+  padding: 0; }
+
+.footer__grid__col ul li, .footer__grid__col ul li a {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 15px;
+  display: block; }
+
+.footer__grid__col--big {
+  text-align: right; }
+
+.footer__bottom {
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.footer__bottom__content {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 30px; }
+
+.footer__bottom__kuleuven {
+  width: auto;
+  height: 30px; }
+
+footer a,
+.footer__grid__col ul li a,
+.footer__bottom__content ul li a {
+  color: #8D9EB0;
+  text-decoration: none !important; }
+
+/*a:hover,
+a:focus,
+a:active,*/
+footer a:hover,
+footer a:focus,
+footer a:active,
+.footer__grid__col ul li a:hover,
+.footer__grid__col ul li a:focus,
+.footer__grid__col ul li a:active,
+.footer__bottom__content ul li a:hover,
+.footer__bottom__content ul li a:focus,
+.footer__bottom__content ul li a:active {
+  text-decoration: underline !important; }
+
+a.button, footer a.button, footer a.button--ghost {
+  text-decoration: none !important; }
+
+@media screen and (max-width: 768px) {
+  .footer__grid {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .footer__grid__col {
+    width: 100%; }
+  .footer__grid__col__title {
+    margin-top: 30px;
+    display: block; }
+  .footer__grid__col--faq {
+    display: none; }
+  .footer .button {
+    position: absolute;
+    top: 20px;
+    right: 20px; }
+  .footer__bottom__content {
+    display: none; }
+  .footer__bottom__kuleuven {
+    margin-top: 20px; }
+  .footer__up {
+    display: block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    padding: 0 !important;
+    background-image: url(../images/up.svg);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center; } }
 
 body {
   padding: 0;

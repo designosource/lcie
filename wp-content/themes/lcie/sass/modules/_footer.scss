@@ -58,6 +58,35 @@
 	height: 30px;
 }
 
+footer a,
+.footer__grid__col ul li a,
+.footer__bottom__content ul li a
+{
+	color: #8D9EB0;
+	text-decoration: none !important;
+}
+
+/*a:hover,
+a:focus,
+a:active,*/
+footer a:hover,
+footer a:focus,
+footer a:active,
+.footer__grid__col ul li a:hover,
+.footer__grid__col ul li a:focus,
+.footer__grid__col ul li a:active,
+.footer__bottom__content ul li a:hover,
+.footer__bottom__content ul li a:focus,
+.footer__bottom__content ul li a:active
+{
+	text-decoration: underline !important;
+}
+
+a.button, footer a.button, footer a.button--ghost{
+	text-decoration: none !important;
+}
+
+
 @media screen and (max-width: 768px)
 {
 	.footer__grid

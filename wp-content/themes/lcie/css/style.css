@@ -337,11 +337,15 @@
 .home__hero__text {
   color: white;
   font-family: "Nunito", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.6;
   display: block;
   margin-bottom: 20px; }
+
+.home__hero p a:-webkit-any-link {
+  font-weight: 400;
+  color: #fff; }
 
 /* FOR WHO? */
 .home__who {
@@ -1917,8 +1921,8 @@ article.search__results__result {
   margin-top: 30px; }
 
 .footer__bottom__kuleuven {
-  width: auto;
-  height: 30px; }
+  height: 30px;
+  margin-left: 20px; }
 
 footer a,
 .footer__grid__col ul li a,
@@ -1926,9 +1930,9 @@ footer a,
   color: #8D9EB0;
   text-decoration: none !important; }
 
-/*a:hover,
-a:focus,
-a:active,*/
+header .header__subnavigation a:hover,
+header .header__subnavigation a:active,
+header .header__subnavigation a:focus,
 footer a:hover,
 footer a:focus,
 footer a:active,
@@ -1939,6 +1943,11 @@ footer a:active,
 .footer__bottom__content ul li a:focus,
 .footer__bottom__content ul li a:active {
   text-decoration: underline !important; }
+
+header a:hover,
+header a:focus,
+header a:active {
+  text-decoration: none !important; }
 
 a.button, footer a.button, footer a.button--ghost {
   text-decoration: none !important; }

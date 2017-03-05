@@ -23,9 +23,18 @@
 					<div class="footer__bottom__content">
 						<span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
 					</div>
-                    <a href="https://www.keuleuven.be"><img
-                                src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png"
-                                alt="Logo KULeuven" class="footer__bottom__kuleuven"></a>
+                    <div class="footer__bottom__content">
+                        <a href="http://www.leuvenmindgate.be"><img
+                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-leuven-mindgate-klein.png"
+                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
+                        <a href="http://www.vlaamsbrabant.be"><img
+                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-vlaams-brabant.png"
+                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
+                        <a href="https://www.keuleuven.be"><img
+                                    src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png"
+                                    alt="Logo KULeuven" class="footer__bottom__kuleuven"></a>
+                    </div>
+
 				</div>
 			</div>
 		</footer>

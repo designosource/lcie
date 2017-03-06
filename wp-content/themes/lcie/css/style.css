@@ -186,7 +186,10 @@
     background-repeat: no-repeat;
     z-index: 99999; }
   .header__hamburger--close {
-    background-image: url(../images/close.svg); }
+    background-image: url(../images/close.svg);
+    position: fixed;
+    top: 35px;
+    right: 40px; }
   .sidebar {
     width: 100%;
     margin-right: 0;
@@ -419,7 +422,7 @@
   z-index: 9; }
 
 .home__teams__grid__col__logo {
-  height: 100px;
+  height: 50px;
   position: relative;
   z-index: 999; }
 

@@ -239,6 +239,9 @@
 	.header__hamburger--close
 	{
 		background-image: url(../images/close.svg);
+		position: fixed;
+		top: 35px;
+		right: 40px;
 	}
 
 	.sidebar
@@ -273,6 +276,7 @@
 		box-sizing: border-box;
 		overflow: auto;
 		display: none;
+
 	}
 
 	.header__navigation ul li

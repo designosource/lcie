@@ -104,7 +104,7 @@
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
-  text-indent: 9999px;
+  /*text-indent: 9999px;*/
   padding: 0 !important;
   position: relative;
   top: -5px;
@@ -438,7 +438,7 @@
 .home__teams__grid__col__readmore {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   color: white;
   text-decoration: none;
   position: absolute;

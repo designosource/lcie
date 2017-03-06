@@ -10,7 +10,8 @@
             <div class="home__hero__content">
                 <h1 class="home__hero__title">Lcie</h1>
                 <p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om
-                    te ondernemen drastisch verlagen en de ondernemingszin van studenten, onderzoekers en professoren
+                    te ondernemen drastisch verlagen en de ondernemingszin vanstudenten, docenten, onderzoekers en
+                    professoren
                     aanmoedigen.</p>
                 <a href="<?php echo site_url(); ?>/sluit-je-aan"
                    class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
@@ -32,10 +33,11 @@
 
                         <a href="<?php the_sub_field("url"); ?>">
 
-                                <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie voor <?php the_sub_field("text"); ?></a>
-                                <div class="home__who__grid__col__overlay"
-                                     style="background-color: <?php the_sub_field("color"); ?>">
-                                </div>
+                            <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie
+                                voor <?php the_sub_field("text"); ?></a>
+                            <div class="home__who__grid__col__overlay"
+                                 style="background-color: <?php the_sub_field("color"); ?>">
+                            </div>
 
                         </a>
 
@@ -178,19 +180,24 @@
     <section class="home__calendar">
         <div class="wrapper">
             <h1><?php pll_e("Kalender"); ?></h1>
-            <a href="" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
+            <a href="../lcie-events" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
         </div>
-        <div class="grid">
-            <div class="home__calendar__side">
-                <div>
-                    <h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
-                    <p class="home__calendar__side__text"><?php the_field("calendar_text"); ?></p>
-                    <a href="" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>
+            <div class="grid">
+                <div class="home__calendar__side">
+                    <div>
+                        <!--<h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
+                        <p class="home__calendar__side__text"><?php the_field("calendar_text"); ?></p>
+                        <a href="" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>-->
+
+                        <h2 class="home__calendar__side__title">Lcie events bijwonen</h2>
+                        <p class="home__calendar__side__text">Lcie organiseert interessante events die je ondernemingszin aanwakkeren.</p>
+                        <a href="../lcie-events" class="home__calendar__side__more">Meer info</a>
+                    </div>
                 </div>
+                <div class="home__calendar__photo"
+                     style="background-image: url(<?php the_field("calendar_photo"); ?>)"></div>
             </div>
-            <div class="home__calendar__photo"
-                 style="background-image: url(<?php the_field("calendar_photo"); ?>)"></div>
-        </div>
+
     </section>
 
 

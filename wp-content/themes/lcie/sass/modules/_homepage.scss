@@ -35,10 +35,15 @@
 .home__hero__text
 {
 	color: white;
-	@include primary_font(1.2rem, 300);
+	@include primary_font(1.4rem, 300);
 	line-height: 1.6;
 	display: block;
 	margin-bottom: 20px;
+}
+
+.home__hero p a:-webkit-any-link{
+	font-weight: 400;
+	color: #fff;
 }
 
 /* FOR WHO? */

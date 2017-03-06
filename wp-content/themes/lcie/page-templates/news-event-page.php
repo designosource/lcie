@@ -1,5 +1,5 @@
 <?php
-// Template name: NewsEvent-Page
+// Template name: Nieuws & events teaserpagina
 ?>
 
 

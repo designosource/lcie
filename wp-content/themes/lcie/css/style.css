@@ -1628,10 +1628,28 @@ a.home__calendar__side__more {
   display: flex; }
 
 .team__info__text__social__item {
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-  background-color: red; }
+  width: 30px;
+  height: 30px;
+  margin-right: 20px; }
+
+.team__info__text__social__item--website {
+  background-image: url("../dist/images/team-social/link.png");
+  background-size: contain; }
+
+.team__info__text__social__item--facebook {
+  background-image: url("../dist/images/team-social/facebook.png");
+  background-size: contain; }
+
+.team__info__text__social__item--twitter {
+  background-image: url("../dist/images/team-social/twitter.png");
+  background-size: contain; }
+
+.team__info__text__social__item--linkedin {
+  background-image: url("../dist/images/team-social/linkedin.png"); }
+
+.team__info__text__social__item--youtube {
+  background-image: url("../dist/images/team-social/youtube.png");
+  background-size: contain; }
 
 .team__happenings {
   margin-top: 100px;

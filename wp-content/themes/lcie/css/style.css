@@ -1555,7 +1555,9 @@ a.home__calendar__side__more {
   padding-bottom: 20px; }
 
 .teams__pastprojects__grid__col__logo {
-  width: 100%; }
+  width: 100%;
+  max-width: 300px;
+  max-height: 200px; }
 
 /* TEAM DETAIL */
 .team__top {

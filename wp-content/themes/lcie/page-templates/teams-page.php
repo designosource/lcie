@@ -20,7 +20,9 @@
 
 						<div class="teams__content__grid__col">
 
-							<img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="teams__content__grid__col__image">
+                            <a href="<?php the_permalink(); ?>"><img src="<?php the_field("logo"); ?>"
+                                                                     alt="<?php the_title(); ?>"
+                                                                     class="teams__content__grid__col__image"></a>
 
 						</div>
 

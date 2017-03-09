@@ -334,6 +334,12 @@
 	color: $regalblue;
 }
 
+.offerings__infrastructure__grid__col__description p
+{
+	@include primary_font(1.0rem, 400);
+	color: $regalblue;
+}
+
 .offerings__infrastructure__grid__col__plan
 {
 	@include primary_font(1.0rem, 400);

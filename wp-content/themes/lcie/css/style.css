@@ -1486,6 +1486,12 @@ a.home__calendar__side__more {
   font-weight: 400;
   color: #003E77; }
 
+.offerings__infrastructure__grid__col__description p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #003E77; }
+
 .offerings__infrastructure__grid__col__plan {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;

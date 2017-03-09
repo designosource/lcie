@@ -92,6 +92,18 @@ function create_posttypes() {
             )
         );
 
+
+    register_post_type( 'partner_events',
+        array(
+            'labels' => array(
+                'name' => __( 'Partner events' ),
+                'singular_name' => __( 'Partner events' )
+                ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => "dashicons-calendar-alt"
+            )
+        );
 }
 
 add_action( 'init', 'create_posttypes' );
@@ -106,6 +118,49 @@ add_action( 'init', 'create_posttypes' );
 
 if(function_exists("register_field_group"))
 {
+        register_field_group(array (
+        'id' => 'acf_opleidingen',
+        'title' => 'Opleidingen',
+        'fields' => array (
+            array (
+                        'key' => 'field_58a89224269c412323556',
+                        'label' => 'Logo',
+                        'name' => 'logo',
+                        'type' => 'image',
+                        'save_format' => 'url'
+                        ),
+            array (
+                         'key' => 'field_58a89224269c41232355624',
+                        'label' => 'Url',
+                        'name' => 'url',
+                        'type' => 'text',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                        ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'partner_events',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
     register_field_group(array (
         'id' => 'acf_opleidingen',
         'title' => 'Opleidingen',
@@ -123,6 +178,7 @@ if(function_exists("register_field_group"))
                         'formatting' => 'html',
                         'maxlength' => '',
                         ),
+
         ),
         'location' => array (
             array (

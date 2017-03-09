@@ -106,7 +106,43 @@ add_action( 'init', 'create_posttypes' );
 
 if(function_exists("register_field_group"))
 {
-
+    register_field_group(array (
+        'id' => 'acf_opleidingen',
+        'title' => 'Opleidingen',
+        'fields' => array (
+            array (
+                        'key' => 'field_58a89224269c4123',
+                        'label' => 'Intro',
+                        'name' => 'intro_text',
+                        'type' => 'wysiwyg',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                        ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/courses-page.php',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
     register_field_group(array (
         'id' => 'acf_contact',
         'title' => 'Contact',

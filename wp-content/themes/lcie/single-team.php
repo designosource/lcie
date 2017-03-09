@@ -42,7 +42,7 @@
 
 				<div class="team__info__text__social">
 
-					<?php if(!get_field("website")): ?>
+					<?php if(get_field("website")): ?>
 					<a href="<?php the_field("website"); ?>" class="team__info__text__social__item team__info__text__social__item--website"></a>
 					<?php endif; ?>
 					<?php if(get_field("facebook")): ?>
@@ -65,30 +65,33 @@
 
 	</section>
 
-	<section class="team__happenings">
-		
-		<div class="wrapper">
+	
+	<?php if( have_rows('happenings') ): ?>
+		<section class="team__happenings">
+			
+			<div class="wrapper">
 
-			<h1>Happenings</h1>
-			<?php if( have_rows('happenings') ): while ( have_rows('happenings') ) : the_row();?>
-				<div class="team__happenings__grid grid">
-					
-		
-						<div class="team__happenings__grid__col team__happenings__grid__col--image" style="background-image: url(<?php the_sub_field("photo"); ?>);">
-							<div class="team__happenings__grid__col--image__overlay"></div>
-						</div>
-						<div class="team__happenings__grid__col">
-							<h2 class="team__happenings__grid__col__title"><?php the_sub_field("title"); ?></h2>
-							<?php the_sub_field("text"); ?>
-						</div>
+				<h1><?php pll_e( "Happenings" ); ?></h1>
+				<?php  while ( have_rows('happenings') ) : the_row();?>
+					<div class="team__happenings__grid grid">
+						
+			
+							<div class="team__happenings__grid__col team__happenings__grid__col--image" style="background-image: url(<?php the_sub_field("photo"); ?>);">
+								<div class="team__happenings__grid__col--image__overlay"></div>
+							</div>
+							<div class="team__happenings__grid__col">
+								<h2 class="team__happenings__grid__col__title"><?php the_sub_field("title"); ?></h2>
+								<?php the_sub_field("text"); ?>
+							</div>
 
 
-				</div>
-			<?php endwhile; endif; ?>
+					</div>
+				<?php endwhile; ?>
 
-		</div>
+			</div>
 
-	</section>
+		</section>
+	<?php endif; ?>
 	
 	<style>
 		
@@ -98,5 +101,24 @@
 		}
 
 	</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	
+	var active = $(".team__top__allteams__item--active");
+
+	$(".team__top__allteams__item").hover(function(){
+
+		$(".team__top__allteams__item--active").removeClass("team__top__allteams__item--active");
+		$(this).addClass("team__top__allteams__item--active");
+
+	}, function(){
+
+		$(this).removeClass("team__top__allteams__item--active");
+		active.addClass("team__top__allteams__item--active");
+
+	});
+
+	</script>
 	<?php endwhile; endif;?>
 <?php get_footer(); ?>

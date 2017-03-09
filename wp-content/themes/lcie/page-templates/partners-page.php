@@ -5,16 +5,8 @@
 
 <?php get_header(); ?>
 
-<section class="home__hero">
-  <div class="home__hero__overlay"></div>
-  <div class="wrapper">
-    <div class="home__hero__content">
-      <h1 class="home__hero__title">Partners</h1>
-      <p class="home__hero__text">Partners van Lcie.</p>
-    </div>
-  </div>
-</section>
-
+<?php get_template_part( '/template-parts/page', 'header' ); ?>
+<section class="page__content">
 <div class="wrapper">
   <p>De Leuven Community for Innovation driven Entrepreneurship (LCIE) heeft
     relaties uitgebouwd met meerdere geassocieerde partners. Deze partners delen
@@ -23,53 +15,49 @@
 
   <h2>Powered By</h2>
   <section class="partners__grid">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
+ <?php if( have_rows('poweredby') ): ?>
+
+    <?php while ( have_rows('poweredby') ) : the_row(); ?>
+
+      <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+
+  <?php endwhile; endif; ?>
   </section>
 
   <h2>In partnership with</h2>
   <section class="partners__grid">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
+   <?php if( have_rows('partnership') ): ?>
+
+      <?php while ( have_rows('partnership') ) : the_row(); ?>
+
+        <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+
+    <?php endwhile; endif; ?>
   </section>
 
   <h2>Sponsored by</h2>
   <section class="partners__grid">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="wp-content/themes/lcie/images/lcie.png" alt="" class="partners__grid__item">
+  <?php if( have_rows('sponsored') ): ?>
+
+    <?php while ( have_rows('sponsored') ) : the_row(); ?>
+
+      <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+
+  <?php endwhile; endif; ?>
   </section>
 
-  <h2>IusStart Partners</h2>
+<!--   <h2>IusStart Partners</h2>
   <section class="partners__grid">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-    <img src="https://faber.kuleuven.be/nl/pv/pvg/pvg-oedeemtherapie/ku-leuven" alt="" class="partners__grid__item">
-  </section>
+  <?php if( have_rows('rep') ): ?>
+
+    <?php while ( have_rows('rep') ) : the_row(); ?>
+
+      <?php the_sub_field('sub_field_name'); ?>
+
+  <?php endwhile; endif; ?>
+  </section> -->
 
 </div>
-
+</section>
 
 <?php get_footer(); ?>

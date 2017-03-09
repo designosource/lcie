@@ -33,13 +33,13 @@
                 'offset'           => 0,
                 'category'         => '',
                 'category_name'    => '',
-                'orderby'          => 'ASC',
-                'order'            => 'DESC',
+                'orderby'          => 'date',
+                'order'            => 'ASC',
                 'include'          => '',
                 'exclude'          => '',
                 'meta_key'         => '',
                 'meta_value'       => '',
-                'post_type'        => 'post',
+                'post_type'        => 'project',
                 'post_mime_type'   => '',
                 'post_parent'      => '',
                 'post_status'      => 'publish',
@@ -85,7 +85,46 @@
 </section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    
+    (function($) {
 
+    $(document).on( 'change', '.projects__content__select', function( event ) {
+        event.preventDefault();
+
+        $.ajax({
+            url: "<?php echo site_url(); ?>/wp-admin/admin-ajax.php",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                action: 'ajax_pagination',
+                date: $(".projects__content__select").val()
+            },
+            success: function( data ) {
+
+                if(data == false){
+                     $('.projects__content__grid').empty();
+                    $('.projects__content__grid').append( "<div class='wrapper'>Geen projecten gevonden voor dit jaar.</div>" );
+                }else{
+                    
+                    $('.projects__content__grid').empty();
+
+                    for(var i = 0; i < data.length; i++){
+
+                        var col = '<div class="projects__content__grid__col" style="background-image: url('+data[i][1].photo+');"><div class="projects__content__grid__col__overlay" style="background-color: '+data[i][1].color+'"></div><img src="'+data[i][1].logo+'" alt="'+data[i][0].post_title+'" class="projects__content__grid__col__logo"><span class="projects__content__grid__col__title">'+data[i][0].post_title+'</span><a href="'+data[i][1].url+'" class="projects__content__grid__col__more">lees meer</a></div>';
+
+                        $('.projects__content__grid').append( col );
+
+                    }
+                }
+
+            }
+        })
+    })
+
+})(jQuery);
+
+</script>
 
 <style>
 

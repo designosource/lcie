@@ -26,6 +26,7 @@
 {
 	width: 60%;
 	max-width: 300px;
+	max-height: 200px;
 	display: block;
 }
 
@@ -43,6 +44,38 @@
 {
 	margin-top: 100px;
 	margin-bottom: 100px;
+}
+
+.teams__pastprojects__expand
+{
+	@include secondary_font(2.2rem, 400);
+	color: $curiousblue;
+	text-decoration: none;
+	position: relative;
+}
+
+.teams__pastprojects__expand:after
+{
+	content: '';
+	position: absolute;
+	right: -60px;
+	bottom: -4px;
+	width: 50px;
+	height: 50px;
+	background-image: url(../dist/images/arrow_down.png);
+	background-size: 50px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.teams__pastprojects__expand--expanded:after
+{
+	background-image: url(../dist/images/arrow_up.png);
+}
+
+.teams__pastprojects__expand:hover
+{
+	text-decoration: underline;
 }
 
 .teams__pastprojects__year
@@ -68,6 +101,8 @@
 .teams__pastprojects__grid__col__logo
 {
 	width: 100%;
+	max-width: 300px;
+	max-height: 200px;
 }
 
 
@@ -107,6 +142,7 @@
 	padding-bottom: 7px;
 	padding-top: 7px;
 	text-decoration: none;
+	transition: all 0.1s ease-in-out;
 }
 
 .team__top__allteams__item--active
@@ -114,11 +150,13 @@
 	text-indent: 0px;
 	@include primary_font(1.4rem, 400);
 	color: $curiousblue;
+	transition: all 0.1s ease-in-out;
 }
 
 .team__top__allteams__item--active:after
 {
 	width: 100% !important;
+	transition: all 0.1s ease-in-out;
 }
 
 .team__top__allteams__item:after
@@ -130,6 +168,7 @@
 	width: 40%;
 	height: 2px;
 	background-color: $dovegray;
+	transition: all 0.1s ease-in-out;
 }
 
 .team__info__logo
@@ -162,10 +201,34 @@
 
 .team__info__text__social__item
 {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	margin-right: 20px;
-	background-color: red;
+}
+
+.team__info__text__social__item--website{
+	background-image: url("../dist/images/team-social/link.png");
+	background-size: contain;
+}
+
+.team__info__text__social__item--facebook{
+	background-image: url("../dist/images/team-social/facebook.png");
+	background-size: contain;
+}
+
+.team__info__text__social__item--twitter{
+	background-image: url("../dist/images/team-social/twitter.png");
+	background-size: contain;
+}
+
+.team__info__text__social__item--linkedin{
+	background-image: url("../dist/images/team-social/linkedin.png");
+
+}
+
+.team__info__text__social__item--youtube{
+	background-image: url("../dist/images/team-social/youtube.png");
+	background-size: contain;
 }
 
 .team__happenings
@@ -282,6 +345,16 @@
 	.team__top
 	{
 		margin-top: 0;
+	}
+
+	.teams__pastprojects__expand
+	{
+		@include primary_font(1.8rem, 400);
+	}
+
+	.teams__pastprojects__expand:after
+	{
+		background-size: 30px;
 	}
 
 

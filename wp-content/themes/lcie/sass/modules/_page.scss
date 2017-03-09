@@ -1,8 +1,8 @@
 .page__top
 {
 	width: 100%;
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 100px;
+	padding-bottom: 100px;
 	background-color: $regalblue;
 	position: relative;
 	background-size: cover;
@@ -25,6 +25,7 @@
 	@include primary_font(3.6rem, 500);
 	color: white;
 	margin-bottom: 0;
+	margin-top: 0;
 	position: relative;
 	z-index: 999;
 }
@@ -35,4 +36,11 @@
 	color: white;
 	position: relative;
 	z-index: 999;
+	margin-bottom: 0;
+}
+
+.page__content
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
 }

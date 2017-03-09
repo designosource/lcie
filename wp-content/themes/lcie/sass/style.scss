@@ -2,39 +2,43 @@
 @import "fonts";
 
 @import "modules/header";
-@import "modules/footer";
 
 @import "modules/page";
 @import "modules/homepage";
 @import "modules/forpage";
 @import "modules/documentationpage";
 @import "modules/contactpage";
+@import "modules/coursespage";
 @import "modules/applypage";
 @import "modules/offerings";
 @import "modules/teams";
 @import "modules/faq";
 @import "modules/search";
 @import "modules/partnerspage";
+@import "modules/newsevent";
+@import "modules/footer";
 
 
 body
 {
 	padding: 0;
 	margin: 0;
+	overflow-x: hidden;
 }
 
 h1
 {
 	@include secondary_font(2.2rem, 400);
 	color: $curiousblue;
-	font-family: 'roboto';
 }
 
-h2 {
+h2
+{
 	@include secondary_font(1.8rem, 400);
 	color: $curiousblue;
-	font-family: 'roboto';
 }
+
+
 
 .wrapper
 {
@@ -44,6 +48,10 @@ h2 {
 	width: 80%;
 	max-width: 1600px;
 	height: 100%;
+}
+
+.wrapper_full_text p{
+	max-width: 960px;
 }
 
 p {
@@ -68,12 +76,26 @@ p {
 	color: $regalblue;
 }
 
+.button:hover
+{
+	color: white;
+	background-color: $regalblue;
+	transition: all 0.1s ease-in-out;
+}
+
 .button--ghost
 {
 	@include primary_font(1.0rem, 700);
 	background-color: transparent;
 	color: white;
 	border: 2px solid white;
+}
+
+.button--ghost:hover
+{
+	color: $regalblue;
+	background-color: white;
+	transition: all 0.1s ease-in-out;
 }
 
 .content

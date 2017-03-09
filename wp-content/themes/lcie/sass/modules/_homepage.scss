@@ -3,9 +3,8 @@
 	padding-top: 80px;
 	padding-bottom: 80px;
 	width: 100%;
-	background-image: url(../images/bg.jpg);
 	background-size: cover;
-	background-position: center;
+	background: url(../images/bg.jpg) center;
 	position: relative;
 }
 
@@ -36,10 +35,15 @@
 .home__hero__text
 {
 	color: white;
-	@include primary_font(1.2rem, 300);
+	@include primary_font(1.4rem, 300);
 	line-height: 1.6;
 	display: block;
 	margin-bottom: 20px;
+}
+
+.home__hero p a:-webkit-any-link{
+	font-weight: 400;
+	color: #fff;
 }
 
 /* FOR WHO? */
@@ -51,9 +55,6 @@
 .home__who__grid
 {
 	background-color: $regalblue;
-	background-image: url(../images/home__bg2.png);
-	background-size: cover;
-	background-position: center;
 	margin-top: 30px;
 }
 
@@ -61,12 +62,34 @@
 {
 	width: 25%;
 	border: 1px solid white;
-	padding-top: 90px;
-	padding-bottom: 90px;
 	text-align: center;
 	color: white;
 	@include primary_font(1.2rem, 700);
+	position: relative;
+	background-size: cover;
+	background-position: center;
+
+	a
+	{
+		color: white;
+		text-decoration: none;
+		text-transform: lowercase;
+		position: relative;
+		z-index: 999;
+	}
 }
+
+.home__who__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
+
 
 /* TEAMS SECTION */
 .home__teams
@@ -91,12 +114,11 @@
 {
 	width: 25%;
 	flex-grow: 1;
-	padding-top: 150px;
-	padding-bottom: 150px;
+	padding-top: 80px;
+	padding-bottom: 80px;
 	padding-right: 40px;
 	padding-left: 40px;
 	box-sizing: border-box;
-	background-color: red;
 	background-size: cover;
 	background-position: center;
 	text-align: center;
@@ -115,17 +137,17 @@
 	z-index: 9;
 }
 
+
 .home__teams__grid__col__logo
 {
-	height: 40px;
-	filter: brightness(10) contrast(10) grayscale(1);
+	height: 50px;
 	position: relative;
 	z-index: 999;
 }
 
 .home__teams__grid__col__text
 {
-	font-size: 1.2rem;
+	@include primary_font(1.2rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -136,7 +158,7 @@
 
 .home__teams__grid__col__readmore
 {
-	font-size: 1.0rem;
+	@include primary_font(1.0rem, 500);
 	color: white;
 	text-decoration: none;
 	position: absolute;
@@ -170,6 +192,9 @@
 	height: 60px;
 }
 
+.home__teams__grid__col{
+	display: block;
+}
 
 /* FACTS */
 .home__facts__grid
@@ -190,14 +215,14 @@
 .home__facts__col__number
 {
 	display: block;
-	font-size: 4.8rem;
+	@include primary_font(4.8rem, 400);
 	margin-bottom: 20px;
 }
 
 .home__facts__col__description
 {
 	display: block;
-	font-size: 1.2rem;
+	@include primary_font(1.2rem, 400);
 }
 
 
@@ -216,12 +241,11 @@
 {
 	width: 25%;
 	flex-grow: 1;
-	padding-top: 150px;
-	padding-bottom: 150px;
+	padding-top: 80px;
+	padding-bottom: 80px;
 	padding-right: 40px;
 	padding-left: 40px;
 	box-sizing: border-box;
-	background-color: red;
 	background-size: cover;
 	background-position: center;
 	text-align: center;
@@ -230,7 +254,7 @@
 
 .home__divisions__grid__col__title
 {
-	font-size: 1.6rem;
+	@include primary_font(1.6rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -238,7 +262,7 @@
 
 .home__divisions__grid__col__description
 {
-	font-size: 1.0rem;
+	@include primary_font(1.0rem, 400);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -247,7 +271,7 @@
 
 .home__divisions__grid__col__readmore
 {
-	font-size: 1.1rem;
+	@include primary_font(1.1rem, 400);
 	color: white;
 	text-decoration: none;
 	position: absolute;
@@ -272,6 +296,60 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+/* TESTMONIALS */
+.home__testmonials
+{
+	position: relative;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.home__testmonials__slider .swiper-wrapper
+{
+	padding: 0;
+}
+
+.home__testmonials__slide
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.home__testmonials__slide__name
+{
+	@include primary_font(1.4rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 0 auto;
+}
+
+.home__testmonials__slide__function
+{
+	@include primary_font(1.2rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 10px auto;
+}
+
+.home__testmonials__slide__text
+{
+	@include primary_font(1.0rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 20px auto;
+}
+
+
+/* SWIPER */
+.swiper-wrapper{
+	padding: 0;
+}
+
+.swiper-container{
+	text-align: center;
 }
 
 
@@ -299,9 +377,8 @@
 	margin-top: 30px;
 	width: 60%;
 	height: 350px;
-	background-image: url(../images/home_bg3.png);
 	background-size: cover;
-	background-position: center;
+	background: url(../images/home_bg3.png) center;
 }
 
 .home__calendar__side__title
@@ -335,6 +412,44 @@
 	right: 0;
 }
 
+.home__calendar__side > div{
+	display: block;
+	width: 100%;
+}
+
+a.home__calendar__side__more{
+	display: block;
+	text-align: right;
+}
+
+
+
+@media screen and (min-width: 768px) {
+	/* SWIPER */
+	div.swiper-slide.home__teams__grid-small__slide.swiper-slide-active,
+	div.swiper-wrapper > div{
+		padding: 0;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+
+
+	.swiper-container{
+		text-align: center;
+	}
+
+	div.swiper-button-prev{
+		padding: 0 20px 0 0;
+	}
+
+	div.swiper-button-next{
+		padding: 0 0 0 20px;
+	}
+
+}
+
+
 @media screen and (max-width: 768px)
 {
 	.grid
@@ -358,5 +473,90 @@
 	{
 		display: none;
 	}
+
+	.home__calendar__all
+	{
+		position: relative;
+	}
+
+	.home__calendar__side__text
+	{
+		width: 100%;
+	}
+
+	.home__calendar__side__more
+	{
+		position: relative;
+		bottom: auto;
+		right: auto;
+	}
+
+	.home__teams__all
+	{
+		position: relative;
+	}
+
+
+	/* NAVIGATION */
+
+	.menu-hoofdnavigatie-container{
+		margin: 0;
+		padding: 0;
+	}
+
+	.header__navigation ul li:not(.header__navigation__apply){
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.menu-item-type-post_type a{
+		padding: 3px 0;
+		font-size: 1.15rem;
+		display: block;
+	}
+
+	li.menu-item{
+		padding: 0 !important;
+	}
+
+	.header__navigation ul li a{
+		display: inline-block !important;
+		width: 100%;
+		color: white !important;
+		font-size: 1.3rem;
+		padding: 6px 0;
+	}
+
+	.header__navigation__apply {
+		padding: 10px 0 !important;
+	}
+
+	.header__subnavigation ul {
+		text-align: left !important;
+	}
+
+	.menu-item-type-custom{
+		display: inline-block;
+		float: left;
+	}
+
+	.menu-item-type-custom{
+		display: none !important;
+	}
+
+	.header__subnavigation__icons{
+		display: block;
+
+	}
+
+	.header__navigation{
+		padding-top: 80px;
+		overflow: hidden;
+	}
+
+	.header__subnavigation{
+		top: 240px;
+	}
+
 }
 

@@ -1,9 +1,38 @@
 <?php
+ /* INCLUDE ACF PLUGIN */
+include_once('advanced-custom-fields/acf.php');
+include_once('acf-repeater/acf-repeater.php');
+
+// define( 'ACF_LITE' , true );
+
+
+/* CUSTOM POST TYPES */
+
+function create_posttypes() {
+
+    register_post_type( 'project',
+        array(
+            'labels' => array(
+                'name' => __( 'Projecten' ),
+                'singular_name' => __( 'Project' )
+                ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => "dashicons-lightbulb"
+            )
+        );
+
+
+}
+
+add_action( 'init', 'create_posttypes' );
+
+
     function add_new_menu_items()
     {
         add_menu_page(
-            "Theme Options",
-            "Theme Options",
+            "Site opties",
+            "Site opties",
             "manage_options",
             "theme-options",
             "theme_options_page",
@@ -21,27 +50,8 @@
             
             <!-- run the settings_errors() function here. -->
             <?php settings_errors(); ?>
-            <h1>Theme Options</h1>
+            <h1>Opties</h1>
             
-            <?php
-                $active_tab = "header-options";
-                if(isset($_GET["tab"]))
-                {
-                    if($_GET["tab"] == "header-options")
-                    {
-                        $active_tab = "header-options";
-                    }
-                    else
-                    {
-                        $active_tab = "ads-options";
-                    }
-                }
-            ?>
-            
-            <h2 class="nav-tab-wrapper">
-                <a href="?page=theme-options&tab=header-options" class="nav-tab <?php if($active_tab == 'header-options'){echo 'nav-tab-active';} ?> "><?php _e('Header Options', 'sandbox'); ?></a>
-                <a href="?page=theme-options&tab=ads-options" class="nav-tab <?php if($active_tab == 'ads-options'){echo 'nav-tab-active';} ?>"><?php _e('Advertising Options', 'sandbox'); ?></a>
-            </h2>
 
             <form method="post" action="options.php" enctype="multipart/form-data">
                 <?php
@@ -62,49 +72,36 @@
 
     function display_options()
     {
-        add_settings_section("header_section", "Header Options", "display_header_options_content", "theme-options");
+        add_settings_section("header_section", "Algemene informatie", null , "theme-options");
+     
+        add_settings_field("header_logo", "Kleur", "display_logo_form_element", "theme-options", "header_section");
+        register_setting("header_section", "header_logo");
 
-        if(isset($_GET["tab"]))
-        {
-            if($_GET["tab"] == "header-options")
-            {
-                add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
-                register_setting("header_section", "header_logo");
+        add_settings_field("background_picture", "Afbeelding", "background_form_element", "theme-options", "header_section");
+        register_setting("header_section", "background_picture", "handle_file_upload");
 
-                add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
-                register_setting("header_section", "background_picture", "handle_file_upload");
-            }
-            else
-            {
-                add_settings_field("advertising_code", "Ads Code", "display_ads_form_element", "theme-options", "header_section");      
-                register_setting("header_section", "advertising_code");
-            }
-        }
-        else
-        {
-            add_settings_field("header_logo", "Logo Url", "display_logo_form_element", "theme-options", "header_section");
-            register_setting("header_section", "header_logo");
-            
-            add_settings_field("background_picture", "Picture File Upload", "background_form_element", "theme-options", "header_section");
-            register_setting("header_section", "background_picture", "handle_file_upload");
-        }
+        add_settings_field("email", "E-mail", "display_email_form_element", "theme-options", "header_section");
+        register_setting("header_section", "email");
+
+        add_settings_field("description", "Beschrijving", "display_description_form_element", "theme-options", "header_section");
+        register_setting("header_section", "description");
+    
         
     }
 
-    function handle_file_upload($options)
+    function handle_file_upload($option)
     {
-        if(!empty($_FILES["background_picture"]["tmp_name"]))
-        {
-            $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
-            $temp = $urls["url"];
-            return $temp;   
-        }
-
-        return get_option("background_picture");
+      if(!empty($_FILES["background_picture"]["tmp_name"]))
+      {
+        $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
+        $temp = $urls["url"];
+        return $temp;   
+      }
+      
+      return $option;
     }
 
 
-    function display_header_options_content(){echo "The header of the theme";}
     function background_form_element()
     {
         ?>
@@ -112,16 +109,25 @@
             <?php echo get_option("background_picture"); ?>
         <?php
     }
+
     function display_logo_form_element()
     {
         ?>
             <input type="color" name="header_logo" id="header_logo" value="<?php echo get_option('header_logo'); ?>" />
         <?php
     }
-    function display_ads_form_element()
+
+    function display_email_form_element()
     {
         ?>
-            <input type="text" name="advertising_code" id="advertising_code" value="<?php echo get_option('advertising_code'); ?>" />
+            <input type="email" name="email" id="email" value="<?php echo get_option('email'); ?>" />
+        <?php
+    }
+
+    function display_description_form_element()
+    {
+        ?>
+            <textarea name="description" id="description" style="width: 100%; height: 250px;"><?php echo get_option('description'); ?></textarea>
         <?php
     }
 
@@ -138,28 +144,8 @@
 
 function my_ajax_pagination() {
 
-    wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
-    // 'ajaxurl' => get_template_directory_uri() . '/load-archive.php',
-    'ajaxurl' => admin_url('admin-ajax.php'),
-    'query_vars' => json_encode( array(
-        'post_type'  =>  'project',
-        'date_query' => array(
-            array(
-                'year'  => "2016"
-            ),
-        )
-    ) )
-
-
-));
-
-    
-wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
-
-
-    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-
-    $date = array(
+    $vars = array(
+        'post_type' => "project",
         'date_query' => array(
             array(
                 'year'  => $_POST['date']
@@ -167,7 +153,6 @@ wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/aja
         ),
     );
 
-    $vars = array_merge ($query_vars, $date);
     $data = array();
     $posts = new WP_Query( $vars );
     $GLOBALS['wp_query'] = $posts;
@@ -175,12 +160,12 @@ wp_enqueue_script( 'ajax-pagination',  get_stylesheet_directory_uri() . '/js/aja
 
     if( ! $posts->have_posts() ) { 
         // get_template_part( 'content', 'none' );
-        echo "NOTHING FOUND";
+        return false;
     }
     else {
         while ( $posts->have_posts() ) { 
             $posts->the_post();
-            array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo'), "photo" => get_field('photo'), "url" => get_permalink())));
+            array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo_white'), "photo" => get_field('photo'), "url" => get_permalink())));
         }
 
         echo json_encode($data);

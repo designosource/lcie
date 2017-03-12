@@ -24,13 +24,19 @@
 					<ul>
 
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
-						<ul class="header__subnavigation__icons">
-							<?php if(pll_current_language() == "nl"): ?>
-								<li><a href="<?php echo site_url(); ?>/en/">EN</a></li>
-							<?php else: ?>
-								<li><a href="<?php echo site_url(); ?>/nl/">NL</a></li>
-							<?php endif; ?>
-						</ul>
+                        <?php  $languages = pll_the_languages(array('raw'=>1)); ?>
+                        <ul class="header__subnavigation__icons">
+                            <?php
+                            foreach ($languages as $value):
+                                if(!$value["current_lang"]):
+                                    ?>
+
+                                    <li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
+
+                                    <?php
+                                endif; endforeach;
+                            ?>
+                        </ul>
 
 					</ul>
 				</div>

@@ -9,6 +9,7 @@
 @import "modules/offer";
 @import "modules/projects";
 
+
 body
 {
 	padding: 0;
@@ -119,12 +120,29 @@ p {
 	transition: all 0.1s ease-in-out;
 }
 
-.content
+
+/* START extra fix to much padding */
+
+/*.content
 {
 	padding-top: 100px;
 	padding-bottom: 100px;
+}*/
+
+.home__lcie, div.content{
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
+.who__content, .offer__content{
+	padding-top: 0;
+}
+
+footer .button{
+	background-color: #fff;
+}
+
+/* END fix to much padding */
 
 @media screen and (max-width: 768px)
 {

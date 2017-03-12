@@ -17,6 +17,7 @@
 @import "modules/partnerspage";
 @import "modules/newsevent";
 @import "modules/footer";
+@import "modules/contestspage";
 
 
 body
@@ -38,7 +39,10 @@ h2
 	color: $curiousblue;
 }
 
-
+h3 {
+	@include secondary_font(1.4rem, 400);
+	color: $curiousblue;
+}
 
 .wrapper
 {

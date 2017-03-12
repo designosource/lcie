@@ -9,10 +9,7 @@
         <div class="wrapper">
             <div class="home__hero__content">
                 <h1 class="home__hero__title">Lcie</h1>
-                <p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om
-                    te ondernemen drastisch verlagen en de ondernemingszin vanstudenten, docenten, onderzoekers en
-                    professoren
-                    aanmoedigen.</p>
+                <p class="home__hero__text"><?php pll_e("De Leuven Community for Innovation driven Entrepreneurship is er voor al jouw vragen rond ondernemingszin, zowel voor studenten, onderzoekers, professoren en alumni van de KU Leuven."); ?></p>
                 <a href="<?php echo site_url(); ?>/sluit-je-aan"
                    class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
             </div>
@@ -133,7 +130,7 @@
     </section>
     <section class="home__divisions">
         <div class="wrapper">
-            <h1><?php pll_e("Subdivisies"); ?></h1>
+            <h1><?php pll_e("Community Initiatieven"); ?></h1>
         </div>
 
         <div class="grid home__divisions__grid">

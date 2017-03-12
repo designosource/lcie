@@ -2101,6 +2101,68 @@ a.button, footer a.button, footer a.button--ghost {
     background-repeat: no-repeat;
     background-position: center; } }
 
+.contests__grid {
+  margin: 4em 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.contests__grid__item {
+  width: 24vw;
+  position: relative;
+  margin: 0 6em 6em 0;
+  padding: 30px;
+  box-sizing: border-box; }
+
+.contests__grid__item__haakBoven {
+  background-image: url(../images/haak-boven.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  right: 0; }
+
+.contests__grid__item__haakOnder {
+  background-image: url(../images/haak-onder.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  left: 0; }
+
+.contests__item__img {
+  margin-top: 2em;
+  width: 70%; }
+
+.contests__item__link {
+  float: right;
+  color: #003E77;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none; }
+
+.contests__item__link:hover {
+  text-decoration: underline; }
+
+@media screen and (max-width: 768px) {
+  .contests__grid {
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .contests__grid__item {
+    width: 37vw;
+    margin: 0; } }
+
+@media screen and (max-width: 390px) {
+  .contests__grid {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 4em 0; }
+  .contests__grid__item {
+    width: 100%;
+    margin: 2em 0; } }
+
 body {
   padding: 0;
   margin: 0;
@@ -2115,6 +2177,12 @@ h1 {
 h2 {
   font-family: "Roboto", sans-serif;
   font-size: 1.8rem;
+  font-weight: 400;
+  color: #43AADA; }
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
   font-weight: 400;
   color: #43AADA; }
 

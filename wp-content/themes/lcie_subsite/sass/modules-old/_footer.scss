@@ -53,44 +53,9 @@
 
 .footer__bottom__kuleuven
 {
+	width: auto;
 	height: 30px;
-	margin-left: 20px;
 }
-
-footer a,
-.footer__grid__col ul li a,
-.footer__bottom__content ul li a
-{
-	color: #8D9EB0;
-	text-decoration: none !important;
-}
-
-header .header__subnavigation a:hover,
-header .header__subnavigation a:active,
-header .header__subnavigation a:focus,
-footer a:hover,
-footer a:focus,
-footer a:active,
-.footer__grid__col ul li a:hover,
-.footer__grid__col ul li a:focus,
-.footer__grid__col ul li a:active,
-.footer__bottom__content ul li a:hover,
-.footer__bottom__content ul li a:focus,
-.footer__bottom__content ul li a:active
-{
-	text-decoration: underline !important;
-}
-
-header a:hover,
-header a:focus,
-header a:active{
-	text-decoration: none !important;
-}
-
-a.button, footer a.button, footer a.button--ghost{
-	text-decoration: none !important;
-}
-
 
 @media screen and (max-width: 768px)
 {

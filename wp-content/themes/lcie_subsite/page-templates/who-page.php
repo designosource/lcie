@@ -38,7 +38,7 @@
                         <div class="who__content__grid__col__photo" style="background-image: url(<?php the_sub_field("photo"); ?>)"></div>
                         <div class="who__content__grid__col__detail">
                             <span class="who__content__grid__col__detail__name"><?php the_sub_field("name"); ?></span>
-                            <span class="who__content__grid__col__detail__email"><?php the_sub_field("email"); ?></span>
+                            <span class="who__content__grid__col__detail__email"><a href="mailto:<?php the_sub_field("email"); ?>"><?php the_sub_field("email"); ?></a></span>
                              <span class="who__content__grid__col__detail__function"><?php the_sub_field("function"); ?></span>
                         </div>
                     </div>

@@ -113,7 +113,7 @@
 	text-align: right;
 }
 
-.header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter, .header__subnavigation__icons__linkedin
+.header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter
 {
 	text-indent: -9999px;
 	padding: 0 !important;
@@ -121,7 +121,8 @@
 
 .header__subnavigation__icons__search a
 {
-
+	width: 20px;
+	height: 20px;
 	background-image: url(../images/sub_search.png);
 	background-size: 20px;
 	background-repeat: no-repeat;
@@ -136,10 +137,10 @@
 
 .header__subnavigation__icons__facebook a
 {
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 	background-image: url(../images/sub_facebook.png);
-	background-size: 15px;
+	background-size: 18px;
 	background-repeat: no-repeat;
 	background-position: center;
 	text-indent: 9999px;
@@ -153,33 +154,16 @@
 
 .header__subnavigation__icons__twitter a
 {
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 	background-image: url(../images/sub_twitter.png);
-	background-size: 20px;
+	background-size: 25px;
 	background-repeat: no-repeat;
 	background-position: center;
 	text-indent: 9999px;
 	padding: 0 !important;
 		position: relative;
 	top: 5px;
-	display: block;
-	overflow: hidden;
-}
-
-.header__subnavigation__icons__linkedin a
-{
-	width: 15px;
-	height: 15px;
-	background-image: url(../images/sub_linkedin.png);
-	background-size: 15px;
-	background-repeat: no-repeat;
-	background-position: center;
-	text-indent: 9999px;
-	padding: 0 !important;
-	position: relative;
-	top: 5px;
-	margin-left: 15px;
 	display: block;
 	overflow: hidden;
 }
@@ -255,9 +239,6 @@
 	.header__hamburger--close
 	{
 		background-image: url(../images/close.svg);
-		position: fixed;
-		top: 35px;
-		right: 40px;
 	}
 
 	.sidebar
@@ -292,7 +273,6 @@
 		box-sizing: border-box;
 		overflow: auto;
 		display: none;
-
 	}
 
 	.header__navigation ul li
@@ -304,7 +284,6 @@
 		text-align: left;
 		margin-bottom: 10px;
 		padding-left: 0;
-
 	}
 
 	.header__subnavigation

@@ -18,7 +18,7 @@
 	<?php endwhile; endif; ?>
 		
 		<div class="home__content__intrested">
-			<span>Intresse in een samenwerking</span>
+			<span style="font-family: 'Roboto', sans-serif;">Intresse in een samenwerking</span>
 			<a href="" class="home__content__intrested__button">Contacteer ons</a>
 		</div>
 		

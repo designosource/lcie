@@ -49,12 +49,16 @@ article.search__results__result {
 	@include secondary_font(1.0rem, 700);
 }
 
+.search__form input{
+	max-width: 500px !important;
+}
+
 .search__form__input
 {
 	width: calc(100% - 100px);
-	font-size: 14px;
+	font-size: 1.1rem;
 	display: inline-block;
-	padding: 15px 40px;
+	padding: 10px 20px;
 	box-sizing: border-box;
 	margin: 0;
 	border: 2px solid $regalblue;
@@ -62,7 +66,7 @@ article.search__results__result {
 
 .search__form__button
 {
-	width: 100px;
+	width: 64px;
 	height: 50px;
 	background-color: $regalblue;
 	display: inline-block;
@@ -71,4 +75,10 @@ article.search__results__result {
 	margin: 0;
 	box-shadow: none;
 	border: none;
+	background-image: url(../images/sub_search.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 32px;
+	background-size: 32px;
+	cursor: pointer;
 }

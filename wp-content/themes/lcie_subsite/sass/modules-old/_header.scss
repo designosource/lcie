@@ -128,7 +128,7 @@
 	background-size: 20px;
 	background-repeat: no-repeat;
 	background-position: center;
-	/*text-indent: 9999px;*/
+	text-indent: 9999px;
 	padding: 0 !important;
 	position: relative;
 	top: -5px;
@@ -240,9 +240,6 @@
 	.header__hamburger--close
 	{
 		background-image: url(../images/close.svg);
-		position: fixed;
-		top: 35px;
-		right: 40px;
 	}
 
 	.sidebar
@@ -277,7 +274,6 @@
 		box-sizing: border-box;
 		overflow: auto;
 		display: none;
-
 	}
 
 	.header__navigation ul li
@@ -289,7 +285,6 @@
 		text-align: left;
 		margin-bottom: 10px;
 		padding-left: 0;
-
 	}
 
 	.header__subnavigation

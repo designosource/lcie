@@ -98,7 +98,7 @@
 					<?php switch_to_blog($site->blog_id); ?>
 
 					<div class="offerings__subsites__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
-						
+
 						<span class="offerings__subsites__grid__col__title"><?php echo $site->blogname; ?></span>
 						<a href="<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col__more">lees meer</a>
 						<div class="offerings__subsites__grid__col__overlay" style="background-color: <?php echo get_option('header_logo'); ?>"></div>

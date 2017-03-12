@@ -1888,17 +1888,20 @@ article.search__results__result {
   font-size: 1rem;
   font-weight: 700; }
 
+.search__form input {
+  max-width: 500px !important; }
+
 .search__form__input {
   width: calc(100% - 100px);
-  font-size: 14px;
+  font-size: 1.1rem;
   display: inline-block;
-  padding: 15px 40px;
+  padding: 10px 20px;
   box-sizing: border-box;
   margin: 0;
   border: 2px solid #003E77; }
 
 .search__form__button {
-  width: 100px;
+  width: 64px;
   height: 50px;
   background-color: #003E77;
   display: inline-block;
@@ -1906,7 +1909,12 @@ article.search__results__result {
   box-sizing: border-box;
   margin: 0;
   box-shadow: none;
-  border: none; }
+  border: none;
+  background-image: url(../images/sub_search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  cursor: pointer; }
 
 .partners__grid {
   display: -ms-flexbox;
@@ -2179,7 +2187,8 @@ a.button, footer a.button, footer a.button--ghost {
 body {
   padding: 0;
   margin: 0;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif; }
 
 h1 {
   font-family: "Roboto", sans-serif;

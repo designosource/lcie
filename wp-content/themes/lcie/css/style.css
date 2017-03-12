@@ -1083,6 +1083,73 @@ a.home__calendar__side__more {
   .contact__form__grid__col--small {
     min-width: 350px; } }
 
+.courses__content::before {
+  display: block;
+  height: 3.5em;
+  width: 3.5em;
+  right: 0;
+  position: absolute;
+  background-size: contain;
+  background-position: center;
+  content: '';
+  background-image: url(../images/haak-boven.jpg);
+  background-image: url(../images/haak-boven.svg), none; }
+
+.courses__content {
+  position: relative;
+  display: block;
+  margin: 3em auto 3em;
+  padding: 50px;
+  width: 80%;
+  max-width: 1600px;
+  height: 100%; }
+
+.courses__content::after {
+  display: block;
+  height: 3.5em;
+  width: 3.5em;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background-size: contain;
+  background-position: center;
+  content: '';
+  background-image: url(../images/haak-onder.jpg);
+  background-image: url(../images/haak-onder.svg), none; }
+
+.courses__sidebar {
+  width: 20%;
+  margin: .5em 0em; }
+
+.courses__sidebar ul {
+  list-style: none;
+  padding: 0; }
+
+.courses__sidebar ul li a {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 20px;
+  color: gray;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  box-sizing: border-box; }
+
+.courses__sidebar__active {
+  color: #43AADA !important; }
+
+.courses__intro {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+
+.courses__intro__text {
+  width: 70%;
+  padding: 50px; }
+
 .apply__form {
   width: 75%;
   margin: 5em auto 7em auto;
@@ -1416,6 +1483,12 @@ a.home__calendar__side__more {
 .offerings__infrastructure__grid__col__title {
   font-family: "Nunito", sans-serif;
   font-size: 2rem;
+  font-weight: 400;
+  color: #003E77; }
+
+.offerings__infrastructure__grid__col__description p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
   font-weight: 400;
   color: #003E77; }
 
@@ -1821,6 +1894,27 @@ article.search__results__result {
   margin: 0;
   box-shadow: none;
   border: none; }
+
+.partners__grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 3em; }
+
+.partners__grid__item {
+  display: -ms-flexbox;
+  display: flex;
+  width: 18vw;
+  margin-bottom: 2em; }
+
+@media screen and (max-width: 768px) {
+  .partners__grid__item {
+    width: 35vw; } }
 
 /* NIEUWS */
 .nieuwsgrid {

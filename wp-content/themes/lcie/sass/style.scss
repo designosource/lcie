@@ -8,13 +8,14 @@
 @import "modules/forpage";
 @import "modules/documentationpage";
 @import "modules/contactpage";
+@import "modules/coursespage";
 @import "modules/applypage";
 @import "modules/offerings";
 @import "modules/teams";
 @import "modules/faq";
 @import "modules/search";
+@import "modules/partnerspage";
 @import "modules/newsevent";
-
 @import "modules/footer";
 
 
@@ -60,6 +61,8 @@ p {
 
 .grid
 {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 

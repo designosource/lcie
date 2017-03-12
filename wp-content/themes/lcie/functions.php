@@ -92,6 +92,18 @@ function create_posttypes() {
             )
         );
 
+
+    register_post_type( 'partner_events',
+        array(
+            'labels' => array(
+                'name' => __( 'Partner events' ),
+                'singular_name' => __( 'Partner events' )
+                ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => "dashicons-calendar-alt"
+            )
+        );
 }
 
 add_action( 'init', 'create_posttypes' );
@@ -106,7 +118,87 @@ add_action( 'init', 'create_posttypes' );
 
 if(function_exists("register_field_group"))
 {
+        register_field_group(array (
+        'id' => 'acf_opleidingen',
+        'title' => 'Opleidingen',
+        'fields' => array (
+            array (
+                        'key' => 'field_58a89224269c412323556',
+                        'label' => 'Logo',
+                        'name' => 'logo',
+                        'type' => 'image',
+                        'save_format' => 'url'
+                        ),
+            array (
+                         'key' => 'field_58a89224269c41232355624',
+                        'label' => 'Url',
+                        'name' => 'url',
+                        'type' => 'text',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                        ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'partner_events',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
+    register_field_group(array (
+        'id' => 'acf_opleidingen',
+        'title' => 'Opleidingen',
+        'fields' => array (
+            array (
+                        'key' => 'field_58a89224269c4123',
+                        'label' => 'Intro',
+                        'name' => 'intro_text',
+                        'type' => 'wysiwyg',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                        ),
 
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/courses-page.php',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
     register_field_group(array (
         'id' => 'acf_contact',
         'title' => 'Contact',
@@ -699,6 +791,107 @@ register_field_group(array (
         ),
     'menu_order' => 0,
     ));
+
+register_field_group(array (
+    'id' => 'acf_partners',
+    'title' => 'Partners',
+    'fields' => array (
+        array (
+            'key' => 'field_6094e26ea8b4651314567',
+            'label' => 'Powered by',
+            'name' => 'poweredby',
+            'type' => 'repeater',
+            'sub_fields' => array (
+                array (
+                    'key' => 'field_6094e279a8b432312398567',
+                    'label' => 'Logo',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'save_format' => 'url'
+                    ),
+                array (
+                    'key' => 'field_6094e279a8b4622312345567',
+                    'label' => 'Url',
+                    'name' => 'url',
+                    'type' => 'text',
+                    ),
+                ),
+            'row_min' => '',
+            'row_limit' => '',
+            'layout' => 'table',
+            'button_label' => 'Nieuwe regel',
+            ),
+        array (
+            'key' => 'field_6094e26ea8b465131498',
+            'label' => 'Partnership',
+            'name' => 'partnership',
+            'type' => 'repeater',
+            'sub_fields' => array (
+                array (
+                    'key' => 'field_6094e279a8b43231239898',
+                    'label' => 'Logo',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'save_format' => 'url'
+                    ),
+                array (
+                    'key' => 'field_6094e279a8b462231234598',
+                    'label' => 'Url',
+                    'name' => 'url',
+                    'type' => 'text',
+                    ),
+                ),
+            'row_min' => '',
+            'row_limit' => '',
+            'layout' => 'table',
+            'button_label' => 'Nieuwe regel',
+            ),
+        array (
+            'key' => 'field_6094e26ea8b4651314',
+            'label' => 'Sponsored by',
+            'name' => 'sponsored',
+            'type' => 'repeater',
+            'sub_fields' => array (
+                array (
+                    'key' => 'field_6094e279a8b432312398',
+                    'label' => 'Logo',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'save_format' => 'url'
+                    ),
+                array (
+                    'key' => 'field_6094e279a8b4622312345',
+                    'label' => 'Url',
+                    'name' => 'url',
+                    'type' => 'text',
+                    ),
+                ),
+            'row_min' => '',
+            'row_limit' => '',
+            'layout' => 'table',
+            'button_label' => 'Nieuwe regel',
+            ),
+        ),
+    'location' => array (
+        array (
+            array (
+                'param' => 'page_template',
+                'operator' => '==',
+                'value' => 'page-templates/partners-page.php',
+                'order_no' => 0,
+                'group_no' => 0,
+                )
+            ),
+        ),
+    'options' => array (
+        'position' => 'normal',
+        'layout' => 'no_box',
+        'hide_on_screen' => array (
+            ),
+        ),
+    'menu_order' => 0,
+    ));
+
 
     register_field_group(array (
         'id' => 'acf_offerings',

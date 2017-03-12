@@ -1,66 +1,51 @@
 <?php
-// Template name: Nieuws & events teaserpagina
+// Template name: Nieuws & events
 ?>
 
 
 <?php get_header(); ?>
-    <section class="page__top">
-        <div class="wrapper">
-            <h1 class="page__top__title">Nieuws & events</h1>
-        </div>
-    </section>
+
+    <?php get_template_part( '/template-parts/page', 'header' ); ?>
 
     <!-- nieuws -->
     <section class="home__who">
         <div class="wrapper">
             <h2><?php pll_e("Nieuws"); ?></h2>
-            <a href="<?php echo site_url(); ?>/nieuws"
-               class="button home__teams__all"><?php pll_e("Bekijk alle nieuwsitems"); ?></a>
 
             <!-- Nieuws grid -->
+            <?php
+                        $args = array(
+                            'post_type'      => 'news',
+                            'posts_per_page' => -1,
+                            'order'          => 'ASC',
+                            'orderby'        => 'date'
+                        );
+                $news = new WP_Query($args);
+
+            ?>
+
             <div class="nieuwsgrid">
+                <?php if($news->have_posts()): ?>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">1 januari 2017</span>
-                            <h3 class="nieuws--post-title">Lcie website online</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+                    <?php while($news->have_posts()): $news->the_post(); ?>
+                        
+                        <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell">
+                            <div>
+                                <div class="nieuwsgrid-cell-content">
+                                    <span class="nieuws--post-date"><?php the_date(); ?></span>
+                                    <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
+                                    <div class="nieuws--lees-meer">Lees meer</div>
+                                </div>
+                            </div>
+                        </a>
+                
+                <?php endwhile; ?>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">1 januari 2017</span>
-                            <h3 class="nieuws--post-title">Lcie website online</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">1 januari 2017</span>
-                            <h3 class="nieuws--post-title">Lcie website online</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">1 januari 2017</span>
-                            <h3 class="nieuws--post-title">Lcie website online</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+            <?php else: ?>
+
+                <p style="color: gray;"><?php pll_e("Er is geen nieuws op dit moment."); ?></p>
+
+            <?php endif; wp_reset_query();  ?>
 
             </div>
         </div>
@@ -71,59 +56,37 @@
     <section class="home__who">
         <div class="wrapper">
             <h2><?php pll_e("Events"); ?></h2>
-            <a href="<?php echo site_url(); ?>/lcie-events"
-               class="button home__teams__all"><?php pll_e("Bekijk alle lcie events"); ?></a>
+           
+            <?php
 
+                $events = new WP_Query(array("post_type" => "events", "posts_per_page" => -1));
+
+            ?>
 
             <!-- Events grid -->
-            <div class="nieuwsgrid">
+              <div class="nieuwsgrid">
+                <?php if($events->have_posts()): ?>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">24 maart 2017</span>
-                            <h3 class="nieuws--post-title">Maak deel uit van de community!</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+                    <?php while($events->have_posts()): $events->the_post(); ?>
+                        
+                        <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell">
+                            <div>
+                                <div class="nieuwsgrid-cell-content">
+                                    <span class="nieuws--post-date"><?php the_date(); ?></span>
+                                    <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
+                                    <div class="nieuws--lees-meer">Lees meer</div>
+                                </div>
+                            </div>
+                        </a>
+                
+                <?php endwhile; ?>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">24 maart 2017</span>
-                            <h3 class="nieuws--post-title">Maak deel uit van de community!</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+            <?php else: ?>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">24 maart 2017</span>
-                            <h3 class="nieuws--post-title">Maak deel uit van de community!</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+                <p style="color: gray;"><?php pll_e("Er zijn geen events op dit moment."); ?></p>
 
-                <a href="#" class="nieuwsgrid-cell">
-                    <div>
-                        <!-- style="background: red url(https://pbs.twimg.com/profile_images/514144098228260864/n5c4AwqR.png);"-->
-                        <div class="nieuwsgrid-cell-content">
-                            <span class="nieuws--post-date">24 maart 2017</span>
-                            <h3 class="nieuws--post-title">Maak deel uit van de community!</h3>
-                            <div class="nieuws--lees-meer">Lees meer</div>
-                        </div>
-                    </div>
-                </a>
+            <?php endif; wp_reset_query(); ?>
 
-
-            </div>
 
         </div>
     </section>
@@ -135,8 +98,21 @@
             <h2><?php pll_e("Partner events"); ?></h2>
         </div>
         <div class="wrapper">
+            <?php
 
-            <div class="grid offerings__infrastructure__grid">
+                $p_events = new WP_Query(array("post_type" => "partner_events", "posts_per_page" => -1));
+            ?>
+
+            <!-- Events grid -->
+
+               <div class="grid offerings__infrastructure__grid">
+                <?php if($p_events->have_posts()): ?>
+
+                    <?php while($p_events->have_posts()): $p_events->the_post(); ?>
+                        
+                
+
+           
 
                 <!-- Grid item -->
                 <div class="offerings__infrastructure__grid__col">
@@ -155,18 +131,22 @@
                     </svg>
 
                     <a href="http://www.belcham.org/events"><h3>
-                            BelCham</h3></a>
-                    <p class="offerings__infrastructure__grid__col__description">BelCham is de Belgisch-Amerikaanse
-                        Kamer van Koophandel. BelCham helpt veelbelovende Belgische start-ups om in de VSA tot een
-                        succes uit te groeien..</p>
+                            <?php the_title(); ?></h3></a>
+                    <div class="offerings__infrastructure__grid__col__description"><?php the_excerpt(); ?></div>
 
-                    <a href="http://www.belcham.org/events" class="offerings__infrastructure__grid__col__plan">Bekijk
+                    <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan">Bekijk
                         Belcham events</a>
 
                 </div>
 
+                <?php endwhile; ?>
 
-            </div>
+            <?php else: ?>
+
+                <p style="color: gray;"><?php pll_e("Er zijn geen events op dit moment."); ?></p>
+
+            <?php endif; wp_reset_query(); ?>
+     
         </div>
     </section>
 

@@ -50,7 +50,12 @@
 	@include primary_font(0.8rem, 500);
 	margin-top: 30px;
 }
-
+.footer__bottom__contentRight {
+	margin-top: -2em;
+	h4 {
+		margin: 0 0 10px 20px
+	}
+}
 .footer__bottom__kuleuven
 {
 	height: 30px;

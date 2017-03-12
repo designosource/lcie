@@ -5,7 +5,17 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
-
+.footer .button {
+	background-color: transparent !important;
+	color: white;
+	border: 2px solid white;
+	text-decoration: none;
+	&:hover {
+		color: $regalblue;
+		background-color: white;
+		text-decoration: none;
+	}
+}
 .footer__grid__col
 {
 	width: 33.3%;
@@ -27,9 +37,13 @@
 .footer__grid__col ul li, .footer__grid__col ul li a
 {
 	@include primary_font(1.0rem, 500);
-	color: white;
 	margin-bottom: 15px;
 	display: block;
+	color: #8D9EB0;
+	text-decoration: none !important;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 
@@ -49,13 +63,55 @@
 	color: white;
 	@include primary_font(0.8rem, 500);
 	margin-top: 30px;
+	a {
+		color: #8D9EB0;
+		text-decoration: none !important;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .footer__bottom__kuleuven
 {
-	width: auto;
 	height: 30px;
+	margin-left: 20px;
 }
+
+footer a,
+.footer__grid__col ul li a,
+.footer__bottom__content ul li a
+{
+	color: #8D9EB0;
+	text-decoration: none !important;
+}
+
+header .header__subnavigation a:hover,
+header .header__subnavigation a:active,
+header .header__subnavigation a:focus,
+footer a:hover,
+footer a:focus,
+footer a:active,
+.footer__grid__col ul li a:hover,
+.footer__grid__col ul li a:focus,
+.footer__grid__col ul li a:active,
+.footer__bottom__content ul li a:hover,
+.footer__bottom__content ul li a:focus,
+.footer__bottom__content ul li a:active
+{
+	text-decoration: underline !important;
+}
+
+header a:hover,
+header a:focus,
+header a:active{
+	text-decoration: none !important;
+}
+
+a.button, footer a.button, footer a.button--ghost{
+	text-decoration: none !important;
+}
+
 
 @media screen and (max-width: 768px)
 {

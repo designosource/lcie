@@ -93,12 +93,17 @@
   list-style: none;
   text-align: right;
   text-transform: uppercase; }
+  .header__subnavigation__icons li {
+    padding-left: 10px  !important;
+    padding-right: 10px !important; }
 
-.header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter, .header__subnavigation__icons__linkedin {
+.header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter {
   text-indent: -9999px;
   padding: 0 !important; }
 
 .header__subnavigation__icons__search a {
+  width: 20px;
+  height: 20px;
   background-image: url(../images/sub_search.png);
   background-size: 20px;
   background-repeat: no-repeat;
@@ -111,10 +116,10 @@
   display: block; }
 
 .header__subnavigation__icons__facebook a {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-image: url(../images/sub_facebook.png);
-  background-size: 15px;
+  background-size: 18px;
   background-repeat: no-repeat;
   background-position: center;
   text-indent: 9999px;
@@ -126,31 +131,16 @@
   display: block; }
 
 .header__subnavigation__icons__twitter a {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-image: url(../images/sub_twitter.png);
-  background-size: 20px;
+  background-size: 25px;
   background-repeat: no-repeat;
   background-position: center;
   text-indent: 9999px;
   padding: 0 !important;
   position: relative;
   top: 5px;
-  display: block;
-  overflow: hidden; }
-
-.header__subnavigation__icons__linkedin a {
-  width: 15px;
-  height: 15px;
-  background-image: url(../images/sub_linkedin.png);
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-indent: 9999px;
-  padding: 0 !important;
-  position: relative;
-  top: 5px;
-  margin-left: 15px;
   display: block;
   overflow: hidden; }
 
@@ -200,10 +190,7 @@
     background-repeat: no-repeat;
     z-index: 99999; }
   .header__hamburger--close {
-    background-image: url(../images/close.svg);
-    position: fixed;
-    top: 35px;
-    right: 40px; }
+    background-image: url(../images/close.svg); }
   .sidebar {
     width: 100%;
     margin-right: 0;
@@ -527,7 +514,12 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  position: relative; }
+  position: relative;
+  text-decoration: none; }
+  .home__divisions__grid__col:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer; }
 
 .home__divisions__grid__col__title {
   font-family: "Nunito", sans-serif;
@@ -563,7 +555,8 @@
   width: 100%;
   height: 100%;
   opacity: 0.8;
-  background-color: black; }
+  background-color: black;
+  color: white; }
 
 .home__divisions__all {
   position: absolute;
@@ -1490,19 +1483,13 @@ a.home__calendar__side__more {
 
 .offerings__infrastructure__grid__col {
   position: relative;
-  width: 50%;
+  width: 30%;
   padding: 50px;
   box-sizing: border-box; }
 
 .offerings__infrastructure__grid__col__title {
   font-family: "Nunito", sans-serif;
   font-size: 2rem;
-  font-weight: 400;
-  color: #003E77; }
-
-.offerings__infrastructure__grid__col__description p {
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
   font-weight: 400;
   color: #003E77; }
 
@@ -1562,10 +1549,6 @@ a.home__calendar__side__more {
     margin-top: 30px; }
   .offerings__infrastructure__grid__col {
     width: 100%; } }
-
-@media screen and (min-width: 1200px) {
-  .offerings__infrastructure__grid__col {
-    width: 30%; } }
 
 .teams__content {
   margin-top: 100px;
@@ -2060,36 +2043,8 @@ article.search__results__result {
   margin-top: 30px; }
 
 .footer__bottom__kuleuven {
-  height: 30px;
-  margin-left: 20px; }
-
-footer a,
-.footer__grid__col ul li a,
-.footer__bottom__content ul li a {
-  color: #8D9EB0;
-  text-decoration: none !important; }
-
-header .header__subnavigation a:hover,
-header .header__subnavigation a:active,
-header .header__subnavigation a:focus,
-footer a:hover,
-footer a:focus,
-footer a:active,
-.footer__grid__col ul li a:hover,
-.footer__grid__col ul li a:focus,
-.footer__grid__col ul li a:active,
-.footer__bottom__content ul li a:hover,
-.footer__bottom__content ul li a:focus,
-.footer__bottom__content ul li a:active {
-  text-decoration: underline !important; }
-
-header a:hover,
-header a:focus,
-header a:active {
-  text-decoration: none !important; }
-
-a.button, footer a.button, footer a.button--ghost {
-  text-decoration: none !important; }
+  width: auto;
+  height: 30px; }
 
 @media screen and (max-width: 768px) {
   .footer__grid {

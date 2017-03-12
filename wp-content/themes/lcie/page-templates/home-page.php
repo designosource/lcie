@@ -138,14 +138,17 @@
             <?php foreach (get_sites(array("offset" => 1)) as $site): ?>
 
                 <?php switch_to_blog($site->blog_id); ?>
+
                 <div class="home__divisions__grid__col"
                      style="background-image: url(<?php echo get_option("background_picture"); ?>)">
+
                     <h2 class="home__divisions__grid__col__title"><?php echo $site->blogname; ?></h2>
                     <span class="home__divisions__grid__col__description"><?php echo get_option("description"); ?></span>
                     <a class="home__divisions__grid__col__readmore"
                        href="<?php echo site_url(); ?>"><?php pll_e("lees meer"); ?></a>
-                    <div class="home__divisions__grid__col__overlay"
-                         style="background-color: <?php echo get_option("header_logo"); ?>"></div>
+                    <a  href="<?php echo site_url(); ?>" class="home__divisions__grid__col__overlay"
+                         style="background-color: <?php echo get_option("header_logo"); ?>"></a>
+
                 </div>
 
                 <?php restore_current_blog(); endforeach; ?>

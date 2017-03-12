@@ -28,12 +28,13 @@
 						<ul class="header__subnavigation__icons">
 						<?php 
 							foreach ($languages as $value):
+								if(!$value["current_lang"]):
 						?>
-						
+							
 							<li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
 
 						<?php
-							endforeach;
+							endif; endforeach;
 						?>
 						</ul>
 					</ul>

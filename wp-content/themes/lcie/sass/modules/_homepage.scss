@@ -1,0 +1,570 @@
+.home__hero
+{
+	padding-top: 80px;
+	padding-bottom: 80px;
+	width: 100%;
+	background-size: cover;
+	background: url(../images/bg.jpg) center;
+	position: relative;
+}
+
+.home__hero__overlay
+{
+	background-color: $regalblue;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+}
+
+.home__hero__content
+{
+	position: relative;
+	width: 100%;
+}
+
+.home__hero__title
+{
+	color: white;
+	font-size: 1.8rem;
+	@include secondary_font(2.4rem, 500);
+}
+
+.home__hero__text
+{
+	color: white;
+	@include primary_font(1.4rem, 300);
+	line-height: 1.6;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.home__hero p a:-webkit-any-link{
+	font-weight: 400;
+	color: #fff;
+}
+
+/* FOR WHO? */
+.home__who
+{
+	padding-top: 80px;
+}
+
+.home__who__grid
+{
+	background-color: $regalblue;
+	margin-top: 30px;
+}
+
+.home__who__grid__col
+{
+	width: 25%;
+	border: 1px solid white;
+	text-align: center;
+	color: white;
+	@include primary_font(1.2rem, 700);
+	position: relative;
+	background-size: cover;
+	background-position: center;
+
+	a
+	{
+		color: white;
+		text-decoration: none;
+		text-transform: lowercase;
+		position: relative;
+		z-index: 999;
+	}
+}
+
+.home__who__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
+
+
+/* TEAMS SECTION */
+.home__teams
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.home__teams__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.home__teams__grid
+{
+	margin-top: 40px;
+}
+
+.home__teams__grid__col
+{
+	width: 25%;
+	flex-grow: 1;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	padding-right: 40px;
+	padding-left: 40px;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+}
+
+.home__teams__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0.8;
+	z-index: 9;
+}
+
+
+.home__teams__grid__col__logo
+{
+	height: 50px;
+	position: relative;
+	z-index: 999;
+}
+
+.home__teams__grid__col__text
+{
+	@include primary_font(1.2rem, 400);
+	color: white;
+	position: relative;
+	z-index: 999;
+	text-align: center;
+}
+
+
+
+.home__teams__grid__col__readmore
+{
+	@include primary_font(1.0rem, 500);
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	z-index: 999;
+}
+
+.home__teams__grid-small
+{
+	width: 100%;
+	margin-top: 50px;
+	height: 60px;
+}
+
+.swiper-wrapper
+{
+	padding-left: 80px;
+	padding-right: 80px;
+	box-sizing: border-box;
+}
+
+.home__teams__grid-small__slide__slide
+{
+	display: flex;
+	align-items: center;
+}
+
+.home__teams__grid-small__logo
+{
+	height: 60px;
+}
+
+.home__teams__grid__col{
+	display: block;
+}
+
+/* FACTS */
+.home__facts__grid
+{
+	background-color: $regalblue;
+	color: white;
+}
+
+.home__facts__col
+{
+	width: 25%;
+	flex-grow: 1;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.home__facts__col__number
+{
+	display: block;
+	@include primary_font(4.8rem, 400);
+	margin-bottom: 20px;
+}
+
+.home__facts__col__description
+{
+	display: block;
+	@include primary_font(1.2rem, 400);
+}
+
+
+/* DIVISIONS */
+.home__divisions
+{
+	padding-bottom: 70px;
+}
+
+.home__divisions__grid
+{
+	margin-top: 40px;
+}
+
+.home__divisions__grid__col
+{
+	width: 25%;
+	flex-grow: 1;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	padding-right: 40px;
+	padding-left: 40px;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+
+		&:hover{
+			text-decoration: underline;
+			color: white;
+			cursor: pointer;
+		}
+
+}
+
+.home__divisions__grid__col__title
+{
+	@include primary_font(1.6rem, 400);
+	color: white;
+	position: relative;
+	z-index: 999;
+}
+
+.home__divisions__grid__col__description
+{
+	@include primary_font(1.0rem, 400);
+	color: white;
+	position: relative;
+	z-index: 999;
+}
+
+
+.home__divisions__grid__col__readmore
+{
+	@include primary_font(1.1rem, 400);
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	z-index: 999;
+}
+
+.home__divisions__grid__col__overlay
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background-color: black;
+	color: white;
+}
+
+.home__divisions__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/* TESTMONIALS */
+.home__testmonials
+{
+	position: relative;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.home__testmonials__slider .swiper-wrapper
+{
+	padding: 0;
+}
+
+.home__testmonials__slide
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.home__testmonials__slide__name
+{
+	@include primary_font(1.4rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 0 auto;
+}
+
+.home__testmonials__slide__function
+{
+	@include primary_font(1.2rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 10px auto;
+}
+
+.home__testmonials__slide__text
+{
+	@include primary_font(1.0rem, 400);
+	color: $dovegray;
+	display: block;
+	margin: 20px auto;
+}
+
+
+/* SWIPER */
+.swiper-wrapper{
+	padding: 0;
+}
+
+.swiper-container{
+	text-align: center;
+}
+
+
+/* CALENDAR */
+.home__calendar
+{
+	padding-top: 70px;
+	padding-bottom: 50px;
+}
+
+.home__calendar__side
+{
+	margin-top: 30px;
+	width: 40%;
+	background-color: $regalblue;
+	display: flex;
+	align-items: center;
+	padding: 40px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.home__calendar__photo
+{
+	margin-top: 30px;
+	width: 60%;
+	height: 350px;
+	background-size: cover;
+	background: url(../images/home_bg3.png) center;
+}
+
+.home__calendar__side__title
+{
+	@include primary_font(1.3rem, 700);
+	color: white;
+}
+
+.home__calendar__side__text
+{
+	@include primary_font(1.0rem, 400);
+	color: white;
+	line-height: 1.8;
+	width: 80%;
+}
+
+.home__calendar__side__more
+{
+	@include primary_font(1.2rem, 700);
+	color: white;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	text-decoration: none;
+}
+
+.home__calendar__all
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.home__calendar__side > div{
+	display: block;
+	width: 100%;
+}
+
+a.home__calendar__side__more{
+	display: block;
+	text-align: right;
+}
+
+
+
+@media screen and (min-width: 768px) {
+	/* SWIPER */
+	div.swiper-slide.home__teams__grid-small__slide.swiper-slide-active,
+	div.swiper-wrapper > div{
+		padding: 0;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+
+
+	.swiper-container{
+		text-align: center;
+	}
+
+	div.swiper-button-prev{
+		padding: 0 20px 0 0;
+	}
+
+	div.swiper-button-next{
+		padding: 0 0 0 20px;
+	}
+
+}
+
+
+@media screen and (max-width: 768px)
+{
+	.grid
+	{
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.home__who__grid__col, .home__teams__grid__col, .home__divisions__grid__col, .home__facts__col
+	{
+		width: 100%;
+	}
+
+	.home__calendar__side
+	{
+		width: 100%;
+		text-align: center;
+	}
+
+	.home__calendar__photo
+	{
+		display: none;
+	}
+
+	.home__calendar__all
+	{
+		position: relative;
+	}
+
+	.home__calendar__side__text
+	{
+		width: 100%;
+	}
+
+	.home__calendar__side__more
+	{
+		position: relative;
+		bottom: auto;
+		right: auto;
+	}
+
+	.home__teams__all
+	{
+		position: relative;
+	}
+
+
+	/* NAVIGATION */
+
+	.menu-hoofdnavigatie-container{
+		margin: 0;
+		padding: 0;
+	}
+
+	.header__navigation ul li:not(.header__navigation__apply){
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.menu-item-type-post_type a{
+		padding: 3px 0;
+		font-size: 1.15rem;
+		display: block;
+	}
+
+	li.menu-item{
+		padding: 0 !important;
+	}
+
+	.header__navigation ul li a{
+		display: inline-block !important;
+		width: 100%;
+		color: white !important;
+		font-size: 1.3rem;
+		padding: 6px 0;
+	}
+
+	.header__navigation__apply {
+		padding: 10px 0 !important;
+	}
+
+	.header__subnavigation ul {
+		text-align: left !important;
+	}
+
+	.menu-item-type-custom{
+		display: inline-block;
+		float: left;
+	}
+
+	.menu-item-type-custom{
+		display: none !important;
+	}
+
+	.header__subnavigation__icons{
+		display: block;
+
+	}
+
+	.header__navigation{
+		padding-top: 80px;
+		overflow: hidden;
+	}
+
+	.header__subnavigation{
+		top: 240px;
+	}
+
+}

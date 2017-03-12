@@ -22,16 +22,20 @@
 			<nav class="header__subnavigation">
 				<div class="wrapper">
 					<ul>
-
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
+	
+						<?php  $languages = pll_the_languages(array('raw'=>1)); ?>
 						<ul class="header__subnavigation__icons">
-							<?php if(pll_current_language() == "nl"): ?>
-								<li><a href="<?php echo site_url(); ?>/en/">EN</a></li>
-							<?php else: ?>
-								<li><a href="<?php echo site_url(); ?>/nl/">NL</a></li>
-							<?php endif; ?>
-						</ul>
+						<?php 
+							foreach ($languages as $value):
+						?>
+						
+							<li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
 
+						<?php
+							endforeach;
+						?>
+						</ul>
 					</ul>
 				</div>
 			</nav>

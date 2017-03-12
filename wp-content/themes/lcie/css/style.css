@@ -2048,6 +2048,11 @@ article.search__results__result {
   font-weight: 500;
   margin-top: 30px; }
 
+.footer__bottom__contentRight {
+  margin-top: -2em; }
+  .footer__bottom__contentRight h4 {
+    margin: 0 0 10px 20px; }
+
 .footer__bottom__kuleuven {
   height: 30px;
   margin-left: 20px; }

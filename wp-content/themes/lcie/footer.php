@@ -23,7 +23,8 @@
 					<div class="footer__bottom__content">
 						<span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
 					</div>
-                    <div class="footer__bottom__content">
+                    <div class="footer__bottom__content footer__bottom__contentRight">
+											<h4>Lcie Core Partners</h4>
                         <a href="http://www.leuvenmindgate.be"><img
                                     src="<?php echo get_template_directory_uri(); ?>/images/logo-leuven-mindgate-klein.png"
                                     alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
@@ -45,7 +46,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
 
-		  <script>        
+		  <script>
 		  var mySwiper = new Swiper ('.swiper-container', {
 		    direction: 'horizontal',
 		    // loop: true,
@@ -60,14 +61,14 @@
 			      slidesPerView: 4
 			    }
 			  }
-		  })        
+		  })
 
 		  var mySwiper2 = new Swiper ('.swiper-container.home__testmonials__slider', {
 		    direction: 'horizontal',
 		    loop: true,
 		    pagination: '.swiper-pagination',
 		    paginationClickable: true
-		  })       
+		  })
 
 		  </script>
 

@@ -147,7 +147,7 @@
 
 .home__teams__grid__col__text
 {
-	@include primary_font(1.2rem, 400);
+	@include primary_font(1.2rem, 700);
 	color: white;
 	position: relative;
 	z-index: 999;
@@ -158,9 +158,8 @@
 
 .home__teams__grid__col__readmore
 {
-	@include primary_font(1.0rem, 500);
+	@include primary_font(1.0rem, 700);
 	color: white;
-	text-decoration: none;
 	position: absolute;
 	bottom: 40px;
 	right: 40px;

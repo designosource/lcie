@@ -430,7 +430,7 @@
 .home__teams__grid__col__text {
   font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 700;
   color: white;
   position: relative;
   z-index: 999;
@@ -439,9 +439,8 @@
 .home__teams__grid__col__readmore {
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   color: white;
-  text-decoration: none;
   position: absolute;
   bottom: 40px;
   right: 40px;

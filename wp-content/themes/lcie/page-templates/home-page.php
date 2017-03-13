@@ -180,7 +180,7 @@
     <section class="home__calendar">
         <div class="wrapper">
             <h1><?php pll_e("Kalender"); ?></h1>
-            <a href="../lcie-events" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
+            <a href="../nieuws-events" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
         </div>
             <div class="grid">
                 <div class="home__calendar__side">
@@ -191,7 +191,7 @@
 
                         <h2 class="home__calendar__side__title">Lcie events bijwonen</h2>
                         <p class="home__calendar__side__text">Lcie organiseert interessante events die je ondernemingszin aanwakkeren.</p>
-                        <a href="../lcie-events" class="home__calendar__side__more">Meer info</a>
+                        <a href="../nieuws-events" class="home__calendar__side__more">Meer info</a>
                     </div>
                 </div>
                 <div class="home__calendar__photo"

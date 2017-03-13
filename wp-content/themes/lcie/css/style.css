@@ -2011,8 +2011,8 @@ article.search__results__result {
   border: 2px solid white;
   text-decoration: none; }
   .footer .button:hover {
-    color: #003E77;
-    background-color: white;
+    color: #003E77 !important;
+    background-color: white !important;
     text-decoration: none; }
 
 .footer__grid__col {

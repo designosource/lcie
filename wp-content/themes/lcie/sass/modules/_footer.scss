@@ -11,8 +11,8 @@
 	border: 2px solid white;
 	text-decoration: none;
 	&:hover {
-		color: $regalblue;
-		background-color: white;
+		color: $regalblue !important;
+		background-color: white !important;
 		text-decoration: none;
 	}
 }

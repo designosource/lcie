@@ -111,7 +111,7 @@
   text-indent: 9999px;
   padding: 0 !important;
   position: relative;
-  top: -5px;
+  top: -3px;
   margin-right: 15px;
   display: block; }
 
@@ -144,6 +144,20 @@
   display: block;
   overflow: hidden; }
 
+.header__subnavigation__icons__linkedin a {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/sub_linkedin.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  text-indent: 9999px;
+  padding: 0 !important;
+  position: relative;
+  top: 5px;
+  display: block;
+  overflow: hidden; }
+
 .header__navigation__apply-container {
   padding: 0 !important;
   margin-left: 20px; }
@@ -154,7 +168,7 @@
 .header__navigation__apply:hover a {
   color: white !important; }
 
-.menu-subnavigatie-container {
+.menu-subnavigatie-container, .menu-subnavigatie-engels-container {
   display: inline-block; }
 
 /* Sidebar navigation */
@@ -315,7 +329,8 @@
   padding-bottom: 80px;
   width: 100%;
   background-size: cover;
-  background: url(../images/bg.jpg) center;
+  background-image: url(../images/bg.jpg);
+  background-position: center;
   position: relative; }
 
 .home__hero__overlay {
@@ -573,8 +588,8 @@
   padding: 0; }
 
 .home__testmonials__slide {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
   text-align: center; }
 
 .home__testmonials__slide__name {
@@ -630,7 +645,8 @@
   width: 60%;
   height: 350px;
   background-size: cover;
-  background: url(../images/home_bg3.png) center; }
+  background-image: url(../images/home_bg3.png);
+  background-position: center; }
 
 .home__calendar__side__title {
   font-family: "Nunito", sans-serif;

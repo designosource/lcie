@@ -4,7 +4,8 @@
 	padding-bottom: 80px;
 	width: 100%;
 	background-size: cover;
-	background: url(../images/bg.jpg) center;
+	background-image: url(../images/bg.jpg);
+	background-position: center;
 	position: relative;
 }
 
@@ -322,8 +323,8 @@
 
 .home__testmonials__slide
 {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 60px !important;
+	padding-bottom: 60px !important;
 	text-align: center;
 }
 
@@ -387,7 +388,8 @@
 	width: 60%;
 	height: 350px;
 	background-size: cover;
-	background: url(../images/home_bg3.png) center;
+	background-image: url(../images/home_bg3.png);
+	background-position: center;
 }
 
 .home__calendar__side__title

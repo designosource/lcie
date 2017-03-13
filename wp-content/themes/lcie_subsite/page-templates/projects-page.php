@@ -31,13 +31,13 @@
 
     <div class="grid projects__content__grid">
         
-        <?php $query = new WP_Query(array('post_type' => "project")); ?>
+        <?php $query = new WP_Query(array('post_type' => "project", "year" => date("Y"))); ?>
         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 
 
             <div class="projects__content__grid__col" style="background-image: url(<?php the_field("photo"); ?>);">
                 <div class="projects__content__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
-                <img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="projects__content__grid__col__logo">
+                <img src="<?php the_field("logo_white"); ?>" alt="<?php the_title(); ?>" class="projects__content__grid__col__logo">
                 <span class="projects__content__grid__col__title"><?php the_title(); ?></span>
                 <a href="<?php the_permalink(); ?>" class="projects__content__grid__col__more">lees meer</a>
             </div>

@@ -137,7 +137,7 @@
 	text-indent: 9999px;
 	padding: 0 !important;
 	position: relative;
-	top: -5px;
+	top: -3px;
 	margin-right: 15px;
 	display: block;
 }
@@ -175,6 +175,22 @@
 	overflow: hidden;
 }
 
+.header__subnavigation__icons__linkedin a
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/sub_linkedin.png);
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	text-indent: 9999px;
+	padding: 0 !important;
+		position: relative;
+	top: 5px;
+	display: block;
+	overflow: hidden;
+}
+
 
 
 .header__navigation__apply-container
@@ -193,7 +209,7 @@
 	color: white !important;
 }
 
-.menu-subnavigatie-container
+.menu-subnavigatie-container, .menu-subnavigatie-engels-container
 {
 	display: inline-block;
 }

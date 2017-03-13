@@ -183,7 +183,7 @@
             <a href="../nieuws-events" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
         </div>
             <div class="grid">
-                <div class="home__calendar__side">
+                <a href="../nieuws-events" class="home__calendar__side fully-clickable">
                     <div>
                         <!--<h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
                         <p class="home__calendar__side__text"><?php the_field("calendar_text"); ?></p>
@@ -191,9 +191,9 @@
 
                         <h2 class="home__calendar__side__title">Lcie events bijwonen</h2>
                         <p class="home__calendar__side__text">Lcie organiseert interessante events die je ondernemingszin aanwakkeren.</p>
-                        <a href="../nieuws-events" class="home__calendar__side__more">Meer info</a>
+                        <aspan class="home__calendar__side__more">Meer info</aspan>
                     </div>
-                </div>
+                </a>
                 <div class="home__calendar__photo"
                      style="background-image: url(<?php the_field("calendar_photo"); ?>)"></div>
             </div>

@@ -28,6 +28,11 @@ body
 	font-family: "Roboto", sans-serif;
 }
 
+.fully-clickable{
+	position: relative;
+	z-index: 999;
+}
+
 h1
 {
 	@include secondary_font(2.2rem, 400);

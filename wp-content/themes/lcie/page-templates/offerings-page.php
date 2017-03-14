@@ -77,9 +77,12 @@ wp_reset_query();
 
                 <?php if (have_rows('lcie_for', $frontpage_id)): while (have_rows('lcie_for', $frontpage_id)) : the_row(); ?>
                     <a href="<?php the_sub_field("url"); ?>" class="offerings__who__grid__col fully-clickable">
-                        <span><?php the_sub_field("text"); ?></span>
-                        <div class="offerings__who__grid__col__overlay"
-                             style="background-color: <?php the_sub_field("color"); ?>"></div>
+                        <div>
+                            <div class="fully-clickable-offer"><?php the_sub_field("text"); ?></div>
+                            <div class="offerings__who__grid__col__overlay"
+                                 style="background-color: <?php the_sub_field("color"); ?>"></div>
+                        </div>
+
                     </a>
                 <?php endwhile; endif; ?>
 
@@ -98,9 +101,9 @@ wp_reset_query();
 
                     <?php switch_to_blog($site->blog_id); ?>
 
-                    <a href="href=<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col fully-clickable">
-                        <div
-                             style="background-image: url(<?php echo get_option("background_picture"); ?>)">
+                    <a href="href=<?php echo get_site_url($site->blog_id); ?>"
+                       class="offerings__subsites__grid__col fully-clickable">
+                        <div style="background-image: url(<?php echo get_option("background_picture"); ?>)">
                             <span class="offerings__subsites__grid__col__title"><?php echo $site->blogname; ?></span>
                             <span class="offerings__subsites__grid__col__more">lees meer</span>
                             <div class="offerings__subsites__grid__col__overlay"

@@ -3,7 +3,7 @@
 ?>
 
 <?php get_header(); ?>
-<section class="home__top" style="background-color: <?php echo get_option('header_logo'); ?>"> 
+<section class="home__top" style="background-color: <?php echo get_option('header_logo'); ?>">
     <div class="wrapper">
         <?php echo get_bloginfo( 'name' ); ?>
     </div>
@@ -15,7 +15,7 @@
     <div class="content">
 
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            
+
             <?php the_content(); ?>
 
         <?php endwhile; endif; ?>
@@ -25,7 +25,7 @@
 </section>
 
 <section class="projects__content">
-    
+
     <div class="wrapper">
 
         <?php
@@ -43,7 +43,7 @@
                 'post_mime_type'   => '',
                 'post_parent'      => '',
                 'post_status'      => 'publish',
-                'suppress_filters' => true 
+                'suppress_filters' => true
             );
 
             $posts_array = get_posts( $args );
@@ -53,7 +53,7 @@
 
         <form action="">
             <select name="archive_date" class="projects__content__select">
-                
+
                 <?php for($i = date("Y"); $i >= $oldest; $i--): ?>
 
                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -68,17 +68,17 @@
     </div>
 
     <div class="grid projects__content__grid">
-        
+
         <?php $query = new WP_Query(array('post_type' => "project", 'date_query' => array(array('year'  => date("Y"))))); ?>
         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-         
+
             <div class="projects__content__grid__col" style="background-image: url(<?php the_field("photo"); ?>);">
                 <div class="projects__content__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
                 <img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="projects__content__grid__col__logo">
                 <span class="projects__content__grid__col__title"><?php the_title(); ?></span>
-                <a href="<?php the_permalink(); ?>" class="projects__content__grid__col__more">lees meer</a>
+                <span href="<?php the_permalink(); ?>" class="projects__content__grid__col__more">lees meer</span>
             </div>
-            
+
         <?php endwhile; endif; ?>
 
     </div>
@@ -86,7 +86,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
-    
+
     (function($) {
 
     $(document).on( 'change', '.projects__content__select', function( event ) {
@@ -106,7 +106,7 @@
                      $('.projects__content__grid').empty();
                     $('.projects__content__grid').append( "<div class='wrapper'>Geen projecten gevonden voor dit jaar.</div>" );
                 }else{
-                    
+
                     $('.projects__content__grid').empty();
 
                     for(var i = 0; i < data.length; i++){
@@ -132,7 +132,7 @@
     {
         color: <?php echo get_option('header_logo'); ?> !important;
     }
-    
+
     .swiper-pagination-bullet-active
     {
         background-color: <?php echo get_option('header_logo'); ?> !important;

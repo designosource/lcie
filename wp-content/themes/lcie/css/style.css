@@ -2194,7 +2194,8 @@ body {
 
 .fully-clickable {
   position: relative;
-  z-index: 999; }
+  z-index: 999;
+  text-decoration: none; }
 
 h1 {
   font-family: "Roboto", sans-serif;

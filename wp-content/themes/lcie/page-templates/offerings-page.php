@@ -76,10 +76,10 @@
 			<div class="grid offerings__who__grid">
 
 				<?php if( have_rows('lcie_for', $frontpage_id) ): while ( have_rows('lcie_for', $frontpage_id) ) : the_row(); ?>
-						<div class="offerings__who__grid__col">
-							<a href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
+						<a href="<?php the_sub_field("url"); ?>" class="offerings__who__grid__col fully-clickable">
+							<span><?php the_sub_field("text"); ?></span>
 							<div class="offerings__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
-						</div>
+						</a>
 				<?php endwhile; endif; ?>
 
 			</div>

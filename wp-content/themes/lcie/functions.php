@@ -510,6 +510,17 @@ if(function_exists("register_field_group"))
                 'button_label' => 'Nieuwe ervaring',
                 ),
              array (
+                'key' => 'field_58a88fb5adc9e242324',
+                'label' => 'Kalender - Link',
+                'name' => 'calendar_link',
+                'type' => 'page_link',
+                'required' => 1,
+                'column_width' => '',
+                'post_type' => array (
+                    0 => 'page',
+                ),
+                ),
+             array (
                 'key' => 'field_58a88fb5adc9e23',
                 'label' => 'Kalender - Titel',
                 'name' => 'calendar_title',

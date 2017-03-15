@@ -380,7 +380,7 @@
   text-align: center;
   color: white;
   font-family: "Nunito", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   position: relative;
   background-size: cover;
@@ -696,9 +696,17 @@ a.home__calendar__side__more {
   .swiper-container {
     text-align: center; }
   div.swiper-button-prev {
-    padding: 0 20px 0 0; }
+    padding: 0 20px 0 0;
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    margin-top: -10px; }
   div.swiper-button-next {
-    padding: 0 0 0 20px; } }
+    padding: 0 0 0 20px;
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    margin-top: -10px; } }
 
 @media screen and (max-width: 768px) {
   .grid {
@@ -1318,7 +1326,8 @@ a.home__calendar__side__more {
   border-right: 8px solid white;
   position: relative;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  display: block; }
   .offerings__who__grid__col a {
     color: white;
     text-decoration: none;
@@ -1733,7 +1742,8 @@ a.home__calendar__side__more {
   background-size: contain; }
 
 .team__info__text__social__item--linkedin {
-  background-image: url("../dist/images/team-social/linkedin.png"); }
+  background-image: url("../dist/images/team-social/linkedin.png");
+  background-size: contain; }
 
 .team__info__text__social__item--youtube {
   background-image: url("../dist/images/team-social/youtube.png");
@@ -2027,7 +2037,7 @@ article.search__results__result {
   text-decoration: none; }
   .footer .button:hover {
     color: #003E77;
-    background-color: white;
+    background-color: white !important;
     text-decoration: none; }
 
 .footer__grid__col {

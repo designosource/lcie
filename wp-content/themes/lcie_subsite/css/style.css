@@ -111,9 +111,14 @@
   text-indent: 9999px;
   padding: 0 !important;
   position: relative;
+<<<<<<< HEAD
   top: -3px;
   margin-right: 15px;
   display: block; }
+=======
+  top: -5px;
+  margin-right: 15px; }
+>>>>>>> b747eba84f056aea725477f948937b3a7bac6f49
 
 .header__subnavigation__icons__facebook a {
   width: 20px;
@@ -144,6 +149,7 @@
   display: block;
   overflow: hidden; }
 
+<<<<<<< HEAD
 .header__subnavigation__icons__linkedin a {
   width: 20px;
   height: 20px;
@@ -158,6 +164,8 @@
   display: block;
   overflow: hidden; }
 
+=======
+>>>>>>> b747eba84f056aea725477f948937b3a7bac6f49
 .header__navigation__apply-container {
   padding: 0 !important;
   margin-left: 20px; }
@@ -923,10 +931,23 @@ p {
   background-color: white;
   transition: all 0.1s ease-in-out; }
 
-.content {
-  padding-top: 100px;
-  padding-bottom: 100px; }
+/* START extra fix to much padding */
+/*.content
+{
+	padding-top: 100px;
+	padding-bottom: 100px;
+}*/
+.home__lcie, div.content {
+  padding-top: 0;
+  padding-bottom: 0; }
 
+.who__content, .offer__content {
+  padding-top: 0; }
+
+footer .button {
+  background-color: #fff; }
+
+/* END fix to much padding */
 @media screen and (max-width: 768px) {
   .hook-under {
     width: 40px;

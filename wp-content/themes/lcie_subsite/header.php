@@ -1,9 +1,8 @@
-
-		<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
+
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,20 +18,41 @@
 	<body <?php body_class(); ?>>
 		<?php switch_to_blog(1); ?>
 		<header class="header">
-		
+			
 			<nav class="header__subnavigation">
 				<div class="wrapper">
 					<ul>
-
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
+<<<<<<< HEAD
+	
+						<?php  $languages = pll_the_languages(array('raw'=>1)); ?>
 						<ul class="header__subnavigation__icons">
-							<?php if(pll_current_language() == "nl"): ?>
-								<li><a href="<?php echo site_url(); ?>/en/">EN</a></li>
-							<?php else: ?>
-								<li><a href="<?php echo site_url(); ?>/nl/">NL</a></li>
-							<?php endif; ?>
-						</ul>
+						<?php 
+							foreach ($languages as $value):
+								if(!$value["current_lang"]):
+						?>
+							
+							<li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
+=======
+                        <?php  $languages = pll_the_languages(array('raw'=>1)); ?>
+                        <ul class="header__subnavigation__icons">
+                            <?php
+                            foreach ($languages as $value):
+                                if(!$value["current_lang"]):
+                                    ?>
 
+                                    <li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
+
+                                    <?php
+                                endif; endforeach;
+                            ?>
+                        </ul>
+>>>>>>> b747eba84f056aea725477f948937b3a7bac6f49
+
+						<?php
+							endif; endforeach;
+						?>
+						</ul>
 					</ul>
 				</div>
 			</nav>
@@ -45,5 +65,5 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 				</nav>
 			</div>
-			<?php restore_current_blog(); ?>
 		</header>
+		<?php restore_current_blog(); ?>

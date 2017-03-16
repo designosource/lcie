@@ -9,10 +9,7 @@
         <div class="wrapper">
             <div class="home__hero__content">
                 <h1 class="home__hero__title">Lcie</h1>
-                <p class="home__hero__text">De Leuven Community for Innovation driven Entrepreneurship wil de drempel om
-                    te ondernemen drastisch verlagen en de ondernemingszin vanstudenten, docenten, onderzoekers en
-                    professoren
-                    aanmoedigen.</p>
+                <p class="home__hero__text"><?php pll_e("De Leuven Community for Innovation driven Entrepreneurship is er voor al jouw vragen rond ondernemingszin, zowel voor studenten, onderzoekers, professoren en alumni van de KU Leuven."); ?></p>
                 <a href="<?php echo site_url(); ?>/sluit-je-aan"
                    class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
             </div>
@@ -57,7 +54,7 @@
                class="button home__teams__all"><?php pll_e("Bekijk alle teams"); ?></a>
         </div>
         <div class="grid home__teams__grid">
-            <?php $query = new WP_Query(array('post_type' => "team")); ?>
+            <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
             <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                 <?php if (get_field("featured")): ?>
                     <a href="<?php the_permalink(); ?>" class="home__teams__grid__col"
@@ -78,7 +75,7 @@
             <div class="swiper-container home__teams__grid-small">
                 <div class="swiper-wrapper">
 
-                    <?php $query = new WP_Query(array('post_type' => "team")); ?>
+                    <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
                     <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                         <?php if (!get_field("featured")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
@@ -133,7 +130,7 @@
     </section>
     <section class="home__divisions">
         <div class="wrapper">
-            <h1><?php pll_e("Subdivisies"); ?></h1>
+            <h1><?php pll_e("Community Initiatieven"); ?></h1>
         </div>
 
         <div class="grid home__divisions__grid">
@@ -183,18 +180,14 @@
     <section class="home__calendar">
         <div class="wrapper">
             <h1><?php pll_e("Kalender"); ?></h1>
-            <a href="../lcie-events" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
+            <a href="<?php the_field("calendar_link"); ?>" class="button home__calendar__all"><?php pll_e("Bekijk alle events"); ?></a>
         </div>
             <div class="grid">
                 <div class="home__calendar__side">
                     <div>
-                        <!--<h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
+                        <h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
                         <p class="home__calendar__side__text"><?php the_field("calendar_text"); ?></p>
-                        <a href="" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>-->
-
-                        <h2 class="home__calendar__side__title">Lcie events bijwonen</h2>
-                        <p class="home__calendar__side__text">Lcie organiseert interessante events die je ondernemingszin aanwakkeren.</p>
-                        <a href="../lcie-events" class="home__calendar__side__more">Meer info</a>
+                        <a href="" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>
                     </div>
                 </div>
                 <div class="home__calendar__photo"

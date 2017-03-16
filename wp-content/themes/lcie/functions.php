@@ -104,6 +104,18 @@ function create_posttypes() {
             'menu_icon' => "dashicons-calendar-alt"
             )
         );
+
+    register_post_type( 'contests',
+        array(
+            'labels' => array(
+                'name' => __( 'Wedstrijden' ),
+                'singular_name' => __( 'Wedstrijd' )
+                ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => "dashicons-awards"
+            )
+        );
 }
 
 add_action( 'init', 'create_posttypes' );
@@ -161,12 +173,42 @@ if(function_exists("register_field_group"))
             ),
         'menu_order' => 1,
         ));
+            register_field_group(array (
+        'id' => 'acf_contest',
+        'title' => 'Wedstrijden',
+        'fields' => array (
+            array (
+                        'key' => 'field_58a89224269c412397788',
+                        'label' => 'Afbeelding',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'save_format' => 'url'
+                        ),
+
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'contests'
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'normal',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
     register_field_group(array (
         'id' => 'acf_opleidingen',
         'title' => 'Opleidingen',
         'fields' => array (
             array (
-                        'key' => 'field_58a89224269c4123',
+                        'key' => 'field_58a89224269c412397',
                         'label' => 'Intro',
                         'name' => 'intro_text',
                         'type' => 'wysiwyg',
@@ -185,9 +227,7 @@ if(function_exists("register_field_group"))
                 array (
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-templates/courses-page.php',
-                    'order_no' => 0,
-                    'group_no' => 0,
+                    'value' => 'page-templates/courses-page.php'
                     ),
                 ),
             ),
@@ -468,6 +508,17 @@ if(function_exists("register_field_group"))
                 'row_limit' => '',
                 'layout' => 'table',
                 'button_label' => 'Nieuwe ervaring',
+                ),
+             array (
+                'key' => 'field_58a88fb5adc9e242324',
+                'label' => 'Kalender - Link',
+                'name' => 'calendar_link',
+                'type' => 'page_link',
+                'required' => 1,
+                'column_width' => '',
+                'post_type' => array (
+                    0 => 'page',
+                ),
                 ),
              array (
                 'key' => 'field_58a88fb5adc9e23',

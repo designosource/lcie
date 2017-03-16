@@ -76,7 +76,7 @@
 			<div class="grid offerings__who__grid">
 
 				<?php if( have_rows('lcie_for', $frontpage_id) ): while ( have_rows('lcie_for', $frontpage_id) ) : the_row(); ?>
-						<div class="offerings__who__grid__col">
+						<div class="offerings__who__grid__col" style="background-image: url(<?php the_sub_field("image"); ?>;); background-size: cover;">
 							<a href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
 							<div class="offerings__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
 						</div>
@@ -98,7 +98,7 @@
 					<?php switch_to_blog($site->blog_id); ?>
 
 					<div class="offerings__subsites__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
-						
+
 						<span class="offerings__subsites__grid__col__title"><?php echo $site->blogname; ?></span>
 						<a href="<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col__more">lees meer</a>
 						<div class="offerings__subsites__grid__col__overlay" style="background-color: <?php echo get_option('header_logo'); ?>"></div>
@@ -172,7 +172,7 @@
 		<div class="wrapper">
 			<div class="grid offerings__infrastructure__grid">
 				<?php if( have_rows('infrastructure') ): while ( have_rows('infrastructure') ) : the_row(); $location = get_sub_field('place');?>
-		
+				<?php $address = explode( “,” , $location[‘address’]); ?>
 				<div class="offerings__infrastructure__grid__col">
 					
 					<svg class="offerings__infrastructure__grid__col__hook-under hook-under" viewBox="0 0 100 100"> 
@@ -185,6 +185,7 @@
 
 					<h2 class="offerings__infrastructure__grid__col__title"><?php the_sub_field("name"); ?></h2>
 					<p class="offerings__infrastructure__grid__col__description"><?php the_sub_field("description"); ?></p>
+					<p class="offerings__infrastructure__grid__col__description"><?php echo $address[1] . " " . $address[2] . " " .$address[3]; ?></p>
 
 					<a href="<?php echo site_url(); ?>/contact" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Reserveren" ); ?></a>
 

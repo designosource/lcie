@@ -111,6 +111,13 @@
 	margin: 0;
 	list-style: none;
 	text-align: right;
+	text-transform: uppercase;
+
+	li
+	{
+		padding-left: 10px  !important;
+		padding-right: 10px !important;
+	}
 }
 
 .header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter
@@ -130,7 +137,7 @@
 	text-indent: 9999px;
 	padding: 0 !important;
 	position: relative;
-	top: -5px;
+	top: -3px;
 	margin-right: 15px;
 	display: block;
 }
@@ -168,6 +175,22 @@
 	overflow: hidden;
 }
 
+.header__subnavigation__icons__linkedin a
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/sub_linkedin.png);
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	text-indent: 9999px;
+	padding: 0 !important;
+		position: relative;
+	top: 5px;
+	display: block;
+	overflow: hidden;
+}
+
 
 
 .header__navigation__apply-container
@@ -186,7 +209,7 @@
 	color: white !important;
 }
 
-.menu-subnavigatie-container
+.menu-subnavigatie-container, .menu-subnavigatie-engels-container
 {
 	display: inline-block;
 }
@@ -239,9 +262,6 @@
 	.header__hamburger--close
 	{
 		background-image: url(../images/close.svg);
-		position: fixed;
-		top: 35px;
-		right: 40px;
 	}
 
 	.sidebar
@@ -276,7 +296,6 @@
 		box-sizing: border-box;
 		overflow: auto;
 		display: none;
-
 	}
 
 	.header__navigation ul li
@@ -288,7 +307,6 @@
 		text-align: left;
 		margin-bottom: 10px;
 		padding-left: 0;
-
 	}
 
 	.header__subnavigation

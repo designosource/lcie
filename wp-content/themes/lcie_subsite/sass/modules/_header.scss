@@ -111,6 +111,13 @@
 	margin: 0;
 	list-style: none;
 	text-align: right;
+	text-transform: uppercase;
+
+	li
+	{
+		padding-left: 10px  !important;
+		padding-right: 10px !important;
+	}
 }
 
 .header__subnavigation__icons__facebook, .header__subnavigation__icons__search, .header__subnavigation__icons__twitter
@@ -130,7 +137,7 @@
 	text-indent: 9999px;
 	padding: 0 !important;
 	position: relative;
-	top: -5px;
+	top: -3px;
 	margin-right: 15px;
 	display: block;
 }
@@ -146,7 +153,7 @@
 	text-indent: 9999px;
 	overflow: hidden;
 	padding: 0 !important;
-		position: relative;
+	position: relative;
 	top: 5px;
 	margin-right: 15px;
 	display: block;
@@ -160,6 +167,22 @@
 	background-size: 25px;
 	background-repeat: no-repeat;
 	background-position: center;
+	text-indent: 9999px;
+	padding: 0 !important;
+		position: relative;
+	top: 5px;
+	display: block;
+	overflow: hidden;
+}
+
+.header__subnavigation__icons__linkedin a
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/sub_linkedin.png);
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-position: left center;
 	text-indent: 9999px;
 	padding: 0 !important;
 		position: relative;
@@ -186,7 +209,7 @@
 	color: white !important;
 }
 
-.menu-subnavigatie-container
+.menu-subnavigatie-container, .menu-subnavigatie-engels-container
 {
 	display: inline-block;
 }

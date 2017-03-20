@@ -4,8 +4,7 @@ node_modules
 *.log
 wp-config.php
 
-wp-content/themes/lcie/dist/*
-wp-content/themes/lcie_subsite/dist/*
+wp-content/themes/lcie/dist/css/*
 wp-content/themes/lcie/.sass-cache/*
 wp-content/themes/lcie_subsite/.sass-cache/*
 wp-content/themes/lcie/css/style.css.map

@@ -24,8 +24,7 @@
 
 .teams__content__grid__col__image
 {
-	width: 60%;
-	max-width: 300px;
+	width: auto;
 	max-height: 200px;
 	display: block;
 }
@@ -63,7 +62,7 @@
 	width: 50px;
 	height: 50px;
 	background-image: url(../dist/images/arrow_down.png);
-	background-size: 50px;
+	background-size: 30px;
 	background-position: center;
 	background-repeat: no-repeat;
 }

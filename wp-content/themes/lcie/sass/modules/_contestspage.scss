@@ -9,11 +9,12 @@
           flex-direction: row;
 }
 .contests__grid__item {
-  width: 24vw;
+  width: 50%;
   position: relative;
   margin:0 6em 6em 0;
   padding: 30px;
-  box-sizing: border-box;
+  box-sizing: border-box; 
+  flex-shrink: 1;
 }
 .contests__grid__item__haakBoven {
   background-image: url(../images/haak-boven.svg);
@@ -34,6 +35,7 @@
 .contests__item__img {
   margin-top: 2em;
   width: 70%;
+  max-width: 200px;
 }
 .contests__item__link {
   float: right;

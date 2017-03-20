@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 .idea
+wp-config.php
 
 wp-content/themes/lcie/.sass-cache/*
 wp-content/themes/lcie_subsite/.sass-cache/*

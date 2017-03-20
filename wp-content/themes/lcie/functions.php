@@ -28,6 +28,7 @@ function create_posttypes() {
                 ),
             'public' => true,
             'has_archive' => true,
+            'taxonomies'          => array( 'category' ),
             'menu_icon' => "dashicons-lightbulb"
             )
         );

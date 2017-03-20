@@ -187,7 +187,7 @@
                     <div>
                         <h2 class="home__calendar__side__title"><?php the_field("calendar_title"); ?></h2>
                         <p class="home__calendar__side__text"><?php the_field("calendar_text"); ?></p>
-                        <a href="" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>
+                        <a href="<?php the_field("calendar_link"); ?>" class="home__calendar__side__more"><?php pll_e("meer info"); ?></a>
                     </div>
                 </div>
                 <div class="home__calendar__photo"

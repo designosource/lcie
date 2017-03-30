@@ -51,14 +51,14 @@
 
 .who__content__grid__col__detail__name
 {
-	@include primary_font(1.8rem, 300);
+	@include primary_font(1.5rem, 300);
 	color: $regalblue;
 	display: block;
 }
 
 .who__content__grid__col__detail__email
 {
-	@include primary_font(1.4rem, 300);
+	@include primary_font(1.1rem, 300);
 	color: black;
 	display: block;
 	margin-top: 7px;
@@ -67,7 +67,7 @@
 
 .who__content__grid__col__detail__function
 {
-	@include secondary_font(1.2rem, 300);
+	@include secondary_font(1rem, 300);
 	color: black;
 	display: block;
 	line-height: 1.8;

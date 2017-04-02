@@ -205,11 +205,11 @@ if(function_exists("register_field_group"))
         'menu_order' => 1,
         ));
     register_field_group(array (
-        'id' => 'acf_opleidingen',
+        'id' => 'acf_courses',
         'title' => 'Opleidingen',
         'fields' => array (
             array (
-                        'key' => 'field_58a89224269c412397',
+                        'key' => 'field_58a89224269c41239767098',
                         'label' => 'Intro',
                         'name' => 'intro_text',
                         'type' => 'wysiwyg',
@@ -228,7 +228,9 @@ if(function_exists("register_field_group"))
                 array (
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-templates/courses-page.php'
+                    'value' => 'page-templates/courses-page.php',
+                    'order_no' => 0,
+                    'group_no' => 0,
                     ),
                 ),
             ),
@@ -238,7 +240,7 @@ if(function_exists("register_field_group"))
             'hide_on_screen' => array (
                 ),
             ),
-        'menu_order' => 1,
+        'menu_order' => 2,
         ));
     register_field_group(array (
         'id' => 'acf_contact',
@@ -960,60 +962,6 @@ register_field_group(array (
                 'media_upload' => 'yes',
             ),
             array (
-                'key' => 'field_58865607956cc2',
-                'label' => 'Team',
-                'name' => 'team',
-                'type' => 'repeater',
-                'sub_fields' => array (
-                    array (
-                        'key' => 'field_51287a66882ce6',
-                        'label' => 'Foto',
-                        'name' => 'photo',
-                        'type' => 'image',
-                        'save_format' => 'url',
-                        'preview_size' => 'thumbnail',
-                        'library' => 'all',
-                    ),
-                    array (
-                        'key' => 'field_51287a66882ce7',
-                        'label' => 'Naam',
-                        'name' => 'name',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'formatting' => 'html',
-                        'maxlength' => '',
-                    ),
-                    array (
-                        'key' => 'field_51287a66f82ce8',
-                        'label' => 'Functie',
-                        'name' => 'function',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'maxlength' => '',
-                    ),
-                    array (
-                        'key' => 'field_51287a66f82ce9',
-                        'label' => 'Email',
-                        'name' => 'email',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'maxlength' => '',
-                    ),
-                ),
-                'row_min' => 0,
-                'row_limit' => '',
-                'layout' => 'table',
-                'button_label' => 'Nieuwe regel',
-            ),
-            array (
                 'key' => 'field_588915bfd41fb',
                 'label' => 'Infrastructuur - Tekst',
                 'name' => 'infrastructure_text',
@@ -1291,6 +1239,8 @@ function sendForm(){
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: <'.$email.'>' . "\r\n";
+        $headers .=  "CC: nicky@designosource.be"; //TODO: CHANGE THIS TO LCIE MAIL
+
 
         mail($to,$subject,$message,$headers);
 
@@ -1310,13 +1260,18 @@ function sendForm(){
 add_action('wp_ajax_filterDocumentation','filterDocumentation');
 function filterDocumentation(){
 
-    $args = array(
-
-        "post_type" => "documentatie",
-        "meta_key" => "type",
-        "meta_value" => $_POST["type"]
-
+    if($_POST["type"] == "all"){
+        $args = array(
+            "post_type" => "documentatie"
         );
+    }else{
+        $args = array(
+            "post_type" => "documentatie",
+            "meta_key" => "type",
+            "meta_value" => $_POST["type"]
+        );  
+    }
+
 
     $query = new WP_Query($args);
 

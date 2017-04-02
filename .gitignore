@@ -2,7 +2,6 @@
 node_modules
 .idea
 *.log
-wp-config.php
 
 wp-content/themes/lcie/dist/css/*
 wp-content/themes/lcie/.sass-cache/*

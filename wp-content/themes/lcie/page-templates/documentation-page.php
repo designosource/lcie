@@ -10,7 +10,8 @@
 
 <div class="wrapper">
   <div class="documentation__nav">
-    <a href="#" class="documentation__nav__item documentation__nav__item__active" data-type="case_studies"><?php pll_e( "Case studies" ); ?></a>
+  <a href="#" class="documentation__nav__item documentation__nav__item__active" data-type="all"><?php pll_e( "Alle" ); ?></a>
+    <a href="#" class="documentation__nav__item" data-type="case_studies"><?php pll_e( "Case studies" ); ?></a>
     <a href="#" class="documentation__nav__item" data-type="videos"><?php pll_e( "Video's" ); ?></a>
     <a href="#" class="documentation__nav__item" data-type="presentaties"><?php pll_e( "Presentaties" ); ?></a>
     <a href="#" class="documentation__nav__item" data-type="templates"><?php pll_e( "Templates" ); ?></a>
@@ -18,7 +19,7 @@
 
   <div class="documentation__article__grid">
 
-          <?php $query = new WP_Query(array('post_type' => "documentatie", "meta_key" => "type", "meta_value" => "case_studies")); ?>
+          <?php $query = new WP_Query(array('post_type' => "documentatie")); ?>
           <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
            
             <div class="documentation__article__item">

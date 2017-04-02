@@ -112,7 +112,6 @@
                         
                 
 
-           
 
                 <!-- Grid item -->
                 <div class="offerings__infrastructure__grid__col">
@@ -122,7 +121,7 @@
                         <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
                     </svg>
 
-                    <img src="http://www.production.be/uploads/images/BELCHAM.png" alt="Belcham logo"
+                    <img src="<?php the_field("logo"); ?>" alt="Event logo"
                          style="width: 150px">
 
                     <svg class="offerings__infrastructure__grid__col__hook-up hook-up hook-light" viewBox="0 0 100 100">
@@ -130,12 +129,13 @@
                               transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
                     </svg>
 
-                    <a href="http://www.belcham.org/events"><h3>
+                    <a href="<?php the_field("url"); ?>"><h3>
                             <?php the_title(); ?></h3></a>
-                    <div class="offerings__infrastructure__grid__col__description"><?php the_excerpt(); ?></div>
+                    <div class="offerings__infrastructure__grid__col__description"><?php the_content(); ?></div>
 
-                    <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan">Bekijk
-                        Belcham events</a>
+                    <?php if(!empty(get_field("url"))): ?>
+                        <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Meer info" ); ?></a>
+                    <?php endif; ?>
 
                 </div>
 

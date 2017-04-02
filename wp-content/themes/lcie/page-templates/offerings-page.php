@@ -172,7 +172,6 @@
 		<div class="wrapper">
 			<div class="grid offerings__infrastructure__grid">
 				<?php if( have_rows('infrastructure') ): while ( have_rows('infrastructure') ) : the_row(); $location = get_sub_field('place');?>
-				<?php $address = explode( “,” , $location[‘address’]); ?>
 				<div class="offerings__infrastructure__grid__col">
 					
 					<svg class="offerings__infrastructure__grid__col__hook-under hook-under" viewBox="0 0 100 100"> 
@@ -185,9 +184,10 @@
 
 					<h2 class="offerings__infrastructure__grid__col__title"><?php the_sub_field("name"); ?></h2>
 					<p class="offerings__infrastructure__grid__col__description"><?php the_sub_field("description"); ?></p>
-					<p class="offerings__infrastructure__grid__col__description"><?php echo $address[1] . " " . $address[2] . " " .$address[3]; ?></p>
 
-					<a href="<?php echo site_url(); ?>/contact" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Reserveren" ); ?></a>
+					<p class="offerings__infrastructure__grid__col__description"><?php echo $location["address"]; ?></p>
+
+					<a href="<?php echo site_url(); ?>" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Lees meer" ); ?></a>
 
 				</div>
 

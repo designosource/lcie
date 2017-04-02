@@ -1581,12 +1581,20 @@ a.home__calendar__side__more {
   margin-bottom: 100px; }
 
 .teams__content__grid {
-  width: 100%; }
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 .teams__content__grid__col {
-  width: 50%;
+  width: 25%;
   margin-top: 50px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  text-align: center; }
+  .teams__content__grid__col a {
+    text-decoration: none; }
+  .teams__content__grid__col .teams__content__grid__col__image {
+    width: 80%;
+    display: inline-block; }
 
 .teams__content__grid__col__image {
   width: auto;
@@ -1599,9 +1607,9 @@ a.home__calendar__side__more {
   font-weight: 400;
   color: #666666;
   width: 100%;
-  text-align: right;
   display: block;
-  margin-top: 40px; }
+  margin-top: 40px;
+  text-decoration: none; }
 
 .teams__pastprojects {
   margin-top: 100px;

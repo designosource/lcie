@@ -7,13 +7,26 @@
 .teams__content__grid
 {
 	width: 100%;
+	flex-wrap: wrap;
 }
 
 .teams__content__grid__col
 {
-	width: 50%;
+	width: 25%;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	text-align: center;
+
+	a
+	{
+		text-decoration: none;
+	}
+
+	.teams__content__grid__col__image
+	{
+		width: 80%;
+		display: inline-block;
+	}
 }
 
 // .teams__content__grid__col:nth-child(odd)
@@ -34,9 +47,9 @@
 	@include primary_font(1.0rem, 400);
 	color: $dovegray;
 	width: 100%;
-	text-align: right;
 	display: block;
 	margin-top: 40px;
+	text-decoration: none;
 }
 
 .teams__pastprojects

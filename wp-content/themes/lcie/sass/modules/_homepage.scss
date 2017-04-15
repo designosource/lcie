@@ -141,9 +141,11 @@
 
 .home__teams__grid__col__logo
 {
-	height: 50px;
+	height: auto;
 	position: relative;
 	z-index: 999;
+	max-width: 80%;
+	max-height: 50px;
 }
 
 .home__teams__grid__col__text

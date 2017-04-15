@@ -5,40 +5,41 @@
 
 <?php get_header(); ?>
 
-    <?php get_template_part( '/template-parts/page', 'header' ); ?>
+<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
-    <!-- nieuws -->
-    <section class="home__who">
-        <div class="wrapper">
-            <h2><?php pll_e("Nieuws"); ?></h2>
+<!-- nieuws -->
+<section class="home__who">
+    <div class="wrapper">
+        <h2><?php pll_e("Nieuws"); ?></h2>
 
-            <!-- Nieuws grid -->
-            <?php
-                        $args = array(
-                            'post_type'      => 'news',
-                            'posts_per_page' => -1,
-                            'order'          => 'ASC',
-                            'orderby'        => 'date'
-                        );
-                $news = new WP_Query($args);
+        <!-- Nieuws grid -->
+        <?php
+        $args = array(
+            'post_type'      => 'news',
+            'posts_per_page' => -1,
+            'order'          => 'ASC',
+            'orderby'        => 'date'
+            );
+        $news = new WP_Query($args);
 
-            ?>
+        ?>
 
-            <div class="nieuwsgrid">
-                <?php if($news->have_posts()): ?>
+        <div class="nieuwsgrid">
+            <?php if($news->have_posts()): ?>
 
-                    <?php while($news->have_posts()): $news->the_post(); ?>
-                        
-                        <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell">
-                            <div>
-                                <div class="nieuwsgrid-cell-content">
-                                    <span class="nieuws--post-date"><?php the_date(); ?></span>
-                                    <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
-                                    <div class="nieuws--lees-meer">Lees meer</div>
-                                </div>
+                <?php while($news->have_posts()): $news->the_post(); ?>
+
+                    <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell" style="background-image: url(<?php the_field("image"); ?>);">
+                        <div>
+                            <div class="nieuwsgrid__overlay"></div>
+                            <div class="nieuwsgrid-cell-content">
+                                <span class="nieuws--post-date"><?php the_date(); ?></span>
+                                <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
+                                <div class="nieuws--lees-meer">Lees meer</div>
                             </div>
-                        </a>
-                
+                        </div>
+                    </a>
+
                 <?php endwhile; ?>
 
             <?php else: ?>
@@ -47,38 +48,39 @@
 
             <?php endif; wp_reset_query();  ?>
 
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- lcie events -->
-    <section class="home__who">
-        <div class="wrapper">
-            <h2><?php pll_e("Events"); ?></h2>
-           
-            <?php
+<!-- lcie events -->
+<section class="home__who">
+    <div class="wrapper">
+        <h2><?php pll_e("Events"); ?></h2>
 
-                $events = new WP_Query(array("post_type" => "events", "posts_per_page" => -1));
+        <?php
 
-            ?>
+        $events = new WP_Query(array("post_type" => "events", "posts_per_page" => -1));
 
-            <!-- Events grid -->
-              <div class="nieuwsgrid">
-                <?php if($events->have_posts()): ?>
+        ?>
 
-                    <?php while($events->have_posts()): $events->the_post(); ?>
-                        
-                        <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell">
-                            <div>
-                                <div class="nieuwsgrid-cell-content">
-                                    <span class="nieuws--post-date"><?php the_date(); ?></span>
-                                    <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
-                                    <div class="nieuws--lees-meer">Lees meer</div>
-                                </div>
+        <!-- Events grid -->
+        <div class="nieuwsgrid">
+            <?php if($events->have_posts()): ?>
+
+                <?php while($events->have_posts()): $events->the_post(); ?>
+
+                     <a href="<?php the_permalink(); ?>" class="nieuwsgrid-cell" style="background-image: url(<?php the_field("image"); ?>);">
+                        <div>
+                            <div class="nieuwsgrid__overlay"></div>
+                            <div class="nieuwsgrid-cell-content">
+                                <span class="nieuws--post-date"><?php the_field("date"); ?></span>
+                                <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
+                                <div class="nieuws--lees-meer">Lees meer</div>
                             </div>
-                        </a>
-                
+                        </div>
+                    </a>
+
                 <?php endwhile; ?>
 
             <?php else: ?>
@@ -100,55 +102,56 @@
         <div class="wrapper">
             <?php
 
-                $p_events = new WP_Query(array("post_type" => "partner_events", "posts_per_page" => -1));
+            $p_events = new WP_Query(array("post_type" => "partner_events", "posts_per_page" => -1));
             ?>
 
             <!-- Events grid -->
 
-               <div class="grid offerings__infrastructure__grid">
+            <div class="grid offerings__infrastructure__grid">
                 <?php if($p_events->have_posts()): ?>
 
                     <?php while($p_events->have_posts()): $p_events->the_post(); ?>
-                        
-                
 
 
-                <!-- Grid item -->
-                <div class="offerings__infrastructure__grid__col">
 
-                    <svg class="offerings__infrastructure__grid__col__hook-under hook-under hook-light"
-                         viewBox="0 0 100 100">
-                        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
-                    </svg>
 
-                    <img src="<?php the_field("logo"); ?>" alt="Event logo"
-                         style="width: 150px">
+                        <!-- Grid item -->
+                        <div class="offerings__infrastructure__grid__col">
 
-                    <svg class="offerings__infrastructure__grid__col__hook-up hook-up hook-light" viewBox="0 0 100 100">
-                        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"
-                              transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
-                    </svg>
+                            <svg class="offerings__infrastructure__grid__col__hook-under hook-under hook-light"
+                            viewBox="0 0 100 100">
+                            <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
+                        </svg>
 
-                    <a href="<?php the_field("url"); ?>"><h3>
+                        <img src="<?php the_field("logo"); ?>" alt="Event logo"
+                        style="width: 150px">
+
+                        <svg class="offerings__infrastructure__grid__col__hook-up hook-up hook-light" viewBox="0 0 100 100">
+                            <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"
+                            transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
+                        </svg>
+
+                        <a href="<?php the_field("url"); ?>"><h3>
+                            <p><?php the_field("date"); ?></p>
                             <?php the_title(); ?></h3></a>
-                    <div class="offerings__infrastructure__grid__col__description"><?php the_content(); ?></div>
+                            <div class="offerings__infrastructure__grid__col__description"><?php the_content(); ?></div>
 
-                    <?php if(!empty(get_field("url"))): ?>
-                        <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Meer info" ); ?></a>
-                    <?php endif; ?>
+                            <?php if(!empty(get_field("url"))): ?>
+                                <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Meer info" ); ?></a>
+                            <?php endif; ?>
 
-                </div>
+                        </div>
 
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
 
-            <?php else: ?>
+                <?php else: ?>
 
-                <p style="color: gray;"><?php pll_e("Er zijn geen events op dit moment."); ?></p>
+                    <p style="color: gray;"><?php pll_e("Er zijn geen events op dit moment."); ?></p>
 
-            <?php endif; wp_reset_query(); ?>
-     
-        </div>
-    </section>
+                <?php endif; wp_reset_query(); ?>
+
+            </div>
+        </section>
 
 
-<?php get_footer(); ?>
+        <?php get_footer(); ?>

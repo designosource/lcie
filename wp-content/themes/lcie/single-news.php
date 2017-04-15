@@ -2,8 +2,18 @@
 
 	 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( '/template-parts/page', 'header' ); ?>
-
+		<?php $image = get_field("image"); ?>
+		<?php if(!empty($image)): ?>
+			<section class="page__top" style="background-image: url(<?php the_field("image"); ?>);">
+		<?php else: ?>
+			<section class="page__top">
+		<?php endif; ?>
+			<div class="wrapper">
+				<h1 class="page__top__title"><?php the_title(); ?></h1>
+			</div>
+			<div class="page__top__overlay"></div>
+		</section>
+		
 		<section class="page__content">
 
 			<div class="wrapper">

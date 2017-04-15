@@ -56,7 +56,7 @@
         <div class="grid home__teams__grid">
             <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
             <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                <?php if (get_field("featured")): ?>
+                <?php if (get_field("featured_homepage")): ?>
                     <a href="<?php the_permalink(); ?>" class="home__teams__grid__col"
                        style="background-image: url(<?php the_field("image"); ?>);">
                         <img src="<?php the_field("logo_white"); ?>" alt="" class="home__teams__grid__col__logo">
@@ -77,7 +77,7 @@
 
                     <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
                     <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                        <?php if (!get_field("featured")): ?>
+                        <?php if (!get_field("featured_homepage")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
                                 <a href="<?php the_permalink(); ?>">
                                     <img src="<?php the_field("logo_white"); ?>" alt=""

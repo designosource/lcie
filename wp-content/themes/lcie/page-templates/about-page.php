@@ -44,30 +44,65 @@
 
 <section class="page__content">
 		<div class="wrapper wrapper_full_text">
-		    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		    
+		<div class="about__container">
+
+			<nav class="offerings__sidebar">
+
+				<ul>
+					<li class="offerings__sidebar__active"><?php pll_e( "Over ons" ); ?></li>
+					<?php
+
+						$custom_terms = get_terms('groups');
+
+						foreach($custom_terms as $custom_term) {
+							echo '<li><a href="#'.$custom_term->slug.'">'.$custom_term->name.'</a></li>';
+						}
+					?>
+				</ul>
+
+			</nav>
+
+			<div class="offerings__content">
+
+			
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
             the_content();
             endwhile; ?>
             <?php wp_reset_query(); ?>
             <?php endif; ?>
 
+			<?php
 
+				$custom_terms = get_terms('groups');
 
+				foreach($custom_terms as $custom_term) {
+				    wp_reset_query();
+				    $args = array('post_type' => 'lcie_team',
+				        'tax_query' => array(
+				            array(
+				                'taxonomy' => 'groups',
+				                'field' => 'slug',
+				                'terms' => $custom_term->slug,
+				            ),
+				        ),
+				     );
 
+				     $loop = new WP_Query($args);
+				     if($loop->have_posts()) {
+				        echo '<h1 id="'.$custom_term->slug.'">'.$custom_term->name.'</h1>';
+				        echo '<div class="offerings__team__grid grid">';
 
-			<h1><?php pll_e( "Core team" ); ?></h1>
-
-						<div class="offerings__team__grid grid">
-
-            			<?php foreach ($core as $value): ?>
-            						<div class="offerings__team__grid__col">
+				        while($loop->have_posts()) : $loop->the_post(); ?>
+				            <div class="offerings__team__grid__col">
             							<div class="grid">
-            								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+            								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php the_field("photo"); ?>)"></div>
             								<div class="offerings__team__grid__col__details">
-            									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
-            									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+            									<span class="offerings__team__grid__col__details__name"><?php the_title(); ?></span>
+            									<span class="offerings__team__grid__col__details__function"><?php the_field("function"); ?></span>
 
             									<div class="offerings__team__grid__col__details__contact">
-            										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
+            										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_field("email"); ?></a>
 
             									</div>
 
@@ -75,36 +110,16 @@
             								</div>
             							</div>
             						</div>
-            				<?php endforeach; ?>
+				    <?php endwhile;
+				     }
 
-            			</div>
+				     echo "</div>";
+				}
 
-			<h1><?php pll_e( "Bestuursteam" ); ?></h1>
-
-			<div class="offerings__team__grid grid">
-
-			<?php foreach ($other as $value): ?>
-						<div class="offerings__team__grid__col">
-							<div class="grid">
-								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
-								<div class="offerings__team__grid__col__details">
-									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
-									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
-
-									<div class="offerings__team__grid__col__details__contact">
-										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
-
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-				<?php endforeach; ?>
-
-			</div>
-
+			?>
+</div>
 		</div>
+
 </section>
 
 

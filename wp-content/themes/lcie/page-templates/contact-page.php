@@ -1,37 +1,18 @@
 <?php
 // Template name: Contact-Page
 
-$core = array();
-	$other = array();
-	
-	$query = new WP_Query(array('post_type' => "lcie_team")); 
-	
-	if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
 
-		$member = array();
-		$member["name"] = get_the_title();
-		$member["photo"] = get_field("photo");
-		$member["function"] = get_field("function");
-		$member["email"] = get_field("email");
-		$member["twitter"] = get_field("twitter");
-		$member["linkedin"] = get_field("linkedin");
+	$args = array('post_type' => 'lcie_team',
+				        'tax_query' => array(
+				            array(
+				                'taxonomy' => 'groups',
+				                'field' => 'slug',
+				                'terms' => 'core-team',
+				            ),
+				        ),
+				     );
 
-		foreach (get_field("team") as $value):
-
-			if($value == "core_team"){
-
-				array_push($core, $member);
-
-			}else{
-
-				array_push($other, $member);
-
-			}
-
-		endforeach; 
-
-	endwhile; endif; 
-	wp_reset_query(); 
+	$query = new WP_Query($args); 
 
 ?>
 
@@ -72,7 +53,7 @@ $core = array();
 
 							<?php switch_to_blog($site->blog_id); ?>
 
-							<option value="<?php echo get_option("email"); ?>"><?php echo $site->blogname; ?></option>
+							<option value="<?php echo antispambot(get_option("email")); ?>"><?php echo $site->blogname; ?></option>
 									
 						<?php restore_current_blog(); endforeach; ?>
 
@@ -127,7 +108,7 @@ $core = array();
 					<p class="contact__location__address"><?php the_sub_field("address"); ?></p>
 					<?php $email = get_sub_field("email"); ?>
 					<?php if(!empty($email)): ?>
-						<a href="mailto:<?php the_sub_field("email"); ?>" class="contact__location__mail"><?php the_sub_field("email"); ?></a>
+						<a href="mailto:<?php echo antispambot(get_sub_field("email")); ?>" class="contact__location__mail"><?php echo antispambot(get_sub_field("email")); ?></a>
 					<?php endif; ?>
 				</div>
 
@@ -146,16 +127,16 @@ $core = array();
 
 			<div class="offerings__team__grid grid">
 				
-			<?php foreach ($core as $value): ?>
+			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();  ?>
 						<div class="offerings__team__grid__col">
 							<div class="grid">
-								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php the_field("photo"); ?>)"></div>
 								<div class="offerings__team__grid__col__details">
-									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
-									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+									<span class="offerings__team__grid__col__details__name"><?php the_title(); ?></span>
+									<span class="offerings__team__grid__col__details__function"><?php the_field("function"); ?></span>
 									
 									<div class="offerings__team__grid__col__details__contact">
-										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
+										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_field("email"); ?></a>
 					
 									</div>
 									
@@ -163,7 +144,7 @@ $core = array();
 								</div>
 							</div>
 						</div>
-				<?php endforeach; ?>
+				<?php endwhile; endif; ?>
 
 
 

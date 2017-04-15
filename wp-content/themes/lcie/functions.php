@@ -57,6 +57,24 @@ function create_posttypes() {
             )
         );
 
+    register_taxonomy(
+        'groups',
+        'post',
+        array(
+            'label' => __( 'Groepen' ),
+            'rewrite' => array( 'slug' => 'group' )
+        )
+    );
+
+    register_taxonomy(
+        'partner_groups',
+        'post',
+        array(
+            'label' => __( 'Groepen' ),
+            'rewrite' => array( 'slug' => 'partner-group' )
+        )
+    );
+
     register_post_type( 'lcie_team',
         array(
             'labels' => array(
@@ -65,9 +83,12 @@ function create_posttypes() {
                 ),
             'public' => true,
             'has_archive' => true,
-            'menu_icon' => "dashicons-welcome-learn-more"
+            'menu_icon' => "dashicons-welcome-learn-more",
+            'taxonomies'          => array( 'groups' )
             )
         );
+
+
 
     register_post_type( 'news',
         array(
@@ -117,6 +138,18 @@ function create_posttypes() {
             'menu_icon' => "dashicons-awards"
             )
         );
+
+    register_post_type( 'infrastructure',
+        array(
+            'labels' => array(
+                'name' => __( 'Infrastructuur' ),
+                'singular_name' => __( 'Infrastructuur' )
+                ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => "dashicons-admin-home"
+            )
+        );
 }
 
 add_action( 'init', 'create_posttypes' );
@@ -132,29 +165,106 @@ add_action( 'init', 'create_posttypes' );
 if(function_exists("register_field_group"))
 {
         register_field_group(array (
+        'id' => 'acf_news',
+        'title' => 'Nieuws',
+        'fields' => array (
+            array (
+                'key' => 'field_58a89224269c412323556334',
+                'label' => 'Afbeelding',
+                'name' => 'image',
+                'type' => 'image',
+                'save_format' => 'url'
+                ),
+            ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'news',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'metabox',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
+
+         register_field_group(array (
+        'id' => 'acf_events',
+        'title' => 'Events',
+        'fields' => array (
+            array (
+                'key' => 'field_58a89224269c4123235563342234',
+                'label' => 'Afbeelding',
+                'name' => 'image',
+                'type' => 'image',
+                'save_format' => 'url'
+                ),
+            array (
+                'key' => 'field_58a89224269c4123235563342234324',
+                'label' => 'Eventdatum',
+                'name' => 'date',
+                'type' => 'text'
+                ),
+            ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'events',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                    ),
+
+                ),
+            ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'metabox',
+            'hide_on_screen' => array (
+                ),
+            ),
+        'menu_order' => 1,
+        ));
+
+    register_field_group(array (
         'id' => 'acf_opleidingen',
         'title' => 'Opleidingen',
         'fields' => array (
             array (
-                        'key' => 'field_58a89224269c412323556',
-                        'label' => 'Logo',
-                        'name' => 'logo',
-                        'type' => 'image',
-                        'save_format' => 'url'
-                        ),
+                'key' => 'field_58a89224269c412323556',
+                'label' => 'Logo',
+                'name' => 'logo',
+                'type' => 'image',
+                'save_format' => 'url'
+                ),
             array (
-                         'key' => 'field_58a89224269c41232355624',
-                        'label' => 'Url',
-                        'name' => 'url',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                        ),
-        ),
+               'key' => 'field_58a89224269c41232355624',
+               'label' => 'Url',
+               'name' => 'url',
+               'type' => 'text',
+               'column_width' => '',
+               'default_value' => '',
+               'placeholder' => '',
+               'prepend' => '',
+               'append' => '',
+               'maxlength' => '',
+               ),
+            array (
+                'key' => 'field_58a89224269c4123235563342234324223',
+                'label' => 'Eventdatum',
+                'name' => 'date',
+                'type' => 'text'
+                ),
+            ),
         'location' => array (
             array (
                 array (
@@ -174,19 +284,19 @@ if(function_exists("register_field_group"))
             ),
         'menu_order' => 1,
         ));
-            register_field_group(array (
+    register_field_group(array (
         'id' => 'acf_contest',
         'title' => 'Wedstrijden',
         'fields' => array (
             array (
-                        'key' => 'field_58a89224269c412397788',
-                        'label' => 'Afbeelding',
-                        'name' => 'image',
-                        'type' => 'image',
-                        'save_format' => 'url'
-                        ),
+                'key' => 'field_58a89224269c412397788',
+                'label' => 'Afbeelding',
+                'name' => 'image',
+                'type' => 'image',
+                'save_format' => 'url'
+                ),
 
-        ),
+            ),
         'location' => array (
             array (
                 array (
@@ -209,20 +319,20 @@ if(function_exists("register_field_group"))
         'title' => 'Opleidingen',
         'fields' => array (
             array (
-                        'key' => 'field_58a89224269c41239767098',
-                        'label' => 'Intro',
-                        'name' => 'intro_text',
-                        'type' => 'wysiwyg',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'formatting' => 'html',
-                        'maxlength' => '',
-                        ),
+                'key' => 'field_58a89224269c41239767098',
+                'label' => 'Intro',
+                'name' => 'intro_text',
+                'type' => 'wysiwyg',
+                'column_width' => '',
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'html',
+                'maxlength' => '',
+                ),
 
-        ),
+            ),
         'location' => array (
             array (
                 array (
@@ -461,7 +571,7 @@ if(function_exists("register_field_group"))
                 'layout' => 'table',
                 'button_label' => 'Nieuwe regel',
                 ),
-             array (
+            array (
                 'key' => 'field_5894e26ea8b4234',
                 'label' => 'Ervaringen',
                 'name' => 'testmonials',
@@ -512,7 +622,7 @@ if(function_exists("register_field_group"))
                 'layout' => 'table',
                 'button_label' => 'Nieuwe ervaring',
                 ),
-             array (
+            array (
                 'key' => 'field_58a88fb5adc9e242324',
                 'label' => 'Kalender - Link',
                 'name' => 'calendar_link',
@@ -521,15 +631,15 @@ if(function_exists("register_field_group"))
                 'column_width' => '',
                 'post_type' => array (
                     0 => 'page',
+                    ),
                 ),
-                ),
-             array (
+            array (
                 'key' => 'field_58a88fb5adc9e23',
                 'label' => 'Kalender - Titel',
                 'name' => 'calendar_title',
                 'type' => 'text',
                 ),
-             array (
+            array (
                 'key' => 'field_58a88fb5adc9e24',
                 'label' => 'Kalender - Tekst',
                 'name' => 'calendar_text',
@@ -545,25 +655,25 @@ if(function_exists("register_field_group"))
                 'library' => 'all',
                 ),
             ),
-        'location' => array (
-            array (
-                array (
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'page-templates/home-page.php',
-                    'order_no' => 0,
-                    'group_no' => 0,
-                    ),
-                ),
+'location' => array (
+    array (
+        array (
+            'param' => 'page_template',
+            'operator' => '==',
+            'value' => 'page-templates/home-page.php',
+            'order_no' => 0,
+            'group_no' => 0,
             ),
-        'options' => array (
-            'position' => 'normal',
-            'layout' => 'no_box',
-            'hide_on_screen' => array (
-                ),
-            ),
-        'menu_order' => 0,
-        ));
+        ),
+    ),
+'options' => array (
+    'position' => 'normal',
+    'layout' => 'no_box',
+    'hide_on_screen' => array (
+        ),
+    ),
+'menu_order' => 0,
+));
 
 register_field_group(array (
     'id' => 'acf_page',
@@ -578,7 +688,7 @@ register_field_group(array (
             'preview_size' => 'thumbnail',
             'library' => 'all',
             ),
-            array (
+        array (
             'key' => 'field_5889203de3ac7',
             'label' => 'Subtitel',
             'name' => 'subtitle',
@@ -615,40 +725,46 @@ register_field_group(array (
     'id' => 'acf_teams',
     'title' => 'Teams',
     'fields' => array (
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa4',
         'label' => 'Uitgelicht',
         'name' => 'featured',
         'type' => 'true_false',
         ),
-       array (
+     array (
+        'key' => 'field_588a6a8eb5fa4636477',
+        'label' => 'Uitgelicht op homepage',
+        'name' => 'featured_homepage',
+        'type' => 'true_false',
+        ),
+     array (
         'key' => 'field_588a6a8eb5fa2',
         'label' => 'Logo',
         'name' => 'logo',
         'type' => 'image',
         'save_format' => 'url',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa10',
         'label' => 'Logo - witte versie',
         'name' => 'logo_white',
         'type' => 'image',
         'save_format' => 'url',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa6',
         'label' => 'Kleur',
         'name' => 'color',
         'type' => 'color_picker',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa7',
         'label' => 'Afbeelding',
         'name' => 'image',
         'type' => 'image',
         'save_format' => 'url',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa12',
         'label' => 'Facebook',
         'name' => 'facebook',
@@ -660,7 +776,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa13',
         'label' => 'Twitter',
         'name' => 'twitter',
@@ -672,7 +788,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa14',
         'label' => 'Youtube',
         'name' => 'youtube',
@@ -684,7 +800,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa8',
         'label' => 'LinkedIn',
         'name' => 'linkedin',
@@ -696,7 +812,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-       array (
+     array (
         'key' => 'field_588a6a8eb5fa15',
         'label' => 'Website',
         'name' => 'website',
@@ -708,7 +824,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-       ),
+     ),
     'location' => array (
         array (
             array (
@@ -781,7 +897,7 @@ register_field_group(array (
             'layout' => 'table',
             'button_label' => 'Nieuwe regel',
             ),
-            array (
+        array (
             'key' => 'field_6094e26ea8b465',
             'label' => 'Wat wij aanbieden',
             'name' => 'offer',
@@ -825,7 +941,7 @@ register_field_group(array (
             'layout' => 'table',
             'button_label' => 'Nieuwe regel',
             ),
-            ),
+        ),
     'location' => array (
         array (
             array (
@@ -947,204 +1063,238 @@ register_field_group(array (
     ));
 
 
-    register_field_group(array (
-        'id' => 'acf_offerings',
-        'title' => 'Offerings',
-        'fields' => array (
 
-            array (
-                'key' => 'field_588915bfd41fb3',
-                'label' => 'Team - Tekst',
-                'name' => 'team_text',
-                'type' => 'wysiwyg',
-                'default_value' => '',
-                'toolbar' => 'full',
-                'media_upload' => 'yes',
+register_field_group(array (
+    'id' => 'acf_infrastructure',
+    'title' => 'Infrastructuur',
+    'fields' => array (
+        array (
+            'key' => 'field_5886561f956cd',
+            'label' => 'Plaats',
+            'name' => 'place',
+            'type' => 'google_map',
+            'column_width' => '',
+            'center_lat' => '',
+            'center_lng' => '',
+            'zoom' => '',
+            'height' => '',
             ),
-            array (
-                'key' => 'field_588915bfd41fb',
-                'label' => 'Infrastructuur - Tekst',
-                'name' => 'infrastructure_text',
-                'type' => 'wysiwyg',
-                'default_value' => '',
-                'toolbar' => 'full',
-                'media_upload' => 'yes',
-            ),
-            array (
-                'key' => 'field_58865607956cc',
-                'label' => 'Infrastructuur',
-                'name' => 'infrastructure',
-                'type' => 'repeater',
-                'sub_fields' => array (
-                    array (
-                        'key' => 'field_5886561f956cd',
-                        'label' => 'Plaats',
-                        'name' => 'place',
-                        'type' => 'google_map',
-                        'column_width' => '',
-                        'center_lat' => '',
-                        'center_lng' => '',
-                        'zoom' => '',
-                        'height' => '',
-                    ),
-                    array (
-                        'key' => 'field_5887a66882ce7',
-                        'label' => 'Naam',
-                        'name' => 'name',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'formatting' => 'html',
-                        'maxlength' => '',
-                    ),
-                    array (
-                        'key' => 'field_5887a66f82ce8',
-                        'label' => 'Beschrijving',
-                        'name' => 'description',
-                        'type' => 'textarea',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'maxlength' => '',
-                        'rows' => '',
-                        'formatting' => 'br',
-                    ),
-                ),
-                'row_min' => 0,
-                'row_limit' => '',
-                'layout' => 'table',
-                'button_label' => 'Nieuwe regel',
+        array (
+            'key' => 'field_5887a66f82ce8',
+            'label' => 'Foto',
+            'name' => 'image',
+            'type' => 'image',
+            'save_format' => 'url'
             ),
         ),
-        'location' => array (
+    'location' => array (
+        array (
             array (
-                array (
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'page-templates/offerings-page.php',
-                    'order_no' => 0,
-                    'group_no' => 0,
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'infrastructure',
+                'order_no' => 0,
+                'group_no' => 0,
                 ),
             ),
         ),
-        'options' => array (
-            'position' => 'normal',
-            'layout' => 'no_box',
-            'hide_on_screen' => array (
+    'options' => array (
+        'position' => 'normal',
+        'layout' => 'metabox',
+        'hide_on_screen' => array (
             ),
         ),
-        'menu_order' => 0,
+    'menu_order' => 0,
     ));
-    register_field_group(array (
-        'id' => 'acf_lcie-team',
-        'title' => 'Lcie team',
-        'fields' => array (
-            array (
-                'key' => 'field_58b1f7d78abec',
-                'label' => 'Foto',
-                'name' => 'photo',
-                'type' => 'image',
-                'save_format' => 'url',
-                'preview_size' => 'thumbnail',
-                'library' => 'all',
+
+register_field_group(array (
+    'id' => 'acf_offerings',
+    'title' => 'Offerings',
+    'fields' => array (
+
+        array (
+            'key' => 'field_588915bfd41fb3',
+            'label' => 'Team - Tekst',
+            'name' => 'team_text',
+            'type' => 'wysiwyg',
+            'default_value' => '',
+            'toolbar' => 'full',
+            'media_upload' => 'yes',
             ),
-            array (
-                'key' => 'field_58b1f7ef8abed',
-                'label' => 'Team',
-                'name' => 'team',
-                'type' => 'checkbox',
-                'required' => 1,
-                'choices' => array (
-                    'core_team' => 'Core team',
-                    'bestuursteam' => 'Bestuursteam',
-                ),
-                'default_value' => '',
-                'layout' => 'vertical',
+        array (
+            'key' => 'field_588915bfd41fb',
+            'label' => 'Infrastructuur - Tekst',
+            'name' => 'infrastructure_text',
+            'type' => 'wysiwyg',
+            'default_value' => '',
+            'toolbar' => 'full',
+            'media_upload' => 'yes',
             ),
-            array (
-                'key' => 'field_58b1fbce8abee',
-                'label' => 'Functie',
-                'name' => 'function',
-                'type' => 'text',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-            array (
-                'key' => 'field_58b1fbd78abef',
-                'label' => 'E-mail',
-                'name' => 'email',
-                'type' => 'text',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-            array (
-                'key' => 'field_58b1fbe08abf0',
-                'label' => 'Twitter',
-                'name' => 'twitter',
-                'type' => 'text',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-            array (
-                'key' => 'field_58b1fbe58abf1',
-                'label' => 'LinkedIn',
-                'name' => 'linkedin',
-                'type' => 'text',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-        ),
-        'location' => array (
-            array (
+        array (
+            'key' => 'field_58865607956cc23',
+            'label' => 'Content blocks',
+            'name' => 'content-blocks',
+            'type' => 'repeater',
+            'sub_fields' => array (
                 array (
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'lcie_team',
-                    'order_no' => 0,
-                    'group_no' => 0,
+                    'key' => 'field_5887a66882ce725256',
+                    'label' => 'Titel',
+                    'name' => 'title',
+                    'type' => 'text',
+                    'column_width' => '',
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'formatting' => 'html',
+                    'maxlength' => '',
+                    ),
+                array (
+                    'key' => 'field_5886561f956cd2442',
+                    'label' => 'Content',
+                    'name' => 'content',
+                    'type' => 'wysiwyg',
+                    'column_width' => '',
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'formatting' => 'html',
+                    'maxlength' => '',
+                    ),
+                ),
+            'row_min' => 0,
+            'row_limit' => '',
+            'layout' => 'table',
+            'button_label' => 'Nieuw blok',
+            ),
+        ),
+    'location' => array (
+        array (
+            array (
+                'param' => 'page_template',
+                'operator' => '==',
+                'value' => 'page-templates/offerings-page.php',
+                'order_no' => 0,
+                'group_no' => 0,
                 ),
             ),
         ),
-        'options' => array (
-            'position' => 'normal',
-            'layout' => 'no_box',
-            'hide_on_screen' => array (
-                0 => 'permalink',
-                1 => 'the_content',
-                2 => 'excerpt',
-                3 => 'custom_fields',
-                4 => 'discussion',
-                5 => 'comments',
-                6 => 'revisions',
-                7 => 'slug',
-                8 => 'author',
-                9 => 'format',
-                10 => 'featured_image',
-                11 => 'categories',
-                12 => 'tags',
-                13 => 'send-trackbacks',
+    'options' => array (
+        'position' => 'normal',
+        'layout' => 'no_box',
+        'hide_on_screen' => array (
             ),
         ),
-        'menu_order' => 0,
+    'menu_order' => 0,
+    ));
+register_field_group(array (
+    'id' => 'acf_lcie-team',
+    'title' => 'Lcie team',
+    'fields' => array (
+        array (
+            'key' => 'field_58b1f7d78abec',
+            'label' => 'Foto',
+            'name' => 'photo',
+            'type' => 'image',
+            'save_format' => 'url',
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+            ),
+        array (
+            'key' => 'field_58b1f7ef8abed',
+            'label' => 'Team',
+            'name' => 'team',
+            'type' => 'checkbox',
+            'required' => 1,
+            'choices' => array (
+                'core_team' => 'Core team',
+                'bestuursteam' => 'Bestuursteam',
+                ),
+            'default_value' => '',
+            'layout' => 'vertical',
+            ),
+        array (
+            'key' => 'field_58b1fbce8abee',
+            'label' => 'Functie',
+            'name' => 'function',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'html',
+            'maxlength' => '',
+            ),
+        array (
+            'key' => 'field_58b1fbd78abef',
+            'label' => 'E-mail',
+            'name' => 'email',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'html',
+            'maxlength' => '',
+            ),
+        array (
+            'key' => 'field_58b1fbe08abf0',
+            'label' => 'Twitter',
+            'name' => 'twitter',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'html',
+            'maxlength' => '',
+            ),
+        array (
+            'key' => 'field_58b1fbe58abf1',
+            'label' => 'LinkedIn',
+            'name' => 'linkedin',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'html',
+            'maxlength' => '',
+            ),
+        ),
+    'location' => array (
+        array (
+            array (
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'lcie_team',
+                'order_no' => 0,
+                'group_no' => 0,
+                ),
+            ),
+        ),
+    'options' => array (
+        'position' => 'normal',
+        'layout' => 'no_box',
+        'hide_on_screen' => array (
+            0 => 'permalink',
+            1 => 'the_content',
+            2 => 'excerpt',
+            3 => 'custom_fields',
+            4 => 'discussion',
+            5 => 'comments',
+            6 => 'revisions',
+            7 => 'slug',
+            8 => 'author',
+            9 => 'format',
+            10 => 'featured_image',
+            11 => 'categories',
+            12 => 'tags',
+            13 => 'send-trackbacks',
+            ),
+        ),
+    'menu_order' => 0,
     ));
 
 
@@ -1263,13 +1413,13 @@ function filterDocumentation(){
     if($_POST["type"] == "all"){
         $args = array(
             "post_type" => "documentatie"
-        );
+            );
     }else{
         $args = array(
             "post_type" => "documentatie",
             "meta_key" => "type",
             "meta_value" => $_POST["type"]
-        );  
+            );  
     }
 
 

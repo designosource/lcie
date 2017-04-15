@@ -18,7 +18,8 @@
 @import "modules/newsevent";
 @import "modules/footer";
 @import "modules/contestspage";
-
+@import "modules/infrastructure";
+@import "modules/about";
 
 body
 {
@@ -69,6 +70,18 @@ p {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	width: 100%;
+
+	&.align-middle
+	{
+		align-items: center;
+	}
+
+	.col
+	{
+		width: 50%;
+		flex-grow: 1;
+	}
 }
 
 .button

@@ -23,17 +23,7 @@
 				<div class="wrapper">
 					<ul>
 						<?php wp_nav_menu( array( 'theme_location' => 'sub-menu' ) ); ?>
-<<<<<<< HEAD
-	
-						<?php  $languages = pll_the_languages(array('raw'=>1)); ?>
-						<ul class="header__subnavigation__icons">
-						<?php 
-							foreach ($languages as $value):
-								if(!$value["current_lang"]):
-						?>
-							
-							<li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
-=======
+
                         <?php  $languages = pll_the_languages(array('raw'=>1)); ?>
                         <ul class="header__subnavigation__icons">
                             <?php
@@ -47,12 +37,7 @@
                                 endif; endforeach;
                             ?>
                         </ul>
->>>>>>> b747eba84f056aea725477f948937b3a7bac6f49
 
-						<?php
-							endif; endforeach;
-						?>
-						</ul>
 					</ul>
 				</div>
 			</nav>

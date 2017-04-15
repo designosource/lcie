@@ -9,7 +9,15 @@
         <?php echo get_bloginfo( 'name' ); ?>
     </div>
 </section>
+
+<section class="container">
+  <?php get_sidebar(); ?>
+
+  <div class="content">
+
+
 <section class="page__content">
+
     <div class="wrapper">
         <h1><?php echo get_the_title(); ?></h1>
     </div>
@@ -54,7 +62,8 @@
 
 </div>
 </section>
-
+</div>
+</section>
 <style>
 
     h1, h2

@@ -22,6 +22,105 @@ function create_posttypes() {
             )
         );
 
+        register_field_group(array (
+            'id' => 'acf_partners',
+            'title' => 'Partners',
+            'fields' => array (
+                array (
+                    'key' => 'field_6094e26ea8b4651314567',
+                    'label' => 'Powered by',
+                    'name' => 'poweredby',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b432312398567',
+                            'label' => 'Logo',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'save_format' => 'url'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b4622312345567',
+                            'label' => 'Url',
+                            'name' => 'url',
+                            'type' => 'text',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuwe regel',
+                    ),
+                array (
+                    'key' => 'field_6094e26ea8b465131498',
+                    'label' => 'Partnership',
+                    'name' => 'partnership',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b43231239898',
+                            'label' => 'Logo',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'save_format' => 'url'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b462231234598',
+                            'label' => 'Url',
+                            'name' => 'url',
+                            'type' => 'text',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuwe regel',
+                    ),
+                array (
+                    'key' => 'field_6094e26ea8b4651314',
+                    'label' => 'Sponsored by',
+                    'name' => 'sponsored',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b432312398',
+                            'label' => 'Logo',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'save_format' => 'url'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b4622312345',
+                            'label' => 'Url',
+                            'name' => 'url',
+                            'type' => 'text',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuwe regel',
+                    ),
+                ),
+            'location' => array (
+                array (
+                    array (
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'page-templates/partners-page.php',
+                        'order_no' => 0,
+                        'group_no' => 0,
+                        )
+                    ),
+                ),
+            'options' => array (
+                'position' => 'normal',
+                'layout' => 'no_box',
+                'hide_on_screen' => array (
+                    ),
+                ),
+            'menu_order' => 0,
+            ));
 
 }
 
@@ -36,8 +135,8 @@ add_action( 'init', 'create_posttypes' );
             "manage_options",
             "theme-options",
             "theme_options_page",
-            "", 
-            100 
+            "",
+            100
         );
 
     }
@@ -47,22 +146,22 @@ add_action( 'init', 'create_posttypes' );
         ?>
             <div class="wrap">
             <div id="icon-options-general" class="icon32"></div>
-            
+
             <!-- run the settings_errors() function here. -->
             <?php settings_errors(); ?>
             <h1>Opties</h1>
-            
+
 
             <form method="post" action="options.php" enctype="multipart/form-data">
                 <?php
-                
+
                     settings_fields("header_section");
-                    
+
                     do_settings_sections("theme-options");
-                
-                    submit_button(); 
-                    
-                ?>          
+
+                    submit_button();
+
+                ?>
             </form>
         </div>
         <?php
@@ -73,7 +172,7 @@ add_action( 'init', 'create_posttypes' );
     function display_options()
     {
         add_settings_section("header_section", "Algemene informatie", null , "theme-options");
-     
+
         add_settings_field("header_logo", "Kleur", "display_logo_form_element", "theme-options", "header_section");
         register_setting("header_section", "header_logo");
 
@@ -85,8 +184,8 @@ add_action( 'init', 'create_posttypes' );
 
         add_settings_field("description", "Beschrijving", "display_description_form_element", "theme-options", "header_section");
         register_setting("header_section", "description");
-    
-        
+
+
     }
 
     function handle_file_upload($option)
@@ -95,9 +194,9 @@ add_action( 'init', 'create_posttypes' );
       {
         $urls = wp_handle_upload($_FILES["background_picture"], array('test_form' => FALSE));
         $temp = $urls["url"];
-        return $temp;   
+        return $temp;
       }
-      
+
       return $option;
     }
 
@@ -158,12 +257,12 @@ function my_ajax_pagination() {
     $GLOBALS['wp_query'] = $posts;
 
 
-    if( ! $posts->have_posts() ) { 
+    if( ! $posts->have_posts() ) {
         // get_template_part( 'content', 'none' );
         return false;
     }
     else {
-        while ( $posts->have_posts() ) { 
+        while ( $posts->have_posts() ) {
             $posts->the_post();
             array_push ( $data, array(get_post(), array("color" => get_field('color'), "logo" => get_field('logo_white'), "photo" => get_field('photo'), "url" => get_permalink())));
         }

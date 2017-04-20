@@ -228,7 +228,6 @@
 	@include primary_font(1.2rem, 400);
 }
 
-
 /* DIVISIONS */
 .home__divisions
 {
@@ -434,7 +433,9 @@ a.home__calendar__side__more{
 	text-align: right;
 }
 
-
+.home__who__grid__col a.first-letter-uppercase:first-letter{
+	text-transform: capitalize;
+}
 
 @media screen and (min-width: 768px) {
 	/* SWIPER */

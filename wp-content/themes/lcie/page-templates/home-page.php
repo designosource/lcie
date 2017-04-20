@@ -30,8 +30,7 @@
 
                         <a href="<?php the_sub_field("url"); ?>">
 
-                            <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie
-                                voor <?php the_sub_field("text"); ?></a>
+                            <a class="first-letter-uppercase" style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
                             <div class="home__who__grid__col__overlay"
                                  style="background-color: <?php the_sub_field("color"); ?>">
                             </div>

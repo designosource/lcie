@@ -206,6 +206,9 @@
 	background-size: contain;
 }
 
+.home__who__grid__col a.first-letter-uppercase:first-letter{
+	text-transform: capitalize;
+}
 
 @media screen and (max-width: 768px)
 {

@@ -43,6 +43,11 @@
 	display: block;
 	box-sizing: border-box;
 }
+.offerings__sidebar ul li:last-child {
+	a {
+		border-bottom: none;
+	}
+}
 
 .offerings__sidebar__active
 {
@@ -98,7 +103,7 @@
 	background-size: cover;
 	background-position: center;
 	display: block;
-	
+
 	a
 	{
 		color: white;
@@ -297,7 +302,7 @@
 	{
 		@include secondary_font(1.0rem, 400);
 	}
-	
+
 	img
 	{
 		max-width: 100%;

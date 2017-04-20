@@ -24,7 +24,7 @@
 						<span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
 					</div>
                     <div class="footer__bottom__content footer__bottom__contentRight">
-											<h4>Lcie Core Partners</h4>
+											<h4>Lcie Structural Partners</h4>
                         <a href="http://www.leuvenmindgate.be"><img
                                     src="<?php echo get_template_directory_uri(); ?>/images/logo-leuven-mindgate-klein.png"
                                     alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>

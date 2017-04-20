@@ -11,7 +11,7 @@
                 <h1 class="home__hero__title">Lcie</h1>
                 <p class="home__hero__text"><?php pll_e("De Leuven Community for Innovation driven Entrepreneurship is er voor al jouw vragen rond ondernemingszin, zowel voor studenten, onderzoekers, professoren en alumni van de KU Leuven."); ?></p>
                 <a href="<?php echo site_url(); ?>/sluit-je-aan"
-                   class="button button--ghost"><?php pll_e("Sluit je aan"); ?></a>
+                   class="button button--ghost"><?php pll_e("Contacteer ons"); ?></a>
             </div>
         </div>
     </section>

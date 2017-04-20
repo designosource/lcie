@@ -689,6 +689,9 @@ a.home__calendar__side__more {
 .home__who__grid__col a.first-letter-uppercase:first-letter {
   text-transform: capitalize; }
 
+.home__who__grid__col a {
+  font-size: 1.5rem; }
+
 @media screen and (min-width: 768px) {
   /* SWIPER */
   div.swiper-slide.home__teams__grid-small__slide.swiper-slide-active,

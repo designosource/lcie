@@ -4,9 +4,9 @@
 $core = array();
 $other = array();
 
-$query = new WP_Query(array('post_type' => "lcie_team")); 
+$query = new WP_Query(array('post_type' => "lcie_team"));
 
-if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); 
+if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 
 $member = array();
 $member["name"] = get_the_title();
@@ -28,11 +28,11 @@ foreach (get_field("team") as $value):
 
 	}
 
-	endforeach; 
+	endforeach;
 
-	endwhile; endif; 
+	endwhile; endif;
 
-	wp_reset_query(); 
+	wp_reset_query();
 	?>
 
 
@@ -51,7 +51,7 @@ foreach (get_field("team") as $value):
 					<li><a href="#team"><?php pll_e( "Core team" ); ?></a></li>
 					<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
 						<li><a href="#<?php echo strtolower(get_sub_field("title")); ?>"><?php the_sub_field("title"); ?></a></li>
-	
+
 					<?php endwhile; endif; ?>
 					<li><a href="#infrastructure"><?php pll_e( "Infrastructuur" ); ?></a></li>
 				</ul>
@@ -60,8 +60,8 @@ foreach (get_field("team") as $value):
 
 			<div class="offerings__content">
 				<h1><?php pll_e( "Lcie voor" ); ?></h1>
-				
-				<?php while ( have_posts() ) : the_post(); ?> 
+
+				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php the_content(); ?>
 
@@ -72,7 +72,7 @@ foreach (get_field("team") as $value):
 	</section>
 
 	<section class="offerings__who" id="who">
-		
+
 		<div class="wrapper">
 
 			<?php $frontpage_id = get_option( 'page_on_front' ); ?>
@@ -80,7 +80,7 @@ foreach (get_field("team") as $value):
 			<div class="grid offerings__who__grid">
 
 				<?php if( have_rows('lcie_for', $frontpage_id) ): while ( have_rows('lcie_for', $frontpage_id) ) : the_row(); ?>
-					<div class="offerings__who__grid__col" style="background-image: url(<?php the_sub_field("image"); ?>;); background-size: cover;">
+					<div class="offerings__who__grid__col" style="background-image: url(<?php the_sub_field("image"); ?>); background-size: cover;">
 						<a href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
 						<div class="offerings__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
 					</div>
@@ -96,7 +96,7 @@ foreach (get_field("team") as $value):
 		<div class="wrapper">
 			<h1><?php pll_e( "Subsites" ); ?></h1>
 			<div class="grid offerings__subsites__grid">
-				
+
 				<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
 
 					<?php switch_to_blog($site->blog_id); ?>
@@ -131,12 +131,12 @@ foreach (get_field("team") as $value):
 								<div class="offerings__team__grid__col__details">
 									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
 									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
-									
+
 									<div class="offerings__team__grid__col__details__contact">
 										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
 
 									</div>
-									
+
 
 								</div>
 							</div>
@@ -189,7 +189,7 @@ foreach (get_field("team") as $value):
 					<?php if( $infra_query->have_posts() ): while ( $infra_query->have_posts() ) : $infra_query->the_post(); $location = get_field('place');?>
 						<div class="offerings__infrastructure__grid__col">
 
-							<svg class="offerings__infrastructure__grid__col__hook-under hook-under" viewBox="0 0 100 100"> 
+							<svg class="offerings__infrastructure__grid__col__hook-under hook-under" viewBox="0 0 100 100">
 								<path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
 							</svg>
 

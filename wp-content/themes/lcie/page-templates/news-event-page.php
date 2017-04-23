@@ -135,8 +135,8 @@
                             <p><?php the_field("date"); ?></p>
                             <?php the_title(); ?></h3></a>
                             <div class="offerings__infrastructure__grid__col__description"><?php the_content(); ?></div>
-
-                            <?php if(!empty(get_field("url"))): ?>
+                            <?php $url = get_field("url"); ?>
+                            <?php if(!empty($url)): ?>
                                 <a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Meer info" ); ?></a>
                             <?php endif; ?>
 

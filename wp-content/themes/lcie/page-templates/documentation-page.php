@@ -24,8 +24,13 @@
            
             <div class="documentation__article__item">
               <h2><?php the_title(); ?></h2>
-              <p><?php the_content(); ?></p>
-              <a href="<?php the_field("file"); ?>"><?php pll_e( "Download" ); ?></a>
+              <p><?php the_field("content"); ?></p>
+              <?php $url = get_field("url");?>
+              <?php if(!empty($url)): ?>
+                <a href="<?php the_field("url"); ?>"><?php pll_e( "Download" ); ?></a>
+              <?php else: ?>
+                <a href="<?php the_field("file"); ?>"><?php pll_e( "Download" ); ?></a>
+              <?php endif; ?>
             </div>
               
           <?php endwhile; endif; ?>

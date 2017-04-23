@@ -1,14 +1,11 @@
 <?php
 	// Template name: Teams
 ?>
-
-
 <?php get_header(); ?>
-
 
 	<?php get_template_part( '/template-parts/page', 'header' ); ?>
 
-	<section class="teams__content">
+	<section class="page__content">
 
 		<div class="wrapper">
 
@@ -23,7 +20,7 @@
 						<a href="<?php the_permalink(); ?>" class="teams__content__grid__col__more"><?php the_title(); ?></a>
 					</div>
 					
-				<?php endwhile; endif; ?>
+				<?php endwhile; endif; wp_reset_query(); ?>
 				</div>
 			</div>
 			
@@ -33,18 +30,19 @@
 				<?php $year = date("Y"); ?>
 				<?php $count = 0; ?>
 				<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-						<?php if($year > get_the_date("Y") || $count == 0): ?>
+						<?php $y = get_the_date("Y"); ?>
+						<?php if($year > $y || $count == 0): ?>
 								
-								<h2><?php echo $year; ?></h2>
-								<div class="grid teams__content__grid">
+							<h2><?php echo $year; ?></h2>
+							<div class="grid teams__content__grid">
 
 						<?php endif; ?>
 
 						
 
 							<div class="teams__content__grid__col">
-
-							<?php if(!empty(get_the_content())): ?>
+							<?php $content = get_the_content(); ?>
+							<?php if(!empty($content)): ?>
 	                            <a href="<?php the_permalink(); ?>">
 	                            	<img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="teams__content__grid__col__image">
 
@@ -60,15 +58,15 @@
 
 							</div>
 
-							<?php if($year > get_the_date("Y")): ?>
+					<?php if($year > $y): ?>
 								
-								</div>
-						<?php $year = get_the_date("Y"); endif; ?>
-						
-				<?php $count++; endwhile; endif; ?>
-				
-			</div>
-		</section>
+						</div>
 
+					<?php $year = get_the_date("Y"); endif; ?>
+						
+				<?php $count++; endwhile; endif; wp_reset_query(); ?>
+				
+		</div>
+	</section>
 
 <?php get_footer(); ?>

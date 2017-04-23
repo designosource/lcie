@@ -63,7 +63,7 @@
                         <div class="home__teams__grid__col__overlay"
                              style="background-color: <?php the_field("color"); ?>"></div>
                         <h2 class="home__teams__grid__col__text">
-                            <div class="wrapper"> <?php the_content(); ?></div>
+                            <div class="wrapper"> <?php the_field("intro_text"); ?></div>
                         </h2>
                         <span class="home__teams__grid__col__readmore"><?php pll_e("lees meer"); ?></span>
                     </a>

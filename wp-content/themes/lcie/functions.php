@@ -429,6 +429,12 @@ if(function_exists("register_field_group"))
         'title' => 'Documentatie',
         'fields' => array (
             array (
+                'key' => 'field_5883c4aa5397b293892486274899249348',
+                'label' => 'Url',
+                'name' => 'url',
+                'type' => 'text'
+            ),
+            array (
                 'key' => 'field_58a8b7ca78b1e',
                 'label' => 'Type',
                 'name' => 'type',
@@ -449,9 +455,14 @@ if(function_exists("register_field_group"))
                 'label' => 'Bestand',
                 'name' => 'file',
                 'type' => 'file',
-                'required' => 1,
                 'save_format' => 'url',
                 'library' => 'all',
+                ),
+            array (
+                'key' => 'field_5883c4aa5397b293892486274',
+                'label' => 'Content',
+                'name' => 'content',
+                'type' => 'textarea'
                 ),
             ),
         'location' => array (
@@ -469,6 +480,17 @@ if(function_exists("register_field_group"))
             'position' => 'acf_after_title',
             'layout' => 'no_box',
             'hide_on_screen' => array (
+                            0 => 'permalink',
+            1 => 'discussion',
+            2 => 'comments',
+            3 => 'revisions',
+            4 => 'slug',
+            5 => 'author',
+            6 => 'featured_image',
+            7 => 'categories',
+            8 => 'tags',
+            9 => 'send-trackbacks',
+            10 => 'editor'
                 ),
             ),
         'menu_order' => 0,
@@ -764,6 +786,19 @@ register_field_group(array (
         'type' => 'image',
         'save_format' => 'url',
         ),
+     array (
+                'key' => 'field_58a89224269c488365',
+                'label' => 'Intro tekst',
+                'name' => 'intro_text',
+                'type' => 'textarea',
+                'column_width' => '',
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'html',
+                'maxlength' => '',
+    ),
      array (
         'key' => 'field_588a6a8eb5fa12',
         'label' => 'Facebook',
@@ -1086,6 +1121,12 @@ register_field_group(array (
             'type' => 'image',
             'save_format' => 'url'
             ),
+        array (
+            'key' => 'field_5887a66f82ce88878365',
+            'label' => 'Link',
+            'name' => 'url',
+            'type' => 'text'
+            ),
         ),
     'location' => array (
         array (
@@ -1389,7 +1430,7 @@ function sendForm(){
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: <'.$email.'>' . "\r\n";
-        $headers .=  "CC: nicky@designosource.be"; //TODO: CHANGE THIS TO LCIE MAIL
+        $headers .=  "CC: info@lcie.be"; 
 
 
         mail($to,$subject,$message,$headers);
@@ -1428,8 +1469,13 @@ function filterDocumentation(){
     if($query->have_posts()): 
 
         while($query->have_posts()): $query->the_post();
-
-    echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("file") . '">Download</a></div>';
+    $url = get_field("url");
+    if(!empty($url)){
+        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("url") . '">Download</a></div>';
+    }else{
+        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("file") . '">Download</a></div>';
+    }
+    
 
 
     endwhile; 

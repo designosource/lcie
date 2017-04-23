@@ -8,12 +8,9 @@
 <?php get_template_part( '/template-parts/page', 'header' ); ?>
 <section class="page__content">
 <div class="wrapper">
-  <p>De Leuven Community for Innovation driven Entrepreneurship (LCIE) heeft
-    relaties uitgebouwd met meerdere geassocieerde partners. Deze partners delen
-  dezelfde opvatting over de nood aan innovatie, creativiteit en ondernemerschap
-  die de maatschappij van vandaag en morgen ten goede moet komen.</p>
+  <p><?php the_content(); ?></p>
 
-  <h2>Powered By</h2>
+  <h2><?php pll_e("Powered by"); ?></h2>
   <section class="partners__grid">
  <?php if( have_rows('poweredby') ): ?>
 
@@ -24,7 +21,7 @@
   <?php endwhile; endif; ?>
   </section>
 
-  <h2>In partnership with</h2>
+  <h2><?php pll_e("In partnership with"); ?></h2>
   <section class="partners__grid">
    <?php if( have_rows('partnership') ): ?>
 
@@ -35,7 +32,7 @@
     <?php endwhile; endif; ?>
   </section>
 
-  <h2>Sponsored by</h2>
+  <h2><?php pll_e("Sponsored by"); ?></h2>
   <section class="partners__grid">
   <?php if( have_rows('sponsored') ): ?>
 
@@ -46,16 +43,6 @@
   <?php endwhile; endif; ?>
   </section>
 
-<!--   <h2>IusStart Partners</h2>
-  <section class="partners__grid">
-  <?php if( have_rows('rep') ): ?>
-
-    <?php while ( have_rows('rep') ) : the_row(); ?>
-
-      <?php the_sub_field('sub_field_name'); ?>
-
-  <?php endwhile; endif; ?>
-  </section> -->
 
 </div>
 </section>

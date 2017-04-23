@@ -48,11 +48,11 @@ foreach (get_field("team") as $value):
 				<ul>
 					<li class="offerings__sidebar__active"><?php pll_e( "Lcie voor" ); ?></li>
 					<li><a href="#subsites"><?php pll_e( "Subsites" ); ?></a></li>
-					<li><a href="#team"><?php pll_e( "Core team" ); ?></a></li>
 					<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
 						<li><a href="#<?php echo strtolower(get_sub_field("title")); ?>"><?php the_sub_field("title"); ?></a></li>
 
 					<?php endwhile; endif; ?>
+					<li><a href="#team"><?php pll_e( "Core team" ); ?></a></li>
 					<li><a href="#infrastructure"><?php pll_e( "Infrastructuur" ); ?></a></li>
 				</ul>
 
@@ -113,6 +113,15 @@ foreach (get_field("team") as $value):
 			</div>
 		</section>
 
+		<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
+			<section class="offerings__content-block" id="<?php echo strtolower(get_sub_field("title")); ?>">
+				<div class="wrapper">
+					<h1><?php the_sub_field("title"); ?></h1>
+					<?php the_sub_field("content"); ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
 		<section class="offerings__team" id="team">
 			<div class="wrapper">
 
@@ -148,17 +157,6 @@ foreach (get_field("team") as $value):
 			</div>
 		</section>
 
-
-		<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
-			<section class="offerings__content-block" id="<?php echo strtolower(get_sub_field("title")); ?>">
-				<div class="wrapper">
-					<h1><?php the_sub_field("title"); ?></h1>
-					<?php the_sub_field("content"); ?>
-				</div>
-			</section>
-		<?php endwhile; endif; ?>
-
-
 		<section class="offerings__infrastructure" id="infrastructure">
 			<div class="wrapper">
 
@@ -176,7 +174,21 @@ foreach (get_field("team") as $value):
 				<?php $infra_query = new WP_Query(array('post_type' => "infrastructure"));  ?>
 				<?php if( $infra_query->have_posts() ): while ( $infra_query->have_posts() ) : $infra_query->the_post(); $location = get_field('place');?>
 
-					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+						<div class="grid">
+							<div class="col marker-col">
+								<img src="<?php the_field("image"); ?>" class="marker-img" alt="<?php the_title(); ?>">
+							</div>
+							<div class="col marker-col">
+								<div>
+									<h2 class="marker-title"><?php the_title(); ?></h2>
+									<p class="marker-address"><?php echo $location["address"]; ?></p>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
 
 				<?php endwhile; endif; wp_reset_query(); ?>
 
@@ -201,9 +213,11 @@ foreach (get_field("team") as $value):
 							<h2 class="offerings__infrastructure__grid__col__title"><?php the_title(); ?></h2>
 
 							<p class="offerings__infrastructure__grid__col__description"><?php echo $location["address"]; ?></p>
-
-							<a href="<?php the_permalink(); ?>" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Lees meer" ); ?></a>
-
+							<?php if(!empty(get_field("url"))): ?>
+								<a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Lees meer" ); ?></a>
+							<?php else: ?>
+								<a href="<?php the_permalink(); ?>" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Lees meer" ); ?></a>
+							<?php endif; ?>
 						</div>
 
 

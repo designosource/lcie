@@ -319,6 +319,35 @@
 	height: auto;
 }
 
+
+
+.marker-title
+{
+	@include primary_font(1.3rem, 700);
+	margin-left: 20px;
+}
+
+.marker-address
+{
+	@include secondary_font(0.9rem, 400);
+	color: $dovegray;
+	margin-left: 20px;
+}
+
+.marker-img
+{
+	width: 150px;
+	margin-right: 15px;
+}
+
+.marker-col
+{
+	width: 150px;
+	display: flex;
+	align-items: center;
+}
+
+
 .offerings__infrastructure__text, .offerings__team__text
 {
 	@include secondary_font(1.0rem, 400);

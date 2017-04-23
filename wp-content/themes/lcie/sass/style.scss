@@ -46,6 +46,16 @@ h3 {
 	color: $curiousblue;
 }
 
+a
+{
+	color: $regalblue;
+
+	&:hover
+	{
+		color: $curiousblue;
+	}
+}
+
 .wrapper
 {
 	position: relative;

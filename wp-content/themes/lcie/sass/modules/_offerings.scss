@@ -234,14 +234,14 @@
 .offerings__team__grid__col__details__name
 {
 	display: block;
-	@include primary_font(1.6rem, 400);
+	@include primary_font(1.3rem, 400);
 	color: $curiousblue;
 }
 
 .offerings__team__grid__col__details__function
 {
 	display: block;
-	@include primary_font(1.4rem, 400);
+	@include primary_font(1.15rem, 400);
 	color: $dovegray;
 	margin-top: 10px;
 }

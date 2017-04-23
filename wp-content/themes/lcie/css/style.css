@@ -1461,12 +1461,22 @@ a.home__calendar__side__more {
   opacity: 1; }
 
 .offerings__team__grid__col__details__contact__social__icon--twitter {
-  background-image: url(../images/twitter.png);
-  background-size: 30px; }
+  background: url(../images/twitter.png) no-repeat;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 5px; }
 
 .offerings__team__grid__col__details__contact__social__icon--linkedin {
-  background-image: url(../images/linkedin.png);
-  background-size: 30px; }
+  background: url(../images/linkedin.png) no-repeat;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 5px; }
 
 .offerings__content-block {
   padding-top: 100px;

@@ -44,7 +44,7 @@
 
 <section class="page__content">
 		<div class="wrapper wrapper_full_text">
-		    
+
 		<div class="about__container">
 
 			<nav class="offerings__sidebar">
@@ -65,7 +65,7 @@
 
 			<div class="offerings__content">
 
-			
+
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
             the_content();
             endwhile; ?>
@@ -102,11 +102,16 @@
             									<span class="offerings__team__grid__col__details__function"><?php the_field("function"); ?></span>
 
             									<div class="offerings__team__grid__col__details__contact">
-            										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_field("email"); ?></a>
-
+            										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_field("email"); ?></a><br/>
+            										<span class="offerings__team__grid__col__details__social">
+                                                                										<?php if(!empty(the_field("linkedin"))): ?>
+                                                                										    <?php echo the_field("linkedin");?>
+                                                                										<?php endif; ?>
+                                                                                                        							<?php if(!empty(the_field("twitter"))): ?>
+                                                                                                                    										    <?php echo the_field("twitter");?>
+                                                                                                                    										<?php endif; ?>
+                                                                                                                									</span>
             									</div>
-
-
             								</div>
             							</div>
             						</div>

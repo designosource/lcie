@@ -65,8 +65,15 @@
 
 			.button:not(.header__navigation__apply):not(.footer__up)
 			{
-				background-color: <?php echo get_option('header_logo'); ?>;
+				border-color: <?php echo get_option('header_logo'); ?>;
+                color: <?php echo get_option('header_logo'); ?>;
 			}
+
+            .button:not(.header__navigation__apply):not(.footer__up):hover
+            {
+                background-color: <?php echo get_option('header_logo'); ?>;
+                color: white;
+            }
 
 		</style>
 		<?php wp_footer(); ?>

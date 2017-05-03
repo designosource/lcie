@@ -10,38 +10,48 @@
 <div class="wrapper">
   <p><?php the_content(); ?></p>
 
-  <h2><?php pll_e("Powered by"); ?></h2>
-  <section class="partners__grid">
- <?php if( have_rows('poweredby') ): ?>
 
+
+ <?php if( have_rows('poweredby') ): ?>
+    <h2><?php pll_e("Powered by"); ?></h2>
+      <section class="partners__grid">
     <?php while ( have_rows('poweredby') ) : the_row(); ?>
 
-      <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+      <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+  
+  <?php endwhile; ?>
+   </section>
+<?php endif; ?>
+ 
 
-  <?php endwhile; endif; ?>
-  </section>
 
-  <h2><?php pll_e("In partnership with"); ?></h2>
-  <section class="partners__grid">
+  
    <?php if( have_rows('partnership') ): ?>
-
+    
+        <h2><?php pll_e("In partnership with"); ?></h2>
+        <section class="partners__grid">
       <?php while ( have_rows('partnership') ) : the_row(); ?>
 
-        <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+        <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
 
-    <?php endwhile; endif; ?>
-  </section>
+    <?php endwhile; ?>
+    </section>
+  <?php endif; ?>
 
-  <h2><?php pll_e("Sponsored by"); ?></h2>
-  <section class="partners__grid">
+
+
+  
   <?php if( have_rows('sponsored') ): ?>
-
+    
+    <h2><?php pll_e("Sponsored by"); ?></h2>
+    <section class="partners__grid">
     <?php while ( have_rows('sponsored') ) : the_row(); ?>
 
-      <a href="<?php the_sub_field('url'); ?>"><img src="<?php the_sub_field('image'); ?>" alt="" class="partners__grid__item"></a>
+      <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
 
-  <?php endwhile; endif; ?>
+  <?php endwhile; ?>
   </section>
+<?php endif; ?>
 
 
 </div>

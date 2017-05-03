@@ -4,7 +4,13 @@
 $core = array();
 $other = array();
 
-$query = new WP_Query(array('post_type' => "lcie_team"));
+$query = new WP_Query(array('post_type' => "lcie_team", 'tax_query' => array(
+				            array(
+				                'taxonomy' => 'groups',
+				                'field' => 'slug',
+				                'terms' => 'core-team',
+				            ),
+				        )));
 
 if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 
@@ -16,19 +22,9 @@ $member["email"] = get_field("email");
 $member["twitter"] = get_field("twitter");
 $member["linkedin"] = get_field("linkedin");
 
-foreach (get_field("team") as $value):
+array_push($core, $member);
 
-	if($value == "core_team"){
 
-		array_push($core, $member);
-
-	}else{
-
-		array_push($other, $member);
-
-	}
-
-	endforeach;
 
 	endwhile; endif;
 
@@ -80,10 +76,10 @@ foreach (get_field("team") as $value):
 			<div class="grid offerings__who__grid">
 
 				<?php if( have_rows('lcie_for', $frontpage_id) ): while ( have_rows('lcie_for', $frontpage_id) ) : the_row(); ?>
-					<div class="offerings__who__grid__col" style="background-image: url(<?php the_sub_field("image"); ?>); background-size: cover;">
-						<a href="<?php the_sub_field("url"); ?>"><?php the_sub_field("text"); ?></a>
+					<a href="<?php the_sub_field("url"); ?>" class="offerings__who__grid__col"  style="background-image: url(<?php the_sub_field("image"); ?>)">
+						<span><?php the_sub_field("text"); ?></span>
 						<div class="offerings__who__grid__col__overlay" style="background-color: <?php the_sub_field("color"); ?>"></div>
-					</div>
+					</a>
 				<?php endwhile; endif; ?>
 
 			</div>
@@ -101,12 +97,12 @@ foreach (get_field("team") as $value):
 
 					<?php switch_to_blog($site->blog_id); ?>
 
-					<div class="offerings__subsites__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
+					<a href="<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
 
 						<span class="offerings__subsites__grid__col__title"><?php echo $site->blogname; ?></span>
-						<a href="<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col__more">lees meer</a>
+						<span class="offerings__subsites__grid__col__more"><?php pll_e("Lees meer"); ?></span>
 						<div class="offerings__subsites__grid__col__overlay" style="background-color: <?php echo get_option('header_logo'); ?>"></div>
-					</div>
+					</a>
 
 					<?php restore_current_blog(); endforeach; ?>
 				</div>
@@ -134,16 +130,25 @@ foreach (get_field("team") as $value):
 				<div class="offerings__team__grid grid">
 
 					<?php foreach ($core as $value): ?>
-						<div class="offerings__team__grid__col">
+						<div class="team-member">
 							<div class="grid">
-								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
-								<div class="offerings__team__grid__col__details">
-									<span class="offerings__team__grid__col__details__name"><?php echo $value["name"]; ?></span>
-									<span class="offerings__team__grid__col__details__function"><?php echo $value["function"]; ?></span>
+								<div class="photo" style="background-image: url(<?php echo $value["photo"]; ?>)"></div>
+								<div class="details">
+									<span class="details__name"><?php echo $value["name"]; ?></span>
+									<span class="details__function"><?php echo $value["function"]; ?></span>
 
-									<div class="offerings__team__grid__col__details__contact">
-										<a href="mailto:<?php echo $value["email"]; ?>" class="offerings__team__grid__col__details__contact__mail"><?php echo $value["email"]; ?></a>
-
+									<div class="details__contact">
+										<a href="mailto:<?php echo $value["email"]; ?>" class="details__contact__mail"><?php echo $value["email"]; ?></a>
+										<div class="details__contact__social">
+											
+												<?php if(!empty($value["twitter"])): ?>
+													<a href="<?php echo $value["twitter"]; ?>" class="details__contact__social__icon twitter">Twitter</a>
+												<?php endif; ?>
+											
+												<?php if(!empty($value["linkedin"])): ?>
+													<a href="<?php echo $value["linkedin"]; ?>" class="details__contact__social__icon linkedin">LinkedIn</a>
+												<?php endif; ?>
+										</div>
 									</div>
 
 
@@ -173,11 +178,14 @@ foreach (get_field("team") as $value):
 
 				<?php $infra_query = new WP_Query(array('post_type' => "infrastructure"));  ?>
 				<?php if( $infra_query->have_posts() ): while ( $infra_query->have_posts() ) : $infra_query->the_post(); $location = get_field('place');?>
-
+					
 					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
 						<div class="grid">
 							<div class="col marker-col">
-								<img src="<?php the_field("image"); ?>" class="marker-img" alt="<?php the_title(); ?>">
+								<?php $image = get_field("image"); ?>
+								<?php if(!empty($image)): ?>
+									<img src="<?php the_field("image"); ?>" class="marker-img" alt="<?php the_title(); ?>">
+								<?php endif; ?>
 							</div>
 							<div class="col marker-col">
 								<div>
@@ -186,8 +194,6 @@ foreach (get_field("team") as $value):
 								</div>
 							</div>
 						</div>
-						
-						
 					</div>
 
 				<?php endwhile; endif; wp_reset_query(); ?>
@@ -213,7 +219,8 @@ foreach (get_field("team") as $value):
 							<h2 class="offerings__infrastructure__grid__col__title"><?php the_title(); ?></h2>
 
 							<p class="offerings__infrastructure__grid__col__description"><?php echo $location["address"]; ?></p>
-							<?php if(!empty(get_field("url"))): ?>
+							<?php $url = get_field("url"); ?>
+							<?php if(!empty($url)): ?>
 								<a href="<?php the_field("url"); ?>" class="offerings__infrastructure__grid__col__plan" target="blank"><?php pll_e( "Lees meer" ); ?></a>
 							<?php else: ?>
 								<a href="<?php the_permalink(); ?>" class="offerings__infrastructure__grid__col__plan"><?php pll_e( "Lees meer" ); ?></a>
@@ -228,7 +235,6 @@ foreach (get_field("team") as $value):
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63fCe88g51K6K3DUht0ksGtCetjS_WCI"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/offerings.js"></script>
 
 
 		<?php get_footer(); ?>

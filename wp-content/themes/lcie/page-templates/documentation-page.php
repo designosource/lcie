@@ -27,7 +27,7 @@
               <p><?php the_field("content"); ?></p>
               <?php $url = get_field("url");?>
               <?php if(!empty($url)): ?>
-                <a href="<?php the_field("url"); ?>"><?php pll_e( "Download" ); ?></a>
+                <a href="<?php the_field("url"); ?>"><?php pll_e( "Bekijk" ); ?></a>
               <?php else: ?>
                 <a href="<?php the_field("file"); ?>"><?php pll_e( "Download" ); ?></a>
               <?php endif; ?>

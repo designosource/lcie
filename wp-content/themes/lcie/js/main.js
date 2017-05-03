@@ -1,5 +1,4 @@
 // Smoothscrolling
-
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function(e) {
   	e.preventDefault();

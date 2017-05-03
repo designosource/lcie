@@ -26,7 +26,7 @@
 <section class="who__content">
     
     <div class="wrapper">
-        <h1>Team</h1>
+        <h1><?php pll_e("Team"); ?></h1>
 
         <div class="grid who__content__grid">
             

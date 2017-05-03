@@ -15,6 +15,15 @@
 
         <?php endwhile; endif; ?>
 
+        <?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
+            <section class="home__content-block">
+                <div class="wrapper">
+                    <h1><?php the_sub_field("title"); ?></h1>
+                    <?php the_sub_field("content"); ?>
+                </div>
+            </section>
+        <?php endwhile; endif; ?>
+
     </div>
 
 </section>

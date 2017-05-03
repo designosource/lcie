@@ -72,6 +72,11 @@
 /* PARTNER EVENTS */
 .partner-events{
   margin-bottom: 80px;
+
+  .grid
+  {
+    justify-content: flex-start;
+  }
 }
 
 .partner-events a{
@@ -81,6 +86,7 @@
 
 .partner-events h3{
   @include primary_font(1.4rem, 400);
+  margin-top: 20px;
 }
 
 .offerings__infrastructure__grid__col__hook-up.hook-light path, .offerings__infrastructure__grid__col__hook-under.hook-light path{
@@ -105,4 +111,20 @@
   .nieuwsgrid .nieuwsgrid-cell{
     flex: 0 1 calc(25% - 2px);
   }
+}
+
+
+
+.single-event-date
+{
+  color: $dovegray;
+  @include secondary_font(0.8rem, 400);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.content
+{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

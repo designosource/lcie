@@ -17,9 +17,11 @@
 		<section class="page__content">
 
 			<div class="wrapper">
-
-				<?php the_content(); ?>
-                <a href="javascript:history.back()" class="button button_back">Terug</a>
+				<a href="<?php pll_e("/nl/nieuws-events/"); ?>" class="back"><?php pll_e("Terug naar overzicht"); ?></a>
+				<div class="content">
+					<?php the_content(); ?>
+				</div>
+                <a href="<?php pll_e("/nl/nieuws-events/"); ?>" class="back"><?php pll_e("Terug naar overzicht"); ?></a>
 			</div>
 
 		</section>

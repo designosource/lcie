@@ -23,7 +23,13 @@ gulp.src(['js/*.js', '!js/*.min.js'])
 gulp.task('uglify', function() {
     gulp.src(['./js/*.js', '!./js/*.min.js'])
         .pipe(uglify('script.min.js'))
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('./dist/js'));
+
+    gulp.src('./css/*.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/css'));
+
 });
 
 gulp.task('watch', function() {

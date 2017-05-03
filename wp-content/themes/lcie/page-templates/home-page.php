@@ -10,7 +10,7 @@
             <div class="home__hero__content">
                 <h1 class="home__hero__title">Lcie</h1>
                 <p class="home__hero__text"><?php pll_e("De Leuven Community for Innovation driven Entrepreneurship is er voor al jouw vragen rond ondernemingszin, zowel voor studenten, onderzoekers, professoren en alumni van de KU Leuven."); ?></p>
-                <a href="<?php echo site_url(); ?>/sluit-je-aan"
+                <a href="<?php echo site_url(); ?><?php pll_e("/nl/contact"); ?>"
                    class="button button--ghost"><?php pll_e("Contacteer ons"); ?></a>
             </div>
         </div>
@@ -30,8 +30,7 @@
 
                         <a href="<?php the_sub_field("url"); ?>">
 
-                            <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>">Lcie
-                                voor <?php the_sub_field("text"); ?></a>
+                            <a style="display: block;padding: 90px 0" href="<?php the_sub_field("url"); ?>"> <?php the_sub_field("text"); ?></a>
                             <div class="home__who__grid__col__overlay"
                                  style="background-color: <?php the_sub_field("color"); ?>">
                             </div>
@@ -80,7 +79,7 @@
                         <?php if (!get_field("featured_homepage")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
                                 <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php the_field("logo_white"); ?>" alt=""
+                                    <img src="<?php the_field("logo"); ?>" alt=""
                                          class="home__teams__grid-small__logo">
                                 </a>
                             </div>
@@ -108,7 +107,7 @@
 
             <div class="swiper-container home__testmonials__slider">
 
-                <div class="swiper-wrapper">
+
                     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
                         <?php if (have_rows('testmonials')): while (have_rows('testmonials')) : the_row(); ?>
 
@@ -120,9 +119,7 @@
 
                         <?php endwhile; endif; ?>
                     <?php endwhile; endif; ?>
-                </div>
 
-                <div class="swiper-pagination"></div>
 
             </div>
 
@@ -195,6 +192,15 @@
             </div>
 
     </section>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script>        
+        $('.home__testmonials__slider').slick({
+          dots: true,
+          arrows: false,
+          infinite: true,
+          speed: 300
+        });
+    </script>
 
 <?php get_footer(); ?>

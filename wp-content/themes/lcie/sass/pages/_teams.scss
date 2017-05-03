@@ -1,13 +1,8 @@
-.teams__content
-{
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
 .teams__content__grid
 {
 	width: 100%;
 	flex-wrap: wrap;
+	align-items: center;
 }
 
 .teams__content__grid__col
@@ -15,7 +10,11 @@
 	width: 25%;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	height: 200px;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	a
 	{
@@ -25,6 +24,8 @@
 	.teams__content__grid__col__image
 	{
 		width: 80%;
+		max-width: 200px;
+		height: auto;
 		display: inline-block;
 	}
 }
@@ -129,11 +130,16 @@
 .team__top__photo
 {
 	flex-grow: 1;
+	padding-right: 50px;
+	width: 50%;
+	box-sizing: border-box;
 }
 
-.team__top__photo__image
+.team__info__intro
 {
-	width: 60%;
+	margin-top: 20px;
+	@include secondary_font(1.0rem, 400);
+	line-height: 1.8;
 }
 
 .team__top__allteams
@@ -197,6 +203,8 @@
 .team__info__logo__image
 {
 	width: 70%;
+	max-width: 200px;
+	margin-top: 36px;
 }
 
 .team__info__text
@@ -207,40 +215,51 @@
 
 .team__info__text__social
 {
-	margin-top: 40px;
+	margin-top: 20px;
 	display: flex;
 }
 
 .team__info__text__social__item
 {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	margin-right: 20px;
 }
 
+
+	.team__top__photo__image
+	{
+		width: 100%;
+		height: 400px;
+		background-size: cover;
+		background-position: center top;
+		padding: 0;
+		margin-top: 20px;
+	}
+
 .team__info__text__social__item--website{
-	background-image: url("../dist/images/team-social/link.png");
+	background-image: url("../images/team-social/link.png");
 	background-size: contain;
 }
 
 .team__info__text__social__item--facebook{
-	background-image: url("../dist/images/team-social/facebook.png");
+	background-image: url("../images/team-social/facebook.png");
 	background-size: contain;
 }
 
 .team__info__text__social__item--twitter{
-	background-image: url("../dist/images/team-social/twitter.png");
+	background-image: url("../images/team-social/twitter.png");
 	background-size: contain;
 }
 
 .team__info__text__social__item--linkedin{
-	background-image: url("../dist/images/team-social/linkedin.png");
+	background-image: url("../images/team-social/linkedin.png");
 	background-size: contain;
 
 }
 
 .team__info__text__social__item--youtube{
-	background-image: url("../dist/images/team-social/youtube.png");
+	background-image: url("../images/team-social/youtube.png");
 	background-size: contain;
 }
 
@@ -280,6 +299,8 @@
 {
 	height: 400px;
 	background-color: black;
+	background-size: cover;
+	background-position: center;
 }
 
 .team__happenings__grid__col--image__overlay
@@ -290,6 +311,11 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0.6;
+}
+
+.team__top__back
+{
+	margin-bottom: 15px;
 }
 
 
@@ -312,11 +338,16 @@
 	.team__top__photo
 	{
 		width: 100%;
+		padding: 0;
 	}
 
 	.team__top__photo__image
 	{
 		width: 100%;
+		height: 400px;
+		background-size: cover;
+		background-position: center;
+		padding: 0;
 	}
 
 	.team__top__allteams
@@ -335,6 +366,7 @@
 	.team__info__logo__image
 	{
 		width: 100%;
+		margin-top: 50px;
 	}
 
 	.team__info__text

@@ -119,7 +119,7 @@
   width: 20px;
   height: 20px;
   background-image: url(../images/sub_facebook.png);
-  background-size: 18px;
+  background-size: 10px;
   background-repeat: no-repeat;
   background-position: center;
   text-indent: 9999px;
@@ -134,7 +134,7 @@
   width: 20px;
   height: 20px;
   background-image: url(../images/sub_twitter.png);
-  background-size: 25px;
+  background-size: 24px;
   background-repeat: no-repeat;
   background-position: center;
   text-indent: 9999px;
@@ -427,7 +427,9 @@ a.button, footer a.button, footer a.button--ghost {
   width: 80%;
   max-width: 1400px;
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  -ms-flex-align: start;
+      align-items: flex-start; }
 
 .content {
   margin-top: 20px;
@@ -475,12 +477,40 @@ a.button, footer a.button, footer a.button--ghost {
   width: 100px;
   height: 100px; }
 
-.swiper-pagination-bullet {
+.slick-slider {
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%; }
+
+.swiper-slide {
+  outline: none; }
+
+.slick-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center; }
+
+.slick-dots li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.slick-dots li button {
   height: 15px !important;
   width: 15px !important;
-  background: none !important;
   border: 1px solid black;
-  opacity: 1 !important; }
+  background-color: transparent;
+  border-radius: 100px;
+  opacity: 1 !important;
+  text-indent: -9999px;
+  outline: none;
+  cursor: pointer; }
 
 .swiper-pagination-bullet-active {
   background-color: black !important;
@@ -521,6 +551,10 @@ a.button, footer a.button, footer a.button--ghost {
   text-align: center;
   margin-top: 30px;
   line-height: 2.0; }
+
+.home__content-block {
+  padding-top: 50px;
+  padding-bottom: 50px; }
 
 /* FACTS */
 .home__facts {
@@ -626,10 +660,6 @@ a.button, footer a.button, footer a.button--ghost {
   padding-top: 100px;
   padding-bottom: 100px; }
 
-.who__container {
-  -ms-flex-align: center;
-      align-items: center; }
-
 .who__content__grid {
   width: 100%;
   -ms-flex-wrap: wrap;
@@ -640,10 +670,6 @@ a.button, footer a.button, footer a.button--ghost {
   width: 50%;
   margin-top: 40px;
   margin-bottom: 40px; }
-
-.who__content__grid__col .grid {
-  -ms-flex-align: center;
-      align-items: center; }
 
 .who__content__grid__col__photo {
   width: 150px;
@@ -792,8 +818,7 @@ a.button, footer a.button, footer a.button--ghost {
 
 .projects__content__logo {
   width: 20%;
-  -webkit-filter: none;
-          filter: none; }
+  filter: none; }
 
 .projects__content__button {
   margin-top: 30px; }
@@ -808,8 +833,13 @@ a.button, footer a.button, footer a.button--ghost {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 0px; }
+  padding-right: 80px;
+  border-radius: 0px;
+  background-image: url(../images/down.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+  cursor: pointer; }
 
 @media screen and (max-width: 768px) {
   .projects__content {
@@ -822,8 +852,7 @@ a.button, footer a.button, footer a.button--ghost {
     margin-right: 0; }
   .projects__content__logo {
     width: 40%;
-    -webkit-filter: none;
-            filter: none;
+    filter: none;
     margin-left: 30%;
     margin-bottom: 40px; }
   .projects__content__grid__col {
@@ -832,17 +861,22 @@ a.button, footer a.button, footer a.button--ghost {
 body {
   padding: 0;
   margin: 0;
+  font-size: 10px;
   font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   overflow-x: hidden !important; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", sans-serif; }
 
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 2.2rem;
   font-weight: 400;
   color: #43AADA; }
+
+p, span {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400; }
 
 .no-scroll {
   overflow: hidden; }

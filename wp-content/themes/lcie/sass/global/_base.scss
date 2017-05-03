@@ -1,0 +1,128 @@
+body
+{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	font-size: 10px;
+	@include secondary_font(1.0rem, 400);
+	line-height: 1.5;
+}
+
+h1
+{
+	@include secondary_font(2.2rem, 400);
+	color: $curiousblue;
+	margin-bottom: 15px;
+}
+
+h2
+{
+	@include secondary_font(1.8rem, 400);
+	color: $curiousblue;
+	margin-bottom: 15px;
+}
+
+h3 {
+	@include secondary_font(1.4rem, 400);
+	color: $curiousblue;
+	margin-bottom: 15px;
+}
+
+a
+{
+	color: $regalblue;
+
+	&:hover
+	{
+		color: $curiousblue;
+	}
+}
+
+p, span
+{
+	@include secondary_font(1.0rem, 400);
+	line-height: 2.0;
+}
+
+.wrapper
+{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	max-width: 1600px;
+	height: 100%;
+}
+
+.wrapper_full_text p{
+	max-width: 960px;
+}
+
+
+.grid
+{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+
+	&.align-middle
+	{
+		align-items: center;
+	}
+
+	.col
+	{
+		width: 50%;
+		flex-grow: 1;
+	}
+}
+
+.content
+{
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.hook-under
+{
+	position: absolute;
+	bottom: -3em;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.hook-up
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.hook-up path, .hook-under path
+{
+	fill: $regalblue;
+}
+
+@media screen and (max-width: 768px)
+{
+	.hook-under
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	.hook-up
+	{
+		width: 40px;
+		height: 40px;
+	}
+
+	.grid
+	{
+		display: block;
+	}
+}

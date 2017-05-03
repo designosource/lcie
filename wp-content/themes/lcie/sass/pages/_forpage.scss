@@ -66,17 +66,17 @@
   width:300px;
   height:200px;
   background-color:$regalblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .item__image h3 {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translateX(-50%) translateY(-50%);
-  margin:0px;
+  position: relative;
   color:white;
     @include primary_font(1.1rem, 400);
     z-index: 999;
+    margin: 0;
 }
 
 .item__image__overlay

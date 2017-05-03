@@ -33,9 +33,9 @@
                         <div>
                             <div class="nieuwsgrid__overlay"></div>
                             <div class="nieuwsgrid-cell-content">
-                                <span class="nieuws--post-date"><?php the_date(); ?></span>
+                                <span class="nieuws--post-date"><?php echo get_the_date('j/m/Y'); ?></span>
                                 <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
-                                <div class="nieuws--lees-meer">Lees meer</div>
+                                <div class="nieuws--lees-meer"><?php pll_e("Lees meer"); ?></div>
                             </div>
                         </div>
                     </a>
@@ -74,9 +74,13 @@
                         <div>
                             <div class="nieuwsgrid__overlay"></div>
                             <div class="nieuwsgrid-cell-content">
-                                <span class="nieuws--post-date"><?php the_field("date"); ?></span>
+                            <?php $date = get_field("date"); ?> 
+                            <?php if(!empty($date)): ?>
+                                <?php $date = new DateTime(get_field("date")); ?>
+                                <span class="nieuws--post-date"><?php echo $date->format('j/m/Y'); ?></span>
+                            <?php endif; ?>
                                 <h3 class="nieuws--post-title"><?php the_title(); ?></h3>
-                                <div class="nieuws--lees-meer">Lees meer</div>
+                                <div class="nieuws--lees-meer"><?php pll_e("Meer info"); ?></div>
                             </div>
                         </div>
                     </a>
@@ -132,7 +136,11 @@
                         </svg>
 
                         <a href="<?php the_field("url"); ?>"><h3>
-                            <p><?php the_field("date"); ?></p>
+                            <?php $date = get_field("date"); ?>
+                            <?php if(!empty($date)): ?>
+                                <?php $date = new DateTime(get_field("date")); ?>
+                                <p><?php echo $date->format('j/m/Y'); ?></p>
+                            <?php endif; ?>
                             <?php the_title(); ?></h3></a>
                             <div class="offerings__infrastructure__grid__col__description"><?php the_content(); ?></div>
                             <?php $url = get_field("url"); ?>
@@ -154,4 +162,4 @@
         </section>
 
 
-        <?php get_footer(); ?>
+<?php get_footer(); ?>

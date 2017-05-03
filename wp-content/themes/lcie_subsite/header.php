@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">	
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,12 @@
 		<?php else: ?>
 			<title><?php the_title(); ?> | Lcie</title>
 		<?php endif; ?>
-
+		
 
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+		<?php $url = site_url(); ?>
 		<?php switch_to_blog(1); ?>
 		<header class="header">
 			
@@ -31,7 +33,7 @@
                                 if(!$value["current_lang"]):
                                     ?>
 
-                                    <li><a href="<?php echo $value["url"]; ?>"><?php echo $value["slug"]; ?></a></li>
+                                    <li><a href="<?php echo $url; ?>/<?php echo $value["slug"]; ?>"><?php echo $value["slug"]; ?></a></li>
 
                                     <?php
                                 endif; endforeach;

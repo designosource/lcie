@@ -1,4 +1,9 @@
 
+
+
+// Smoothscrolling
+(function($) {
+
 function new_map( $el ) {
 	
 	// var
@@ -113,3 +118,4 @@ $(document).ready(function(){
 
 });
 
+})(jQuery);

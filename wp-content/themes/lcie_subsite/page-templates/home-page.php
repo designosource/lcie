@@ -8,7 +8,7 @@
 		<?php echo get_bloginfo( 'name' ); ?>
 	</div>
 </section>
-<section class="container home__container">
+<section class="container">
 	<?php get_sidebar(); ?>
 
 	<div class="content">
@@ -18,22 +18,29 @@
 	<?php endwhile; endif; ?>
 		
 		<div class="home__content__intrested">
-			<span style="font-family: 'Roboto', sans-serif;">Intresse in een samenwerking</span>
-			<a href="" class="home__content__intrested__button">Contacteer ons</a>
+			<span style="font-family: 'Roboto', sans-serif;"><?php pll_e("Interesse in een samenwerking? "); ?></span>
+			<a href="<?php pll_e("/nl/contact"); ?>" class="home__content__intrested__button"><?php pll_e("Contacteer ons"); ?></a>
 		</div>
 		
 	</div>
 </section>
+	<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
+			<section class="home__content-block">
+				<div class="wrapper">
+					<h1><?php the_sub_field("title"); ?></h1>
+					<?php the_sub_field("content"); ?>
+				</div>
+			</section>
+		<?php endwhile; endif; ?>
+
+	<?php if( have_rows('testmonials') ): ?>	
 <section class="home__testmonials">
 	
 	<div class="wrapper">
 
-		<h1>Ervaringen</h1>
+		<h1><?php pll_e("Ervaringen"); ?></h1>
 		
 		<!-- Slider main container -->
-		<div class="home__testmonials__slider swiper-container">
-
-
 			<svg class="home__testmonials__slider__hook-under hook-under" viewBox="0 0 100 100">
 		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape"></path>
 		    </svg>
@@ -41,10 +48,11 @@
 			<svg class="home__testmonials__slider__hook-up hook-up" viewBox="0 0 100 100">
 		        <path d="M20,58 L20,0 L0,0 L0,68 L0,78 L78,78 L78,58 L20,58 Z" id="Combined-Shape" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) "></path>
 		    </svg>
+		<div class="home__testmonials__slider swiper-container">
 
-		    <div class="swiper-wrapper">
+		    <div class="slider">
 
-		        <?php if( have_rows('testmonials') ): ?>
+		        
 				<?php while ( have_rows('testmonials') ): the_row(); ?>	
 					<div class="swiper-slide home__testmonials__slider__slide">
 			        	<div>
@@ -53,7 +61,7 @@
 			        		<div class="home__testmonials__slider__slide__text"><?php the_sub_field("text"); ?></div>
 			        	</div>
 			        </div>
-				<?php endwhile; endif;?>
+				<?php endwhile; ?>
 		    </div>
 		
 		    <div class="swiper-pagination"></div>
@@ -64,7 +72,7 @@
 	</div>
 
 </section>
-
+<?php endif; ?>
 <section class="home__facts">
 	<div class="home__facts__container" style="background-color: <?php echo get_option('header_logo'); ?>">
 		<div class="wrapper">
@@ -80,12 +88,13 @@
 		</div>
 	</div>
 </section>
-
+<?php $text = get_field("lcie_text"); ?>
+<?php if(!empty($text)): ?>
 <section class="home__lcie">
 	
 	<div class="wrapper">
 		
-		<h1>Inbedding</h1>
+		<h1><?php pll_e("Inbedding"); ?></h1>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				
@@ -96,25 +105,7 @@
 	</div>
 
 </section>
-
-<section class="home__partners">
-	
-	<div class="wrapper">
-		
-		<h1>Partners</h1>
-
-		<div class="grid home__partners__grid">
-
-			<?php if( have_rows('partners') ): ?>
-			<?php while ( have_rows('partners') ): the_row(); ?>	
-				<div style="background-image: url(<?php the_sub_field("logo"); ?>)" class="col home__partners__grid__col"></div>
-			<?php endwhile; endif;?>
-
-		</div>
-
-	</div>
-
-</section>
+<?php endif; ?>
 
 <style>
 
@@ -123,12 +114,12 @@
 		color: <?php echo get_option('header_logo'); ?> !important;
 	}
 	
-	.swiper-pagination-bullet-active
+	.slick-active button
 	{
 		background-color: <?php echo get_option('header_logo'); ?> !important;
 	}
 
-	.swiper-pagination-bullet
+	.slick-dots li button
 	{
 		border-color: <?php echo get_option('header_logo'); ?> !important;
 	}
@@ -154,16 +145,15 @@
 	}
 
 </style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script>        
-  var mySwiper = new Swiper ('.swiper-container', {
-    direction: 'horizontal',
-    loop: true,
-    pagination: '.swiper-pagination',
-   	autoplay: 5000,
-   	paginationClickable: true
-  })        
+	$('.slider').slick({
+	  dots: true,
+	  arrows: false,
+	  infinite: true,
+	  speed: 300
+	});
 </script>
 
 

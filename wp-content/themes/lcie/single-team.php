@@ -3,45 +3,14 @@
 	<?php $postid = get_the_id(); ?>
 	<section class="team__top">
 		
-		<div class="wrapper grid">
-			
+		<div class="wrapper">
+			<div class="grid">
 			<div class="team__top__photo">
-				<img src="<?php the_field("image"); ?>" alt="<?php the_title(); ?>" class="team__top__photo__image">
-			</div>
+				<a href="<?php echo site_url(); ?><?php pll_e("/nl/teams"); ?>" class="team__top__back back"><?php pll_e("Terug naar teampagina"); ?></a>
 
-			<div class="team__top__allteams">
-				
-				<?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
-				<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-					
-					<?php if($postid == get_the_id()): ?>
-						<a href="<?php the_permalink(); ?>" class="team__top__allteams__item team__top__allteams__item--active"><?php the_title(); ?></a>
-					<?php else: ?>
-						<a href="<?php the_permalink(); ?>" class="team__top__allteams__item"><?php the_title(); ?></a>
-					<?php endif; ?>
-
-				<?php endwhile; endif; wp_reset_query();?>
-
-			</div>
-
-		</div>
-
-	</section>
-
-	<section class="team__info">
-		
-		<div class="wrapper grid">
-			
-			<div class="team__info__logo">
-				<img src="<?php the_field("logo"); ?>" alt="" class="team__info__logo__image">
-			</div>
-
-			<div class="team__info__text">
-				
-				<?php the_content(); ?>
-
+				<div class="team__top__photo__image" style="background-image: url(<?php the_field("image"); ?>)"></div>
 				<div class="team__info__text__social">
-
+	
 					<?php if(get_field("website")): ?>
 					<a href="<?php the_field("website"); ?>" class="team__info__text__social__item team__info__text__social__item--website"></a>
 					<?php endif; ?>
@@ -58,8 +27,25 @@
 					<a href="<?php the_field("youtube"); ?>" class="team__info__text__social__item team__info__text__social__item--youtube"></a>
 					<?php endif; ?>
 				</div>
-
 			</div>
+
+			<div class="col">
+				<img src="<?php the_field("logo"); ?>" alt="" class="team__info__logo__image">
+				<h1><?php the_title(); ?></h1>
+				<div class="team__info__intro">
+					<?php the_field("intro_text"); ?>
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="team__info">
+		
+		<div class="wrapper">
+
+			<?php the_content(); ?>
 
 		</div>
 
@@ -102,23 +88,5 @@
 
 	</style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>
-	
-	var active = $(".team__top__allteams__item--active");
-
-	$(".team__top__allteams__item").hover(function(){
-
-		$(".team__top__allteams__item--active").removeClass("team__top__allteams__item--active");
-		$(this).addClass("team__top__allteams__item--active");
-
-	}, function(){
-
-		$(this).removeClass("team__top__allteams__item--active");
-		active.addClass("team__top__allteams__item--active");
-
-	});
-
-	</script>
 	<?php endwhile; endif;?>
 <?php get_footer(); ?>

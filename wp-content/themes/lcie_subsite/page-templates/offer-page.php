@@ -12,7 +12,7 @@
 	<?php get_sidebar(); ?>
 
 	<div class="content">
-		<h1>Doelstellingen</h1>
+		<h1><? pll_e("Doelstellingen"); ?></h1>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			
 			<?php the_content(); ?>
@@ -26,7 +26,7 @@
 <section class="offer__content">
 	
 	<div class="wrapper">
-		<h1>Waarden</h1>
+		<h1><?php pll_e("Waarden"); ?></h1>
 
 
 

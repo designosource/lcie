@@ -1,177 +1,28 @@
-@import "colors";
-@import "fonts";
+@import "global/colors";
+@import "global/fonts";
+@import "global/mixins";
+@import "global/reset";
+@import "global/base";
 
-@import "modules/header";
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+@import "components/slick";
+@import "components/team-member";
 
-@import "modules/page";
-@import "modules/homepage";
-@import "modules/forpage";
-@import "modules/documentationpage";
-@import "modules/contactpage";
-@import "modules/coursespage";
-@import "modules/applypage";
-@import "modules/offerings";
-@import "modules/teams";
-@import "modules/faq";
-@import "modules/search";
-@import "modules/partnerspage";
-@import "modules/newsevent";
-@import "modules/footer";
-@import "modules/contestspage";
-@import "modules/infrastructure";
-@import "modules/about";
-
-body
-{
-	padding: 0;
-	margin: 0;
-	overflow-x: hidden;
-	font-family: "Roboto", sans-serif;
-}
-
-h1
-{
-	@include secondary_font(2.2rem, 400);
-	color: $curiousblue;
-}
-
-h2
-{
-	@include secondary_font(1.8rem, 400);
-	color: $curiousblue;
-}
-
-h3 {
-	@include secondary_font(1.4rem, 400);
-	color: $curiousblue;
-}
-
-a
-{
-	color: $regalblue;
-
-	&:hover
-	{
-		color: $curiousblue;
-	}
-}
-
-.wrapper
-{
-	position: relative;
-	display: block;
-	margin: 0 auto;
-	width: 80%;
-	max-width: 1600px;
-	height: 100%;
-}
-
-.wrapper_full_text p{
-	max-width: 960px;
-}
-
-p {
-	@include secondary_font(1.0rem, 400);
-	line-height: 2.0;
-}
-
-.grid
-{
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-
-	&.align-middle
-	{
-		align-items: center;
-	}
-
-	.col
-	{
-		width: 50%;
-		flex-grow: 1;
-	}
-}
-
-.button
-{
-	display: inline-block;
-	padding: 12px 20px;
-	border: 2px solid $regalblue;
-	text-decoration: none;
-	@include primary_font(1.0rem, 700);
-	color: $regalblue;
-}
-
-.button:hover
-{
-	color: white;
-	background-color: $regalblue;
-	transition: all 0.1s ease-in-out;
-}
-
-.button--ghost
-{
-	@include primary_font(1.0rem, 700);
-	background-color: transparent;
-	color: white;
-	border: 2px solid white;
-}
-
-.button--ghost:hover
-{
-	color: $regalblue;
-	background-color: white;
-	transition: all 0.1s ease-in-out;
-}
-
-.content
-{
-	padding-top: 100px;
-	padding-bottom: 100px;
-}
-
-
-.hook-under
-{
-	position: absolute;
-	bottom: -3em;
-	left: 0;
-	width: 100px;
-	height: 100px;
-}
-
-.hook-up
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100px;
-	height: 100px;
-}
-
-.hook-up path, .hook-under path
-{
-	fill: $regalblue;
-}
-
-@media screen and (max-width: 768px)
-{
-	.hook-under
-	{
-		width: 40px;
-		height: 40px;
-	}
-
-	.hook-up
-	{
-		width: 40px;
-		height: 40px;
-	}
-
-	.grid
-	{
-		display: block;
-	}
-}
+@import "pages/page";
+@import "pages/homepage";
+@import "pages/forpage";
+@import "pages/documentation";
+@import "pages/contact";
+@import "pages/courses";
+@import "pages/apply";
+@import "pages/offerings";
+@import "pages/teams";
+@import "pages/faq";
+@import "pages/search";
+@import "pages/partners";
+@import "pages/newsevent";
+@import "pages/contests";
+@import "pages/infrastructure";
+@import "pages/about";

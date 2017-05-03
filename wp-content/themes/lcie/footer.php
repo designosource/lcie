@@ -49,7 +49,7 @@
 		  <script>
 		  var mySwiper = new Swiper ('.swiper-container', {
 		    direction: 'horizontal',
-		    // loop: true,
+		    loop: true,
 		    slidesPerView: 5,
 		    nextButton: '.swiper-button-next',
 		    prevButton: '.swiper-button-prev',
@@ -61,20 +61,13 @@
 			      slidesPerView: 4
 			    }
 			  }
-		  })
-
-		  var mySwiper2 = new Swiper ('.swiper-container.home__testmonials__slider', {
-		    direction: 'horizontal',
-		    loop: true,
-		    pagination: '.swiper-pagination',
-		    paginationClickable: true
-		  })
+		  });
 
 		  </script>
 
 		 <?php endif; ?>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
+
+		<script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.min.js"></script>
 		<?php wp_footer(); ?>
 	</body>
 </html>

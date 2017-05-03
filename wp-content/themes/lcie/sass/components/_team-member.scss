@@ -1,0 +1,106 @@
+.team-member
+{
+	width: 30%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	&.team-member--large
+	{
+		width: 50%;
+	}
+	
+	@media screen and (max-width: 768px){
+		width: 100%;
+	}
+
+	.grid
+	{
+		display: flex;
+		align-items: center;
+		
+		.photo
+		{
+			min-width: 150px;
+			height: 150px;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.details
+		{
+			padding-left: 30px;
+			height: 150px;
+			position: relative;
+			box-sizing: border-box;
+			width: 100%;
+		}
+
+		.details__name
+		{
+			display: block;
+			@include primary_font(1.1rem, 400);
+			color: $curiousblue;
+		}
+
+		.details__function
+		{
+			display: block;
+			@include primary_font(0.9rem, 400);
+			color: $dovegray;
+			margin-top: 10px;
+			line-height: 1.1;
+			width: 90%;
+		}
+
+		.details__contact
+		{
+			position: absolute;
+			bottom: 0;
+			left: 30px;
+		}
+
+		.details__contact__mail
+		{
+			@include secondary_font(0.8rem, 400);
+			color: $dovegray;
+			text-decoration: none;
+		}
+
+		.details__contact__social
+		{
+			margin-top: 5px;
+		}
+
+		.details__contact__social__icon
+		{
+			width: 20px;
+			height: 20px;
+			background-position: center;
+			background-repeat: no-repeat;
+			display: inline-block;
+			margin-right: 10px;
+			opacity: 0.8;
+			text-indent: -9999px;
+			
+			&:hover
+			{
+				opacity: 1;
+			}
+
+			&.twitter
+			{
+				background-image: url(../images/team-social/twitter.png);
+				background-size: 20px;
+			}
+
+			&.linkedin
+			{
+				background-image: url(../images/team-social/linkedin.png);
+				background-size: 20px;
+			}
+		}	
+	}
+
+
+
+}

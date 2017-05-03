@@ -14,18 +14,20 @@ body
 {
 	padding: 0;
 	margin: 0;
-	font-family: "Roboto", sans-serif;
+	font-size: 10px;
+	@include secondary_font(1.0rem, 400);
 	overflow-x: hidden !important;
-}
-
-h1, h2, h3, h4, h5, h6{
-	font-family: "Roboto", sans-serif;
 }
 
 h1
 {
 	@include secondary_font(2.2rem, 400);
 	color: $curiousblue;
+}
+
+p,span
+{
+	@include secondary_font(1.0rem, 400);
 }
 
 .no-scroll

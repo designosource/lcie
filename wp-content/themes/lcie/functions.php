@@ -211,7 +211,7 @@ if(function_exists("register_field_group"))
                 'key' => 'field_58a89224269c4123235563342234324',
                 'label' => 'Eventdatum',
                 'name' => 'date',
-                'type' => 'text'
+                'type' => 'date_picker'
                 ),
             ),
         'location' => array (
@@ -262,7 +262,7 @@ if(function_exists("register_field_group"))
                 'key' => 'field_58a89224269c4123235563342234324223',
                 'label' => 'Eventdatum',
                 'name' => 'date',
-                'type' => 'text'
+                'type' => 'date_picker'
                 ),
             ),
         'location' => array (
@@ -774,12 +774,6 @@ register_field_group(array (
         'save_format' => 'url',
         ),
      array (
-        'key' => 'field_588a6a8eb5fa6',
-        'label' => 'Kleur',
-        'name' => 'color',
-        'type' => 'color_picker',
-        ),
-     array (
         'key' => 'field_588a6a8eb5fa7',
         'label' => 'Afbeelding',
         'name' => 'image',
@@ -859,6 +853,57 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
+     array (
+        'key' => 'field_588a6a8eb5fa1524242ehfsg7',
+        'label' => 'Kleur',
+        'name' => 'color',
+        'type' => 'color_picker'
+        ),
+      array (
+                'key' => 'field_588a663ea3686sdvsbsbgfs',
+                'label' => 'Happenings',
+                'name' => 'happenings',
+                'type' => 'repeater',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_588a6652a368gcshdgv2424247',
+                        'label' => 'Foto',
+                        'name' => 'photo',
+                        'type' => 'image',
+                        'column_width' => '',
+                        'save_format' => 'url',
+                        'preview_size' => 'thumbnail',
+                        'library' => 'all',
+                    ),
+                    array (
+                        'key' => 'field_588a665ca368824252523009',
+                        'label' => 'Titel',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_588a6664a36892324255029662',
+                        'label' => 'Tekst',
+                        'name' => 'text',
+                        'type' => 'wysiwyg',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'toolbar' => 'full',
+                        'media_upload' => 'yes',
+                    ),
+                ),
+                'row_min' => 0,
+                'row_limit' => '',
+                'layout' => 'row',
+                'button_label' => 'Nieuwe happening',
+            ),
      ),
     'location' => array (
         array (
@@ -1243,19 +1288,6 @@ register_field_group(array (
             'library' => 'all',
             ),
         array (
-            'key' => 'field_58b1f7ef8abed',
-            'label' => 'Team',
-            'name' => 'team',
-            'type' => 'checkbox',
-            'required' => 1,
-            'choices' => array (
-                'core_team' => 'Core team',
-                'bestuursteam' => 'Bestuursteam',
-                ),
-            'default_value' => '',
-            'layout' => 'vertical',
-            ),
-        array (
             'key' => 'field_58b1fbce8abee',
             'label' => 'Functie',
             'name' => 'function',
@@ -1471,9 +1503,9 @@ function filterDocumentation(){
         while($query->have_posts()): $query->the_post();
     $url = get_field("url");
     if(!empty($url)){
-        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("url") . '">Download</a></div>';
+        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_field("content").'</p><a href="'.get_field("url") . '">Download</a></div>';
     }else{
-        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_the_content().'</p><a href="'.get_field("file") . '">Download</a></div>';
+        echo '<div class="documentation__article__item"><h2>'.get_the_title().'</h2><p>'.get_field("content").'</p><a href="'.get_field("file") . '">Download</a></div>';
     }
     
 

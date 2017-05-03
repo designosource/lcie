@@ -128,18 +128,30 @@
 			<div class="offerings__team__grid grid">
 				
 			<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();  ?>
-						<div class="offerings__team__grid__col">
+						<div class="team-member">
 							<div class="grid">
-								<div class="offerings__team__grid__col__photo" style="background-image: url(<?php the_field("photo"); ?>)"></div>
-								<div class="offerings__team__grid__col__details">
-									<span class="offerings__team__grid__col__details__name"><?php the_title(); ?></span>
-									<span class="offerings__team__grid__col__details__function"><?php the_field("function"); ?></span>
-									
-									<div class="offerings__team__grid__col__details__contact">
-										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="offerings__team__grid__col__details__contact__mail"><?php the_field("email"); ?></a>
-					
+								<div class="photo" style="background-image: url(<?php the_field("photo"); ?>)"></div>
+								<div class="details">
+									<span class="details__name"><?php the_title(); ?></span>
+									<span class="details__function"><?php the_field("function"); ?></span>
+
+									<div class="details__contact">
+										<a href="mailto:<?php echo antispambot(get_field("email")); ?> class="details__contact__mail"><?php echo antispambot(get_field("email")); ?></a>
+										<div class="details__contact__social">
+												<?php
+													$twitter = get_field("twitter");
+													$linkedin = get_field("linkedin");
+												?>
+												<?php if(!empty($twitter)): ?>
+													<a href="<?php echo $twitter; ?>" class="details__contact__social__icon twitter">Twitter</a>
+												<?php endif; ?>
+											
+												<?php if(!empty($linkedin)): ?>
+													<a href="<?php echo $linkedin; ?>" class="details__contact__social__icon linkedin">LinkedIn</a>
+												<?php endif; ?>
+										</div>
 									</div>
-									
+
 
 								</div>
 							</div>

@@ -63,7 +63,7 @@
                         <div class="home__teams__grid__col__overlay"
                              style="background-color: <?php the_field("color"); ?>"></div>
                         <h2 class="home__teams__grid__col__text">
-                            <div class="wrapper"> <?php the_content(); ?></div>
+                            <div class="wrapper"> <?php the_field("intro_text"); ?></div>
                         </h2>
                         <span class="home__teams__grid__col__readmore"><?php pll_e("lees meer"); ?></span>
                     </a>
@@ -80,8 +80,7 @@
                         <?php if (!get_field("featured_homepage")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
                                 <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php the_field("logo_white"); ?>" alt=""
-                                         class="home__teams__grid-small__logo">
+                                    <img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
                                 </a>
                             </div>
                         <?php endif; ?>

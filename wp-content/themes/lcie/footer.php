@@ -47,12 +47,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
 
 		  <script>
-		  var mySwiper = new Swiper ('.swiper-container', {
+		  var mySwiper = new Swiper ('.swiper-container.home__teams__grid-small', {
 		    direction: 'horizontal',
 		    // loop: true,
 		    slidesPerView: 5,
-		    nextButton: '.swiper-button-next',
-		    prevButton: '.swiper-button-prev',
+		    nextButton: '.home__teams__grid-small .swiper-button-next',
+		    prevButton: '.home__teams__grid-small .swiper-button-prev',
 		    breakpoints: {
 			    768: {
 			      slidesPerView: 1
@@ -67,7 +67,9 @@
 		    direction: 'horizontal',
 		    loop: true,
 		    pagination: '.swiper-pagination',
-		    paginationClickable: true
+		    paginationClickable: true,
+		    nextButton: '.home__testmonials__slider .swiper-button-next',
+		    prevButton: '.home__testmonials__slider .swiper-button-prev',
 		  })
 
 		  </script>

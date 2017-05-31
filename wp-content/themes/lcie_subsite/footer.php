@@ -25,18 +25,6 @@
                     <div class="footer__bottom__content">
                         <span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
                     </div>
-                    <div class="footer__bottom__content">
-                        <a href="http://www.leuvenmindgate.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-leuven-mindgate-klein.png"
-                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
-                        <a href="http://www.vlaamsbrabant.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-vlaams-brabant.png"
-                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
-                        <a href="https://www.keuleuven.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png"
-                                    alt="Logo KULeuven" class="footer__bottom__kuleuven"></a>
-                    </div>
-
                 </div>
             </div>
         </footer>
@@ -44,7 +32,8 @@
 		<?php restore_current_blog(); ?>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
+
+		<script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.js"></script>
 
 		<style>
 			
@@ -63,13 +52,13 @@
 				color: <?php echo get_option('header_logo'); ?>;
 			}
 
-			.button:not(.header__navigation__apply):not(.footer__up)
+			.button:not(.header__navigation__apply):not(.footer__grid__col--big .button)
 			{
 				border-color: <?php echo get_option('header_logo'); ?>;
                 color: <?php echo get_option('header_logo'); ?>;
 			}
 
-            .button:not(.header__navigation__apply):not(.footer__up):hover
+            .button:not(.header__navigation__apply):not(.footer__grid__col--big .button):hover
             {
                 background-color: <?php echo get_option('header_logo'); ?>;
                 color: white;

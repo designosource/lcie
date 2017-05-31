@@ -11,7 +11,7 @@
 
 							<?php $query = new WP_Query(array('post_type' => "faq", "show_posts" => 3)); ?>
 							<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-									<li><a href="<?php echo site_url(); ?>/faq"><?php the_title(); ?></a></li>
+									<li><a href="<?php echo pll_home_url(pll_current_language()); ?>/faq"><?php the_title(); ?></a></li>
 							<?php endwhile; endif; ?>
 						</ul>
 					</div>
@@ -23,50 +23,14 @@
 					<div class="footer__bottom__content">
 						<span>&copy; Lcie <?php echo date("Y"); ?> | webdesign <a href="http://designosource.be">Designosource</a></span>
 					</div>
-                    <div class="footer__bottom__content footer__bottom__contentRight">
-											<h4>Lcie Structural Partners</h4>
-                        <a href="http://www.leuvenmindgate.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-leuven-mindgate-klein.png"
-                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
-                        <a href="http://www.vlaamsbrabant.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/logo-vlaams-brabant.png"
-                                    alt="Logo Leuven Mindgate" class="footer__bottom__kuleuven"></a>
-                        <a href="https://www.keuleuven.be"><img
-                                    src="<?php echo get_template_directory_uri(); ?>/images/kuleuven.png"
-                                    alt="Logo KULeuven" class="footer__bottom__kuleuven"></a>
-                    </div>
-
 				</div>
 			</div>
 		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-		<?php if ( is_page_template('page-templates/home-page.php') ): ?>
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js"></script>
-
-		  <script>
-		  var mySwiper = new Swiper ('.swiper-container', {
-		    direction: 'horizontal',
-		    loop: true,
-		    slidesPerView: 5,
-		    nextButton: '.swiper-button-next',
-		    prevButton: '.swiper-button-prev',
-		    breakpoints: {
-			    768: {
-			      slidesPerView: 1
-			    },
-			    1200: {
-			      slidesPerView: 4
-			    }
-			  }
-		  });
-
-		  </script>
-
-		 <?php endif; ?>
-
+		
+		</script><script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.0/slick.min.js"></script>
+		
 		<script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.min.js"></script>
 		<?php wp_footer(); ?>
 	</body>

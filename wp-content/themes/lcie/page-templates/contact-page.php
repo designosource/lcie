@@ -108,7 +108,7 @@
 					<p class="contact__location__address"><?php the_sub_field("address"); ?></p>
 					<?php $email = get_sub_field("email"); ?>
 					<?php if(!empty($email)): ?>
-						<a href="mailto:<?php echo antispambot(get_sub_field("email")); ?>" class="contact__location__mail"><?php echo antispambot(get_sub_field("email")); ?></a>
+						<a href="mailto:<?php echo antispambot(get_sub_field('email')); ?>" class="contact__location__mail"><?php echo antispambot(get_sub_field("email")); ?></a>
 					<?php endif; ?>
 				</div>
 
@@ -136,7 +136,7 @@
 									<span class="details__function"><?php the_field("function"); ?></span>
 
 									<div class="details__contact">
-										<a href="mailto:<?php echo antispambot(get_field("email")); ?> class="details__contact__mail"><?php echo antispambot(get_field("email")); ?></a>
+										<a href="mailto:<?php echo antispambot(get_field("email")); ?>" class="details__contact__mail"><?php echo antispambot(get_field("email")); ?></a>
 										<div class="details__contact__social">
 												<?php
 													$twitter = get_field("twitter");

@@ -1,73 +1,131 @@
-.contests__grid {
-  margin: 4em 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-.contests__grid__item {
-  width: 50%;
-  position: relative;
-  margin:0 6em 6em 0;
-  padding: 30px;
-  box-sizing: border-box; 
-  flex-shrink: 1;
-}
-.contests__grid__item__haakBoven {
-  background-image: url(../images/haak-boven.svg);
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 3em;
-  height: 3em;
-  right: 0;
-}
-.contests__grid__item__haakOnder {
-  background-image: url(../images/haak-onder.svg);
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 3em;
-  height: 3em;
-  left: 0;
-}
-.contests__item__img {
-  margin-top: 2em;
-  width: 70%;
-  max-width: 200px;
-}
-.contests__item__link {
-  float: right;
-  color: $regalblue;
-  @include primary_font(1rem, 800);
-  text-decoration: none;
-}
-.contests__item__link:hover {
-  text-decoration: underline;
-}
+.page-template-contests-page
+{
+  h2
+  {
+    margin-top: 40px;
+  }
 
-@media screen and (max-width: 768px) {
   .contests__grid {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
+
   .contests__grid__item {
-    width: 37vw;
-    margin: 0;
+    width: 48%;
+    position: relative;
+    padding: 40px;
+    box-sizing: border-box; 
+    margin-bottom: 70px;
+
+    &:before
+    {
+      background-image: url(../images/haak-boven.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      right: 0;
+      top: 0;
+    }
+
+    &:after
+    {
+      background-image: url(../images/haak-onder.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      left: 0;
+      bottom: 0;
+    }
   }
-}
-@media screen and (max-width: 390px) {
-  .contests__grid {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    margin: 4em 0;
+
+  .contests__item__img {
+    margin-top: 2em;
+    max-width: 100%;
+    height: 200px;
+    margin-bottom: 30px;
   }
-  .contests__grid__item {
-    width: 100%;
-    margin: 2em 0;
+
+  .contests__grid__item__content
+  {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &.open
+    {
+      height: auto;
+      transition: all 0.2s ease-in-out;
+      padding-bottom: 40px;
+
+      &:after
+      {
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &:after
+    {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+      background: rgba(255,255,255,0.33);
+      background: -moz-linear-gradient(top, rgba(255,255,255,0.33) 0%, rgba(255,255,255,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.33)), color-stop(100%, rgba(255,255,255,1)));
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0.33) 0%, rgba(255,255,255,1) 100%);
+      background: -o-linear-gradient(top, rgba(255,255,255,0.33) 0%, rgba(255,255,255,1) 100%);
+      background: -ms-linear-gradient(top, rgba(255,255,255,0.33) 0%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.33) 0%, rgba(255,255,255,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+    }
+
+    .button
+    {
+      margin-top: 25px;
+      position: relative;
+      z-index: 999;
+    }
   }
+
+  .contests__grid__item__readmore
+  {
+    font-size: 0.9rem;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .contests__grid__item__close
+  {
+    font-size: 0.9rem;
+    margin-top: 30px;
+    display: none;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .contests__grid {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    .contests__grid__item {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+
 }

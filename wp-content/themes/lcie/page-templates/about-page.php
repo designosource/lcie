@@ -12,9 +12,9 @@
 <section class="page__content">
 		<div class="wrapper wrapper_full_text">
 		    
-		<div class="about__container">
+		<div class="sidebar-container">
 
-			<nav class="offerings__sidebar">
+			<nav class="sidebar">
 
 				<ul>
 					<li class="offerings__sidebar__active"><?php pll_e( "Over ons" ); ?></li>
@@ -23,7 +23,8 @@
 						$custom_terms = get_terms('groups');
 
 						foreach($custom_terms as $custom_term) {
-							echo '<li><a href="#'.$custom_term->slug.'">'.$custom_term->name.'</a></li>';
+							$slug = str_replace(' ', '', $custom_term->slug);
+							echo '<li><a href="#'.$slug.'">'.$custom_term->name.'</a></li>';
 						}
 					?>
 				</ul>
@@ -38,7 +39,7 @@
             endwhile; ?>
             <?php wp_reset_query(); ?>
             <?php endif; ?>
-
+	<div class="about__team">
 			<?php
 
 				$custom_terms = get_terms('groups');
@@ -57,7 +58,8 @@
 
 				     $loop = new WP_Query($args);
 				     if($loop->have_posts()) {
-				        echo '<h1 id="'.$custom_term->slug.'">'.$custom_term->name.'</h1>';
+				     	$slug = str_replace(' ', '', $custom_term->slug);
+				        echo '<h1 id="'.$slug.'">'.$custom_term->name.'</h1>';
 				        echo '<div class="offerings__team__grid grid">';
 
 				        while($loop->have_posts()) : $loop->the_post(); ?>
@@ -98,6 +100,7 @@
 
 			?>
 </div>
+		</div>
 		</div>
 
 </section>

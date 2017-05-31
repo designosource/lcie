@@ -63,17 +63,17 @@ function create_posttypes() {
         array(
             'label' => __( 'Groepen' ),
             'rewrite' => array( 'slug' => 'group' )
-        )
-    );
+            )
+        );
 
     register_taxonomy(
-        'partner_groups',
+        'partner_group',
         'post',
         array(
             'label' => __( 'Groepen' ),
-            'rewrite' => array( 'slug' => 'partner-group' )
-        )
-    );
+            'rewrite' => array( 'slug' => 'partner_group' )
+            )
+        );
 
     register_post_type( 'lcie_team',
         array(
@@ -115,15 +115,16 @@ function create_posttypes() {
         );
 
 
-    register_post_type( 'partner_events',
+    register_post_type( 'partners',
         array(
             'labels' => array(
-                'name' => __( 'Partner events' ),
-                'singular_name' => __( 'Partner events' )
+                'name' => __( 'Partners' ),
+                'singular_name' => __( 'Partner' )
                 ),
             'public' => true,
             'has_archive' => true,
-            'menu_icon' => "dashicons-calendar-alt"
+            'menu_icon' => "dashicons-calendar-alt",
+            'taxonomies'          => array( 'partner_group' )
             )
         );
 
@@ -134,7 +135,7 @@ function create_posttypes() {
                 'singular_name' => __( 'Wedstrijd' )
                 ),
             'public' => true,
-            'has_archive' => true,
+            'has_archive' => false,
             'menu_icon' => "dashicons-awards"
             )
         );
@@ -156,15 +157,11 @@ add_action( 'init', 'create_posttypes' );
 
 
 
-
-
-
-
 /* CUSTOM FIELDS */
 
 if(function_exists("register_field_group"))
 {
-        register_field_group(array (
+    register_field_group(array (
         'id' => 'acf_news',
         'title' => 'Nieuws',
         'fields' => array (
@@ -174,6 +171,12 @@ if(function_exists("register_field_group"))
                 'name' => 'image',
                 'type' => 'image',
                 'save_format' => 'url'
+                ),
+            array (
+                'key' => 'field_58a89224269c4123235563FCHDBVHBDVHSDZE34',
+                'label' => 'Externe url',
+                'name' => 'url',
+                'type' => 'text'
                 ),
             ),
         'location' => array (
@@ -196,7 +199,7 @@ if(function_exists("register_field_group"))
         'menu_order' => 1,
         ));
 
-         register_field_group(array (
+    register_field_group(array (
         'id' => 'acf_events',
         'title' => 'Events',
         'fields' => array (
@@ -247,17 +250,17 @@ if(function_exists("register_field_group"))
                 'save_format' => 'url'
                 ),
             array (
-               'key' => 'field_58a89224269c41232355624',
-               'label' => 'Url',
-               'name' => 'url',
-               'type' => 'text',
-               'column_width' => '',
-               'default_value' => '',
-               'placeholder' => '',
-               'prepend' => '',
-               'append' => '',
-               'maxlength' => '',
-               ),
+             'key' => 'field_58a89224269c41232355624',
+             'label' => 'Url',
+             'name' => 'url',
+             'type' => 'text',
+             'column_width' => '',
+             'default_value' => '',
+             'placeholder' => '',
+             'prepend' => '',
+             'append' => '',
+             'maxlength' => '',
+             ),
             array (
                 'key' => 'field_58a89224269c4123235563342234324223',
                 'label' => 'Eventdatum',
@@ -433,7 +436,7 @@ if(function_exists("register_field_group"))
                 'label' => 'Url',
                 'name' => 'url',
                 'type' => 'text'
-            ),
+                ),
             array (
                 'key' => 'field_58a8b7ca78b1e',
                 'label' => 'Type',
@@ -480,17 +483,17 @@ if(function_exists("register_field_group"))
             'position' => 'acf_after_title',
             'layout' => 'no_box',
             'hide_on_screen' => array (
-                            0 => 'permalink',
-            1 => 'discussion',
-            2 => 'comments',
-            3 => 'revisions',
-            4 => 'slug',
-            5 => 'author',
-            6 => 'featured_image',
-            7 => 'categories',
-            8 => 'tags',
-            9 => 'send-trackbacks',
-            10 => 'editor'
+                0 => 'permalink',
+                1 => 'discussion',
+                2 => 'comments',
+                3 => 'revisions',
+                4 => 'slug',
+                5 => 'author',
+                6 => 'featured_image',
+                7 => 'categories',
+                8 => 'tags',
+                9 => 'send-trackbacks',
+                10 => 'editor'
                 ),
             ),
         'menu_order' => 0,
@@ -499,6 +502,7 @@ if(function_exists("register_field_group"))
         'id' => 'acf_homepage',
         'title' => 'Homepage',
         'fields' => array (
+            
             array (
                 'key' => 'field_58a891f4269c1',
                 'label' => 'Lcie voor',
@@ -676,6 +680,34 @@ if(function_exists("register_field_group"))
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
                 ),
+            array (
+                'key' => 'field_58a891f4269cFUHDVJBDHBVSFS1',
+                'label' => 'Structurele partners',
+                'name' => 'structural_partners',
+                'type' => 'repeater',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_58a89sdvsdgvsdgvqcv1ff269c2',
+                        'label' => 'Logo',
+                        'name' => 'logo',
+                        'type' => 'image',
+                        'column_width' => '',
+                        'save_format' => 'url',
+                        'preview_size' => 'thumbnail',
+                        'library' => 'all',
+                        ),
+                    array (
+                        'key' => 'field_58a89sdvsdgvsdgvqvsvhjsbvdcv1ff269c2',
+                        'label' => 'Url',
+                        'name' => 'url',
+                        'type' => 'text'
+                        ),
+                    ),
+                'row_min' => '',
+                'row_limit' => '',
+                'layout' => 'row',
+                'button_label' => 'Nieuw',
+                ),
             ),
 'location' => array (
     array (
@@ -747,53 +779,53 @@ register_field_group(array (
     'id' => 'acf_teams',
     'title' => 'Teams',
     'fields' => array (
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa4',
         'label' => 'Uitgelicht',
         'name' => 'featured',
         'type' => 'true_false',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa4636477',
         'label' => 'Uitgelicht op homepage',
         'name' => 'featured_homepage',
         'type' => 'true_false',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa2',
         'label' => 'Logo',
         'name' => 'logo',
         'type' => 'image',
         'save_format' => 'url',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa10',
         'label' => 'Logo - witte versie',
         'name' => 'logo_white',
         'type' => 'image',
         'save_format' => 'url',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa7',
         'label' => 'Afbeelding',
         'name' => 'image',
         'type' => 'image',
         'save_format' => 'url',
         ),
-     array (
-                'key' => 'field_58a89224269c488365',
-                'label' => 'Intro tekst',
-                'name' => 'intro_text',
-                'type' => 'textarea',
-                'column_width' => '',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-    ),
-     array (
+       array (
+        'key' => 'field_58a89224269c488365',
+        'label' => 'Intro tekst',
+        'name' => 'intro_text',
+        'type' => 'wysiwyg',
+        'column_width' => '',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+        ),
+       array (
         'key' => 'field_588a6a8eb5fa12',
         'label' => 'Facebook',
         'name' => 'facebook',
@@ -805,7 +837,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa13',
         'label' => 'Twitter',
         'name' => 'twitter',
@@ -817,7 +849,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa14',
         'label' => 'Youtube',
         'name' => 'youtube',
@@ -829,7 +861,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa8',
         'label' => 'LinkedIn',
         'name' => 'linkedin',
@@ -841,7 +873,7 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa15',
         'label' => 'Website',
         'name' => 'website',
@@ -853,87 +885,87 @@ register_field_group(array (
         'formatting' => 'html',
         'maxlength' => '',
         ),
-     array (
+       array (
         'key' => 'field_588a6a8eb5fa1524242ehfsg7',
         'label' => 'Kleur',
         'name' => 'color',
         'type' => 'color_picker'
         ),
-      array (
-                'key' => 'field_588a663ea3686sdvsbsbgfs',
-                'label' => 'Happenings',
-                'name' => 'happenings',
-                'type' => 'repeater',
-                'sub_fields' => array (
-                    array (
-                        'key' => 'field_588a6652a368gcshdgv2424247',
-                        'label' => 'Foto',
-                        'name' => 'photo',
-                        'type' => 'image',
-                        'column_width' => '',
-                        'save_format' => 'url',
-                        'preview_size' => 'thumbnail',
-                        'library' => 'all',
-                    ),
-                    array (
-                        'key' => 'field_588a665ca368824252523009',
-                        'label' => 'Titel',
-                        'name' => 'title',
-                        'type' => 'text',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'formatting' => 'html',
-                        'maxlength' => '',
-                    ),
-                    array (
-                        'key' => 'field_588a6664a36892324255029662',
-                        'label' => 'Tekst',
-                        'name' => 'text',
-                        'type' => 'wysiwyg',
-                        'column_width' => '',
-                        'default_value' => '',
-                        'toolbar' => 'full',
-                        'media_upload' => 'yes',
-                    ),
-                ),
-                'row_min' => 0,
-                'row_limit' => '',
-                'layout' => 'row',
-                'button_label' => 'Nieuwe happening',
-            ),
-     ),
-    'location' => array (
-        array (
+       array (
+        'key' => 'field_588a663ea3686sdvsbsbgfs',
+        'label' => 'Happenings',
+        'name' => 'happenings',
+        'type' => 'repeater',
+        'sub_fields' => array (
             array (
-                'param' => 'post_type',
-                'operator' => '==',
-                'value' => 'team',
-                'order_no' => 0,
-                'group_no' => 0,
+                'key' => 'field_588a6652a368gcshdgv2424247',
+                'label' => 'Foto',
+                'name' => 'photo',
+                'type' => 'image',
+                'column_width' => '',
+                'save_format' => 'url',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+                ),
+            array (
+                'key' => 'field_588a665ca368824252523009',
+                'label' => 'Titel',
+                'name' => 'title',
+                'type' => 'text',
+                'column_width' => '',
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'html',
+                'maxlength' => '',
+                ),
+            array (
+                'key' => 'field_588a6664a36892324255029662',
+                'label' => 'Tekst',
+                'name' => 'text',
+                'type' => 'wysiwyg',
+                'column_width' => '',
+                'default_value' => '',
+                'toolbar' => 'full',
+                'media_upload' => 'yes',
                 ),
             ),
+        'row_min' => 0,
+        'row_limit' => '',
+        'layout' => 'row',
+        'button_label' => 'Nieuwe happening',
         ),
-    'options' => array (
-        'position' => 'normal',
-        'layout' => 'no_box',
-        'hide_on_screen' => array (
-            0 => 'permalink',
-            1 => 'discussion',
-            2 => 'comments',
-            3 => 'revisions',
-            4 => 'slug',
-            5 => 'author',
-            6 => 'featured_image',
-            7 => 'categories',
-            8 => 'tags',
-            9 => 'send-trackbacks',
+       ),
+'location' => array (
+    array (
+        array (
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'team',
+            'order_no' => 0,
+            'group_no' => 0,
             ),
         ),
-    'menu_order' => 0,
-    ));
+    ),
+'options' => array (
+    'position' => 'normal',
+    'layout' => 'no_box',
+    'hide_on_screen' => array (
+        0 => 'permalink',
+        1 => 'discussion',
+        2 => 'comments',
+        3 => 'revisions',
+        4 => 'slug',
+        5 => 'author',
+        6 => 'featured_image',
+        7 => 'categories',
+        8 => 'tags',
+        9 => 'send-trackbacks',
+        ),
+    ),
+'menu_order' => 0,
+));
 
 register_field_group(array (
     'id' => 'acf_for',
@@ -1047,87 +1079,25 @@ register_field_group(array (
     'title' => 'Partners',
     'fields' => array (
         array (
-            'key' => 'field_6094e26ea8b4651314567',
-            'label' => 'Powered by',
-            'name' => 'poweredby',
-            'type' => 'repeater',
-            'sub_fields' => array (
-                array (
-                    'key' => 'field_6094e279a8b432312398567',
-                    'label' => 'Logo',
-                    'name' => 'image',
-                    'type' => 'image',
-                    'save_format' => 'url'
-                    ),
-                array (
-                    'key' => 'field_6094e279a8b4622312345567',
-                    'label' => 'Url',
-                    'name' => 'url',
-                    'type' => 'text',
-                    ),
-                ),
-            'row_min' => '',
-            'row_limit' => '',
-            'layout' => 'table',
-            'button_label' => 'Nieuwe regel',
+            'key' => 'field_6094e279a8b4622232YU4EGTYDGZV',
+            'label' => 'Url',
+            'name' => 'url',
+            'type' => 'text',
             ),
         array (
-            'key' => 'field_6094e26ea8b465131498',
-            'label' => 'Partnership',
-            'name' => 'partnership',
-            'type' => 'repeater',
-            'sub_fields' => array (
-                array (
-                    'key' => 'field_6094e279a8b43231239898',
-                    'label' => 'Logo',
-                    'name' => 'image',
-                    'type' => 'image',
-                    'save_format' => 'url'
-                    ),
-                array (
-                    'key' => 'field_6094e279a8b462231234598',
-                    'label' => 'Url',
-                    'name' => 'url',
-                    'type' => 'text',
-                    ),
-                ),
-            'row_min' => '',
-            'row_limit' => '',
-            'layout' => 'table',
-            'button_label' => 'Nieuwe regel',
-            ),
-        array (
-            'key' => 'field_6094e26ea8b4651314',
-            'label' => 'Sponsored by',
-            'name' => 'sponsored',
-            'type' => 'repeater',
-            'sub_fields' => array (
-                array (
-                    'key' => 'field_6094e279a8b432312398',
-                    'label' => 'Logo',
-                    'name' => 'image',
-                    'type' => 'image',
-                    'save_format' => 'url'
-                    ),
-                array (
-                    'key' => 'field_6094e279a8b4622312345',
-                    'label' => 'Url',
-                    'name' => 'url',
-                    'type' => 'text',
-                    ),
-                ),
-            'row_min' => '',
-            'row_limit' => '',
-            'layout' => 'table',
-            'button_label' => 'Nieuwe regel',
+            'key' => 'field_6094e279a8b43FDHVBDHVBHB23',
+            'label' => 'Logo',
+            'name' => 'image',
+            'type' => 'image',
+            'save_format' => 'url'
             ),
         ),
     'location' => array (
         array (
             array (
-                'param' => 'page_template',
+                'param' => 'post_type',
                 'operator' => '==',
-                'value' => 'page-templates/partners-page.php',
+                'value' => 'partners',
                 'order_no' => 0,
                 'group_no' => 0,
                 )
@@ -1429,6 +1399,7 @@ add_action( 'init', 'register_my_menus' );
 
 
 
+
 /* CONTACT PAGE - SEND FORM WITH AJAX */
 
 add_action('wp_ajax_send_contact_form','sendForm');
@@ -1476,6 +1447,7 @@ function sendForm(){
     die();
 
 }
+
 
 
 /* DOCS PAGE - FILTER DOCS */

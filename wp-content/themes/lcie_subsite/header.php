@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">	
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/style.min.css">	
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-
+	
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<?php if(is_archive()): ?>
 			<title>FAQ | Lcie</title>
 		<?php else: ?>
-			<title><?php the_title(); ?> | Lcie</title>
+			<title><?php the_title(); ?> | <?php echo get_bloginfo("name"); ?></title>
 		<?php endif; ?>
 		
 

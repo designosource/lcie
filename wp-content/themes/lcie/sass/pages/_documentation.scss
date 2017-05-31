@@ -44,6 +44,8 @@
   h2 {
     color: $regalblue;
     text-align: center;
+    margin-top: 20px;
+    @include primary_font(1.4rem, 700);
   }
   p {
     color: $bunker;

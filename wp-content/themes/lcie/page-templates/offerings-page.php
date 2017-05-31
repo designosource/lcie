@@ -5,12 +5,12 @@ $core = array();
 $other = array();
 
 $query = new WP_Query(array('post_type' => "lcie_team", 'tax_query' => array(
-				            array(
-				                'taxonomy' => 'groups',
-				                'field' => 'slug',
-				                'terms' => 'core-team',
-				            ),
-				        )));
+	array(
+		'taxonomy' => 'groups',
+		'field' => 'slug',
+		'terms' => 'core-team',
+		),
+	)));
 
 if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 
@@ -26,26 +26,28 @@ array_push($core, $member);
 
 
 
-	endwhile; endif;
+endwhile; endif;
 
-	wp_reset_query();
-	?>
-
-
-	<?php get_header(); ?>
+wp_reset_query();
+?>
 
 
-	<?php get_template_part( '/template-parts/page', 'header' ); ?>
+<?php get_header(); ?>
 
-	<section class="offerings__container">
-		<div class="wrapper">
-			<nav class="offerings__sidebar">
+
+<?php get_template_part( '/template-parts/page', 'header' ); ?>
+
+<section class="page__content">
+	<div class="wrapper wrapper_full_text">
+		
+		<div class="sidebar-container">
+			<nav class="sidebar">
 
 				<ul>
-					<li class="offerings__sidebar__active"><?php pll_e( "Lcie voor" ); ?></li>
 					<li><a href="#subsites"><?php pll_e( "Subsites" ); ?></a></li>
 					<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
-						<li><a href="#<?php echo strtolower(get_sub_field("title")); ?>"><?php the_sub_field("title"); ?></a></li>
+						<?php $slug = str_replace(' ', '', strtolower(get_sub_field("title"))); ?>
+						<li><a href="#<?php echo $slug; ?>"><?php the_sub_field("title"); ?></a></li>
 
 					<?php endwhile; endif; ?>
 					<li><a href="#team"><?php pll_e( "Core team" ); ?></a></li>
@@ -55,8 +57,6 @@ array_push($core, $member);
 			</nav>
 
 			<div class="offerings__content">
-				<h1><?php pll_e( "Lcie voor" ); ?></h1>
-
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php the_content(); ?>
@@ -92,15 +92,15 @@ array_push($core, $member);
 		<div class="wrapper">
 			<h1><?php pll_e( "Subsites" ); ?></h1>
 			<div class="grid offerings__subsites__grid">
-
+				<?php $readmore = pll__("lees meer"); ?>
 				<?php foreach(get_sites(array("offset" => 1)) as $site): ?>
-
+					
 					<?php switch_to_blog($site->blog_id); ?>
 
 					<a href="<?php echo get_site_url($site->blog_id); ?>" class="offerings__subsites__grid__col" style="background-image: url(<?php echo get_option("background_picture"); ?>)">
 
 						<span class="offerings__subsites__grid__col__title"><?php echo $site->blogname; ?></span>
-						<span class="offerings__subsites__grid__col__more"><?php pll_e("Lees meer"); ?></span>
+						<span class="offerings__subsites__grid__col__more"><?php echo $readmore; ?></span>
 						<div class="offerings__subsites__grid__col__overlay" style="background-color: <?php echo get_option('header_logo'); ?>"></div>
 					</a>
 
@@ -110,7 +110,8 @@ array_push($core, $member);
 		</section>
 
 		<?php if( have_rows('content-blocks') ): while ( have_rows('content-blocks') ) : the_row(); ?>
-			<section class="offerings__content-block" id="<?php echo strtolower(get_sub_field("title")); ?>">
+			<?php $slug = str_replace(' ', '', strtolower(get_sub_field("title"))); ?>
+			<section class="offerings__content-block" id="<?php echo $slug; ?>">
 				<div class="wrapper">
 					<h1><?php the_sub_field("title"); ?></h1>
 					<?php the_sub_field("content"); ?>
@@ -141,13 +142,13 @@ array_push($core, $member);
 										<a href="mailto:<?php echo $value["email"]; ?>" class="details__contact__mail"><?php echo $value["email"]; ?></a>
 										<div class="details__contact__social">
 											
-												<?php if(!empty($value["twitter"])): ?>
-													<a href="<?php echo $value["twitter"]; ?>" class="details__contact__social__icon twitter">Twitter</a>
-												<?php endif; ?>
+											<?php if(!empty($value["twitter"])): ?>
+												<a href="<?php echo $value["twitter"]; ?>" class="details__contact__social__icon twitter">Twitter</a>
+											<?php endif; ?>
 											
-												<?php if(!empty($value["linkedin"])): ?>
-													<a href="<?php echo $value["linkedin"]; ?>" class="details__contact__social__icon linkedin">LinkedIn</a>
-												<?php endif; ?>
+											<?php if(!empty($value["linkedin"])): ?>
+												<a href="<?php echo $value["linkedin"]; ?>" class="details__contact__social__icon linkedin">LinkedIn</a>
+											<?php endif; ?>
 										</div>
 									</div>
 
@@ -231,10 +232,12 @@ array_push($core, $member);
 					<?php endwhile; endif; wp_reset_query(); ?>
 				</div>
 			</div>
-		</section>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63fCe88g51K6K3DUht0ksGtCetjS_WCI"></script>
+		</div>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63fCe88g51K6K3DUht0ksGtCetjS_WCI"></script>
 
 
-		<?php get_footer(); ?>
+	<?php get_footer(); ?>

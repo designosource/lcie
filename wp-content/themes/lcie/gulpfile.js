@@ -8,8 +8,8 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
-
 const sassFiles = "sass/**/*.scss";
+
 gulp.task("sass", function(){
     gulp.src(sassFiles)
         .pipe(sass({ style: 'compressed' }))
@@ -33,11 +33,7 @@ gulp.task('uglify', function() {
 });
 
 gulp.task('watch', function() {
-    livereload.listen();
-    gulp.watch(['./sass/**/*.scss','./css/style.css', './js/*.js', '!./js/*.min.js'], ['sass', 'uglify']);
-    gulp.watch(['./css/style.css', './js/*.js'], function(files) {
-        livereload.changed(files)
-    });
+    gulp.watch(['./sass/**/*.scss','./css/style.css', './js/*.js', '!./js/*.min.js'], ['build']);
 });
 
 gulp.task('build', ['sass', 'uglify']);

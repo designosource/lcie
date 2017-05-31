@@ -79,7 +79,7 @@
 .offerings__who
 {
 	width: 100%;
-	margin-top: 100px;
+	margin-top: 30px;
 	margin-bottom: 100px;
 }
 
@@ -137,12 +137,13 @@
 	padding-right: 40px;
 	padding-left: 40px;
 	box-sizing: border-box;
-	background-color: red;
+	background-color: black;
 	background-size: cover;
 	background-position: center;
 	text-align: center;
 	position: relative;
 	text-decoration: none;
+	display: block;
 }
 
 .offerings__subsites__grid__col__title
@@ -168,8 +169,8 @@
 	color: white;
 	text-decoration: none;
 	position: absolute;
-	bottom: 40px;
-	right: 40px;
+	bottom: 15px;
+	right: 15px;
 	z-index: 999;
 }
 
@@ -188,16 +189,15 @@
 
 .offerings__team
 {
-	margin-top: 100px;
 	margin-bottom: 100px;
 }
 
 .offerings__team__grid
 {
 	width: 100%;
-	margin-top: 40px;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	margin-bottom: 70px;
 }
 
 .offerings__content-block
@@ -219,7 +219,6 @@
 
 .offerings__infrastructure
 {
-	margin-top: 100px;
 	margin-bottom: 100px;
 }
 
@@ -366,6 +365,7 @@
 	.offerings__subsites__grid__col
 	{
 		width: 100%;
+		margin-bottom: 8px;
 	}
 
 	.offerings__team__grid__col

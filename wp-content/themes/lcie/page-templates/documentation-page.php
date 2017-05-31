@@ -18,7 +18,8 @@
   </div>
 
   <div class="documentation__article__grid">
-
+          <?php $view = pll__("Bekijk"); ?>
+          <?php $download = pll__("Download"); ?>
           <?php $query = new WP_Query(array('post_type' => "documentatie")); ?>
           <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
            
@@ -27,9 +28,9 @@
               <p><?php the_field("content"); ?></p>
               <?php $url = get_field("url");?>
               <?php if(!empty($url)): ?>
-                <a href="<?php the_field("url"); ?>"><?php pll_e( "Bekijk" ); ?></a>
+                <a href="<?php the_field("url"); ?>"><?php echo $view; ?></a>
               <?php else: ?>
-                <a href="<?php the_field("file"); ?>"><?php pll_e( "Download" ); ?></a>
+                <a href="<?php the_field("file"); ?>"><?php echo $download; ?></a>
               <?php endif; ?>
             </div>
               

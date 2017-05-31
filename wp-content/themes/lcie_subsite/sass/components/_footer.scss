@@ -4,18 +4,22 @@
 	background-color: $regalblue;
 	padding-top: 50px;
 	padding-bottom: 50px;
-}
-.footer .button {
-	background-color: transparent !important;
-	color: white;
-	border: 2px solid white;
-	text-decoration: none;
-	&:hover {
-		color: $regalblue;
-		background-color: white;
+	margin-top: 100px;
+
+	.button {
+		background-color: transparent !important;
+		color: white;
+		border: 2px solid white;
 		text-decoration: none;
+
+		&:hover {
+			color: $regalblue;
+			background-color: white !important;
+			text-decoration: none;
+		}
 	}
 }
+
 .footer__grid__col
 {
 	width: 33.3%;

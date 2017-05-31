@@ -53,35 +53,36 @@
                class="button home__teams__all"><?php pll_e("Bekijk alle teams"); ?></a>
         </div>
         <div class="grid home__teams__grid">
-            <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
+            <?php $query = new WP_Query(array('post_type' => "team", 'posts_per_page' => -1)); ?>
             <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                <?php if (get_field("featured_homepage")): ?>
+                
+                <?php $content = get_the_content(); ?>
+                <?php if (get_field("featured_homepage") && !empty($content)): ?>
                     <a href="<?php the_permalink(); ?>" class="home__teams__grid__col"
                        style="background-image: url(<?php the_field("image"); ?>);">
                         <img src="<?php the_field("logo_white"); ?>" alt="" class="home__teams__grid__col__logo">
                         <div class="home__teams__grid__col__overlay"
                              style="background-color: <?php the_field("color"); ?>"></div>
-                        <h2 class="home__teams__grid__col__text">
-                            <div class="wrapper"> <?php the_field("intro_text"); ?></div>
-                        </h2>
                         <span class="home__teams__grid__col__readmore"><?php pll_e("lees meer"); ?></span>
                     </a>
                 <?php endif; ?>
+
             <?php endwhile; endif; ?>
         </div>
         <div class="wrapper">
 
             <div class="swiper-container home__teams__grid-small">
+                <div class="next"></div>
+                <div class="prev"></div>
                 <div class="swiper-wrapper">
 
-                    <?php $query = new WP_Query(array('post_type' => "team", "year" => date("Y"))); ?>
+                    <?php $query = new WP_Query(array('post_type' => "team", 'posts_per_page' => -1)); ?>
                     <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                         <?php if (!get_field("featured_homepage")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
-                                <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php the_field("logo"); ?>" alt=""
-                                         class="home__teams__grid-small__logo">
-                                </a>
+
+                                <img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
+
                             </div>
                         <?php endif; ?>
                     <?php endwhile; endif; ?>
@@ -131,9 +132,9 @@
         </div>
 
         <div class="grid home__divisions__grid">
-
+            
             <?php foreach (get_sites(array("offset" => 1)) as $site): ?>
-
+                <?php $readmore = pll__("lees meer"); ?>
                 <?php switch_to_blog($site->blog_id); ?>
 
                 <div class="home__divisions__grid__col"
@@ -142,7 +143,7 @@
                     <h2 class="home__divisions__grid__col__title"><?php echo $site->blogname; ?></h2>
                     <span class="home__divisions__grid__col__description"><?php echo get_option("description"); ?></span>
                     <a class="home__divisions__grid__col__readmore"
-                       href="<?php echo site_url(); ?>"><?php pll_e("lees meer"); ?></a>
+                       href="<?php echo site_url(); ?>"><?php echo $readmore; ?></a>
                     <a  href="<?php echo site_url(); ?>" class="home__divisions__grid__col__overlay"
                          style="background-color: <?php echo get_option("header_logo"); ?>"></a>
 
@@ -192,15 +193,33 @@
             </div>
 
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <script>        
-        $('.home__testmonials__slider').slick({
-          dots: true,
-          arrows: false,
-          infinite: true,
-          speed: 300
-        });
-    </script>
+
+    <section class="home__partners">
+        <div class="wrapper">
+            <h1><?php pll_e("Structural partners"); ?></h1>
+            <div class="grid">
+
+                <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
+                    <?php if (have_rows('structural_partners')): while (have_rows('structural_partners')) : the_row(); ?>
+                        <?php $url = get_sub_field("url"); ?>
+
+                        <?php if(!empty($url)): ?>
+                            <div class="col">
+                                <a href="<?php the_sub_field("url"); ?>"><img src="<?php the_sub_field("logo"); ?>"></a>
+                            </div>
+                        <?php else: ?>
+                            <div class="col">
+                                <img src="<?php the_sub_field("logo"); ?>">
+                            </div>
+                        <?php endif; ?>
+
+
+                    <?php endwhile; endif; ?>
+                <?php endwhile; endif; ?>
+
+            </div>
+        </div>
+    </section>
 
 <?php get_footer(); ?>

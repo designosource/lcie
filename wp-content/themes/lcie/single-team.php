@@ -31,7 +31,6 @@
 
 			<div class="col">
 				<img src="<?php the_field("logo"); ?>" alt="" class="team__info__logo__image">
-				<h1><?php the_title(); ?></h1>
 				<div class="team__info__intro">
 					<?php the_field("intro_text"); ?>
 				</div>

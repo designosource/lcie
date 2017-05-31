@@ -72,12 +72,12 @@
         <?php $query = new WP_Query(array('post_type' => "project", 'date_query' => array(array('year'  => date("Y"))))); ?>
         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
          
-            <div class="projects__content__grid__col" style="background-image: url(<?php the_field("photo"); ?>);">
+            <a href="<?php the_permalink(); ?>" class="projects__content__grid__col" style="background-image: url(<?php the_field("photo"); ?>);">
                 <div class="projects__content__grid__col__overlay" style="background-color: <?php the_field("color"); ?>"></div>
                 <img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="projects__content__grid__col__logo">
                 <span class="projects__content__grid__col__title"><?php the_title(); ?></span>
-                <a href="<?php the_permalink(); ?>" class="projects__content__grid__col__more">lees meer</a>
-            </div>
+                <span class="projects__content__grid__col__more">lees meer</span>
+            </a>
             
         <?php endwhile; endif; ?>
 
@@ -111,7 +111,7 @@
 
                     for(var i = 0; i < data.length; i++){
 
-                        var col = '<div class="projects__content__grid__col" style="background-image: url('+data[i][1].photo+');"><div class="projects__content__grid__col__overlay" style="background-color: '+data[i][1].color+'"></div><img src="'+data[i][1].logo+'" alt="'+data[i][0].post_title+'" class="projects__content__grid__col__logo"><span class="projects__content__grid__col__title">'+data[i][0].post_title+'</span><a href="'+data[i][1].url+'" class="projects__content__grid__col__more">lees meer</a></div>';
+                        var col = '<a href="' + data[i][1].url + '" class="projects__content__grid__col" style="background-image: url('+data[i][1].photo+');"><div class="projects__content__grid__col__overlay" style="background-color: '+data[i][1].color+'"></div><img src="'+data[i][1].logo+'" alt="'+data[i][0].post_title+'" class="projects__content__grid__col__logo"><span class="projects__content__grid__col__title">'+data[i][0].post_title+'</span><span class="projects__content__grid__col__more">lees meer</span></div>';
 
                         $('.projects__content__grid').append( col );
 

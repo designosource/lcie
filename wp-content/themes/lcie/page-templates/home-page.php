@@ -49,7 +49,7 @@
     <section class="home__teams">
         <div class="wrapper">
             <h1><?php pll_e("Teams"); ?></h1>
-            <a href="<?php echo site_url(); ?>/teams"
+            <a href="<?php echo site_url(); ?>/<?php pll_e("nl/teams"); ?>"
                class="button home__teams__all"><?php pll_e("Bekijk alle teams"); ?></a>
         </div>
         <div class="grid home__teams__grid">
@@ -80,7 +80,7 @@
                     <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                         <?php if (!get_field("featured_homepage")): ?>
                             <div class="swiper-slide home__teams__grid-small__slide">
-                            
+
                                 <img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
 
                             </div>
@@ -88,9 +88,6 @@
                     <?php endwhile; endif; ?>
 
                 </div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>

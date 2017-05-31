@@ -47,13 +47,16 @@
 	width: 70%;
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: 15%;
 	text-align: right;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .header__navigation ul
 {
-	padding-bottom: 20px;
+	padding-bottom: 0;
 	padding-left: 0;
 	margin: 0;
 	list-style: none;
@@ -130,7 +133,7 @@
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../images/sub_search.png);
+	background-image: url(../../images/sub_search.png);
 	background-size: 20px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -146,7 +149,7 @@
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../images/sub_facebook.png);
+	background-image: url(../../images/sub_facebook.png);
 	background-size: 10px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -163,7 +166,7 @@
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../images/sub_twitter.png);
+	background-image: url(../../images/sub_twitter.png);
 	background-size: 24px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -179,7 +182,7 @@
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../images/sub_linkedin.png);
+	background-image: url(../../images/sub_linkedin.png);
 	background-size: 18px;
 	background-repeat: no-repeat;
 	background-position: left center;
@@ -274,6 +277,12 @@
 				display: block;
 				position: relative;
 				padding-top: 10vh;
+			}
+
+			.wrapper
+			{
+				display: flex;
+				align-items: center;
 			}
 
 			.header__subnavigation

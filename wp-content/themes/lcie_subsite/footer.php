@@ -13,7 +13,7 @@
 
                             <?php $query = new WP_Query(array('post_type' => "faq", "show_posts" => 3)); ?>
                             <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-                                <li><a href="<?php echo site_url(); ?>/faq"><?php the_title(); ?></a></li>
+                                <li><a href="<?php echo site_url(); ?><?php pll_e("/nl/faq"); ?>"><?php the_title(); ?></a></li>
                             <?php endwhile; endif; ?>
                         </ul>
                     </div>

@@ -24,7 +24,7 @@ h2
 	@include secondary_font(1.8rem, 400);
 	@media screen and (max-width: 768px)
 	{
-		@include secondary_font(1.6rem, 400);
+		@include secondary_font(1.4rem, 400);
 	}	
 	color: $curiousblue;
 	margin-bottom: 15px;
@@ -51,6 +51,21 @@ p, span
 {
 	@include secondary_font(1.0rem, 400);
 	line-height: 2.0;
+}
+
+iframe
+{
+	max-width: 100%;
+	margin-top: 20px;
+}
+
+input, textarea, select
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0px;
 }
 
 .wrapper

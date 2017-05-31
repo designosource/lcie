@@ -59,7 +59,6 @@
 .home__testmonials__slider
 {
 	width: 100%;
-	height: 500px;
 }
 
 .home__testmonials__slider__hook-under
@@ -92,6 +91,8 @@
 .swiper-slide
 {
 	outline: none;
+	padding-top: 70px;
+	padding-bottom: 70px;
 }
 
 .slick-dots

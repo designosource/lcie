@@ -21,6 +21,7 @@
 		border: 2px solid $regalblue;
 		text-decoration: none;
 		@include primary_font(1.0rem, 400);
+		border-radius: 0px;
 	}
 
 	.textarea
@@ -36,6 +37,7 @@
 		@include primary_font(1.0rem, 400);
 		margin-bottom: 30px;
 		resize: none;
+		border-radius: 0px;
 	}
 
 	.dropdown
@@ -132,6 +134,33 @@
 {
 	padding-top: 100px;
 	padding-bottom: 100px;
+	
+	@media screen and (max-width: 768px)
+	{
+		.team-member
+		{
+			.grid
+			{
+				flex-wrap: wrap;
+
+				.details
+				{
+					margin-top: 10px;
+					margin-bottom: 10px;
+					padding: 0;
+					height: 100px;
+				}
+
+				.details__contact
+				{
+					left: 0;
+					position: relative;
+					margin-top: 20px;
+				}
+			
+			}
+		}
+	}
 }
 
 .contact__team__grid

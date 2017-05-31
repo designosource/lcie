@@ -34,18 +34,14 @@ if($("body").hasClass("home"))
 		{
 			breakpoint: 768,
 			settings: {
-				slidesToShow: 2
+				slidesToShow: 1,
+				slidesToScroll: 1
 			}
 		}
 		]
 	});
 
 
-	$('.home__testmonials__slider').slick({
-		dots: true,
-		arrows: false,
-		infinite: true,
-		speed: 300
-	});
+
 
 }

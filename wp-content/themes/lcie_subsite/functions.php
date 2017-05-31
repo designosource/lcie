@@ -28,6 +28,130 @@ add_action( 'init', 'create_posttypes' );
 if(function_exists("register_field_group"))
 {
     register_field_group(array (
+            'id' => 'acf_partners',
+            'title' => 'Partners',
+            'fields' => array (
+                array (
+                    'key' => 'field_6094e26ea8b4651314567',
+                    'label' => 'Powered by',
+                    'name' => 'poweredby',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b432312398567',
+                            'label' => 'Logo',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'save_format' => 'url'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b4622312345567',
+                            'label' => 'Url',
+                            'name' => 'url',
+                            'type' => 'text',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuwe regel',
+                    ),
+                array (
+                    'key' => 'field_6094e26ea8b4651314',
+                    'label' => 'Sponsored by',
+                    'name' => 'sponsored',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b432312398',
+                            'label' => 'Logo',
+                            'name' => 'image',
+                            'type' => 'image',
+                            'save_format' => 'url'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b4622312345',
+                            'label' => 'Url',
+                            'name' => 'url',
+                            'type' => 'text',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuwe regel',
+                    ),
+                ),
+            'location' => array (
+                array (
+                    array (
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'page-templates/partners-page.php',
+                        'order_no' => 0,
+                        'group_no' => 0,
+                        )
+                    ),
+                ),
+            'options' => array (
+                'position' => 'normal',
+                'layout' => 'no_box',
+                'hide_on_screen' => array (
+                    ),
+                ),
+            'menu_order' => 0,
+            ));
+ register_field_group(array (
+            'id' => 'acf_home',
+            'title' => 'Home',
+            'fields' => array (
+                array (
+                    'key' => 'field_6094e26ea8b46513145672324',
+                    'label' => 'Content blocks',
+                    'name' => 'content-blocks',
+                    'type' => 'repeater',
+                    'sub_fields' => array (
+                        array (
+                            'key' => 'field_6094e279a8b432312398562324427',
+                            'label' => 'Titel',
+                            'name' => 'title',
+                            'type' => 'text'
+                            ),
+                        array (
+                            'key' => 'field_6094e279a8b46223122424525345567',
+                            'label' => 'Content',
+                            'name' => 'content',
+                            'type' => 'wysiwyg',
+                            ),
+                        ),
+                    'row_min' => '',
+                    'row_limit' => '',
+                    'layout' => 'table',
+                    'button_label' => 'Nieuw blok',
+                    ),
+              
+                ),
+            'location' => array (
+                array (
+                    array (
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'page-templates/home-page.php',
+                        'order_no' => 0,
+                        'group_no' => 0,
+                        )
+                    ),
+                ),
+            'options' => array (
+                'position' => 'normal',
+                'layout' => 'no_box',
+                'hide_on_screen' => array (
+                    ),
+                ),
+            'menu_order' => 0,
+            ));
+ 
+    register_field_group(array (
         'id' => 'acf_aanbod',
         'title' => 'Aanbod',
         'fields' => array (

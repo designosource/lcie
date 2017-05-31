@@ -19,8 +19,8 @@
 		
 		<div class="home__content__intrested">
 			<span style="font-family: 'Roboto', sans-serif;"><?php pll_e("Interesse in een samenwerking? "); ?></span>
-			<a href="<?php pll_e("/nl/contact"); ?>" class="home__content__intrested__button"><?php pll_e("Contacteer ons"); ?></a>
-		</div>v
+			<a href="<?php echo site_url(); ?><?php pll_e("/nl/contact"); ?>" class="home__content__intrested__button"><?php pll_e("Contacteer ons"); ?></a>
+		</div>
 		
 	</div>
 </section>

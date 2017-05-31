@@ -166,10 +166,16 @@ footer .button {
   position: absolute;
   right: 0;
   bottom: 0;
-  text-align: right; }
+  text-align: right;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  -ms-flex-align: center;
+      align-items: center; }
 
 .header__navigation ul {
-  padding-bottom: 20px;
+  padding-bottom: 0;
   padding-left: 0;
   margin: 0;
   list-style: none; }
@@ -243,7 +249,7 @@ footer .button {
 .header__subnavigation__icons__facebook a {
   width: 20px;
   height: 20px;
-  background-image: url(../images/sub_facebook.png);
+  background-image: url(../../images/sub_facebook.png);
   background-size: 10px;
   background-repeat: no-repeat;
   background-position: center;
@@ -258,7 +264,7 @@ footer .button {
 .header__subnavigation__icons__twitter a {
   width: 20px;
   height: 20px;
-  background-image: url(../images/sub_twitter.png);
+  background-image: url(../../images/sub_twitter.png);
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: center;
@@ -272,7 +278,7 @@ footer .button {
 .header__subnavigation__icons__linkedin a {
   width: 20px;
   height: 20px;
-  background-image: url(../images/sub_linkedin.png);
+  background-image: url(../../images/sub_linkedin.png);
   background-size: 18px;
   background-repeat: no-repeat;
   background-position: left center;
@@ -592,8 +598,7 @@ a.button, footer a.button, footer a.button--ghost {
   padding-bottom: 10px; }
 
 .home__testmonials__slider {
-  width: 100%;
-  height: 500px; }
+  width: 100%; }
 
 .home__testmonials__slider__hook-under {
   position: absolute;
@@ -619,7 +624,9 @@ a.button, footer a.button, footer a.button--ghost {
   height: 100%; }
 
 .swiper-slide {
-  outline: none; }
+  outline: none;
+  padding-top: 70px;
+  padding-bottom: 70px; }
 
 .slick-dots {
   list-style: none;
@@ -1005,3 +1012,20 @@ a.button, footer a.button, footer a.button--ghost {
     margin-bottom: 40px; }
   .projects__content__grid__col {
     width: 100%; } }
+
+.page-template-partners-page .grid {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-bottom: 70px; }
+  .page-template-partners-page .grid .partners__grid__item {
+    width: 30%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .page-template-partners-page .grid .partners__grid__item img {
+      width: 100%; }

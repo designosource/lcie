@@ -2,115 +2,127 @@
 // Template name: Partners-Page
 ?>
 
-
 <?php get_header(); ?>
+
 <section class="home__top" style="background-color: <?php echo get_option('header_logo'); ?>">
-  <div class="wrapper">
-    <?php echo get_bloginfo( 'name' ); ?>
-  </div>
+	<div class="wrapper">
+		<?php echo get_bloginfo( 'name' ); ?>
+	</div>
 </section>
 
 <section class="container">
-  
-  <?php get_sidebar(); ?>
+	
+	<?php get_sidebar(); ?>
 
-  <div class="content">
+	<div class="content">
 
-    <section class="page__content">
+		<section class="page__content">
 
-      <div class="wrapper">
-        <h1><?php echo get_the_title(); ?></h1>
-      </div>
-      <div class="wrapper">
-        <p><?php echo get_bloginfo( 'name' ); ?> 
-          <?php pll_e("heeft
-            relaties uitgebouwd met meerdere geassocieerde partners. Deze partners delen
-            dezelfde opvatting over de nood aan innovatie, creativiteit en ondernemerschap
-            die de maatschappij van vandaag en morgen ten goede moet komen."); ?></p>
+			<div class="wrapper">
+				<h1><?php echo get_the_title(); ?></h1>
+			</div>
 
-            <?php if( have_rows('poweredby') ): ?>
-              <h2><?php pll_e("Powered by"); ?></h2>
-              <section class="partners__grid">
-                <?php while ( have_rows('poweredby') ) : the_row(); ?>
+			<div class="wrapper">
+				<?php the_content(); ?>
 
-                  <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+				<?php if( have_rows('poweredby') ): ?>
+					<h2><?php pll_e("Powered by"); ?></h2>
+					<section class="grid partners__grid">
+						<?php while ( have_rows('poweredby') ) : the_row(); ?>
 
-                <?php endwhile; ?>
-              </section>
-            <?php endif; ?>
+							<?php $url = get_sub_field("url"); ?>
+							<?php if(!empty($url)): ?>
+								<a href="<?php echo $url; ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+							<?php else: ?>
+								<div class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></div>
+							<?php endif; ?>
 
-            <?php if( have_rows('partnership') ): ?>
+						<?php endwhile; ?>
+					</section>
+				<?php endif; ?>
 
-              <h2><?php pll_e("In partnership with"); ?></h2>
-              <section class="partners__grid">
-                <?php while ( have_rows('partnership') ) : the_row(); ?>
+				<?php if( have_rows('partnership') ): ?>
 
-                  <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+					<h2><?php pll_e("In partnership with"); ?></h2>
+					<section class="grid partners__grid">
+						<?php while ( have_rows('partnership') ) : the_row(); ?>
 
-                <?php endwhile; ?>
-              </section>
-            <?php endif; ?>
+							<?php $url = get_sub_field("url"); ?>
+							<?php if(!empty($url)): ?>
+								<a href="<?php echo $url; ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+							<?php else: ?>
+								<div class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></div>
+							<?php endif; ?>
 
-            <?php if( have_rows('sponsored') ): ?>
+						<?php endwhile; ?>
+					</section>
+				<?php endif; ?>
 
-              <h2><?php pll_e("Sponsored by"); ?></h2>
-              <section class="partners__grid">
-                <?php while ( have_rows('sponsored') ) : the_row(); ?>
+				<?php if( have_rows('sponsored') ): ?>
 
-                  <a href="<?php the_sub_field('url'); ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+					<h2><?php pll_e("Sponsored by"); ?></h2>
+					<section class="grid partners__grid">
+						<?php while ( have_rows('sponsored') ) : the_row(); ?>
 
-                <?php endwhile; ?>
-              </section>
-            <?php endif; ?>
+							<?php $url = get_sub_field("url"); ?>
+							<?php if(!empty($url)): ?>
+								<a href="<?php echo $url; ?>" alt="" class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></a>
+							<?php else: ?>
+								<div class="partners__grid__item"><img src="<?php the_sub_field('image'); ?>"></div>
+							<?php endif; ?>
 
-          </div>
-        </section>
-        
-      </div>
-    </section>
-    
-    <style>
+						<?php endwhile; ?>
+					</section>
+				<?php endif; ?>
 
-      h1, h2
-      {
-        color: <?php echo get_option('header_logo'); ?> !important;
-      }
+			</div>
+		</section>
 
-      .swiper-pagination-bullet-active
-      {
-        background-color: <?php echo get_option('header_logo'); ?> !important;
-      }
+	</div>
+</section>
 
-      .swiper-pagination-bullet
-      {
-        border-color: <?php echo get_option('header_logo'); ?> !important;
-      }
+<style>
 
-      .home__testmonials__slider__hook-up path
-      {
-        fill: <?php echo get_option('header_logo'); ?>;
-      }
+	h1, h2
+	{
+		color: <?php echo get_option('header_logo'); ?> !important;
+	}
 
-      .home__testmonials__slider__hook-under path
-      {
-        fill: <?php echo get_option('header_logo'); ?>;
-      }
+	.swiper-pagination-bullet-active
+	{
+		background-color: <?php echo get_option('header_logo'); ?> !important;
+	}
 
-      .sidebar ul li a:hover
-      {
-        color: <?php echo get_option('header_logo'); ?>;
-      }
+	.swiper-pagination-bullet
+	{
+		border-color: <?php echo get_option('header_logo'); ?> !important;
+	}
 
-      .home__content__intrested__button
-      {
-        background-color: <?php echo get_option('header_logo'); ?>;
-      }
+	.home__testmonials__slider__hook-up path
+	{
+		fill: <?php echo get_option('header_logo'); ?>;
+	}
 
-      .who__content__grid__col__photo
-      {
-        border-color: <?php echo get_option('header_logo'); ?>;
-      }
+	.home__testmonials__slider__hook-under path
+	{
+		fill: <?php echo get_option('header_logo'); ?>;
+	}
 
-    </style>
+	.sidebar ul li a:hover
+	{
+		color: <?php echo get_option('header_logo'); ?>;
+	}
 
-    <?php get_footer(); ?>
+	.home__content__intrested__button
+	{
+		background-color: <?php echo get_option('header_logo'); ?>;
+	}
+
+	.who__content__grid__col__photo
+	{
+		border-color: <?php echo get_option('header_logo'); ?>;
+	}
+
+</style>
+
+<?php get_footer(); ?>

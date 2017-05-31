@@ -14,8 +14,6 @@
                 
                 <?php the_content(); ?>
 
-                <a href="" class="button projects__content__button">Bekijk de teampagina</a>
-
             <?php endwhile; endif; ?>
         </div>
         <img src="<?php the_field("logo"); ?>" alt="<?php the_title(); ?>" class="projects__content__logo">

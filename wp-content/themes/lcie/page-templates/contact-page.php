@@ -75,7 +75,7 @@
 					</select>
 
 					<label for="contact_email"><?php pll_e( "E-mail" ); ?></label>
-					<input type="text" name="contact_email" class="textfield">
+					<input type="email" name="contact_email" class="textfield">
 
 				</div>
 

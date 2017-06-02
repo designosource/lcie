@@ -58,13 +58,7 @@
             <?php endif; wp_reset_query();  ?>
 
         </div>
-    </div>
-</section>
 
-
-<!-- lcie events -->
-<section class="page__content">
-    <div class="wrapper">
         <h2><?php pll_e("Events"); ?></h2>
 
         <?php
@@ -110,10 +104,7 @@
 
 
         </div>
-    </section>
 
-<section class="page__content">
-    <div class="wrapper">
         <h2><?php pll_e("Afgelopen evenementen"); ?></h2>
 
         <?php
@@ -159,6 +150,7 @@
 
 
         </div>
-    </section>
+    </div>
+</section>
 
 <?php get_footer(); ?>

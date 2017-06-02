@@ -371,7 +371,11 @@ input, textarea, select {
   color: white !important; }
 
 .menu-subnavigatie-container, .menu-subnavigatie-engels-container {
-  display: inline-block; }
+  display: inline-block;
+  position: relative; }
+
+.menu-subnavigatie {
+  position: relative; }
 
 @media screen and (max-width: 768px) {
   .header__hamburger {
@@ -613,7 +617,8 @@ a.button, footer a.button, footer a.button--ghost {
   .button:hover {
     color: white;
     background-color: #003E77;
-    transition: all 0.1s ease-in-out; }
+    transition: all 0.1s ease-in-out;
+    cursor: pointer; }
 
 .button--ghost {
   font-family: "Nunito", sans-serif;
@@ -625,7 +630,8 @@ a.button, footer a.button, footer a.button--ghost {
   .button--ghost:hover {
     color: #003E77;
     background-color: white;
-    transition: all 0.1s ease-in-out; }
+    transition: all 0.1s ease-in-out;
+    cursor: pointer; }
 
 .back {
   position: relative;
@@ -652,8 +658,8 @@ a.button, footer a.button, footer a.button--ghost {
     transition: all 0.2s ease-in-out; }
 
 .slick-slider {
-  display: -ms-flexbox !important;
-  display: flex !important;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-align: center;
@@ -707,8 +713,8 @@ a.button, footer a.button, footer a.button--ghost {
         align-items: center; }
     @media screen and (max-width: 768px) {
       .team-member .grid {
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap; } }
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
     .team-member .grid .photo {
       min-width: 150px;
       height: 150px;
@@ -722,7 +728,8 @@ a.button, footer a.button, footer a.button--ghost {
       width: 100%; }
       @media screen and (max-width: 768px) {
         .team-member .grid .details {
-          padding-left: 10px; } }
+          padding-left: 0px;
+          margin-top: 20px; } }
     .team-member .grid .details__name {
       display: block;
       font-family: "Nunito", sans-serif;
@@ -745,7 +752,9 @@ a.button, footer a.button, footer a.button--ghost {
       left: 30px; }
       @media screen and (max-width: 768px) {
         .team-member .grid .details__contact {
-          left: 15px; } }
+          left: 0;
+          position: relative;
+          margin-top: 15px; } }
     .team-member .grid .details__contact__mail {
       background-image: url(../images/email.png);
       background-position: center;
@@ -998,6 +1007,16 @@ a.button, footer a.button, footer a.button--ghost {
   width: 100%;
   margin-top: 50px;
   height: 60px; }
+  .home__teams__grid-small .slider-mobile {
+    display: none; }
+    @media screen and (max-width: 768px) {
+      .home__teams__grid-small .slider-mobile {
+        display: block; } }
+  .home__teams__grid-small .swiper-wrapper {
+    display: block; }
+    @media screen and (max-width: 768px) {
+      .home__teams__grid-small .swiper-wrapper {
+        display: none; } }
   .home__teams__grid-small .next {
     position: absolute;
     top: 50%;
@@ -1030,6 +1049,11 @@ a.button, footer a.button, footer a.button--ghost {
     -ms-transform: scale(1.1);
         transform: scale(1.1);
     transition: all 0.2s ease-in-out; }
+  .home__teams__grid-small .next.mobile, .home__teams__grid-small .prev.mobile {
+    display: none; }
+    @media screen and (max-width: 768px) {
+      .home__teams__grid-small .next.mobile, .home__teams__grid-small .prev.mobile {
+        display: block; } }
   .home__teams__grid-small img {
     display: block;
     margin: 0 auto; }
@@ -1698,19 +1722,6 @@ a.home__calendar__side__more {
 .contact__team {
   padding-top: 100px;
   padding-bottom: 100px; }
-  @media screen and (max-width: 768px) {
-    .contact__team .team-member .grid {
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-      .contact__team .team-member .grid .details {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 0;
-        height: 100px; }
-      .contact__team .team-member .grid .details__contact {
-        left: 0;
-        position: relative;
-        margin-top: 20px; } }
 
 .contact__team__grid {
   -ms-flex-wrap: wrap;
@@ -2569,14 +2580,15 @@ article.search__results__result {
 
 /* NIEUWS */
 .nieuwsgrid {
-  margin-top: 60px;
+  margin-top: 20px;
   font-family: "Roboto", sans-serif;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
   position: relative;
-  color: #fff; }
+  color: #fff;
+  margin-bottom: 70px; }
 
 .nieuwsgrid a {
   color: #fff;

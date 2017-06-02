@@ -150,7 +150,7 @@ if(function_exists("register_field_group"))
                 ),
             'menu_order' => 0,
             ));
- 
+
     register_field_group(array (
         'id' => 'acf_aanbod',
         'title' => 'Aanbod',
@@ -282,28 +282,6 @@ if(function_exists("register_field_group"))
                 'default_value' => '',
                 'toolbar' => 'full',
                 'media_upload' => 'yes',
-            ),
-            array (
-                'key' => 'field_587f7a2eb7cef',
-                'label' => 'Partners',
-                'name' => 'partners',
-                'type' => 'repeater',
-                'sub_fields' => array (
-                    array (
-                        'key' => 'field_587f7a51b7cf0',
-                        'label' => 'Logo',
-                        'name' => 'logo',
-                        'type' => 'image',
-                        'column_width' => '',
-                        'save_format' => 'url',
-                        'preview_size' => 'thumbnail',
-                        'library' => 'all',
-                    ),
-                ),
-                'row_min' => 0,
-                'row_limit' => 6,
-                'layout' => 'row',
-                'button_label' => 'Nieuwe partner',
             ),
         ),
         'location' => array (

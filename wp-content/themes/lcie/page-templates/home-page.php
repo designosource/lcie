@@ -74,7 +74,23 @@
             <div class="swiper-container home__teams__grid-small">
                 <div class="next"></div>
                 <div class="prev"></div>
+                <div class="next mobile"></div>
+                <div class="prev mobile"></div>
                 <div class="swiper-wrapper">
+
+                    <?php $query = new WP_Query(array('post_type' => "team", 'posts_per_page' => -1)); ?>
+                    <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                        <?php if (!get_field("featured_homepage")): ?>
+                            <div class="swiper-slide home__teams__grid-small__slide">
+
+                                <img src="<?php the_field("logo"); ?>" alt="" class="home__teams__grid-small__logo">
+
+                            </div>
+                        <?php endif; ?>
+                    <?php endwhile; endif; ?>
+
+                </div>
+                <div class="slider-mobile">
 
                     <?php $query = new WP_Query(array('post_type' => "team", 'posts_per_page' => -1)); ?>
                     <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>

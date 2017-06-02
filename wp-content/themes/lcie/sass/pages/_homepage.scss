@@ -181,6 +181,26 @@
 	margin-top: 50px;
 	height: 60px;
 
+	.slider-mobile
+	{
+		display: none; 
+
+		@media screen and (max-width: 768px)
+		{
+			display: block;
+		}
+	}
+
+	.swiper-wrapper
+	{
+		display: block; 
+
+		@media screen and (max-width: 768px)
+		{
+			display: none;
+		}
+	}
+
 	.next
 	{
 		position: absolute;
@@ -221,6 +241,19 @@
 		{
 			transform: scale(1.1);
 			transition: all 0.2s ease-in-out;
+		}
+	}
+
+	.next, .prev
+	{
+		&.mobile
+		{
+			display: none;
+
+			@media screen and (max-width: 768px)
+			{
+				display: block;
+			}
 		}
 	}
 
